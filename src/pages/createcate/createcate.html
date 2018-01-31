@@ -56,8 +56,8 @@
 <ion-footer no-border>
   <ion-row>
     <ion-col text-center>
-      <button ion-button block color="danger" *ngIf="!cate._id" (click)="save()">{{'SAVE' | translate}}</button>
-      <button ion-button block color="danger" *ngIf="cate._id" (click)="save()">{{'EDIT' | translate}}</button>
+      <button ion-button block color="maintheme" *ngIf="!cate._id" (click)="save()">{{'SAVE' | translate}}</button>
+      <button ion-button block color="maintheme" *ngIf="cate._id" (click)="save()">{{'EDIT' | translate}}</button>
       <!-- <button ion-button block color="danger" (click)="save()">{{cate._id ? 'Edit' : 'Save'}}</button>
       <button ion-button block color="danger" (click)="save()">{{cate._id ? 'Edit' : 'Save'}}</button> -->
     </ion-col>
