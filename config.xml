@@ -89,8 +89,8 @@
     </plugin>
     <plugin name="com-badrit-base64" spec="^0.2.0" />
     <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAqsI0tE4IKhn3K0OZzYhuFCv_MbEZtVrM" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyAqsI0tE4IKhn3K0OZzYhuFCv_MbEZtVrM" />
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBPahPmnmB7R-TWeGz-kBBlDG3PnWMeIjs" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBPahPmnmB7R-TWeGz-kBBlDG3PnWMeIjs" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />

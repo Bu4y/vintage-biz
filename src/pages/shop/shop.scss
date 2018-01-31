@@ -9,6 +9,12 @@ page-shop {
         border-bottom: 1px solid whitesmoke !important;
         height: 28vw;
     } 
+    .text-wrap{
+        white-space: nowrap; 
+        width: 20em; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }
     .icon-ads {
         // position: absolute;
         background-color: #ff5566;

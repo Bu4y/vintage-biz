@@ -7,13 +7,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ShopServiceProvider } from '../pages/shop/shop-service';
-import { ShopPage } from '../pages/shop/shop';
-import { BikerPage } from '../pages/biker/biker';
-import { OrderPage } from '../pages/order/order';
-import { StatusPage } from '../pages/status/status';
-import { MorePage } from '../pages/more/more';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Auth } from '../providers/auth-service/auth-service';
 import { Server } from '../providers/server-config/server-config';
@@ -26,8 +20,6 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { ProfilePage } from '../pages/profile/profile';
 import { SortablejsModule } from "angular-sortablejs";
 
-import { ShopeditPage } from '../pages/shopedit/shopedit';
-import { ShoptimeeditPage } from '../pages/shoptimeedit/shoptimeedit';
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { Geolocation } from '@ionic-native/geolocation';

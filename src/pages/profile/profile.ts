@@ -44,7 +44,7 @@ export class ProfilePage {
     }, (err) => {
       // window.localStorage.removeItem('bikebikeshop');
     });
-    let getfirstLogin = JSON.parse(window.localStorage.getItem('user'));
+    let getfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-user'));
     getfirstLogin.profileImageURL = getfirstLogin.profileImageURL ? getfirstLogin.profileImageURL : './assets/imgs/Upload-Profile.png';
     getfirstLogin.dateOfBirth = getfirstLogin.dateOfBirth ? getfirstLogin.dateOfBirth : this.myDate;
     // let getDate = new Date();
@@ -138,7 +138,7 @@ export class ProfilePage {
   }
   save() {
     this.auth.manageUser(this.firstLogin).then((data) => {
-      window.localStorage.setItem('user', JSON.stringify(data));
+      window.localStorage.setItem('jjbiz-user', JSON.stringify(data));
       this.navCtrl.pop();
     }, (err) => {
       console.log(err);

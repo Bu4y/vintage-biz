@@ -52,21 +52,21 @@ export class Firstloginstep5Page {
 
   }
   ionViewWillEnter() {
-    this.firstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     this.address = window.localStorage.getItem('shop_location_address') ? JSON.parse(window.localStorage.getItem('shop_location_address')) : this.firstLogin.address;
     this.firstLogin.address = this.address ? this.address : this.firstLogin.address;
   }
   ionViewWillLeave() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   save() {
     let loadingCtrl = this.loading.create();
     loadingCtrl.present();
-    window.localStorage.setItem('bikebikeshopfirstlogin', 'true');
+    window.localStorage.setItem('isjjbizfirstlogin', 'true');
     this.shopServiceProvider.addFirstShop(this.firstLogin).then((data) => {
       loadingCtrl.dismiss();
       window.localStorage.removeItem('shop_location_address');
-      window.localStorage.removeItem('firstlogin');
+      window.localStorage.removeItem('jjbiz-firstlogin');
       this.navCtrl.setRoot('TabnavPage');
     }, (err) => {
       loadingCtrl.dismiss();
@@ -75,7 +75,7 @@ export class Firstloginstep5Page {
     });
   }
   cancel() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
     this.navCtrl.setRoot('Firstloginstep1Page');
   }
   // getlocation() {

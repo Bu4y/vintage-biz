@@ -30,9 +30,9 @@ export class LoginPage {
     loading.present()
     this.auth.login(this.credentials).then((res) => {
       if (res.roles.indexOf('shop') >= 0) {
-        window.localStorage.setItem('bikebikeshop', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         loading.dismiss();
-        let isFirstLogin = window.localStorage.getItem('bikebikeshopfirstlogin');
+        let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
         if (isFirstLogin) {
           this.navCtrl.setRoot('TabnavPage');
         } else {

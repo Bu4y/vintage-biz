@@ -23,7 +23,7 @@ export class MorePage {
     console.log('ionViewDidLoad MorePage');
   }
   logout() {
-    window.localStorage.removeItem('bikebikeshop');
+    window.localStorage.removeItem('jjbiz-user');
     this.app.getRootNav().setRoot('LoginPage');
   }
   doRefresh(refresher) {

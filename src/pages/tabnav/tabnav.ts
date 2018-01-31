@@ -16,7 +16,6 @@ export class TabnavPage {
   color: string = '#EB3841';
   @ViewChild('myTabs') tabRef: Tabs;
   shopRoot = 'ShopPage';
-  bikerRoot = 'BikerPage';
   orderRoot = 'OrderPage';
   statusRoot = 'StatusPage';
   moreRoot = 'MorePage';

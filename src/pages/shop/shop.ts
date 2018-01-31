@@ -71,7 +71,7 @@ export class ShopPage {
     console.log('ionViewDidLoad ShopPage');
   }
   ionViewWillEnter() {
-    this.user = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : JSON.parse(window.localStorage.getItem('bikebikeshop'));
+    this.user = window.localStorage.getItem('jjbiz-user') ? JSON.parse(window.localStorage.getItem('jjbiz-user')) : null;
     this.shopService();
   }
   edit(shop) {
@@ -112,7 +112,7 @@ export class ShopPage {
       };
       loading.dismiss();
     }, (err) => {
-      window.localStorage.removeItem('bikebikeshop');
+      window.localStorage.removeItem('jjbiz-user');
       loading.dismiss();
       this.app.getRootNav().setRoot('LoginPage');
     });
@@ -306,57 +306,13 @@ export class ShopPage {
       }
     }, (err) => { });
   }
-  doAlert(itm) {
-    let alert = this.alertCtrl.create({
-    });
-    alert.present();
-  }
-  slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    console.log('Current index is', currentIndex);
-  }
-  modalPresent() {
-    let profileModal = this.modalCtrl.create({});
-    profileModal.present();
-  }
   myProfile() {
     this.navCtrl.push('ProfilePage');
-  }
-  viewImage(img) {
-    let images = [{ url: img }];
-    this.imageGallery(images);
-  }
-  viewProduct(prodID) {
-    let loading = this.loading.create();
-    loading.present();
-    this.shopServiceProvider.getProduct(prodID).then((data) => {
-      let images = [];
-      data.images.forEach(img => {
-        images.push({
-          url: img
-        });
-      });
-      loading.dismiss();
-      this.imageGallery(images);
-    }, (err) => {
-      loading.dismiss();
-      console.log(err);
-    })
-  }
-  imageGallery(images) {
-    let modal = this.modalCtrl.create(GalleryModal, {
-      photos: images
-    });
-    modal.present();
   }
   selectCate(i, cate) {
     this.index = i;
     this.idx = i;
     this.selectedCateId = cate ? cate._id : '';
-    this.cate = cate;
-  }
-  selectedCate(index, cate) {
-    this.index = index;
     this.cate = cate;
   }
   openEditCate(cate) {
@@ -534,21 +490,6 @@ export class ShopPage {
       // Handle error
     });
   }
-  resizeImage(fileUri): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.crop.crop(fileUri, { quality: 100 }).then((cropData) => {
-        this.uploadImage(cropData).then((uploadImageData) => {
-          resolve(uploadImageData);
-        }, (uploadImageError) => {
-          // alert('uploadImage err');/
-          reject(uploadImageError)
-        });
-      }, (cropError) => {
-        // alert('crop err');        
-        reject(cropError)
-      });
-    });
-  }
   noResizeImage(fileUri): Promise<any> {
     return new Promise((resolve, reject) => {
       this.uploadImage(fileUri).then((uploadImageData) => {
@@ -557,61 +498,6 @@ export class ShopPage {
         reject(uploadImageError)
       });
     });
-  }
-  onImagePicker(from, maxImg) {
-    let options = {
-      maximumImagesCount: maxImg,
-      width: 900,
-      quality: 30,
-      outputType: 0
-    };
-    this.imagePicker.getPictures(options).then((results) => {
-      let loading = [];
-      let loadingCount = 0;
-      for (var i = 0; i < results.length; i++) {
-        loading.push(this.loading.create({
-          content: (i + 1) + '/' + (results.length),
-          cssClass: `loading-upload`,
-          showBackdrop: false
-        }));
-        loading[i].present();
-        if (from.toString() === 'cover') {
-          this.noResizeImage(results[i]).then((data) => {
-            this.images.push(data);
-            setTimeout(() => {
-              loading[loadingCount].dismiss();
-              loadingCount++;
-              if (loadingCount === results.length) {
-                this.updateShopBG();
-              }
-            }, 1000);
-          }, (err) => {
-            console.log(err);
-          });
-        } else {
-          this.resizeImage(results[i]).then((data) => {
-            this.images.push(data);
-            setTimeout(() => {
-              loading[loadingCount].dismiss();
-              loadingCount++;
-              if (loadingCount === results.length) {
-                if (from.toString() === 'promote') {
-                  this.updatePromote();
-                } else if (from.toString() === 'cate') {
-                  this.saveDragDrop();
-                  this.formCate();
-                } else if (from.toString() === 'product') {
-                  this.saveDragDrop();
-                  this.formProduct();
-                }
-              }
-            }, 1000);
-          }, (err) => {
-            console.log(err);
-          })
-        }
-      }
-    }, (err) => { });
   }
   uploadImage(imageString): Promise<any> {
     return new Promise((resolve, reject) => {

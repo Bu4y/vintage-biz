@@ -39,8 +39,8 @@ export class Firstloginstep1Page {
     }, (err) => {
       loadingCtrl.dismiss();
     });
-    let getfirstLogin = JSON.parse(window.localStorage.getItem('user'));
-    let backfirstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    let getfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-user'));
+    let backfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     getfirstLogin.profileImageURL = getfirstLogin.profileImageURL ? getfirstLogin.profileImageURL : './assets/imgs/Upload-Profile.png';
     getfirstLogin.dateOfBirth = getfirstLogin.dateOfBirth ? getfirstLogin.dateOfBirth : this.myDate;
     if (backfirstLogin) {
@@ -196,7 +196,7 @@ export class Firstloginstep1Page {
     }
   }
   step2() {
-    let backfirstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    let backfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     if (backfirstLogin) {
       this.firstLogin.coverimage = backfirstLogin.coverimage ? backfirstLogin.coverimage : 'no image';
       this.firstLogin.name = backfirstLogin.name ? backfirstLogin.name : '';
@@ -209,7 +209,7 @@ export class Firstloginstep1Page {
       this.firstLogin.times = backfirstLogin.times ? backfirstLogin.times : [];
       this.firstLogin.categories = backfirstLogin.categories ? backfirstLogin.categories : [];
       this.firstLogin.address = backfirstLogin.address ? backfirstLogin.address : {};
-      window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+      window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
       this.navCtrl.push('Firstloginstep2Page');
     } else if (!backfirstLogin) {
       this.firstLogin.coverimage = this.shop.coverimage ? this.shop.coverimage : 'no image';
@@ -223,7 +223,7 @@ export class Firstloginstep1Page {
       this.firstLogin.times = this.shop.times ? this.shop.times : [];
       this.firstLogin.categories = this.shop.categories ? this.shop.categories : [];
       this.firstLogin.address = this.shop.address ? this.shop.address : {};
-      window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+      window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
       this.navCtrl.push('Firstloginstep2Page');
     }
   }

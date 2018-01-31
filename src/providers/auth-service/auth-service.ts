@@ -24,7 +24,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
-        window.localStorage.setItem('user', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.parse(res.loginToken));
         return res;
       })
@@ -36,7 +36,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
-        window.localStorage.setItem('user', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.stringify(res.loginToken));
         return res;
       })
@@ -48,7 +48,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
-        window.localStorage.setItem('user', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.stringify(res.loginToken));
         return res;
       })
@@ -60,7 +60,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
-        window.localStorage.setItem('user', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.stringify(res.loginToken));
         return res;
       })
@@ -73,7 +73,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
-        window.localStorage.setItem('user', JSON.stringify(res));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         return res;
       })
       .catch(this.handleError);

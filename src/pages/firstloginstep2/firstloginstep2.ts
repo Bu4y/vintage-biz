@@ -35,10 +35,10 @@ export class Firstloginstep2Page {
 
 
   ionViewWillEnter() {
-    this.firstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
   }
   ionViewWillLeave() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   selectCover() {
     let language = this.translate.currentLang;
@@ -190,7 +190,7 @@ export class Firstloginstep2Page {
     });
   }
   step3() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
     this.navCtrl.push('Firstloginstep3Page');
   }
 }

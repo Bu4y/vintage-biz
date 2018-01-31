@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
 // import { TabnavPage } from '../pages/tabnav/tabnav';
 // import { LoginPage } from '../pages/login/login';
 
@@ -33,11 +31,11 @@ export class MyApp {
       splashScreen.hide();
       this.configFirebase();
     });
-    let isFirstLogin = window.localStorage.getItem('bikebikeshopfirstlogin');
+    let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
     if (!isFirstLogin) {
       this.rootPage = 'GreetingPage';
     } else {
-      this.user = JSON.parse(window.localStorage.getItem('bikebikeshop'));
+      this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
       if (this.user) {
         console.log(this.user);
         this.rootPage = 'TabnavPage';
@@ -48,12 +46,12 @@ export class MyApp {
 
   configFirebase() {
     let config = {
-      apiKey: "AIzaSyAIjuU99uz_H4Er6J6Xsja48SMpLmuoZ5o",
-      authDomain: "schoolbus-cnet.firebaseapp.com",
-      databaseURL: "https://schoolbus-cnet.firebaseio.com/",
-      projectId: "schoolbus-cnet",
-      storageBucket: "schoolbus-cnet.appspot.com",
-      messagingSenderId: "356749167374"
+      apiKey: "AIzaSyActRoM7SJW0h20HTM9GrkwJICC4moOzC8",
+      authDomain: "green-vintage.firebaseapp.com",
+      databaseURL: "https://green-vintage.firebaseio.com",
+      projectId: "green-vintage",
+      storageBucket: "green-vintage.appspot.com",
+      messagingSenderId: "317596581774"
     };
     firebase.initializeApp(config);
   }

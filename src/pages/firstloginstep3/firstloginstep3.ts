@@ -38,7 +38,7 @@ export class Firstloginstep3Page {
   ionViewWillEnter() {
     let loading = this.loadingCtrl.create();
     loading.present();
-    this.firstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     this.shopServiceProvider.getCate().then(data => {
       this.cate = data;
       this.firstLogin.categories.forEach(fcate => {
@@ -63,7 +63,7 @@ export class Firstloginstep3Page {
       })
       this.firstLogin.categories = cateIds;
     }
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   step4() {
     this.firstLogin.categories = [];
@@ -74,7 +74,7 @@ export class Firstloginstep3Page {
       })
       this.firstLogin.categories = cateIds;
     }
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
     this.navCtrl.push('Firstloginstep4Page');
   }
 }

@@ -42,9 +42,9 @@
     "cordova-plugin-crop": "^0.4.0",
     "cordova-plugin-device": "^1.1.7",
     "cordova-plugin-geolocation": "^2.4.3",
-    "cordova-plugin-googlemaps": "^2.1.1",
+    "cordova-plugin-googlemaps": "^2.2.2",
     "cordova-plugin-ionic-webview": "^1.1.16",
-    "cordova-plugin-nativegeocoder": "^2.0.4",
+    "cordova-plugin-nativegeocoder": "^2.0.5",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-telerik-imagepicker": "^2.1.8",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -79,7 +79,8 @@
       "com-badrit-base64": {},
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyAqsI0tE4IKhn3K0OZzYhuFCv_MbEZtVrM",
-        "API_KEY_FOR_IOS": "AIzaSyAqsI0tE4IKhn3K0OZzYhuFCv_MbEZtVrM"
+        "API_KEY_FOR_IOS": "AIzaSyAqsI0tE4IKhn3K0OZzYhuFCv_MbEZtVrM",
+        "PLAY_SERVICES_VERSION": "11.8.+"
       },
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"

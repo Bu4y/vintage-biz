@@ -29,10 +29,10 @@ export class Firstloginstep4Page {
 
   }
   ionViewWillEnter() {
-    this.firstLogin = JSON.parse(window.localStorage.getItem('firstlogin'));
+    this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
   }
   ionViewWillLeave() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   openModal() {
     let modalopen = this.modalCtrl.create('FirstloginstepModalPage');
@@ -79,7 +79,7 @@ export class Firstloginstep4Page {
     modalopen.present();
   }
   step5() {
-    window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
     this.navCtrl.push('Firstloginstep5Page',this.firstLogin);
   }
 }
