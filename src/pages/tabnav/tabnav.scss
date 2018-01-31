@@ -1,38 +1,38 @@
 page-tabnav {
     .tabs-ios .tab-button[aria-selected=true] {
-        color: #fff;
-        background: #b3222f;
+        color: #3c6233;
+        // background: #3c6233;
     }
     .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
-        color: #fff;
-        background: #b3222f;
+        color: #3c6233;
+        // background: #3c6233;
     }
-    .tabs-ios .tabbar {
-        background: #ED3740;
-    }
-    .tabs-ios .tab-button-icon {
-        color: #fff;
-    }
-    .tabs-ios .tab-button {
-        color: #fff;
-    }
+    // .tabs-ios .tabbar {
+    //     background: #ED3740;
+    // }
+    // .tabs-ios .tab-button-icon {
+    //     color: #fff;
+    // }
+    // .tabs-ios .tab-button {
+    //     color: #fff;
+    // }
     .tabs-md .tab-button[aria-selected=true] {
-        color: #fff;
-        background: #b3222f;
+        color: #3c6233;
+        // background: #b3222f;
     }
     .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-        color: #fff;
-        background: #b3222f;
+        color: #3c6233;
+        // background: #b3222f;
     }
-    .tabs-md .tabbar {
-        background: #ED3740;
-    }
-    .tabs-md .tab-button-icon {
-        color: #f4f4f4;
-    }
-    .tabs-md .tab-button {
-        color: #f4f4f4;
-    }
+    // .tabs-md .tabbar {
+    //     background: #ED3740;
+    // }
+    // .tabs-md .tab-button-icon {
+    //     color: #f4f4f4;
+    // }
+    // .tabs-md .tab-button {
+    //     color: #f4f4f4;
+    // }
     img {
         border: 0;
         height: auto;

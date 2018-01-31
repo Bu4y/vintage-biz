@@ -1,4 +1,4 @@
-<ion-tabs (ionChange)="onSelectChange($event)" color="maintheme" #myTabs selectedIndex="{{getSelectedTab()}}" text-center>
+<ion-tabs (ionChange)="onSelectChange($event)" #myTabs selectedIndex="{{getSelectedTab()}}" text-center>
     <ion-tab [root]="shopRoot" tabTitle="{{'SHOP'| translate}}" tabIcon="icon-e-myshop"></ion-tab>
     <ion-tab [root]="orderRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="icon-e-biker"></ion-tab>
     <!-- <ion-tab [root]="orderRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="icon-e-order"></ion-tab> -->
