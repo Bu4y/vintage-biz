@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 // import { LoginPage } from '../login/login';
 
 /**
@@ -16,10 +17,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AgreementPage {
   isShowAgreementBtn: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  language: string = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService) {
   }
 
   ionViewDidLoad() {
+    this.onLanguage();
     console.log('ionViewDidLoad AgreementPage');
   }
 
@@ -30,6 +33,10 @@ export class AgreementPage {
   doInfinite(infiniteScroll) {
     this.isShowAgreementBtn = false;
     infiniteScroll.complete();
+  }
+
+  onLanguage() {
+    this.language = this.translate.currentLang;
   }
 
 }
