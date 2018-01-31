@@ -112,7 +112,7 @@
       <ion-col col-4 *ngFor="let itm of shop.items[index].products; let i = index;">
         <preload-image [ratio]="{w:1, h:1}" [src]="itm.image === './assets/imgs/add.jpg' ? './assets/imgs/add1.jpg' : itm.image"></preload-image>
         <div class="issale" *ngIf="itm.name">
-          <ion-icon *ngIf="itm.!issale" name="ios-radio-button-on" color="danger"></ion-icon>
+          <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
           <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="secondary"></ion-icon>
         </div>
         <div [ngClass]="itm.name ? 'product-string' : ''">
