@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color="maintheme">
+    <!-- <ion-title>Native map</ion-title> -->
+    <!-- <ion-buttons end>
+      <button ion-button icon-only clear end (click)="googleMapsAutocomplete()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons> -->
+    <ion-searchbar mode="ios" #places class="google-search" placeholder="{{ 'SEARCH_LOCATION' | translate }}"></ion-searchbar>
+    <!-- <input type="text" id="places" placeholder="{{ 'SEARCH_LOCATION' | translate }}"> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div #map class="map">
+    <button ion-item text-wrap text-center class="info-item" *ngIf="address" (click)="updateAddress()">
+      <p>{{address}}</p>
+    </button>
+    <div class="arrow-down" *ngIf="address"></div>
+  </div>
+  <button ion-button color="danger" class="btn-cf" (click)="doConfirm()" [disabled]="!address || address ===''">{{ 'CONFIRM_LOCATION' | translate }}</button>
+</ion-content>

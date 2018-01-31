@@ -1,0 +1,47 @@
+<!--
+  Generated template for the Firstloginstep3Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="maintheme">
+    <ion-title>{{'SHOP_DETAIL' | translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item *ngIf="cate && cate.length > 0">
+    <ion-label color="topic">{{'SHOP_CATEGORY' | translate}} <span class="warning-invalid">*</span>
+    </ion-label>
+    <ion-select [(ngModel)]="categories" multiple="true">
+      <ion-option *ngFor="let catename of cate" (ionChange)="onSelect()" [value]="catename">{{catename.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label floating color="topic">{{'SHOP_DETAIL' | translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="firstLogin.detail"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating color="topic">{{'EMAIL'| translate}}<span class="warning-invalid">*</span>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="firstLogin.email" (ionChange)="validationEmail()"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating color="topic">{{'FACEBOOK_FANPAGE'| translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="firstLogin.facebook"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating color="topic">{{'LINE_OFFICIAL'| translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="firstLogin.line"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="!validateEmail">
+    <p class="warning-invalid">{{'INVALID_EMAIL' | translate}} ( {{'EXAMPLE' | translate}} : exam@exam.com )</p>
+  </ion-item>
+</ion-content>
+<ion-footer padding no-border>
+  <button ion-button block [disabled]="categories.length === 0 || !firstLogin.email || !validateEmail" (click)="step4()" color="danger">{{'NEXT' | translate}}</button>
+</ion-footer>

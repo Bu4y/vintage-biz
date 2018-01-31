@@ -1,0 +1,29 @@
+page-status {
+    .content {
+        background-color: #e6e6e6 !important;
+    }
+    .list {
+        margin-bottom: 8px;
+        .label {
+            margin: 13px 8px 0px 0;
+        }
+        .list-header {
+            color: #607D8B;
+            font-size: 20px;
+        }
+        .list-description {
+            margin: -8px 0px 0px 0px !important;
+            font-size: 14px;
+        }
+        .icon {
+            margin-right: 4px;
+            font-size: 30px;
+        }
+        .grid-summary {
+            margin-top: 8px;
+            p {
+                font-size: 18px !important;
+            }
+        }
+    }
+}

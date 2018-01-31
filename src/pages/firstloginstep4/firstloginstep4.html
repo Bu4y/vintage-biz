@@ -1,0 +1,41 @@
+<!--
+  Generated template for the Firstloginstep4Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="maintheme">
+    <ion-title>{{'OPENING_TIMES' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="containerclass">
+    <ion-item no-lines>
+      <ion-label class="fontStyle">
+        {{'OPEN_TIMES' | translate}} - {{'CLOSE' | translate}}
+      </ion-label>
+    </ion-item>
+    <ion-row no-padding class="row-custom">
+      <ion-col col-6 (click)="openModal()">
+        <img style="height: 150px; width: 100%;" src="./assets/imgs/add.jpg">
+      </ion-col>
+      <ion-col col-6 *ngFor="let time of firstLogin.times;let i = index">
+        <div class="detailtimes">
+          <button class="iconEditTimes" ion-button icon-left clear large no-padding (click)="openActionsheet(time, i)">
+            <ion-icon name="md-more" color="light"></ion-icon>
+          </button>
+          <p class="textTimes">{{time.description}}</p>
+          <p class="textTimes">{{'OPEN' | translate}} {{time.timestart}}</p>
+          <p class="textTimes">{{'CLOSE' | translate}} {{time.timeend}}</p>
+          <p class="textTimesDay">{{'OPENING_DAY' | translate}}</p> 
+          <label style="margin-left: 5px;">{{time.days | pipes}}</label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer padding no-border>
+  <button ion-button block [disabled]="firstLogin.times && firstLogin.times.length == 0" (click)="step5()" color="danger">{{'NEXT' | translate}}</button>
+</ion-footer>

@@ -1,0 +1,5 @@
+edit > node_modules > sortablejs > Sortable.js
+
+find >> preventOnFilter: true 
+
+change to >> preventOnFilter: false

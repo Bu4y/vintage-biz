@@ -1,0 +1,30 @@
+ion-upload-image {
+
+}
+.loading-upload {
+    .loading-wrapper {
+        box-shadow: none !important;
+        background-color: #dfdfdf !important;
+        border-radius: 0px !important;
+        width: 350px !important;
+    }
+}
+#maxWidth {
+    max-width: 100% !important;
+}
+#fixPosition {
+    // background-color: #D8625D !important;
+    background: transparent !important;
+    width: 50px !important;
+    text-align: center !important;
+    position: absolute !important;
+    bottom: 5px !important;
+    right: -1px !important;
+}
+#iconTrash{
+    font-size: 3.5rem !important;
+    color: rgba(221, 216, 216, 0.87) !important;
+}
+#maxImage{
+    max-height: 350px !important;
+}

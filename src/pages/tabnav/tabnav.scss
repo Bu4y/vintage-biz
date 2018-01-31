@@ -1,0 +1,64 @@
+page-tabnav {
+    .tabs-ios .tab-button[aria-selected=true] {
+        color: #fff;
+        background: #b3222f;
+    }
+    .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+        color: #fff;
+        background: #b3222f;
+    }
+    .tabs-ios .tabbar {
+        background: #ED3740;
+    }
+    .tabs-ios .tab-button-icon {
+        color: #fff;
+    }
+    .tabs-ios .tab-button {
+        color: #fff;
+    }
+    .tabs-md .tab-button[aria-selected=true] {
+        color: #fff;
+        background: #b3222f;
+    }
+    .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+        color: #fff;
+        background: #b3222f;
+    }
+    .tabs-md .tabbar {
+        background: #ED3740;
+    }
+    .tabs-md .tab-button-icon {
+        color: #f4f4f4;
+    }
+    .tabs-md .tab-button {
+        color: #f4f4f4;
+    }
+    img {
+        border: 0;
+        height: auto;
+        object-fit: cover;
+    }
+    ion-fab[center] {
+        height: 87px;
+        margin-left: 0px !important;
+        left: 50% !important;
+        margin-right: -50% !important;
+        transform: translate(-50%, -0%) !important;
+    }
+    .tabs-md .tab-button-text {
+        font-size: 1.3rem;
+        margin-top: 4px !important;
+    }
+    .tabs-md .tab-button-icon {
+        margin-top: 6px;
+    }
+    .tabs-ios .tab-button-text {
+        font-size: 1.3rem;
+        margin-top: 5px !important;
+    }
+    .buttonFab {
+        width: 76px;
+        height: 76px;
+        background-color: #ffffff;
+    }
+}

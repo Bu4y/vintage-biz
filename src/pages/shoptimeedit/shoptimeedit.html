@@ -1,0 +1,105 @@
+<ion-header>
+
+  <ion-navbar color="maintheme">
+    <ion-buttons right>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="editData && editData.editMode">{{'EDIT_TIMES'| translate}}</ion-title>
+    <ion-title *ngIf="editData && !editData.editMode">{{'ADD_TIMES'| translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- <ion-input type="text" [(ngModel)]="addTime.detail" [value]="editData.description"></ion-input> -->
+
+  <div>
+    <!-- <div *ngIf="isAdd" class="detail-open-close"> -->
+    <ion-item>
+      <ion-label fixed color="topic">{{'DETAIL'| translate}}
+        <span class="warning-invalid">*</span>
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="addTime.detail" [value]="editData.description" text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="topic">{{'OPEN_TIMES'| translate}}
+        <span class="warning-invalid">*</span>
+      </ion-label>
+      <ion-datetime placeholder="{{PLEASE_SELECT_OPENING_TIMES| translate}}" displayFormat="HH:mm" [(ngModel)]="addTime.openTime"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="topic">{{'CLOSE'| translate}}
+        <span class="warning-invalid">*</span>
+      </ion-label>
+      <ion-datetime placeholder="{{PLEASE_SELECT_CLOSING_TIMES| translate}}" displayFormat="HH:mm" [(ngModel)]="addTime.closeTime"></ion-datetime>
+    </ion-item>
+
+    <ion-row>
+      <ion-col col-1>
+      </ion-col>
+      <ion-col col-10>
+        <ion-list class="containerclass">
+          <!-- <ion-list class="detail-open-close"> -->
+
+
+
+          <ion-item fix-margin-label *ngFor="let day of addTime.days">
+            <ion-label class="fontStyle">{{day.name}}</ion-label>
+            <ion-checkbox [(ngModel)]="day.checked" item-end (ionChange)="addDays()"></ion-checkbox>
+          </ion-item>
+          <ion-item fix-margin-label *ngIf="!isCheck">
+            <p class="warning-invalid">*{{'PLEASE_SELECT_AT_LEAST_ONEDAY'| translate}}</p>
+          </ion-item>
+          <!-- <ion-item no-lines fix-margin-label>
+            <ion-label>อังคาร</ion-label>
+            <ion-checkbox [(ngModel)]="addTime.days.tue" item-end></ion-checkbox>
+          </ion-item>
+          <ion-item no-lines fix-margin-label>
+            <ion-label>พุธ</ion-label>
+            <ion-checkbox [(ngModel)]="addTime.days.wed" item-end></ion-checkbox>
+          </ion-item>
+          <ion-item no-lines fix-margin-label>
+            <ion-label>พฤหัสบดี</ion-label>
+            <ion-checkbox [(ngModel)]="addTime.days.thu" item-end></ion-checkbox>
+          </ion-item>
+          <ion-item no-lines fix-margin-label>
+            <ion-label>ศุกร์</ion-label>
+            <ion-checkbox [(ngModel)]="addTime.days.fri" item-end></ion-checkbox>
+          </ion-item>
+          <ion-item no-lines fix-margin-label>
+            <ion-label>เสาร์</ion-label>
+            <ion-checkbox [(ngModel)]="addTime.days.sat" item-end></ion-checkbox>
+          </ion-item>
+
+          <ion-item no-lines fix-margin-label>
+              <ion-label item-start>อาทิตย์</ion-label>
+              <ion-checkbox [(ngModel)]="addTime.days.sun" item-end></ion-checkbox>
+            </ion-item> -->
+
+
+        </ion-list>
+      </ion-col>
+      <ion-col col-1>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col text-right>
+        <button ion-button class="buttonIon" (click)="add()" color="danger">เพิ่ม</button>
+      </ion-col>
+      <ion-col text-left>
+        <button ion-button class="buttonIon" (click)="cancel()" color="danger">ยกเลิก</button>
+      </ion-col>
+    </ion-row> -->
+  </div>
+</ion-content>
+<ion-footer no-border>
+  <button *ngIf="editData && editData.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
+    color="danger">{{'EDIT'| translate}}</button>
+    <button *ngIf="editData && !editData.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
+    color="danger">{{'ADD'| translate}}</button>
+</ion-footer>

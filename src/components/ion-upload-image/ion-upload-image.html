@@ -1,0 +1,17 @@
+<!-- Generated template for the IonUploadImageComponent component -->
+<div *ngIf="images.length === 0">
+    <img (click)="onUpload()" src="http://files.softicons.com/download/toolbar-icons/mono-general-icons-3-by-custom-icon-design/ico/camera.ico">
+</div>
+
+<div *ngIf="images.length > 0">
+  <ion-slides #formSlideImages pager="true">
+    <ion-slide *ngFor="let item of images; let i = index;">
+      <img id="maxImage" src="{{ item }}">
+      <div id="fixPosition">
+          <ion-icon id="iconTrash" name="ios-trash" (click)="onRemove(i)"></ion-icon>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</div>
+
+<button *ngIf="isShowUpload" ion-button block (click)="onUpload()">Upload Image</button>

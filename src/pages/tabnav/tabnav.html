@@ -1,0 +1,22 @@
+<ion-tabs (ionChange)="onSelectChange($event)" color="maintheme" #myTabs selectedIndex="{{getSelectedTab()}}" text-center>
+    <ion-tab [root]="shopRoot" tabTitle="{{'SHOP'| translate}}" tabIcon="icon-e-myshop"></ion-tab>
+    <ion-tab [root]="bikerRoot" tabTitle="{{'WALLET'| translate}}" tabIcon="icon-e-biker"></ion-tab>
+    <!-- <ion-tab [root]="orderRoot" tabTitle="Order" tabIcon="icon-e-order"></ion-tab> -->
+
+    <ion-tab [root]="orderRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="icon-e-order"></ion-tab>
+    <!-- <ion-fab bottom center no-margin style="bottom:-0.3%;">
+      <button ion-fab no-padding no-margin style="width:75px; height:75px; background-color:#fff" (click)="ordertab()">
+        <span class="icon-e-order"></span>
+      </button>
+    </ion-fab> -->
+    <ion-fab bottom center no-margin>
+      <button [ngStyle]="{'color':color}" ion-fab no-padding no-margin class="buttonFab" (click)="ordertab()"><span class="icon-e-order"></span></button>
+    </ion-fab>
+
+
+    <ion-tab [root]="statusRoot" tabTitle="{{'STATUS'| translate}}" tabIcon="icon-e-status"></ion-tab>
+    <ion-tab [root]="moreRoot" tabTitle="{{'MORE'| translate}}" tabIcon="icon-e-more"></ion-tab>
+
+
+   
+</ion-tabs>

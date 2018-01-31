@@ -1,0 +1,35 @@
+page-firstloginstep1 {
+    img {
+        object-fit: cover !important;
+        border-radius: 50%;
+        height: 165px;
+        width: 165px;
+    }
+    .logo-img {
+        width: 50%;
+        margin-top: 20%;
+    }
+    .font-size {
+        font-size: 1.2em;
+    }
+    .fix-itm {
+        .item-md.item-block .item-inner {
+            border-bottom: 1px solid transparent !important;
+        }
+    }
+    .camera {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        font-size: 2.2em;
+    }
+    .ion-md-camera:before {
+        color: #d4d4d4!important;
+    }
+    .ion-ios-camera:before {
+        color: #d4d4d4 !important;
+    }
+    .danger {
+        color: #eb3841 !important;
+    }
+}

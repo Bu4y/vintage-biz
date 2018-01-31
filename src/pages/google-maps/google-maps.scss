@@ -1,0 +1,98 @@
+page-google-maps {
+    .map {
+        height: 100% !important;
+        justify-content: center;
+        display: flex !important;
+        align-items: center!important;
+        background-color: #ffffff;
+        overflow: hidden !important;
+        padding: 0px !important;
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 18px solid #212121;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -62px 0 0 -20px;
+        }
+    }
+    .map:after {
+        width: 22px;
+        height: 40px;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -40px 0 0 -11px;
+        background: url('../assets/icon/map-pin.png');
+        background-size: 22px 40px;
+        pointer-events: none;
+    }
+    .google-search {
+        // position: fixed;
+        z-index: 9999; // width: 76vw;
+        // padding: 8px;
+        // margin: 6px 12vw 0px 12vw;
+    }
+    .scroll-content {
+        overflow: hidden !important;
+    }
+    .btn-cf {
+        position: absolute !important;
+        margin-top: -94px !important;
+        width: 50vw !important;
+        left: 25vw !important;
+    }
+    .info-item {
+        width: auto !important;
+        min-width: 30vw !important;
+        max-width: 300px !important;
+        height: 70px !important;
+        margin: 0px !important;
+        bottom: 90px !important;
+        z-index: 99 !important;
+        padding-left: 0px !important;
+        border-radius: 5px !important;
+        color: #ffffff !important;
+        background-color: #212121 !important;
+        .item-inner {
+            margin-left: 6px !important;
+            height: 70px !important;
+            border-bottom: none !important;
+            .input-wrapper {
+                height: 65px !important;
+                margin: auto !important;
+            }
+            p {
+                color: #ffffff !important;
+                max-height: 70px !important;
+            }
+        }
+    }
+    .item-ios,
+    .item-inner {
+        background-image: none !important;
+        padding-right: 0px !important;
+    }
+    .confirm {
+        font-weight: bold !important;
+    }
+    .cancel {
+        color: #eb3841 !important;
+        font-weight: 100 !important;
+    }
+}
+
+.loading-hide {
+    ion-backdrop {
+        background-color: transparent;
+    }
+    .loading-wrapper {
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+}

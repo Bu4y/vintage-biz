@@ -38,6 +38,23 @@ jspm_packages/
 
 # Typescript v1 declaration files
 typings/
+.idea/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+dist/
+node_modules/
+tmp/
+temp/
+hooks/
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+www/
+$RECYCLE.BIN/
 
 # Optional npm cache directory
 .npm

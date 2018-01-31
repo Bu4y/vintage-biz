@@ -1,0 +1,14 @@
+page-createcate {
+    img {
+        object-fit: cover;
+    }
+    .setImg {
+        width: 100%;
+        height: 200px;
+    } 
+    .deletecate{
+        position:absolute;
+        top: 0;
+        right: 0;
+    }
+}

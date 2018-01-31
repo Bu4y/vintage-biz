@@ -1,0 +1,20 @@
+page-firstloginstep2 {
+    img {
+        object-fit: cover !important;
+    }
+    .camera {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        font-size: 2.2em;
+    }
+    .ion-md-camera:before {
+        color: #d4d4d4 !important;
+    }
+    .ion-ios-camera:before {
+        color: #d4d4d4 !important;
+    }
+    .warning-invalid {
+        color: #eb3841;
+    }
+}
