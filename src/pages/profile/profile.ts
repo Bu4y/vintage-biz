@@ -6,7 +6,7 @@ import { ShopServiceProvider } from '../shop/shop-service';
 import * as firebase from 'firebase';
 import { Auth } from '../../providers/auth-service/auth-service';
 import { Crop } from '@ionic-native/crop';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
@@ -206,11 +206,19 @@ export class ProfilePage {
     });
   }
   openCamera() {
+    const popover: CameraPopoverOptions = {
+      x: 0,
+      y: 32,
+      width: 320,
+      height: 480,
+      arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
+    }
     const options: CameraOptions = {
-      quality: 100,
+      quality: 30,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      popoverOptions: popover
     }
     let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {

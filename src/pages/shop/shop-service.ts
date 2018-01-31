@@ -65,7 +65,7 @@ export class ShopServiceProvider {
       .toPromise()
       .then(response => {
         let data = response as any;
-        window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(data.user));
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(data.user));
         return response;
       })
       .catch(this.handleError);

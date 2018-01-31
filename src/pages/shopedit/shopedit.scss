@@ -81,13 +81,14 @@ page-shopedit {
         margin-left: 10px;
         text-align: left;
     }
+    ion-scroll[scrollX] {
+        height: 150px;
+    
+        .scroll-item {
+          display: inline-block;
+        }
+      }
 }
-ion-scroll[scrollX] {
-    height: 150px;
 
-    .scroll-item {
-      display: inline-block;
-    }
-  }
 
  
