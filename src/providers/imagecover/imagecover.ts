@@ -22,7 +22,8 @@ export class ImagecoverProvider {
         let w = this["width"];
         let h = this["height"];
         let result = w / h;
-        if (result > 1.33 && result < 1.78) {
+        // if (result > 1.33 && result < 1.78) {
+        if (w > h) {
           resolve(true);
         } else {
           resolve(false);

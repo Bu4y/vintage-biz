@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar color="maintheme">
+  <ion-navbar>
     <ion-buttons left *ngIf="user && user.profileImageURL">
       <button ion-button icon-only (click)="myProfile()">
         <ion-avatar item-start>
@@ -16,7 +16,7 @@
 
 <ion-content>
   <preload-image [ratio]="{w:20, h:9}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
-  <ion-grid>
+  <ion-grid class="shop-detail-grid">
     <ion-row>
       <ion-col col-12>
         <ion-row>
@@ -30,7 +30,7 @@
           <span class="text-wrap">{{shop.detail}}</span>
         </ion-row>
         <ion-row>
-          <span>{{shop.address.addressdetail}}</span>&nbsp;
+          <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
           <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
           <ion-badge color="secondary" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge>
           <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge>

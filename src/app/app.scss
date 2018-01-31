@@ -18,7 +18,10 @@ ion-app {
 // content {
 //     font-family: 'Kanit', sans-serif !important;
 // }
-
+.toolbar-title{
+    color: #3c6233;
+    font-weight: bold;
+}
 @font-face {
     font-family: 'icomoon';
     src: url('../assets/fonts/icomoon.eot?2law6p');
