@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PipesPipe } from './pipes/pipes';
+import { DatetimePipe } from './datetime/datetime';
 @NgModule({
-	declarations: [PipesPipe],
+	declarations: [PipesPipe,
+    DatetimePipe],
 	imports: [],
-	exports: [PipesPipe]
+	exports: [PipesPipe,
+    DatetimePipe]
 })
 export class PipesModule {}

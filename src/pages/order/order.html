@@ -22,7 +22,8 @@
       </ion-thumbnail>
       <!-- <h2>No. {{item._id}}</h2> -->
       <h2>{{item.productname}}</h2>
-      <p>{{item.created}}</p>
+      
+      <p>{{item.created | datetime}}</p>
       <h2 item-end>{{item.amount}} ฿</h2>
     </ion-item>
   </ion-list>
