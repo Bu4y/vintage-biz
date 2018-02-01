@@ -2,6 +2,7 @@ export class UserModel {
     _id: string;
     username: string;
     password: string;
+    displayName: string;
     fisrtName: string;
     lastName: string;
     gender: string;
