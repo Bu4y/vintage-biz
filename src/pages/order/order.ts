@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { OrderModel } from '../../assets/model/order.model';
+import { OrderServiceProvider } from './order-service';
 
 /**
  * Generated class for the OrderPage page.
@@ -14,19 +16,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'order.html',
 })
 export class OrderPage {
-  order: string;
+  orders: Array<OrderModel>;
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public orderService: OrderServiceProvider
   ) {
-    this.order = "new";
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad OrderPage');
+    this.getOrders();
   }
   doRefresh(refresher) {
     setTimeout(() => {
       refresher.complete();
     }, 1500);
+  }
+  getOrders() {
+    this.orderService.getOrderList().then(data => {
+      this.orders = data
+    }, err => {
+      console.log(err);
+    })
+  }
+  gotoDetail() {
+    this.navCtrl.push('OrderDetailPage');
   }
 }

@@ -6,306 +6,50 @@
 -->
 
 <ion-header>
-  <ion-navbar color="maintheme">
+  <ion-navbar>
     <ion-title>{{'ORDER'| translate}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
-      </ion-refresher>
-  <!-- <ion-toolbar> -->
-  <ion-segment mode="md" [(ngModel)]="order" color="maintheme">
-    <ion-segment-button value="new">
-      <label style="font-size: 17px;">รายการใหม่</label>
-    </ion-segment-button>
-    <ion-segment-button value="paid">
-      <label style="font-size: 17px;">รายการสั่งซื้อ</label>
-    </ion-segment-button>
-  </ion-segment>
-  <!-- </ion-toolbar> -->
-
-
-  <div [ngSwitch]="order">
-    <div *ngSwitchCase="'new'">
-      <ion-list>
-        <ion-item-sliding>
-          <ion-item>
-            <ion-row class="textStyle">
-              <ion-col>
-                <h2>
-                  <ion-icon name="paper" item-start></ion-icon>
-                  NO.B652350
-                </h2>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <h3>
-                  <ion-icon name="clock" item-start></ion-icon>
-                  วันนี้ 12:00 น.
-                </h3>
-              </ion-col>
-            </ion-row>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Latte</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Mocha</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Cappuccino</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button color="danger">
-              <ion-icon name="trash"></ion-icon>
-              Delete
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
-        <ion-item-sliding>
-          <ion-item>
-            <ion-row class="textStyle">
-              <ion-col>
-                <h2>
-                  <ion-icon name="paper" item-start></ion-icon>
-                  NO.B652351
-                </h2>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <h3>
-                  <ion-icon name="clock" item-start></ion-icon>
-                  วันนี้ 21:00 น.
-                </h3>
-              </ion-col>
-            </ion-row>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Latte</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Mocha</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Cappuccino</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button color="danger">
-              <ion-icon name="trash"></ion-icon>
-              Delete
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
-
-        <ion-item-sliding>
-          <ion-item>
-            <ion-row class="textStyle">
-              <ion-col>
-                <h2>
-                  <ion-icon name="paper" item-start></ion-icon>
-                  NO.B652352
-                </h2>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                <h3>
-                  <ion-icon name="clock" item-start></ion-icon>
-                  วันนี้ 21:32 น.
-                </h3>
-              </ion-col>
-            </ion-row>
-            <ion-card>
-              <ion-card-content>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Latte</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col width="80" text-left>
-                    <p>Cappuccino</p>
-                  </ion-col>
-                  <ion-col width="20" text-right>
-                    <p>2</p>
-                  </ion-col>
-                </ion-row>
-              </ion-card-content>
-            </ion-card>
-          </ion-item>
-          <ion-item-options side="right">
-            <button ion-button color="danger">
-              <ion-icon name="trash"></ion-icon>
-              Delete
-            </button>
-          </ion-item-options>
-        </ion-item-sliding>
-      </ion-list>
-    </div>
-    <div *ngSwitchCase="'paid'">
-      <ion-list>
-        <ion-item>
-          <ion-row class="textStyle">
-            <ion-col>
-              <h2>
-                <ion-icon name="paper" item-start></ion-icon>
-                NO.B652353
-              </h2>
-            </ion-col>
-          </ion-row>
-          <ion-card>
-            <ion-card-content>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Latte 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Mocha 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Cappuccino 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-          <div text-right>
-            <button mode="md" ion-button small outline color="danger">รับออเดอร์</button>
-          </div>
-        </ion-item>
-        <ion-item>
-          <ion-row class="textStyle">
-            <ion-col>
-              <h2>
-                <ion-icon name="paper" item-start></ion-icon>
-                NO.B652354
-              </h2>
-            </ion-col>
-          </ion-row>
-          <ion-card>
-            <ion-card-content>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Latte 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Mocha 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Cappuccino 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-          <div text-right>
-            <button mode="md" ion-button small outline color="danger">รับออเดอร์</button>
-          </div>
-        </ion-item>
-        <ion-item>
-          <ion-row class="textStyle">
-            <ion-col>
-              <h2>
-                <ion-icon name="paper" item-start></ion-icon>
-                NO.B652355
-              </h2>
-            </ion-col>
-          </ion-row>
-          <ion-card>
-            <ion-card-content>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Latte 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col width="80" text-left>
-                  <p>Cappuccino 2</p>
-                </ion-col>
-                <ion-col width="20" text-right>
-                  <p>90฿</p>
-                </ion-col>
-              </ion-row>
-            </ion-card-content>
-          </ion-card>
-          <div text-right>
-            <button mode="md" ion-button small outline color="danger">รับออเดอร์</button>
-          </div>
-        </ion-item>
-      </ion-list>
-    </div>
-  </div>
-
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <!-- <ion-item *ngFor="let item of orders" (click)="gotoDetail()"> -->
+    <ion-item (click)="gotoDetail()">
+      <ion-thumbnail item-start>
+        <img src="https://fyf.tac-cdn.net/images/products/large/BF116-11KM.jpg">
+      </ion-thumbnail>
+      <h2>No. BB001</h2>
+      <h2>ช่อดอกไม้สีแดงสด</h2>
+      <p>09 มีนาคม 2561 12:00 น.</p>
+      <h2 item-end>500 ฿</h2>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list>
+    <ion-item (click)="gotoDetail()">
+      <ion-row>
+        <ion-col no-padding>
+          <p>09 มีนาคม 2561 12:00 น.</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col no-padding>
+          <p>No. BB001</p>
+        </ion-col>
+        <ion-col no-padding text-right>
+          <h2>500 ฿</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col no-padding>
+          <h5>ร้านละมุนภัณฑ์</h5>
+        </ion-col>
+        <ion-col no-padding text-right>
+          <h5 class="paid">ชำระเงินปลายทาง</h5>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list> -->
 </ion-content>
