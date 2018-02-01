@@ -19,30 +19,34 @@
 
 
 <ion-content>
-  <ion-row>
-
-    <ion-col col-12 text-center>
+  <ion-row padding>
+    <ion-col col-3>
+    </ion-col>
+    <ion-col text-center>
       <div *ngIf="firstLogin && firstLogin.profileImageURL">
-        <img src="{{firstLogin.profileImageURL}}" alt="Avatar">
-        <!-- <img src="./assets/imgs/logo-bg.png" style="height: 165px;width:100%;" alt="image"> -->
-        <span class="thisfill"></span>
+        <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image>
         <ion-row class="camera">
           <ion-icon name="camera" color="light" (click)="selectProfile()"></ion-icon>
         </ion-row>
       </div>
     </ion-col>
-
+    <ion-col col-3>
+    </ion-col>
   </ion-row>
   <ion-row>
     <ion-col col-6>
       <ion-item>
-        <ion-label floating color="topic">{{'FIRST_NAME'| translate}} <span class="danger">*</span></ion-label>
+        <ion-label floating color="topic">{{'FIRST_NAME'| translate}}
+          <span class="danger">*</span>
+        </ion-label>
         <ion-input [(ngModel)]="firstLogin.firstName"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col col-6>
       <ion-item>
-        <ion-label floating color="topic">{{'LAST_NAME'| translate}} <span class="danger">*</span></ion-label>
+        <ion-label floating color="topic">{{'LAST_NAME'| translate}}
+          <span class="danger">*</span>
+        </ion-label>
         <ion-input [(ngModel)]="firstLogin.lastName"></ion-input>
       </ion-item>
     </ion-col>
@@ -97,7 +101,9 @@
   <ion-row>
     <ion-col col-12>
       <ion-item>
-        <ion-label floating color="topic"> {{'BANK_ACCOUNT'| translate}} <span class="danger">*</span></ion-label>
+        <ion-label floating color="topic"> {{'BANK_ACCOUNT'| translate}}
+          <span class="danger">*</span>
+        </ion-label>
         <ion-input [(ngModel)]="firstLogin.bankaccount"></ion-input>
       </ion-item>
     </ion-col>
