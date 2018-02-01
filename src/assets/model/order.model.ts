@@ -1,5 +1,5 @@
 export class OrderModel {
-    orderno: string;
+    _id: string;
     created: string;
     amount: number;
     productname: string;

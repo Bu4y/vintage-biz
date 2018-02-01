@@ -16,13 +16,13 @@ export class OrderServiceProvider {
     console.log('Hello OrderServiceProvider Provider');
   }
   getOrderList(): Promise<Array<OrderModel>> {
-    return this.http.get('./assets/Jason.orderlist.json')
+    return this.http.get('./assets/Jason/orderlist.json')
       .toPromise()
       .then(response => response as Array<OrderModel>)
       .catch(this.handleError);
   }
   getOrderDetail(): Promise<any> {
-    return this.http.get('./assets/Jason.orderdetail.json')
+    return this.http.get('./assets/Jason/orderdetail.json')
       .toPromise()
       .then(response => response as any)
       .catch(this.handleError);

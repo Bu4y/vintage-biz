@@ -40,7 +40,7 @@ export class OrderPage {
       console.log(err);
     })
   }
-  gotoDetail() {
-    this.navCtrl.push('OrderDetailPage');
+  gotoDetail(item) {
+    this.navCtrl.push('OrderDetailPage', item);
   }
 }
