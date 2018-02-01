@@ -24,9 +24,13 @@ export class OrderPage {
   ) {
 
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OrderPage');
-    this.getOrders();
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad OrderPage');
+  //   this.getOrders();
+  // }
+  ionViewWillEnter(){
+  this.getOrders();
+   
   }
   doRefresh(refresher) {
     setTimeout(() => {
