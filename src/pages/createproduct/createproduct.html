@@ -45,20 +45,24 @@
           <ion-label color="topic" floating>{{'PRICE'| translate}}</ion-label>
           <ion-input type="number" [(ngModel)]="createprod.price"></ion-input>
         </ion-item>
+        <ion-item>
+          <p color="topic" >{{'PRODUCT_DETAIL'| translate}}</p>
+          <textarea rows="4" [(ngModel)]="createprod.detail">
+          </textarea>
+        </ion-item>
         <ion-list>
-
           <ion-item>
-            <ion-label>{{'ISSALE'| translate}}</ion-label>
+            <ion-label color="topic">{{'ISSALE'| translate}}</ion-label>
             <ion-toggle color="maintheme" [(ngModel)]="createprod.issale"></ion-toggle>
           </ion-item>
 
           <ion-item>
-            <ion-label>{{'RECOMMEND'| translate}}</ion-label>
+            <ion-label color="topic">{{'RECOMMEND'| translate}}</ion-label>
             <ion-toggle color="maintheme" [(ngModel)]="createprod.isrecommend"></ion-toggle>
           </ion-item>
 
           <ion-item>
-            <ion-label>{{'PROMOTION'| translate}}</ion-label>
+            <ion-label color="topic">{{'PROMOTION'| translate}}</ion-label>
             <ion-toggle color="maintheme" [(ngModel)]="createprod.ispromotionprice" (ionChange)="checkedPromotion()"></ion-toggle>
           </ion-item>
 
@@ -75,10 +79,8 @@
           <ion-label color="topic">{{'EXPIRE_DATE'| translate}}</ion-label>
           <ion-datetime placeholder="Expire Date" displayFormat="DD/MM/YYYY" [(ngModel)]="createprod.expiredate"></ion-datetime>
         </ion-item>
-
       </ion-col>
     </ion-row>
-
   </ion-grid>
 </ion-content>
 <ion-footer>
