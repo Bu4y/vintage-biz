@@ -13,6 +13,95 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding>
 
+  <ion-row>
+    <ion-col col-12>
+      No. {{order._id}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      {{order.created}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>
+      <ion-icon class="Icon" name="person" color="maintheme"></ion-icon>
+    </ion-col>
+    <ion-col col-9>
+      {{order.shippingAddress.name}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>
+      <ion-icon class="Icon" name="pin" color="maintheme"></ion-icon>
+    </ion-col>
+    <ion-col col-9>
+      {{order.shippingAddress.address}}
+    </ion-col>
+  </ion-row>
+  <!-- <ion-row class="borderTop borderBottom">
+    <ion-col>
+      ชื่อสินค้า
+    </ion-col>
+    <ion-col text-center>
+      จำนวน
+    </ion-col>
+    <ion-col text-right>
+      ราคา
+    </ion-col>
+  </ion-row>
+  <ion-row class="borderBottom">
+    <ion-col>
+      {{order.item.product.name}}
+    </ion-col>
+    <ion-col text-center>
+      {{order.item.qty}}
+    </ion-col>
+    <ion-col text-right>
+      {{order.item.product.price}}
+    </ion-col>
+  </ion-row>
+  <ion-row class="borderBottom">
+    <ion-col>
+      ยอดชำระ
+    </ion-col>
+    <ion-col>
+
+    </ion-col>
+    <ion-col text-right>
+      {{order.item.amount}}
+    </ion-col>
+  </ion-row> -->
+  <ion-row text-center class="borderTop">
+    <ion-col padding>
+      <h5>{{order.item.product.name}}</h5>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-scroll no-padding scrollX="true" style="height:188px;border:solid 1px">
+  
+    <ion-row no-padding class="row-custom">
+        <ion-col col-xs-6 col-sm-6 col-md-6 *ngFor="let img of order.item.product.images">
+          <img style="height: 100%; width: 100%;object-fit: cover;" src="{{img}}">
+        </ion-col>
+      </ion-row>
+  </ion-scroll> -->
+  <ion-card>
+      <ion-slides autoplay="5000" slidesPerView="2" spaceBetween="2">
+        <ion-slide *ngFor="let img of order.item.product.images">
+          <img src="{{img}}" />
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <button ion-button block color="maintheme">ยอมรับ</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block color="danger">ปฎิเสธ</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

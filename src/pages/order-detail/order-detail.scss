@@ -1,3 +1,19 @@
 page-order-detail {
-
+    // [text-center]{
+    //     text-align: left !important;
+    // }
+    text{
+        text-align: left !important;
+    }
+    .borderTop{
+    border-top: solid 1px gray;
+    }
+    .borderBottom{
+        border-bottom: solid 1px gray;
+        }
+        .Icon{
+        font-size: xx-large;
+        }
+        .card {
+            box-shadow: none !important;}
 }
