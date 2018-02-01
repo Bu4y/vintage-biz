@@ -87,13 +87,33 @@
         </ion-col>
       </ion-row>
   </ion-scroll> -->
-  <ion-card>
-      <ion-slides autoplay="5000" slidesPerView="2" spaceBetween="2">
-        <ion-slide *ngFor="let img of order.item.product.images">
-          <img src="{{img}}" />
-        </ion-slide>
-      </ion-slides>
-    </ion-card>
+  <ion-card text-center>
+    <ion-slides autoplay="5000" slidesPerView="1" spaceBetween="1">
+      <ion-slide *ngFor="let img of order.item.product.images">
+        <img src="{{img}}" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-row class="borderBottom">
+    <ion-col col-12 no-padding>
+      <p>ต้นไม้สีเขียวขนาดใหญ่ที่มีขนาดใหญ่ที่มีบุปผาสีขาวเป็นเรื่องง่ายในการดูแลรักษา</p>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item>
+      <div><p>ราคา</p></div>
+      <div item-end><p>{{order.item.product.price}}</p></div>
+    </ion-item>
+    <ion-item>
+      <div><p>จำนวน</p></div>
+      <div item-end><p>{{order.item.qty}}</p></div>
+    </ion-item>
+    <ion-item>
+      <div><p>รวม</p></div>
+      <div item-end><p>{{order.item.amount}}</p></div>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
 <ion-footer>
   <ion-row>
