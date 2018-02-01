@@ -61,19 +61,15 @@
         "name": "ไอติมโบราณทอด"
     },
     "qty": 2,
-    "amount": 30,
-    "estimateprice": {
-        "tripDuration": 5589,
-        "normalPrice": 180,
-        "netPrice": 162,
-        "discount": 18,
-        "distance": 11,
-        "responseCode": "200",
-        "responseDesc": "Success"
-    },
-    "netamount": 192,
+    "amount": 220,
+    "discount": 20,
+    "netamount": 200,
     "distance": "11",
     "__v": 1,
+    "coupon": {
+        "code": "AE007",
+        "discount": 20
+    },
     "omiseresponse": {
         "object": "charge",
         "id": "chrg_test_5assj4fns8tl28e93dz",
@@ -152,47 +148,43 @@
             "qty": 1,
             "amount": 15,
             "_id": "5a701e045545b21300b5ae24",
-            "product": [
-                {
-                    "_id": "5a5a135ef38bb81300767e68",
-                    "user": "5a59c0658761d113009822e1",
-                    "shop": "5a59c0598761d113009822df",
-                    "categories": "5a59e1c5d6b6111300c9be06",
-                    "price": 15,
-                    "isrecomment": false,
-                    "__v": 0,
-                    "created": "2018-01-13T14:10:38.270Z",
-                    "isrecommend": false,
-                    "ispromotionprice": false,
-                    "images": [
-                        "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853148.jpg?alt=media&token=565fa6fc-f16b-48e9-bcab-355d643d3056"
-                    ],
-                    "name": "วนิลา"
-                }
-            ]
+            "product": {
+                "_id": "5a5a135ef38bb81300767e68",
+                "user": "5a59c0658761d113009822e1",
+                "shop": "5a59c0598761d113009822df",
+                "categories": "5a59e1c5d6b6111300c9be06",
+                "price": 15,
+                "isrecomment": false,
+                "__v": 0,
+                "created": "2018-01-13T14:10:38.270Z",
+                "isrecommend": false,
+                "ispromotionprice": false,
+                "images": [
+                    "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853148.jpg?alt=media&token=565fa6fc-f16b-48e9-bcab-355d643d3056"
+                ],
+                "name": "วนิลา"
+            }
         },
         {
             "qty": 1,
             "amount": 15,
             "_id": "5a701e045545b21300b5ae23",
-            "product": [
-                {
-                    "_id": "5a5a142af38bb81300767e75",
-                    "user": "5a59c0658761d113009822e1",
-                    "shop": "5a59c0598761d113009822df",
-                    "categories": "5a59e1c5d6b6111300c9be06",
-                    "price": 15,
-                    "isrecomment": false,
-                    "__v": 0,
-                    "created": "2018-01-13T14:14:02.448Z",
-                    "isrecommend": false,
-                    "ispromotionprice": false,
-                    "images": [
-                        "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853507.jpg?alt=media&token=3c054cf3-4b8f-4576-888d-2e1acb968418"
-                    ],
-                    "name": "คุกกี้ & ครีม"
-                }
-            ]
+            "product": {
+                "_id": "5a5a142af38bb81300767e75",
+                "user": "5a59c0658761d113009822e1",
+                "shop": "5a59c0598761d113009822df",
+                "categories": "5a59e1c5d6b6111300c9be06",
+                "price": 15,
+                "isrecomment": false,
+                "__v": 0,
+                "created": "2018-01-13T14:14:02.448Z",
+                "isrecommend": false,
+                "ispromotionprice": false,
+                "images": [
+                    "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853507.jpg?alt=media&token=3c054cf3-4b8f-4576-888d-2e1acb968418"
+                ],
+                "name": "คุกกี้ & ครีม"
+            }
         }
     ],
     "name": "Sarayut Kungsaranuwat"

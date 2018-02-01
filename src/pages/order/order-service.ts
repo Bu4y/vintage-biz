@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import { OrderModel } from '../../assets/model/order.model';
 /*
   Generated class for the OrderServiceProvider provider.
 
@@ -14,10 +15,10 @@ export class OrderServiceProvider {
   constructor(public http: HttpClient) {
     console.log('Hello OrderServiceProvider Provider');
   }
-  getOrderList(): Promise<Array<any>> {
+  getOrderList(): Promise<Array<OrderModel>> {
     return this.http.get('./assets/Jason.orderlist.json')
       .toPromise()
-      .then(response => response as Array<any>)
+      .then(response => response as Array<OrderModel>)
       .catch(this.handleError);
   }
   getOrderDetail(): Promise<any> {
