@@ -30,6 +30,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { Crop } from '@ionic-native/crop';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagecoverProvider } from '../providers/imagecover/imagecover';
+import { OrderServiceProvider } from '../pages/order/order-service';
 @NgModule({
   declarations: [
     MyApp
@@ -72,7 +73,8 @@ import { ImagecoverProvider } from '../providers/imagecover/imagecover';
     NativeGeocoder,
     Crop,
     Camera,
-    ImagecoverProvider
+    ImagecoverProvider,
+    OrderServiceProvider
   ]
 })
 export class AppModule { }
