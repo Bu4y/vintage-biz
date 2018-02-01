@@ -114,6 +114,9 @@ $val) {
 .tabs-ios .tab-button {
     -webkit-text-stroke: 1px !important;
 }
+ion-tabs.tabs{
+    text-align: unset !important;
+}
 // .tabs-ios {
 //     -webkit-text-stroke: 1px !important;
 // }
