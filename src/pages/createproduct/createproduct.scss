@@ -3,9 +3,14 @@ page-createproduct {
         object-fit: cover;
         width: 100%;
     }
-    .deleteprod{
-        position:absolute;
+    .deleteprod {
+        position: absolute;
         top: 0;
         right: 0;
+    }
+    textarea {
+        width: 100%;
+        // margin: 5px 0;
+        // padding: 3px;
     }
 }
