@@ -7,11 +7,10 @@ export class OrderDetailModel {
     created: string;
     user: UserModel = new UserModel();
     shippingAddress: shippingAddressModel = new shippingAddressModel();
-    location: locationModel = new locationModel();
-    shop: ShopModel = new ShopModel();
-    items:
+    item: OrderItems = new OrderItems();
 }
-export class OrderItems{
+export class OrderItems {
+    _id: string;
     qty: number;
     amount: number;
     product: ProductDetailModel = new ProductDetailModel();
@@ -26,5 +25,5 @@ export class shippingAddressModel {
     tel: string;
     address: string;
     addressDetail: string;
-
+    location: locationModel = new locationModel();
 }

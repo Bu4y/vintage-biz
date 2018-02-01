@@ -4,135 +4,7 @@
         "_id": "5a5334a71b294b130041a7d6",
         "displayName": "Sarayut Kungsaranuwat"
     },
-    "shop": {
-        "_id": "5a59c0598761d113009822df",
-        "user": "5a373b0e0e2bbe13007d0bf5",
-        "__v": 72,
-        "shopowner": "5a59c0658761d113009822e1",
-        "isAds": false,
-        "created": "2018-01-13T08:16:25.913Z",
-        "categories": [
-            "5a366af8b1ca321300912a44",
-            "5a366affb1ca321300912a45",
-            "5a366b36b1ca321300912a49",
-            "5a366b3db1ca321300912a4a",
-            "5a366b43b1ca321300912a4b"
-        ],
-        "times": [
-            {
-                "description": "weekend",
-                "timestart": "09:00",
-                "timeend": "22:00",
-                "_id": "5a59c0598761d113009822e0",
-                "days": [
-                    "อาทิตย์",
-                    "เสาร์"
-                ]
-            },
-            {
-                "description": "หยุดวันนัขตเลิก",
-                "timestart": "10:00",
-                "timeend": "18:00",
-                "_id": "5a59da4ed6b6111300c9be01",
-                "days": [
-                    "จันทร์",
-                    "อังคาร",
-                    "พุธ",
-                    "พฤหัสบดี",
-                    "ศุกร์"
-                ]
-            }
-        ],
-        "items": [],
-        "importform": "manual",
-        "issendmail": true,
-        "isactiveshop": true,
-        "coverimage": "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515854959.jpg?alt=media&token=a676d1a7-647f-476d-bbf3-cfaac2b83c0d",
-        "promoteimage": [],
-        "othercontact": "",
-        "rating": 0,
-        "line": "",
-        "facebook": "",
-        "email": "shop1@gmail.com",
-        "tel": "0000000000",
-        "address": {},
-        "detail": "ไอศกรีมทอด หวาน อร่อย",
-        "name_eng": "Fried Ice Cream by KUL",
-        "name": "ไอติมโบราณทอด"
-    },
-    "qty": 2,
-    "amount": 220,
-    "discount": 20,
-    "netamount": 200,
-    "distance": "11",
-    "__v": 1,
-    "coupon": {
-        "code": "AE007",
-        "discount": 20
-    },
-    "omiseresponse": {
-        "object": "charge",
-        "id": "chrg_test_5assj4fns8tl28e93dz",
-        "livemode": false,
-        "location": "/charges/chrg_test_5assj4fns8tl28e93dz",
-        "amount": 3000,
-        "currency": "thb",
-        "description": "Charge for order ID:5a701e045545b21300b5ae22",
-        "status": "successful",
-        "capture": true,
-        "authorized": true,
-        "reversed": false,
-        "paid": true,
-        "transaction": "trxn_test_5assj4i75o6yeu5ug20",
-        "refunded": 0,
-        "refunds": {
-            "object": "list",
-            "from": "1970-01-01T00:00:00Z",
-            "to": "2018-01-30T07:26:17Z",
-            "offset": 0,
-            "limit": 20,
-            "total": 0,
-            "order": null,
-            "location": "/charges/chrg_test_5assj4fns8tl28e93dz/refunds",
-            "data": []
-        },
-        "return_uri": null,
-        "reference": null,
-        "authorize_uri": null,
-        "failure_code": null,
-        "failure_message": null,
-        "card": {
-            "object": "card",
-            "id": "card_test_5assj3wf93w5dbwfqrs",
-            "livemode": false,
-            "country": "us",
-            "city": null,
-            "postal_code": null,
-            "financing": "",
-            "bank": "",
-            "last_digits": "4242",
-            "brand": "Visa",
-            "expiration_month": 12,
-            "expiration_year": 2018,
-            "fingerprint": "+TE9Owk9Jp8IMT+5CA0RB5GWfxgJJQzONJUmnui/Mhw=",
-            "name": "Credit Card",
-            "security_code_check": true,
-            "created": "2018-01-30T07:26:14Z"
-        },
-        "customer": null,
-        "ip": null,
-        "dispute": null,
-        "created": "2018-01-30T07:26:16Z",
-        "source": null
-    },
     "created": "2018-01-30T07:25:56.084Z",
-    "payment": {
-        "paymenttype": "Credit Card",
-        "creditno": "4242424242424242",
-        "creditname": "mooooo",
-        "expdate": "12/18",
-        "creditcvc": "140"
-    },
     "shippingAddress": {
         "name": "Sarayut Kungsaranuwat",
         "tel": "0914067267",
@@ -143,49 +15,25 @@
             "lng": "100.7179103"
         }
     },
-    "items": [
-        {
-            "qty": 1,
-            "amount": 15,
-            "_id": "5a701e045545b21300b5ae24",
-            "product": {
-                "_id": "5a5a135ef38bb81300767e68",
-                "user": "5a59c0658761d113009822e1",
-                "shop": "5a59c0598761d113009822df",
-                "categories": "5a59e1c5d6b6111300c9be06",
-                "price": 15,
-                "isrecomment": false,
-                "__v": 0,
-                "created": "2018-01-13T14:10:38.270Z",
-                "isrecommend": false,
-                "ispromotionprice": false,
-                "images": [
-                    "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853148.jpg?alt=media&token=565fa6fc-f16b-48e9-bcab-355d643d3056"
-                ],
-                "name": "วนิลา"
-            }
-        },
-        {
-            "qty": 1,
-            "amount": 15,
-            "_id": "5a701e045545b21300b5ae23",
-            "product": {
-                "_id": "5a5a142af38bb81300767e75",
-                "user": "5a59c0658761d113009822e1",
-                "shop": "5a59c0598761d113009822df",
-                "categories": "5a59e1c5d6b6111300c9be06",
-                "price": 15,
-                "isrecomment": false,
-                "__v": 0,
-                "created": "2018-01-13T14:14:02.448Z",
-                "isrecommend": false,
-                "ispromotionprice": false,
-                "images": [
-                    "https://firebasestorage.googleapis.com/v0/b/schoolbus-cnet.appspot.com/o/images%2F1515853507.jpg?alt=media&token=3c054cf3-4b8f-4576-888d-2e1acb968418"
-                ],
-                "name": "คุกกี้ & ครีม"
-            }
+    "item": {
+        "qty": 1,
+        "amount": 750,
+        "_id": "5a701e045545b21300b5ae24",
+        "product": {
+            "_id": "5a5a135ef38bb81300767e68",
+            "user": "5a59c0658761d113009822e1",
+            "shop": "5a59c0598761d113009822df",
+            "categories": "5a59e1c5d6b6111300c9be06",
+            "price": 750,
+            "isrecomment": false,
+            "__v": 0,
+            "created": "2018-01-13T14:10:38.270Z",
+            "isrecommend": false,
+            "ispromotionprice": false,
+            "images": [
+                "https://sabayta.com/wp-content/uploads/2017/04/green-300x300.png"
+            ],
+            "name": "ต้นไม้ประดิษฐ์1"
         }
-    ],
-    "name": "Sarayut Kungsaranuwat"
+    }
 }

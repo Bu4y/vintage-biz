@@ -2,5 +2,7 @@ export class OrderModel {
     orderno: string;
     created: string;
     amount: number;
-    shopname: string;
+    productname: string;
+    productimage: string;
+    item_id: string;
 }
