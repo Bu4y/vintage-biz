@@ -41,6 +41,7 @@ export class CreateproductPage {
         this.createprod._id = data._id;
         this.createprod.name = data.name;
         this.createprod.price = data.price;
+        this.createprod.detail = data.detail;
         this.createprod.images = images;
         this.createprod.issale = data.issale ? data.issale : false;
         this.createprod.ispromotionprice = data.ispromotionprice ? data.ispromotionprice : false;
