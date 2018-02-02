@@ -14,17 +14,19 @@
 
 
 <ion-content padding>
+  <ion-card text-center>
+    <ion-slides autoplay="5000" slidesPerView="1" spaceBetween="1">
+      <ion-slide *ngFor="let img of order.item.product.images">
+        <img src="{{img}}" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+  <ion-row class="borderBottom">
+    <ion-col col-12 no-padding>
+      <p>ต้นไม้สีเขียวขนาดใหญ่ที่มีขนาดใหญ่ที่มีบุปผาสีขาวเป็นเรื่องง่ายในการดูแลรักษา</p>
+    </ion-col>
+  </ion-row>
 
-  <!-- <ion-row>
-    <ion-col col-12>
-      No. {{order._id}}
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-12>
-      {{order.created}}
-    </ion-col>
-  </ion-row>
   <ion-row>
     <ion-col col-3 text-center>
       <ion-icon class="Icon" name="person" color="maintheme"></ion-icon>
@@ -40,58 +42,22 @@
     <ion-col col-9>
       {{order.shippingAddress.address}}
     </ion-col>
-  </ion-row> -->
-  <ion-card text-center>
-    <ion-slides autoplay="5000" slidesPerView="1" spaceBetween="1">
-      <ion-slide *ngFor="let img of order.item.product.images">
-        <img src="{{img}}" />
-      </ion-slide>
-    </ion-slides>
-  </ion-card>
-  <ion-row class="borderBottom">
-    <ion-col col-12 no-padding>
-      <p>ต้นไม้สีเขียวขนาดใหญ่ที่มีขนาดใหญ่ที่มีบุปผาสีขาวเป็นเรื่องง่ายในการดูแลรักษา</p>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>
+      <ion-icon class="Icon" name="calendar" color="maintheme"></ion-icon>
+    </ion-col>
+    <ion-col col-9>
+      {{order.created | datetime}}
     </ion-col>
   </ion-row>
   <ion-list>
     <ion-item>
       <div>
-        <p>เลขที่ออเดอร์</p>
-      </div>
-      <div item-end>
-        <p>{{order._id}}</p>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div>
-        <p>วันที่สั่งซื้อ</p>
-      </div>
-      <div item-end>
-        <p> {{order.created}}</p>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div>
-        <p>ที่อยู่</p>
-      </div>
-      <div item-end>
-        <p> {{order.shippingAddress.address}}</p>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div>
-        <p>ชื่อลูกค้า</p>
-      </div>
-      <div item-end>
-        <p> {{order.shippingAddress.name}}</p>
-      </div>
-    </ion-item>
-    <ion-item>
-      <div>
         <p>ราคา</p>
       </div>
       <div item-end>
-        <p>{{order.item.product.price}}</p>
+        <h5>{{order.item.product.price}}</h5>
       </div>
     </ion-item>
     <ion-item>
@@ -99,7 +65,7 @@
         <p>จำนวน</p>
       </div>
       <div item-end>
-        <p>{{order.item.qty}}</p>
+        <h5>{{order.item.qty}}</h5>
       </div>
     </ion-item>
     <ion-item>
@@ -107,7 +73,7 @@
         <p>รวม</p>
       </div>
       <div item-end>
-        <p>{{order.item.amount}}</p>
+        <h5>{{order.item.amount}}</h5>
       </div>
     </ion-item>
   </ion-list>
