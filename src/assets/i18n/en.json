@@ -70,6 +70,13 @@
     "SEARCH_LOCATION": "Confirm location",
     "PRIVACY_POLICY": "Privacy Policy",
     "ISSALE":"Ready For Sale",
-    "PRODUCT_DETAIL":"Product Detail"
+    "PRODUCT_DETAIL":"Product Detail",
+    "AMOUNT":"Amount",
+    "TOTAL":"Total",
+    "QTY":"Qty",
+    "SHIPPING_ADDRESS":"Shipping address",
+    "ORDER_NO":"Order no.",
+    "ORDER_DATE":"Order date",
+    "CUSTOMER":"Customer"
 
 }
