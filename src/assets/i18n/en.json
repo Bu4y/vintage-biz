@@ -67,7 +67,7 @@
     "ENGLISH": "English",
     "THAI": "Thai",
     "CONFIRM_LOCATION": "Confirm location",
-    "SEARCH_LOCATION": "Confirm location",
+    "SEARCH_LOCATION": "Search location",
     "PRIVACY_POLICY": "Privacy Policy",
     "ISSALE":"Ready For Sale",
     "PRODUCT_DETAIL":"Product Detail",
@@ -77,6 +77,7 @@
     "SHIPPING_ADDRESS":"Shipping address",
     "ORDER_NO":"Order no.",
     "ORDER_DATE":"Order date",
-    "CUSTOMER":"Customer"
+    "CUSTOMER":"Customer",
+    "DECLINE":"Decline"
 
 }

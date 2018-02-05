@@ -71,11 +71,11 @@
     "PRIVACY_POLICY": "นโยบาย",
     "ISSALE":"พร้อมขาย",
     "PRODUCT_DETAIL":"รายละเอียดสินค้า",
-    "QUANTITY":"จำนวน",
+    "QTY":"จำนวน",
     "TOTAL":"รวม",
     "SHIPPING_ADDRESS":"ที่อยู่จัดส่ง",
     "ORDER_NO":"เลขที่ออร์เดอร์",
     "ORDER_DATE":"วันที่สั่งซื้อ",
-    "CUSTOMER":"ชื่อลูกค้า"
+    "DECLINE":"ปฏิเสธ"
 
 }
