@@ -44,20 +44,20 @@ export class OrderDetailPage {
     alert.addInput({
       type: 'radio',
       label: 'สินค้าหมด',
-      value: 'value1',
+      value: 'สินค้าหมด',
       checked: true
     });
 
     alert.addInput({
       type: 'radio',
       label: 'ไม่มีสินค้า',
-      value: 'value2'
+      value: 'ไม่มีสินค้า'
     });
 
     alert.addInput({
       type: 'radio',
       label: 'ร้านค้าปิด',
-      value: 'value3'
+      value: 'ร้านค้าปิด'
     });
 
 
