@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar color="maintheme">
+  <ion-navbar color="whity">
     <ion-buttons right>
       <button ion-button icon-only (click)="closeModel()">
         <ion-icon name="close-circle"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center *ngIf="firstLogin && firstLogin.editMode">{{'EDIT_TIMES'| translate}}</ion-title>
-    <ion-title text-center *ngIf="firstLogin && !firstLogin.editMode">{{'ADD_TIMES'| translate}}</ion-title>
+    <ion-title *ngIf="firstLogin && firstLogin.editMode">{{'EDIT_TIMES'| translate}}</ion-title>
+    <ion-title *ngIf="firstLogin && !firstLogin.editMode">{{'ADD_TIMES'| translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
