@@ -23,7 +23,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="main">
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
@@ -66,6 +66,8 @@
       </ion-avatar>
       {{'SETTING'| translate}}
     </button>
+  </ion-list>
+  <ion-list>
     <button ion-item item-start (click)="logout()">
       <ion-avatar item-start>
         <img src="./assets/more/logout.png">
