@@ -83,7 +83,8 @@
     "SHIPPING":"Shipping",
     "Q_A":"Question & Answer",
     "CURRENT_PASSWORD":"Current Password",
-    "์NEW_PASSWORD":"New Password",
-    "์CONFIRM_NEW_PASSWORD":"Confirm New Password"
+    "NEW_PASSWORD":"New Password",
+    "CONFIRM_NEW_PASSWORD":"Confirm New Password",
+    "SUBMIT":"Submit"
 
 }
