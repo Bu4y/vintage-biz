@@ -78,6 +78,8 @@
     "ORDER_NO":"Order no.",
     "ORDER_DATE":"Order date",
     "CUSTOMER":"Customer",
-    "DECLINE":"Decline"
+    "DECLINE":"Decline",
+    "CHANGE_PASSWORD":"Change Password",
+    "Q_A":"Question & Answer"
 
 }
