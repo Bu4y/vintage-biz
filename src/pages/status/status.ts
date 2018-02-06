@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Content, Platform } from 'ionic-angular';
+import { StatusServiceProvider } from './status-service';
+import { OrderModel } from '../../assets/model/order.model';
 
 /**
  * Generated class for the StatusPage page.
@@ -23,31 +25,32 @@ export class StatusPage {
   isRight: boolean = true;
   isLeft: boolean = true;
   tabs: any = [];
-
+  orders: Array<OrderModel>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public platform: Platform
+    public platform: Platform,
+    public statusService: StatusServiceProvider
   ) {
     this.tabs = ["ORDER", "ยังไม่ชำระ", "รอการจัดส่ง", "รอรับสินค้า", "รับแล้ว", "ยกเลิก"];
     console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 
   }
-  doRefresh(refresher) {
-    setTimeout(() => {
-      refresher.complete();
-    }, 1500);
-  }
-  ionViewDidEnter() {
+  // doRefresh(refresher) {
+  //   setTimeout(() => {
+  //     refresher.complete();
+  //   }, 1500);
+  // }
+  ionViewWillEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
     for (let i in this.tabs)
       this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
 
     this.selectTab(0);
+    this.getOrders();
   }
-
   scrollIndicatiorTab() {
     this.ItemsTitles.scrollTo(this.calculateDistanceToSpnd(this.SwipedTabsSlider.getActiveIndex()) - this.screenWidth_px / 2, 0);
   }
@@ -115,5 +118,17 @@ export class StatusPage {
     if (!this.isRight && !this.isLeft)
       this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[this.SwipedTabsSlider.getActiveIndex()] + "px";
 
+  }
+
+  getOrders() {
+    this.statusService.getOrderList().then(data => {
+      this.orders = data;
+      console.log(this.orders);
+    }, err => {
+      console.log(err);
+    })
+  }
+  gotoDetail(item) {
+    this.navCtrl.push('OrderDetailPage', item);
   }
 }

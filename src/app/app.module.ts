@@ -31,6 +31,7 @@ import { Crop } from '@ionic-native/crop';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagecoverProvider } from '../providers/imagecover/imagecover';
 import { OrderServiceProvider } from '../pages/order/order-service';
+import { StatusServiceProvider } from '../pages/status/status-service';
 @NgModule({
   declarations: [
     MyApp
@@ -74,7 +75,8 @@ import { OrderServiceProvider } from '../pages/order/order-service';
     Crop,
     Camera,
     ImagecoverProvider,
-    OrderServiceProvider
+    OrderServiceProvider,
+    StatusServiceProvider
   ]
 })
 export class AppModule { }
