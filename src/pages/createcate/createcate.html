@@ -12,8 +12,8 @@
         <ion-icon name="ios-close-circle"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center *ngIf="cate._id">{{'EDIT_CATEGORY' | translate}}</ion-title>
-    <ion-title text-center *ngIf="!cate._id">{{'CREATE_CATEGORY' | translate}}</ion-title>
+    <ion-title *ngIf="cate._id">{{'EDIT_CATEGORY' | translate}}</ion-title>
+    <ion-title *ngIf="!cate._id">{{'CREATE_CATEGORY' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
