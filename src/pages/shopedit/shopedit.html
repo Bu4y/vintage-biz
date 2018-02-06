@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="maintheme">
-    <ion-title text-center>{{'EDIT_SHOP'| translate}}</ion-title>
+    <ion-title>{{'EDIT_SHOP'| translate}}</ion-title>
     <ion-buttons right>
       <button ion-button icon-only [disabled]="categories && categories.length == 0 || !editData.name || !editData.email || !editData.tel"
         (click)="save()">
