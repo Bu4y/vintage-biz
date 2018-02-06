@@ -23,13 +23,25 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
-      </ion-refresher>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
+  </ion-refresher>
   <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
     <ion-slide class="contentSlide">
       <h1>คำสั่งซื้อ</h1>
+      
+      <ion-list>
+        <ion-item *ngFor="let item of orders" (click)="gotoDetail(item)">
+          <ion-thumbnail item-start>
+            <img src="{{item.productimage}}">
+          </ion-thumbnail>
+          <h2>{{item.productname}}</h2>
+          <p>{{item.created | datetime}}</p>
+          <h2 item-end>{{item.amount}} ฿</h2>
+        </ion-item>
+      </ion-list>
+
     </ion-slide>
     <ion-slide>
       <h1>ยังไม่ชำระ</h1>
