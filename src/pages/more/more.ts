@@ -40,4 +40,7 @@ export class MorePage {
   editProfile() {
     this.navCtrl.push('ProfilePage');
   }
+  onChangePassword(){
+    this.navCtrl.push('ChangePasswordPage')
+  }
 }
