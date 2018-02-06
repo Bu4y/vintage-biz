@@ -79,6 +79,8 @@
     "ORDER_DATE":"Order date",
     "CUSTOMER":"Customer",
     "DECLINE":"Decline",
-    "SHIPPING":"Shipping"
+    "CHANGE_PASSWORD":"Change Password",
+    "SHIPPING":"Shipping",
+    "Q_A":"Question & Answer"
 
 }

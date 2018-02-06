@@ -1,29 +1,100 @@
 page-status {
-    .content {
-        background-color: #e6e6e6 !important;
+    .SwipedTabs-indicatorSegment {
+        -webkit-transition: 0.2s all;
+        -moz-transition: 0.2s all;
+        -o-transition: 0.2s all;
+        transition: 0.2s all;
+        transform-origin: top 0 left 0;
+        height: 2px;
+        position: relative;
+        top: -2px;
+        background-color: $app !important;
     }
-    .list {
-        margin-bottom: 8px;
-        .label {
-            margin: 13px 8px 0px 0;
+    .SwipedTabs-tabs ion-segment-button {
+        border: none !important;
+        color: $app !important;
+        background-color: white!important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+        color: $app !important;
+        font-weight: bold;
+    }
+    .SwipedTabs-tabs {
+        width: fit-content !important;
+    }
+    .toolbar * {
+        margin: 0 !important;
+    }
+    .tabsContent .scroll-content {
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+    }
+    .tabsContent {
+        height: 50px !important;
+    }
+    .segment-button {
+        max-width: initial !important;
+        flex: auto !important;
+        width: initial !important;
+    }
+    .contentSlide {
+        display: unset;
+    }
+    ion-scroll {
+        position: unset;
+    }
+    background-color: #f8f8f8 !important;
+    padding: 6px 0px 6px 0px;
+    .product {
+        margin-top: -9px;
+        .product-name {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .list-header {
-            color: #607D8B;
-            font-size: 20px;
+        .list-item {
+            margin: 10px 0px 0px 0px;
         }
-        .list-description {
-            margin: -8px 0px 0px 0px !important;
-            font-size: 14px;
+        .label-md[stacked] {
+            color: #000;
         }
-        .icon {
-            margin-right: 4px;
-            font-size: 30px;
+        .item {
+            padding-left: 6px !important;
         }
-        .grid-summary {
-            margin-top: 8px;
-            p {
-                font-size: 18px !important;
+        // .input-cover {
+        //     height: 0px;
+        // }
+        // ion-select {
+        //     max-width: 70% !important;
+        // }
+        .orders {
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .shipping {
+            .item {
+                background-color: #ffffff;
+                border-top: 1px solid #dbdbdb;
+                min-height: 36px !important;
+                height: 36px !important;
             }
+            ion-label {
+                margin: 2px 2px 2px 4px !important;
+                font-size: 14px;
+            }
+            .price {
+                color: $app;
+            }
+        }
+    }
+}
+.ios {
+    page-status {
+        .SwipedTabs-indicatorSegment {
+            position: relative;
+            top: 44px !important;
         }
     }
 }

@@ -9,60 +9,85 @@
   <ion-navbar color="maintheme">
     <ion-title>{{'STATUS'| translate}}</ion-title>
   </ion-navbar>
-
+  <ion-toolbar>
+    <ion-content #MultiItemsScrollingTabs class="tabsContent">
+      <ion-segment class="SwipedTabs-tabs">
+        <ion-segment-button *ngFor='let tab of tabs ; let i = index ' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)"
+          [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+          {{tab | translate}}
+        </ion-segment-button>
+      </ion-segment>
+      <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
+    </ion-content>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
-  </ion-refresher>
+  </ion-refresher> -->
+  <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
+    (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
 
-  <ion-list class="list" *ngFor="let item of [1,2,3,4];  let i = index">
-    <button ion-item>
-      <h2 class="list-header">
-        <b>NO. B65234{{i}}</b>
-      </h2>
-      <p>
-        <ion-icon name="ios-pin-outline" color="secondary"></ion-icon>
-        <span class="list-description">
-          89/381 Moo.3 Samsen 13180, Thailand
-        </span>
-      </p>
-      <p>
-        <ion-icon name="ios-pin-outline" color="bite"></ion-icon>
-        <span class="list-description">
-          69 Lamlukka 5 12150, Thailand
-        </span>
-      </p>
+    <ion-slide class="contentSlide">
+      <ion-scroll scrollY="true">
+        <div class="product" *ngFor="let item of orders">
+          <ion-list class="list-item orders">
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="{{item.productimage}}">
+              </ion-thumbnail>
+              <ion-label stacked>
+                <h2 class="product-name">{{item.productname}}</h2>
+                <p>{{item.amount}} บาท</p>
+                <p>{{item.created | datetime}}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-scroll>
 
-      <ion-grid class="grid-summary">
-        <ion-row>
-          <ion-col col-6 text-left>
-            <p>
-              <b>Delivery Free</b>
-            </p>
-          </ion-col>
-          <ion-col col-6 text-right>
-            <p>
-              <b>125฿</b>
-            </p>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-6 text-left>
-            <p>
-              <b>Total</b>
-            </p>
-          </ion-col>
-          <ion-col col-6 text-right>
-            <p>
-              <b>125฿</b>
-            </p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-    </button>
-  </ion-list>
+    </ion-slide>
+    <ion-slide class="contentSlide">
+      <ion-scroll scrollY="true">
+        <div class="product" *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
+          <ion-list class="list-item">
+            <ion-item>
+              <ion-thumbnail item-start>
+                <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063">
+              </ion-thumbnail>
+              <ion-label stacked>
+                <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
+                <p>1,500 บาท</p>
+                <p>จำนวน: 2</p>
+                <p>วิธีการจัดส่ง: ส่งฟรี</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-list class="shipping">
+            <ion-item>
+              <ion-label text-left>
+                <b>วันที่รับสินค้า 03/01/18</b>
+              </ion-label>
+              <ion-label text-right class="price">
+                <b>ราคารวม: 3,000 บาท</b>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-scroll>
+    </ion-slide>
+    <ion-slide>
+      <h1>รอการจัดส่ง</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>รอรับสินค้า</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>รับแล้ว</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>ยกเลิก</h1>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
