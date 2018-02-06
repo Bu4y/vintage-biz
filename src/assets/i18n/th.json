@@ -82,6 +82,6 @@
     "Q_A":"คำถามที่พบบ่อย",
     "NEW_PASSWORD":"รหัสผ่านใหม่",
     "CURRENT_PASSWORD":"รหัสผ่านเดิม",
-    "CONFIRM_NEW_PASSWORD":"ยืนยันรหัสผ่านใหม่"
-
+    "CONFIRM_NEW_PASSWORD":"ยืนยันรหัสผ่านใหม่",
+    "SUBMIT":"ตกลง"
 }
