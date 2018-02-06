@@ -23,7 +23,7 @@ export class CreateproductPage {
   // images: Array<any> = [];
   shippings: Array<ShippingMasterModel> = [];
   selectedshippings = [];
-  customShippings= [];
+  customShippings = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -37,6 +37,7 @@ export class CreateproductPage {
   ) {
     this.createprod.shippings = [];
     if (this.navParams.data._id) {
+      let customShippings = [];
       let loading = this.loading.create();
       loading.present();
       this.shopServiceProvider.getProduct(this.navParams.data._id).then((data) => {
@@ -55,6 +56,10 @@ export class CreateproductPage {
         this.createprod.promotionprice = data.promotionprice ? data.promotionprice : null;
         this.createprod.startdate = data.startdate;
         this.createprod.expiredate = data.expiredate;
+        this.createprod.shippings = data.shippings;
+        // let customShippings = [];
+        console.log(this.createprod);
+        this.getShippingmaster();
         loading.dismiss();
       }, (err) => {
         loading.dismiss();
@@ -65,8 +70,8 @@ export class CreateproductPage {
       this.createprod.index = this.navParams.data.index;
       this.createprod.categories = this.navParams.data.cate;
       this.createprod.images = this.navParams.data.images;
+      this.getShippingmaster();
     }
-    this.getShippingmaster();
   }
 
   ionViewDidLoad() {
@@ -76,6 +81,12 @@ export class CreateproductPage {
     this.shopServiceProvider.getShippingmaster().then((data) => {
       console.log(data);
       this.shippings = data;
+      if (this.createprod.shippings && this.createprod.shippings.length > 0) {
+        this.createprod.shippings.forEach(element => {
+          this.selectedshippings.push(element.ref._id);
+        });
+        this.selectedshipping();
+      }
     }, (err) => {
       console.log(err);
     })
@@ -221,6 +232,15 @@ export class CreateproductPage {
     this.createprod.images.splice(i, 1);
   }
   save() {
+    let shippings = [];
+    this.customShippings.forEach(function (item) {
+      shippings.push({
+        ref: item._id,
+        price: item.price
+      });
+    })
+
+    this.createprod.shippings = shippings;
     console.log(this.createprod);
     this.viewCtrl.dismiss(this.createprod);
   }
@@ -244,6 +264,15 @@ export class CreateproductPage {
         }
       });
     });
+    if (this.createprod.shippings && this.createprod.shippings.length > 0) {
+      this.createprod.shippings.forEach(element => {
+        customShippings.forEach(item=>{
+          if(element.ref._id === item._id){
+            item.price = element.price;
+          }
+        });
+      });
+    }
     this.customShippings = customShippings;
   }
 
