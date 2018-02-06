@@ -70,6 +70,7 @@ export class CreateproductPage {
       this.createprod.index = this.navParams.data.index;
       this.createprod.categories = this.navParams.data.cate;
       this.createprod.images = this.navParams.data.images;
+      this.createprod.issale = true;
       this.getShippingmaster();
     }
   }
