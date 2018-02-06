@@ -29,12 +29,12 @@
         <ion-row>
           <span class="text-wrap">{{shop.detail}}</span>
         </ion-row>
-        <ion-row>
+        <!-- <ion-row> -->
           <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
           <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
-          <ion-badge color="secondary" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge>
-          <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge>
-        </ion-row>
+          <!-- <ion-badge color="secondary" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
+          <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
+        <!-- </ion-row> -->
 
         <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover')">
           <ion-icon name="camera" color="light"></ion-icon>
