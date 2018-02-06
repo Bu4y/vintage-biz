@@ -6,8 +6,18 @@
 -->
 <ion-header>
 
-  <ion-navbar color="maintheme">
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="maintheme">
+        <ion-icon name="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>{{'MORE'| translate}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="maintheme" (click)="editProfile()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -17,14 +27,50 @@
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
+  <ion-row padding>
+    <ion-col col-12 text-center>
+      <div *ngIf="user && user.profileImageURL">
+        <img src="{{user.profileImageURL}}">
+        <!-- <preload-image [ratio]="{w:1, h:1}" [src]="user.profileImageURL" [isIcon]="true"></preload-image> -->
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12 text-center>
+      <h4 class="name">{{user.displayName}}</h4>
+      <!-- <h4>Jakkrich Jongklangthawatchkij</h4> -->
+    </ion-col>
+  </ion-row>
   <ion-list>
-    <button ion-item item-start (click)="logout()">
-      <ion-icon name="md-log-out" item-start></ion-icon>
-      {{'LOGOUT'| translate}}
+    <button ion-item item-start>
+      <ion-avatar item-start>
+        <img src="./assets/more/wallet.png">
+      </ion-avatar>
+      {{'WALLET'| translate}}
+    </button>
+    <button ion-item item-start>
+      <ion-avatar item-start>
+        <img src="./assets/more/key.png">
+      </ion-avatar>
+      {{'CHANGE_PASSWORD'| translate}}
+    </button>
+    <button ion-item item-start>
+      <ion-avatar item-start>
+        <img src="./assets/more/question.png">
+      </ion-avatar>
+      {{'Q_A'| translate}}
     </button>
     <button ion-item item-start (click)="onSetting()">
-      <ion-icon name="md-settings" item-start></ion-icon>
+      <ion-avatar item-start>
+        <img src="./assets/more/settings.png">
+      </ion-avatar>
       {{'SETTING'| translate}}
+    </button>
+    <button ion-item item-start (click)="logout()">
+      <ion-avatar item-start>
+        <img src="./assets/more/logout.png">
+      </ion-avatar>
+      {{'LOGOUT'| translate}}
     </button>
   </ion-list>
 </ion-content>
