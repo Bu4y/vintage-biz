@@ -50,7 +50,18 @@
           <textarea rows="4" [(ngModel)]="createprod.detail">
           </textarea>
         </ion-item>
-        <ion-list>
+        <ion-item>
+          <ion-label color="topic">{{'SHIPPING'| translate}}</ion-label>
+          <ion-select [(ngModel)]="selectedshippings" multiple="true" (ngModelChange)="selectedshipping()">
+            <ion-option *ngFor="let item of shippings" value="{{item._id}}">{{item.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item *ngFor="let item of customShippings">
+          <ion-label color="topic" >{{item.detail}}</ion-label>
+          <ion-input type="number" [(ngModel)]="item.price" text-right>
+          </ion-input>
+        </ion-item>
+        <!-- <ion-list> -->
           <ion-item>
             <ion-label color="topic">{{'ISSALE'| translate}}</ion-label>
             <ion-toggle color="maintheme" [(ngModel)]="createprod.issale"></ion-toggle>
@@ -66,7 +77,7 @@
             <ion-toggle color="maintheme" [(ngModel)]="createprod.ispromotionprice" (ionChange)="checkedPromotion()"></ion-toggle>
           </ion-item>
 
-        </ion-list>
+        <!-- </ion-list> -->
         <ion-item *ngIf="createprod.ispromotionprice">
           <ion-label color="topic" floating>{{'PROMOTION_PRICE'| translate}}</ion-label>
           <ion-input type="number" [(ngModel)]="createprod.promotionprice"></ion-input>

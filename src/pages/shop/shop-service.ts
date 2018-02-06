@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Server } from '../../providers/server-config/server-config';
 import { CoreserviceProvider } from '../../providers/coreservice/coreservice';
+import { ShippingMasterModel } from '../../assets/model/shippingmaster.model';
 /*
   Generated class for the ShopServiceProvider provider.
 
@@ -152,6 +153,13 @@ export class ShopServiceProvider {
       .then(response => response as any)
       .catch(this.handleError);
   }
+  getShippingmaster(): Promise<Array<ShippingMasterModel>> {
+    return this.http.get(this.server.url + 'api/shippingmasters')
+      .toPromise()
+      .then(response => response as Array<ShippingMasterModel>)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }

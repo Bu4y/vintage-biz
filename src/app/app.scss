@@ -82,6 +82,13 @@ $val) {
     font-size: 30px;
     font-weight: bold;
 }
+.header-md::after {
+    background-image: none !important;
+}
+
+.header-ios .toolbar-ios:last-child .toolbar-background-ios {
+    border-width: 0px !important;
+}
 
 .icon-e-more:before {
     content: "\e901";

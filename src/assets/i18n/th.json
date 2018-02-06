@@ -76,6 +76,7 @@
     "SHIPPING_ADDRESS":"ที่อยู่จัดส่ง",
     "ORDER_NO":"เลขที่ออร์เดอร์",
     "ORDER_DATE":"วันที่สั่งซื้อ",
-    "DECLINE":"ปฏิเสธ"
+    "DECLINE":"ปฏิเสธ",
+    "SHIPPING":"การจัดส่ง"
 
 }

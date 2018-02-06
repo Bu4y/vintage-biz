@@ -78,6 +78,7 @@
     "ORDER_NO":"Order no.",
     "ORDER_DATE":"Order date",
     "CUSTOMER":"Customer",
-    "DECLINE":"Decline"
+    "DECLINE":"Decline",
+    "SHIPPING":"Shipping"
 
 }

@@ -4,6 +4,7 @@ import { ShopServiceProvider } from '../shop/shop-service';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
 import { TranslateService } from '@ngx-translate/core';
+import { ShippingMasterModel } from '../../assets/model/shippingmaster.model';
 
 /**
  * Generated class for the CreateproductPage page.
@@ -20,6 +21,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class CreateproductPage {
   createprod: any = {};
   // images: Array<any> = [];
+  shippings: Array<ShippingMasterModel> = [];
+  selectedshippings = [];
+  customShippings= [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,7 +33,9 @@ export class CreateproductPage {
     private camera: Camera,
     private loading: LoadingController,
     private translate: TranslateService
+
   ) {
+    this.createprod.shippings = [];
     if (this.navParams.data._id) {
       let loading = this.loading.create();
       loading.present();
@@ -60,11 +66,21 @@ export class CreateproductPage {
       this.createprod.categories = this.navParams.data.cate;
       this.createprod.images = this.navParams.data.images;
     }
+    this.getShippingmaster();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateproductPage');
   }
+  getShippingmaster() {
+    this.shopServiceProvider.getShippingmaster().then((data) => {
+      console.log(data);
+      this.shippings = data;
+    }, (err) => {
+      console.log(err);
+    })
+  }
+
   checkedPromotion() {
     if (this.createprod.ispromotionprice === false) {
       this.createprod.promotionprice = null;
@@ -211,4 +227,24 @@ export class CreateproductPage {
   closeDismiss() {
     this.viewCtrl.dismiss();
   }
+  selectedshipping() {
+
+    console.log(this.shippings);
+    let customShippings = [];
+    let shippings = this.shippings;
+    this.selectedshippings.forEach(function (ship) {
+      shippings.forEach(function (shipp) {
+        if (ship === shipp._id.toString()) {
+          customShippings.push({
+            _id: shipp._id,
+            name: shipp.name,
+            detail: shipp.detail,
+            price: 0
+          });
+        }
+      });
+    });
+    this.customShippings = customShippings;
+  }
+
 }
