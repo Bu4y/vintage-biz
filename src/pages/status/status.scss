@@ -1,6 +1,9 @@
 page-status {
-    .toolbar-title {
-        color: $app !important;
+    .toolbar {
+        padding: 0 !important;
+        .toolbar-title {
+            color: $app !important;
+        }
     }
     .tabsHeight {
         height: 34px;
