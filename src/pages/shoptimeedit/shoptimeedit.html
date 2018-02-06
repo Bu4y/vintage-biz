@@ -6,8 +6,8 @@
         <ion-icon name="close-circle"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title *ngIf="editData && editData.editMode">{{'EDIT_TIMES'| translate}}</ion-title>
-    <ion-title *ngIf="editData && !editData.editMode">{{'ADD_TIMES'| translate}}</ion-title>
+    <ion-title text-center *ngIf="editData && editData.editMode">{{'EDIT_TIMES'| translate}}</ion-title>
+    <ion-title text-center *ngIf="editData && !editData.editMode">{{'ADD_TIMES'| translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
