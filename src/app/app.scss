@@ -18,9 +18,15 @@ ion-app {
 // content {
 //     font-family: 'Kanit', sans-serif !important;
 // }
+ion-content {
+    background-color: #f7f7f7 !important;
+}
+ion-footer {
+    background-color: #f7f7f7 !important;
+}
 .toolbar-title{
     text-align: center;
-    color: #3c6233;
+    color: $app !important;
     font-weight: bold;
 }
 @font-face {
