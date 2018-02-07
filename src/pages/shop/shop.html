@@ -1,17 +1,17 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar color="whity">
-    <!-- <ion-buttons left *ngIf="user && user.profileImageURL">
+    <ion-buttons left *ngIf="user && user.profileImageURL">
       <button ion-button icon-only (click)="myProfile()">
         <ion-avatar item-start>
           <preload-image class="preload-profile-image" [ratio]="{w:1, h:1}" [src]="user.profileImageURL" [isIcon]="true"></preload-image>
         </ion-avatar>
       </button>
-    </ion-buttons> -->
+    </ion-buttons>
     <ion-title>{{shop.name}}</ion-title>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content>
@@ -32,7 +32,7 @@
         <!-- <ion-row> -->
           <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
           <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
-          <!-- <ion-badge color="secondary" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
+          <!-- <ion-badge color="maintheme" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
           <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
         <!-- </ion-row> -->
 
@@ -99,7 +99,7 @@
         </div>
         <div class="issale" *ngIf="itm.name">
           <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
-          <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="secondary"></ion-icon>
+          <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
         </div>
         <div [ngClass]="itm.name ? 'product-string' : ''">
           <p class="magin-0" *ngIf="itm.name">{{itm.name}}</p>
@@ -113,7 +113,7 @@
         <preload-image [ratio]="{w:1, h:1}" [src]="itm.image === './assets/imgs/add.jpg' ? './assets/imgs/add1.jpg' : itm.image"></preload-image>
         <div class="issale" *ngIf="itm.name">
           <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
-          <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="secondary"></ion-icon>
+          <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
         </div>
         <div [ngClass]="itm.name ? 'product-string' : ''">
           <p class="magin-0" *ngIf="itm.name">{{itm.name}}</p>
@@ -125,7 +125,7 @@
   </ion-grid>
 
   <ion-fab right bottom *ngIf="isModify">
-    <button ion-fab color="secondary" (click)="clearMode()">
+    <button ion-fab color="maintheme" (click)="clearMode()">
       <ion-icon class="larger" name="md-checkmark"></ion-icon>
     </button>
   </ion-fab>

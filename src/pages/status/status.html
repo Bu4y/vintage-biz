@@ -112,7 +112,7 @@
             <ion-row>
               <ion-col>
                 <!-- <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button> -->
-                <button class="btn" full small ion-button item-end color="danger">Reject</button>
+                <button class="btn" full small ion-button item-end color="danger" (click)="rejectOrder()">Reject</button>
               </ion-col>
               <ion-col>
                 <button class="btn" full small ion-button item-end color="maintheme" (click)="refId()">Sent</button>
@@ -203,7 +203,7 @@
     <ion-slide>
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
-          <div class="product" *ngFor="let item of [1,2,3,4,5]">
+          <div class="product" *ngFor="let item of [1,2,3,4,5];let i = index">
             <ion-list class="list-item">
               <ion-item>
                 <ion-thumbnail item-start>
@@ -216,7 +216,8 @@
                   <p>1,500 บาท</p>
                   <p>จำนวน: 2</p>
                   <p class="danger">
-                    <b>ยกเลิก</b>
+                    <b>{{i === 1 || i === 2 ? 'ลูกค้ายกเลิก':'ร้านค้ายกเลิก'}}</b>
+                    <label class="topic">{{i === 1 || i === 2 ? '':'สินค้าไม่เพียงพอต่อการจำหน่าย'}}</label>
                   </p>
                 </ion-label>
               </ion-item>

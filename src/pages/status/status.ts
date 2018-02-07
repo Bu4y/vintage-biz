@@ -163,4 +163,31 @@ export class StatusPage {
     });
     prompt.present();
   }
+  rejectOrder(){
+    let prompt = this.alertCtrl.create({
+      title: 'Reject Order',
+      message: "Enter your Reject Order",
+      inputs: [
+        {
+          name: 'Reject Order',
+          placeholder: 'Reject Order'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 }
