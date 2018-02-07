@@ -11,12 +11,12 @@
 </ion-header>
 
 
-<ion-content padding no-lines>
+<ion-content no-lines>
   <ion-row>
     <ion-col col-3>
     </ion-col>
     <ion-col text-center>
-      <div *ngIf="firstLogin && firstLogin.profileImageURL">
+      <div class="imgFirstLogin" *ngIf="firstLogin && firstLogin.profileImageURL">
         <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image>
         <!-- <img src="{{firstLogin.profileImageURL}}" alt="Avatar"> -->
         <!-- <img src="./assets/imgs/logo-bg.png" style="height: 165px;width:100%;" alt="image"> -->

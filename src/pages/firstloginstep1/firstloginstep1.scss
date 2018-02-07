@@ -1,4 +1,10 @@
 page-firstloginstep1 {
+    .col {
+        padding: 0 !important;
+    }
+    .imgFirstLogin {
+        margin: 15px 0px 15px 0px;
+    }
     img {
         object-fit: cover !important;
         border-radius: 50%;

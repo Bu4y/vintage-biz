@@ -2,11 +2,21 @@ page-shopedit {
     // .roundedclass {
     //     border-radius: 15px;
     // }
+    .content {
+        margin: 5px 0px 0px 0px;
+    }
+    .grid {
+        padding: 0 !important;
+        .col {
+            padding: 0 !important;
+        }
+    }
     .containerclass {
         width: 100%; // height: auto;
         margin-left: auto;
         margin-right: auto;
         border: 1px solid #3c6233;
+        background-color: white;
         margin-bottom: 1vh;
         padding-bottom: 1vh;
     }
@@ -52,7 +62,8 @@ page-shopedit {
         // height: 24vh;
     }
     .row-custom {
-        flex-wrap: inherit !important;
+        // flex-wrap: inherit !important;
+        flex-wrap: nowrap !important;
     }
     .cateimg {
         height: 110px;
