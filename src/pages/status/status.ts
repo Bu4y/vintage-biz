@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Content, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Content, Platform, AlertController } from 'ionic-angular';
 import { StatusServiceProvider } from './status-service';
 import { OrderModel } from '../../assets/model/order.model';
 
@@ -31,7 +31,8 @@ export class StatusPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public platform: Platform,
-    public statusService: StatusServiceProvider
+    public statusService: StatusServiceProvider,
+    public alertCtrl: AlertController
   ) {
     this.tabs = ["ที่ต้องจัดส่ง", "จัดส่งแล้ว", "สำเร็จ", "ยกเลิกแล้ว"];
     console.log('Width: ' + platform.width());
@@ -130,5 +131,32 @@ export class StatusPage {
   }
   gotoDetail(item) {
     this.navCtrl.push('OrderDetailPage', item);
+  }
+  refId(){
+    let prompt = this.alertCtrl.create({
+      title: 'RefID',
+      // message: "Enter your RefID",
+      inputs: [
+        {
+          name: 'RefID',
+          placeholder: 'RefID'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }
