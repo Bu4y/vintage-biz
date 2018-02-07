@@ -17,7 +17,8 @@
     </ion-col>
     <ion-col text-center>
       <div class="imgFirstLogin" *ngIf="firstLogin && firstLogin.profileImageURL">
-        <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image>
+        <!-- <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image> -->
+        <img src="{{firstLogin.profileImageURL}}">
         <!-- <img src="{{firstLogin.profileImageURL}}" alt="Avatar"> -->
         <!-- <img src="./assets/imgs/logo-bg.png" style="height: 165px;width:100%;" alt="image"> -->
         <ion-row class="camera">

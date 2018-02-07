@@ -24,7 +24,8 @@
     </ion-col>
     <ion-col text-center>
       <div class="imgFirstLogin" *ngIf="firstLogin && firstLogin.profileImageURL">
-        <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image>
+        <!-- <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image> -->
+        <img src="{{firstLogin.profileImageURL}}">
         <ion-row class="camera">
           <ion-icon name="camera" color="light" (click)="selectProfile()"></ion-icon>
         </ion-row>
