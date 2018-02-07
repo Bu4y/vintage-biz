@@ -84,7 +84,7 @@
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item">
+            <ion-list class="list-item" (click)="gotoDetail(item)">
               <ion-item>
                 <ion-thumbnail item-start>
                   <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
@@ -111,6 +111,7 @@
             </ion-list>
             <ion-row>
               <ion-col>
+                <!-- <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button> -->
                 <button class="btn" full small ion-button item-end color="danger">Reject</button>
               </ion-col>
               <ion-col>
@@ -127,7 +128,7 @@
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item">
+            <ion-list class="list-item" (click)="gotoDetail(item)">
               <ion-item>
                 <ion-thumbnail item-start>
                   <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
@@ -152,6 +153,11 @@
                 </ion-label>
               </ion-item>
             </ion-list>
+            <ion-row>
+              <ion-col>
+                <button class="btn" full small ion-button item-end color="maintheme" (click)="refId()">Completed</button>
+              </ion-col>
+            </ion-row>
           </div>
         </div>
       </ion-scroll>
@@ -173,8 +179,8 @@
                   <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
                   <p>1,500 บาท</p>
                   <p>จำนวน: 2</p>
-                  <p class="danger">
-                    <b>คืนเงินแล้ว</b>
+                  <p class="maintheme">
+                    <b>สำเร็จ</b>
                   </p>
                 </ion-label>
               </ion-item>
@@ -182,7 +188,7 @@
             <ion-list class="shipping">
               <ion-item>
                 <ion-label text-left>
-                  <b>วันที่ยกเลิก 01/01/18</b>
+                  <b>วันที่สำเร็จ 01/01/18</b>
                 </ion-label>
                 <ion-label text-right class="price">
                   <b>ราคารวม: 3,000 บาท</b>
@@ -210,7 +216,7 @@
                   <p>1,500 บาท</p>
                   <p>จำนวน: 2</p>
                   <p class="danger">
-                    <b>คืนเงินแล้ว2</b>
+                    <b>ยกเลิก</b>
                   </p>
                 </ion-label>
               </ion-item>

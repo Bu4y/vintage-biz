@@ -1,0 +1,103 @@
+<!--
+  Generated template for the StatusDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>รายละเอียด</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="address">
+    <ion-list mode="md">
+      <ion-item>
+        <ion-label>
+          <h2>
+            <b>ที่อยู่จัดส่ง</b>
+          </h2>
+          <p>John doe</p>
+          <p>711-2880 Nulla St. Mankato, Mississippi United States, 96522, (257) 563-7401</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="product-list">
+    <ion-list mode="md">
+      <ion-item>
+        <ion-label>
+          <h2>
+            <b>รายการสินค้า</b>
+          </h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="item-product" mode="md">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
+            alt="">
+          <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+        </ion-thumbnail>
+        <ion-label stacked class="label-margin">
+          <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
+          <p>1,500 {{ 'THB' | translate }}</p>
+          <p>{{ 'QTY' | translate }}: 2</p>
+          <p>{{ 'SHIPPING_TYPE' | translate }}: ส่งฟรี</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="total">
+    <ion-list mode="md">
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <h2>
+                <b>ราคารวม</b>
+              </h2>
+            </ion-col>
+            <ion-col col-6 text-right>
+              <h2>
+                <b>3,000 {{ 'THB' | translate }}</b>
+              </h2>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h2>
+                <b>ส่วนลด</b>
+              </h2>
+            </ion-col>
+            <ion-col col-6 text-right>
+              <h2>
+                <b>100 {{ 'THB' | translate }}</b>
+              </h2>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+              <h2>
+                <b>รวมสุทธิ</b>
+              </h2>
+            </ion-col>
+            <ion-col col-6 text-right>
+              <h2>
+                <b>2,900 {{ 'THB' | translate }}</b>
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

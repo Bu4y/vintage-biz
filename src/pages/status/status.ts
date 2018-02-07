@@ -130,6 +130,10 @@ export class StatusPage {
     })
   }
   gotoDetail(item) {
+    // this.navCtrl.push('OrderDetailPage', item);
+    this.navCtrl.push('StatusDetailPage', item);
+  }
+  gotoDetail2(item) {
     this.navCtrl.push('OrderDetailPage', item);
   }
   refId(){
