@@ -15,20 +15,34 @@
 ion-app {
     font-family: 'Kanit', sans-serif !important;
 }
+
 // content {
 //     font-family: 'Kanit', sans-serif !important;
 // }
 ion-content {
     background-color: #f7f7f7 !important;
 }
+
 ion-footer {
     background-color: #f7f7f7 !important;
 }
-.toolbar-title{
+
+.toolbar-title {
     text-align: center;
     color: $app !important;
     font-weight: bold;
 }
+
+.title.title-md {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 70%;
+    text-align: center;
+}
+
 @font-face {
     font-family: 'icomoon';
     src: url('../assets/fonts/icomoon.eot?2law6p');
@@ -89,6 +103,7 @@ $val) {
     font-size: 30px;
     font-weight: bold;
 }
+
 .header-md::after {
     background-image: none !important;
 }
@@ -112,9 +127,8 @@ $val) {
 }
 
 .icon-e-order:before {
-    content: "\e903";
-    // color: #fff;
-    background-color:white;
+    content: "\e903"; // color: #fff;
+    background-color: white;
     font-size: 84px;
 }
 
@@ -128,9 +142,11 @@ $val) {
 .tabs-ios .tab-button {
     -webkit-text-stroke: 1px !important;
 }
-ion-tabs.tabs{
+
+ion-tabs.tabs {
     text-align: unset !important;
 }
+
 // .tabs-ios {
 //     -webkit-text-stroke: 1px !important;
 // }
