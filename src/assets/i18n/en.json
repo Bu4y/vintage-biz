@@ -85,6 +85,8 @@
     "CURRENT_PASSWORD":"Current Password",
     "NEW_PASSWORD":"New Password",
     "CONFIRM_NEW_PASSWORD":"Confirm New Password",
-    "SUBMIT":"Submit"
+    "SUBMIT":"Submit",
+    "TRANSFER_IN":"Transfer In",
+    "TRANSFER_OUT":"Transfer Out"
 
 }

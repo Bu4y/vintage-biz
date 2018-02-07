@@ -41,6 +41,9 @@ export class MorePage {
     this.navCtrl.push('ProfilePage');
   }
   onChangePassword(){
-    this.navCtrl.push('ChangePasswordPage')
+    this.navCtrl.push('ChangePasswordPage');
+  }
+  gotoWallet(){
+    this.navCtrl.push('WalletPage');
   }
 }
