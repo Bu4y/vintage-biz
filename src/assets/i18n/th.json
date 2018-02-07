@@ -85,5 +85,8 @@
     "CONFIRM_NEW_PASSWORD":"ยืนยันรหัสผ่านใหม่",
     "SUBMIT":"ตกลง",
     "TRANSFER_IN":"ชำระเงินโดย",
-    "TRANSFER_OUT":"ถอนเงิน"
+    "TRANSFER_OUT":"ถอนเงิน",
+    "REJECT":"ปฏิเสธออเดอร์",
+    "SENT":"จัดส่ง",
+    "COMPLETED":"สำเร็จ"
 }
