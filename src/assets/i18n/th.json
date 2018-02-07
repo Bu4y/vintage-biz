@@ -86,7 +86,7 @@
     "SUBMIT":"ตกลง",
     "TRANSFER_IN":"ชำระเงินโดย",
     "TRANSFER_OUT":"ถอนเงิน",
-    "REJECT":"ปฏิเสธออเดอร์",
+    "REJECT":"ปฏิเสธ",
     "SENT":"จัดส่ง",
     "COMPLETED":"สำเร็จ"
 }
