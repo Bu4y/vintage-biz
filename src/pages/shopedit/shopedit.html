@@ -61,7 +61,7 @@
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row style="margin: 5px 0px 0px 0px">
       <ion-col class="containerclass" col-12>
         <ion-item no-lines>
           <ion-label class="fontStyle">
@@ -71,7 +71,7 @@
 
         <ion-scroll scrollX="true" class="slide-xsize">
           <ion-row no-padding class="row-custom">
-            <ion-col col-6 (click)="addTime()">
+            <ion-col col-6 (click)="addTime()" style="margin: 0px 20px 0px 0px">
               <img style="height: 120px; width: 100%;" src="./assets/imgs/add.jpg">
             </ion-col>
             <ion-col col-6 text-left *ngFor="let time of editData.times;let i = index" style="margin-right:20px;">

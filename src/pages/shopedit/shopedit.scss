@@ -5,8 +5,11 @@ page-shopedit {
     .content {
         margin: 5px 0px 0px 0px;
     }
-    .col {
+    .grid {
         padding: 0 !important;
+        .col {
+            padding: 0 !important;
+        }
     }
     .containerclass {
         width: 100%; // height: auto;
@@ -59,7 +62,8 @@ page-shopedit {
         // height: 24vh;
     }
     .row-custom {
-        flex-wrap: inherit !important;
+        // flex-wrap: inherit !important;
+        flex-wrap: nowrap !important;
     }
     .cateimg {
         height: 110px;
