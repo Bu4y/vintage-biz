@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="whity">
     <ion-title>{{'WALLET' | translate}}</ion-title>
   </ion-navbar>
 
@@ -24,7 +24,7 @@
     <ion-col col-6 class="no-padding-left">
       <ion-item>
         <ion-label stacked color="topic">{{'START_DATE' | translate}}</ion-label>
-        <ion-input type="date"></ion-input>
+        <ion-input type="date" placeholder="วว/ดด/ปปปป"></ion-input>
         <!-- <ion-datetime placeholder="{{'START_DATE' | translate}}" displayFormat="DD/MM/YYYY"></ion-datetime> -->
       </ion-item>
     </ion-col>
@@ -32,7 +32,7 @@
       <ion-item>
         <!-- <ion-datetime placeholder="{{'EXPIRE_DATE' | translate}}" displayFormat="DD/MM/YYYY"></ion-datetime> -->
         <ion-label stacked color="topic">{{'EXPIRE_DATE' | translate}}</ion-label>
-        <ion-input type="date"></ion-input>
+        <ion-input type="date" placeholder="วว/ดด/ปปปป"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -43,7 +43,7 @@
       </ion-avatar>
       <h5>{{'TRANSFER_OUT'| translate}}</h5>
       <p>22/10/2018</p>
-      <h5 item-end>-฿ 10000</h5>
+      <h5 item-end class="danger">-฿ 10000</h5>
     </ion-item>
     <ion-item>
       <ion-avatar item-start>
@@ -53,7 +53,7 @@
       <p>เลขที่ออเดอร์ 024732523152</p>
       <p>กระโปรงอย่างดีด้วยผ้าลินิน 2 ชิ้น</p>
       <p>22/10/2018</p>
-      <h5 item-end>+฿ 30000</h5>
+      <h5 item-end class="maintheme">+฿ 30000</h5>
     </ion-item>
     <ion-item>
       <ion-avatar item-start>
@@ -63,7 +63,7 @@
       <p>เลขที่ออเดอร์ 024732523152</p>
       <p>กระโปรงอย่างดีด้วยผ้าลินิน 2 ชิ้น</p>
       <p>22/10/2018</p>
-      <h5 item-end>+฿ 30000</h5>
+      <h5 item-end class="maintheme">+฿ 30000</h5>
     </ion-item>
     <ion-item>
       <ion-avatar item-start>
@@ -73,7 +73,7 @@
       <p>เลขที่ออเดอร์ 024732523152</p>
       <p>กระโปรงอย่างดีด้วยผ้าลินิน 2 ชิ้น</p>
       <p>22/10/2018</p>
-      <h5 item-end>+฿ 30000</h5>
+      <h5 item-end class="maintheme">+฿ 30000</h5>
     </ion-item>
     <ion-item>
       <ion-avatar item-start>
@@ -81,7 +81,7 @@
       </ion-avatar>
       <h5>{{'TRANSFER_OUT'| translate}}</h5>
       <p>22/10/2018</p>
-      <h5 item-end>-฿ 10000</h5>
+      <h5 item-end class="danger">-฿ 10000</h5>
     </ion-item>
   </ion-list>
 </ion-content>
