@@ -1,6 +1,8 @@
 page-status {
-    .toolbar {
+    .toolbar * {
         padding: 0 !important;
+        margin: 0 !important;
+        background-color: white;
         .toolbar-title {
             color: $app !important;
         }

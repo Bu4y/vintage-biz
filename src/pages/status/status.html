@@ -28,7 +28,7 @@
   <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
 
-    <ion-slide>
+    <!-- <ion-slide>
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
             <div class="product" *ngFor="let item of orders" (click)="gotoDetail(item)">
@@ -44,19 +44,12 @@
                   </ion-label>
                 </ion-item>
               </ion-list>
-              <!-- <ion-list class="shipping">
-                <ion-item>
-                  <ion-label text-right class="price">
-                    <b>ราคารวม: 3,000 บาท</b>
-                  </ion-label>
-                </ion-item>
-              </ion-list> -->
             </div>
           </div>
       </ion-scroll>
-    </ion-slide>
+    </ion-slide> -->
 
-    <ion-slide>
+    <!-- <ion-slide>
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of [1,2,3,4,5]">
@@ -84,7 +77,7 @@
           </div>
         </div>
       </ion-scroll>
-    </ion-slide>
+    </ion-slide> -->
 
 
     <ion-slide>

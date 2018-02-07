@@ -33,7 +33,7 @@ export class StatusPage {
     public platform: Platform,
     public statusService: StatusServiceProvider
   ) {
-    this.tabs = ["ORDER", "ยังไม่ชำระ", "รอการจัดส่ง", "รอรับสินค้า", "รับแล้ว", "ยกเลิก"];
+    this.tabs = ["ที่ต้องจัดส่ง", "จัดส่งแล้ว", "สำเร็จ", "ยกเลิกแล้ว"];
     console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 
