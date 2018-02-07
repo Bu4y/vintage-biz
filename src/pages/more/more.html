@@ -12,7 +12,7 @@
         <ion-icon name="md-notifications"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title text-center>{{'MORE'| translate}}</ion-title>
+    <ion-title text-center>{{'PROFILE'| translate}}</ion-title>
     <ion-buttons right>
       <button ion-button icon-only color="maintheme" (click)="editProfile()">
         <ion-icon name="md-create"></ion-icon>
@@ -42,7 +42,7 @@
     </ion-col>
   </ion-row>
   <ion-list>
-    <button ion-item item-start>
+    <button ion-item item-start (click)="gotoWallet()">
       <ion-avatar item-start>
         <img src="./assets/more/wallet.png">
       </ion-avatar>
