@@ -84,15 +84,15 @@ export class Firstloginstep1Page {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 150 : 150,
-      targetWidth: from !== 'cover' ? 150 : 450
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 800
     }
     let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
@@ -114,14 +114,14 @@ export class Firstloginstep1Page {
   galleryCamera(from) {
     this.images = [];
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 150 : 150,
-      targetWidth: from !== 'cover' ? 150 : 450,
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 800,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     let loadingCtrl = this.loading.create();

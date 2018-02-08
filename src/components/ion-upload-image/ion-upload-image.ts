@@ -38,7 +38,7 @@ export class IonUploadImagesComponent {
     let options = {
       maximumImagesCount: this.maximumImagesCount,
       width: 900,
-      quality: 30,
+      quality: 100,
       outputType: 1
     };
 

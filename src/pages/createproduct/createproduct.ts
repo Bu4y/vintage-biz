@@ -132,15 +132,15 @@ export class CreateproductPage {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 150 : 150,
-      targetWidth: from !== 'cover' ? 150 : 450
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 800
     }
     let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
@@ -159,14 +159,14 @@ export class CreateproductPage {
   galleryCamera(from) {
     // this.createprod.images = [];
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: true,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 300 : 300,
-      targetWidth: from !== 'cover' ? 300 : 600,
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 900,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     let loading = this.loading.create();

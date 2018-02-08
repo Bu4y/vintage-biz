@@ -63,7 +63,7 @@ export class ProfilePage {
     let options = {
       maximumImagesCount: maxImg,
       width: 900,
-      quality: 30,
+      quality: 100,
       outputType: 1
     };
     this.imagePicker.getPictures(options).then((results) => {
@@ -214,7 +214,7 @@ export class ProfilePage {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
@@ -252,7 +252,7 @@ export class ProfilePage {
     let options = {
       maximumImagesCount: maxImg,
       width: 900,
-      quality: 30,
+      quality: 100,
       outputType: 0
     };
     this.imagePicker.getPictures(options).then((results) => {

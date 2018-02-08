@@ -267,7 +267,7 @@ export class ShopPage {
     let options = {
       maximumImagesCount: maxImg,
       width: 900,
-      quality: 30,
+      quality: 100,
       outputType: 1
     };
     this.imagePicker.getPictures(options).then((results) => {
@@ -417,15 +417,15 @@ export class ShopPage {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: from !== 'cover' ? true : false,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 150 : 150,
-      targetWidth: from !== 'cover' ? 150 : 450
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 800
     }
     let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
@@ -455,14 +455,14 @@ export class ShopPage {
   galleryCamera(from) {
     this.images = [];
     const options: CameraOptions = {
-      quality: 30,
+      quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
       allowEdit: from !== 'cover' ? true : false,
       correctOrientation: true,
-      targetHeight: from !== 'cover' ? 300 : 300,
-      targetWidth: from !== 'cover' ? 300 : 600,
+      targetHeight: from !== 'cover' ? 600 : 600,
+      targetWidth: from !== 'cover' ? 600 : 900,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     let loading = this.loading.create();
