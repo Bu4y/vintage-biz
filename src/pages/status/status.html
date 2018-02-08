@@ -8,9 +8,7 @@
   <ion-navbar color="whity">
     <ion-title text-center class="maintheme">{{'ORDER'| translate}}</ion-title>
   </ion-navbar>
-</ion-header>
-
-<ion-content>
+  <!-- <ion-toolbar ion-fixed class="tabsHeight"> -->
   <ion-toolbar class="tabsHeight">
     <ion-content #MultiItemsScrollingTabs class="tabsContent">
       <ion-segment class="SwipedTabs-tabs">
@@ -22,6 +20,10 @@
       <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
     </ion-content>
   </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
   <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher> -->
@@ -155,7 +157,7 @@
             </ion-list>
             <ion-row>
               <ion-col>
-                <button class="btn" full small ion-button item-end color="maintheme" (click)="refId()">{{'COMPLETED'| translate}}</button>
+                <button class="btn" full small ion-button item-end color="maintheme">{{'COMPLETED'| translate}}</button>
               </ion-col>
             </ion-row>
           </div>
@@ -168,7 +170,7 @@
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item">
+            <ion-list class="list-item" (click)="gotoDetail(item)">
               <ion-item>
                 <ion-thumbnail item-start>
                   <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
@@ -204,7 +206,7 @@
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">
           <div class="product" *ngFor="let item of [1,2,3,4,5];let i = index">
-            <ion-list class="list-item">
+            <ion-list class="list-item" (click)="gotoDetail(item)">
               <ion-item>
                 <ion-thumbnail item-start>
                   <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"

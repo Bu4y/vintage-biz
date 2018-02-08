@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, Content, Platform, AlertController } from 'ionic-angular';
 import { StatusServiceProvider } from './status-service';
 import { OrderModel } from '../../assets/model/order.model';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the StatusPage page.
@@ -32,7 +33,8 @@ export class StatusPage {
     public navParams: NavParams,
     public platform: Platform,
     public statusService: StatusServiceProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private translate: TranslateService
   ) {
     this.tabs = ["ที่ต้องจัดส่ง", "จัดส่งแล้ว", "สำเร็จ", "ยกเลิกแล้ว"];
     console.log('Width: ' + platform.width());
@@ -137,24 +139,30 @@ export class StatusPage {
     this.navCtrl.push('OrderDetailPage', item);
   }
   refId(){
+    let language = this.translate.currentLang;
+    let refID = language === 'th' ? 'เลขพัสดุ' : 'RefID';
+    let messageRefID = language === 'th' ? 'กรุณากรอกเลขพัสดุ' : 'Please Enter your RefID';
+    
+    let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
+    let textSave = language === 'th' ? 'บันทึก' : 'Save';
     let prompt = this.alertCtrl.create({
-      title: 'RefID',
-      // message: "Enter your RefID",
+      title: refID,
+      message: messageRefID,
       inputs: [
         {
-          name: 'RefID',
-          placeholder: 'RefID'
+          name: refID,
+          placeholder: refID
         },
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: textCancel,
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Save',
+          text: textSave,
           handler: data => {
             console.log('Saved clicked');
           }
@@ -164,24 +172,29 @@ export class StatusPage {
     prompt.present();
   }
   rejectOrder(){
+    let language = this.translate.currentLang;
+    let rejectOrder = language === 'th' ? 'ปฏิเสธคำสั่งซื้อ' : 'Reject Order';
+    let rejectComment = language === 'th' ? 'เหตุผลในการปฏิเสธคำสั่งซื้อ' : 'Please Comment your Reject Order';
+    let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
+    let textSave = language === 'th' ? 'บันทึก' : 'Save';
     let prompt = this.alertCtrl.create({
-      title: 'Reject Order',
-      message: "Enter your Reject Order",
+      title: rejectOrder,
+      message: rejectComment,
       inputs: [
         {
-          name: 'Reject Order',
-          placeholder: 'Reject Order'
+          name: rejectOrder,
+          placeholder: rejectOrder
         },
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: textCancel,
           handler: data => {
             console.log('Cancel clicked');
           }
         },
         {
-          text: 'Save',
+          text: textSave,
           handler: data => {
             console.log('Saved clicked');
           }
