@@ -1,6 +1,6 @@
-<!-- <ion-header>
+<ion-header>
 
-  <ion-navbar color="whity">
+  <!-- <ion-navbar color="whity">
     <ion-buttons left *ngIf="user && user.profileImageURL">
       <button ion-button icon-only (click)="myProfile()">
         <ion-avatar item-start>
@@ -9,13 +9,13 @@
       </button>
     </ion-buttons>
     <ion-title>{{shop.name}}</ion-title>
-  </ion-navbar>
+  </ion-navbar> -->
+  <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
 
-</ion-header> -->
+</ion-header>
 
 
 <ion-content>
-  <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
   <ion-grid class="shop-detail-grid">
     <ion-row>
       <ion-col col-12>
