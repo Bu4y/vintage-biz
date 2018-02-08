@@ -1,5 +1,4 @@
 <ion-header>
-
   <!-- <ion-navbar color="whity">
     <ion-buttons left *ngIf="user && user.profileImageURL">
       <button ion-button icon-only (click)="myProfile()">
@@ -11,21 +10,21 @@
     <ion-title>{{shop.name}}</ion-title>
   </ion-navbar> -->
   <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
-
 </ion-header>
 
-
 <ion-content>
-  <ion-grid class="shop-detail-grid">
-    <ion-row>
+  <!-- <ion-grid class="shop-detail-grid"> -->
+    <ion-row class="shop-detail-grid">
       <ion-col col-12>
-        <ion-row>
+        <!-- <ion-row> -->
           <h4>
             {{shop.name}}
             <ion-icon name="md-create" color="light" (click)="edit(shop)">
             </ion-icon>
           </h4>
-        </ion-row>
+      </ion-col>
+        <!-- </ion-row> -->
+        <ion-col col-12>
         <ion-row>
           <span class="text-wrap">{{shop.detail}}</span>
         </ion-row>
@@ -41,7 +40,7 @@
         </button>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  <!-- </ion-grid> -->
   <div class="padding-5"></div>
   <ion-scroll scrollX="true">
     <ion-row class="row-custom">
