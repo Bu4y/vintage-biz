@@ -75,9 +75,6 @@ page-shop {
         color: #2e2e2e;
         height: 35px;
         padding-top: 2px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         font-weight: 400 !important;
         font-size: 100%;
     }
@@ -110,6 +107,11 @@ page-shop {
         margin: 0;
         padding: 0;
         line-height: 1;
+
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     img {
         object-fit: cover !important;

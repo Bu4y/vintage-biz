@@ -9,37 +9,37 @@
     </ion-buttons>
     <ion-title>{{shop.name}}</ion-title>
   </ion-navbar> -->
-  <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
 </ion-header>
 
 <ion-content>
+  <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
   <!-- <ion-grid class="shop-detail-grid"> -->
-    <ion-row class="shop-detail-grid">
-      <ion-col col-12>
-        <!-- <ion-row> -->
-          <h4>
-            {{shop.name}}
-            <ion-icon name="md-create" color="light" (click)="edit(shop)">
-            </ion-icon>
-          </h4>
-      </ion-col>
-        <!-- </ion-row> -->
-        <ion-col col-12>
-        <ion-row>
-          <span class="text-wrap">{{shop.detail}}</span>
-        </ion-row>
-        <!-- <ion-row> -->
-          <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
-          <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
-          <!-- <ion-badge color="maintheme" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
-          <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
-        <!-- </ion-row> -->
+  <ion-row class="shop-detail-grid">
+    <ion-col col-12>
+      <!-- <ion-row> -->
+      <h4>
+        {{shop.name}}
+        <ion-icon name="md-create" color="light" (click)="edit(shop)">
+        </ion-icon>
+      </h4>
+    </ion-col>
+    <!-- </ion-row> -->
+    <ion-col col-12>
+      <ion-row>
+        <span class="text-wrap">{{shop.detail}}</span>
+      </ion-row>
+      <!-- <ion-row> -->
+      <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
+      <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
+      <!-- <ion-badge color="maintheme" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
+      <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
+      <!-- </ion-row> -->
 
-        <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover')">
-          <ion-icon name="camera" color="light"></ion-icon>
-        </button>
-      </ion-col>
-    </ion-row>
+      <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover')">
+        <ion-icon name="camera" color="light"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
   <!-- </ion-grid> -->
   <div class="padding-5"></div>
   <ion-scroll scrollX="true">
