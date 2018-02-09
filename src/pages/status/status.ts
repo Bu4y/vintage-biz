@@ -4,6 +4,7 @@ import { StatusServiceProvider } from './status-service';
 // import { OrderModel } from '../../assets/model/order.model';
 import { TranslateService } from '@ngx-translate/core';
 import { StatusModel } from '../../assets/model/status.model';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 /**
  * Generated class for the StatusPage page.
@@ -36,11 +37,11 @@ export class StatusPage {
     public statusService: StatusServiceProvider,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
-
-    private translate: TranslateService
+    private translate: TranslateService,
+    private loading: LoadingController
   ) {
     this.tabs = ["ที่ต้องจัดส่ง", "จัดส่งแล้ว", "สำเร็จ", "ยกเลิกแล้ว"];
-    console.log('Width: ' + platform.width());
+    // console.log('Width: ' + platform.width());
     this.screenWidth_px = platform.width();
 
   }
@@ -127,10 +128,15 @@ export class StatusPage {
   }
 
   getOrders() {
-    this.statusService.getOrder().then(data => {
+    let id = window.localStorage.getItem('shopID');
+    let loading = this.loading.create();
+    loading.present();
+    this.statusService.getOrder(id).then(data => {
       this.orders = data;
-      // console.log(this.orders);
+      console.log(this.orders);
+      loading.dismiss();
     }, err => {
+      loading.dismiss();
       console.log(err);
     })
   }

@@ -84,6 +84,7 @@ export class ShopPage {
     loading.present();
     this.shopServiceProvider.getShop().then(data => {
       this.shop = data;
+      window.localStorage.setItem('shopID', this.shop._id);
       if (data.items && data.items.length > 0) {
         let index = this.index > 0 ? this.index : 0;
         this.cate = data.items[index].cate;
