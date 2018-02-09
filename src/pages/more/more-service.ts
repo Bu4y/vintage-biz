@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
+import { CoreserviceProvider } from '../../providers/coreservice/coreservice';
+import { Server } from '../../providers/server-config/server-config';
 
 /*
   Generated class for the MoreServiceProvider provider.
@@ -10,8 +14,25 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MoreServiceProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    public coreService: CoreserviceProvider,
+    public server: Server
+  ) {
     console.log('Hello MoreServiceProvider Provider');
+  }
+
+  changePassword(auth): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+
+    return this.http.post(this.server.url + 'api/users/password', auth, { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    return Promise.reject(error.message || error);
   }
 
 }

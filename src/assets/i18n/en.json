@@ -91,6 +91,7 @@
     "REJECT":"Reject",
     "SENT":"Sent",
     "COMPLETED":"Completed",
-    "NOTIFICATION":"Notification"
+    "NOTIFICATION":"Notification",
+    "CONTACT":"Contact"
 
 }

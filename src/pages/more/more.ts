@@ -49,4 +49,7 @@ export class MorePage {
   notification(){
     this.navCtrl.push('NotificationPage');
   }
+  gotoContact(){
+    this.navCtrl.push('ContactPage');
+  }
 }

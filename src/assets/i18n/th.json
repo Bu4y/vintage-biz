@@ -89,5 +89,6 @@
     "REJECT":"ปฏิเสธ",
     "SENT":"จัดส่ง",
     "COMPLETED":"สำเร็จ",
-    "NOTIFICATION":"การแจ้งเตือน"
+    "NOTIFICATION":"การแจ้งเตือน",
+    "CONTACT":"ติดต่อเรา"
 }

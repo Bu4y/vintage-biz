@@ -14,3 +14,9 @@ export class UserModel {
     coin: number;
     notificationids: Array<string>;
 }
+
+export class ChangePasswordModel {
+    newPassword: string;
+    verifyPassword: string;
+    currentPassword: string;
+}
