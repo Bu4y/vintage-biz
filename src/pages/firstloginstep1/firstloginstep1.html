@@ -60,6 +60,14 @@
   <ion-row>
     <ion-col col-12>
       <ion-item>
+        <ion-label floating color="topic">{{'EMAIL' | translate}}</ion-label>
+        <ion-input type="email" [(ngModel)]="firstLogin.email" disabled="true"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      <ion-item>
         <ion-label floating color="topic">{{'CITIZEN_ID' | translate}}</ion-label>
         <ion-input type="number" [(ngModel)]="firstLogin.citizenid"></ion-input>
       </ion-item>
