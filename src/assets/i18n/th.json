@@ -88,5 +88,6 @@
     "TRANSFER_OUT":"ถอนเงิน",
     "REJECT":"ปฏิเสธ",
     "SENT":"จัดส่ง",
-    "COMPLETED":"สำเร็จ"
+    "COMPLETED":"สำเร็จ",
+    "NOTIFICATION":"การแจ้งเตือน"
 }

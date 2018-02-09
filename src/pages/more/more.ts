@@ -46,4 +46,7 @@ export class MorePage {
   gotoWallet(){
     this.navCtrl.push('WalletPage');
   }
+  notification(){
+    this.navCtrl.push('NotificationPage');
+  }
 }

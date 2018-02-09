@@ -90,6 +90,7 @@
     "TRANSFER_OUT":"Transfer Out",
     "REJECT":"Reject",
     "SENT":"Sent",
-    "COMPLETED":"Completed"
+    "COMPLETED":"Completed",
+    "NOTIFICATION":"Notification"
 
 }

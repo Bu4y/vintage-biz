@@ -32,6 +32,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagecoverProvider } from '../providers/imagecover/imagecover';
 import { OrderServiceProvider } from '../pages/order/order-service';
 import { StatusServiceProvider } from '../pages/status/status-service';
+import { MoreServiceProvider } from '../pages/more/more-service'
 @NgModule({
   declarations: [
     MyApp
@@ -76,7 +77,8 @@ import { StatusServiceProvider } from '../pages/status/status-service';
     Camera,
     ImagecoverProvider,
     OrderServiceProvider,
-    StatusServiceProvider
+    StatusServiceProvider,
+    MoreServiceProvider
   ]
 })
 export class AppModule { }
