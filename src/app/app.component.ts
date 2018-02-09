@@ -21,8 +21,8 @@ export class MyApp {
     splashScreen: SplashScreen,
     translate: TranslateService) {
     translate.addLangs(['en', 'th']);
-    translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
+    translate.setDefaultLang(browserLang === 'th' ? 'en' : 'th');
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

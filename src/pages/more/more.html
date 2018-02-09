@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only color="maintheme">
+      <button ion-button icon-only color="maintheme" (click)="notification()">
         <ion-icon name="md-mail"></ion-icon>
       </button>
     </ion-buttons>
@@ -54,11 +54,17 @@
       </ion-avatar>
       {{'CHANGE_PASSWORD'| translate}}
     </button>
-    <button ion-item item-start>
+    <button ion-item item-start (click)="gotoQuestion()">
       <ion-avatar item-start>
         <img src="./assets/more/question.png">
       </ion-avatar>
       {{'Q_A'| translate}}
+    </button>
+    <button ion-item item-start (click)="gotoContact()">
+      <ion-avatar item-start>
+        <img src="./assets/more/phone.png">
+      </ion-avatar>
+      {{'CONTACT' | translate}}
     </button>
     <button ion-item item-start (click)="onSetting()">
       <ion-avatar item-start>
@@ -75,4 +81,7 @@
       {{'LOGOUT'| translate}}
     </button>
   </ion-list>
+  <div text-right>
+    <span>v.1.0.0</span>
+  </div>
 </ion-content>

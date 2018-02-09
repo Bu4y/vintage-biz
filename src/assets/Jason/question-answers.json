@@ -1,0 +1,20 @@
+[
+    {
+        "questionsTH": "ร้านค้าได้อะไรจาก การใช้แอพ",
+        "questionsEN": "The app has all items from the store.",
+        "answersTH": "ไปที่เมนู ตั้งค่า กดปุ่ม TH หรือ EN เพื่อเปลี่ยนภาษา > กดปุ่ม OK เพื่อยืนยันการเปลี่ยนภาษา",
+        "answersEN": "Add channels to sell products. Space-saving, time saving  and convenient for store sales."
+    },
+    {
+        "questionsTH": "มันแตกต่าง กับ การค้าแบบเดิม",
+        "questionsEN": "What is the difference between the original trading?",
+        "answersTH": "ไม่จำเป็นต้องตั้งร้านก็ขายของได้ ขายของได้ตลอดเวลา เพิ่มระยะเวลาการขายมากกว่าเดิม",
+        "answersEN": "storefront not needed and you will be able to sell other items as well."
+    },
+    {
+        "questionsTH": "แล้วช่องทางการชำระเงินปลอดภัยแค่ไหน",
+        "questionsEN": "Is your payment method is safe?",
+        "answersTH": "ปลอดภัยด้วยการชำระเงินปลายทาง ชำระผ่านบัตรเดบิต บัตรเคดิต โมบายแบงค์กิ้ง อินเตอร์เน็ตแบงค์กิ้ง ให้เลือกใช้ และวามารถเช็คยอดเงินได้ทันที ทันใจ",
+        "answersEN": "High security. Due to a variety of channels, such as payment destination, payment by debit / credit, mobile banking and Internet Banking."
+    }
+]

@@ -1,0 +1,55 @@
+<!--
+  Generated template for the QuestionAnswersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="whity">
+    <ion-title>{{ 'Q_A' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="language == 'th'">
+    <ion-list>
+      <ion-item *ngFor="let d of qas; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+        <ion-row>
+          <ion-col col-10>
+            คำถาม : {{d.questionsTH}}
+          </ion-col>
+          <ion-col col-2>
+            <ion-icon color="success" item-end class="icon-right" [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isGroupShown(i)">
+          <ion-col col-12 class="answer">
+            คำตอบ : {{d.answersTH}}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="language !== 'th'">
+    <ion-list>
+      <ion-item *ngFor="let d of qas; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+        <ion-row>
+          <ion-col col-10>
+            Question : {{d.questionsEN}}
+          </ion-col>
+          <ion-col col-2>
+            <ion-icon color="success" item-end class="icon-right" [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isGroupShown(i)">
+          <ion-col col-12 class="answer">
+            Answers : {{d.answersEN}}
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

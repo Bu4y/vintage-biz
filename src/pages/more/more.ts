@@ -16,8 +16,8 @@ import { UserModel } from '../../assets/model/user.model';
 export class MorePage {
   user: UserModel = new UserModel();
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
     public app: App
   ) {
   }
@@ -40,10 +40,19 @@ export class MorePage {
   editProfile() {
     this.navCtrl.push('ProfilePage');
   }
-  onChangePassword(){
+  onChangePassword() {
     this.navCtrl.push('ChangePasswordPage');
   }
-  gotoWallet(){
+  gotoWallet() {
     this.navCtrl.push('WalletPage');
+  }
+  notification() {
+    this.navCtrl.push('NotificationPage');
+  }
+  gotoContact() {
+    this.navCtrl.push('ContactPage');
+  }
+  gotoQuestion() {
+    this.navCtrl.push('QuestionAnswersPage');
   }
 }

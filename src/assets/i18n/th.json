@@ -59,7 +59,7 @@
     "BIKER": "คนขับ",
     "ORDER": "คำสั่งซื้อ",
     "STATUS": "สถานะ",
-    "MORE": "เพิ่มเติม",
+    "ME": "ฉัน",
     "LOGOUT": "ออกจากระบบ",
     "SETTING": "ตั้งค่า",
     "SETTING_DETAIL": "การตั้งค่า",
@@ -88,5 +88,8 @@
     "TRANSFER_OUT":"ถอนเงิน",
     "REJECT":"ปฏิเสธ",
     "SENT":"จัดส่ง",
-    "COMPLETED":"สำเร็จ"
+    "COMPLETED":"สำเร็จ",
+    "NOTIFICATION":"การแจ้งเตือน",
+    "CONTACT":"ติดต่อเรา",
+    "ADDRESS_CONTACT":"ที่อยู่"
 }
