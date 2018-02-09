@@ -23,6 +23,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ProfilePage {
   firstLogin: any = {};
+  citizenid: boolean = false;
   images: Array<any> = [];
   profileImg: string = '';
   myDate: String = new Date().toISOString();
@@ -55,6 +56,7 @@ export class ProfilePage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Firstloginstep1Page');
+    this.citizenid = this.firstLogin.citizenid ? true : false;
   }
   // selectProfile() {
   //   this.onUpload('profile', 1);
@@ -139,6 +141,12 @@ export class ProfilePage {
   save() {
     this.auth.manageUser(this.firstLogin).then((data) => {
       window.localStorage.setItem('jjbiz-user', JSON.stringify(data));
+      if(data.citizenid){
+        this.citizenid = true;
+      }else{
+        this.citizenid = false;
+      }
+      console.log(this.citizenid);
       this.navCtrl.pop();
     }, (err) => {
       console.log(err);
