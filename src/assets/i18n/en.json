@@ -92,6 +92,7 @@
     "SENT":"Sent",
     "COMPLETED":"Completed",
     "NOTIFICATION":"Notification",
-    "CONTACT":"Contact"
+    "CONTACT":"Contact",
+    "ADDRESS_CONTACT":"Address contract"
 
 }
