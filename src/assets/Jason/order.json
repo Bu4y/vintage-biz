@@ -1,0 +1,157 @@
+[
+    {
+        "status": "confirm",
+        "items": [
+            {
+                "itemid": "item00001",
+                "orderid": "order00001",
+                "name": "กระโปรงผ้าแคนวาส สีดำ",
+                "image": "https://th-live-01.slatic.net/p/7/a-1507313993-79490915-af2e66ca04991824ecfa0bbdb32a0bc9-catalog_233.jpg",
+                "price": 300,
+                "qty": 2,
+                "shippingtype": "ส่งลงทะเบียน",
+                "shippingprice": 30,
+                "amount": 630,
+                "sentdate": "",
+                "received": "",                
+                "canceldate": "",
+                "isrefund": false,
+                "status": "confirm",
+                "rejectreason" : ""
+            },
+            {
+                "itemid": "item00002",
+                "orderid": "order00001",
+                "name": "แก้วน้ำ YETI",
+                "image": "https://th-live-02.slatic.net/p/3/yeti-rambler-24-1499954881-14645823-71f868d9ca60eeb34c3b73d03517ecf8-catalog_233.jpg",
+                "price": 450,
+                "qty": 1,
+                "shippingtype": "EMS",
+                "shippingprice": 60,
+                "amount": 510,
+                "sentdate": "",
+                "received": "",                
+                "canceldate": "",
+                "isrefund": false,
+                "status": "confirm",
+                "rejectreason" : ""
+            }
+        ]
+    },
+    {
+        "status": "sent",
+        "items": [
+            {
+                "itemid": "item00003",
+                "orderid": "order00002",
+                "name": "Imarflex กระทะไฟฟ้าเทฟลอน",
+                "image": "https://th-live-01.slatic.net/p/12/imarflex-ip-134-1450759331-11708-1-product.jpg",
+                "price": 699,
+                "qty": 1,
+                "shippingtype": "ส่งลงทะเบียน",
+                "shippingprice": 0,
+                "amount": 699,
+                "sentdate": "Wed Mar 25 2015 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "received": "",                
+                "canceldate": "",
+                "isrefund": false,
+                "status": "sent",
+                "rejectreason" : ""
+            }
+        ]
+    },
+    {
+        "status": "completed",
+        "items": [
+            {
+                "itemid": "item00004",
+                "orderid": "order00002",
+                "name": "เคส iPhone 6/6S Case Leather Fit (4.7)",
+                "image": "http://www.spigen.co.th/imgthumbnail/iPhone/iPhone_76.jpg",
+                "price": 100,
+                "qty": 1,
+                "shippingtype": "ส่งลงทะเบียน",
+                "shippingprice": 30,
+                "amount": 130,
+                "sentdate": "Wed Mar 25 2015 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "received": "Wed Mar 27 2015 19:00:00 GMT+0700 (SE Asia Standard Time)",              
+                "canceldate": "",
+                "isrefund": false,
+                "status": "sent",
+                "rejectreason" : ""
+            },{
+                "itemid": "item00005",
+                "orderid": "order00003",
+                "name": "เสื้อกล้ามห่านคู่ (แพ็ค 1 ตัว)",
+                "image": "https://th-live-02.slatic.net/p/7/1-1491319671-65121641-343a2c66e5e12fe4cc6110e479de55e5-product.jpg",
+                "price": 89,
+                "qty": 2,
+                "shippingtype": "ส่งลงทะเบียน",
+                "shippingprice": 30,
+                "amount": 208,
+                "sentdate": "Wed Mar 25 2015 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "received": "Wed Mar 27 2015 19:00:00 GMT+0700 (SE Asia Standard Time)",                
+                "canceldate": "",
+                "isrefund": false,
+                "status": "sent",
+                "rejectreason" : ""
+            }
+        ]
+    },
+    {
+        "status": "cancel",
+        "items": [
+           {
+                "itemid": "item00006",
+                "orderid": "order00004",
+                "name": "Apple iPad Air MD785LL/B (16GB)",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/517yTZWi4uL._SL500_AC_SS350_.jpg",
+                "price": 15000,
+                "qty": 1,
+                "shippingtype": "EMS",
+                "shippingprice": 0,
+                "amount": 15000,
+                "sentdate": "",
+                "received": "",                
+                "canceldate": "Wed Mar 26 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "isrefund": true,
+                "status": "cancel",
+                "rejectreason" : ""
+            },
+            {
+                "itemid": "item00007",
+                "orderid": "order00004",
+                "name": "Apple Iphone 7 Plus RED (128GB)",
+                "image": "https://th-live-02.slatic.net/p/2/apple-iphone-7-plus-red-128gb-1491574524-61881051-88db92f64f3c73bc02b9a0826522fb7f-product.jpg",
+                "price": 22000,
+                "qty": 1,
+                "shippingtype": "EMS",
+                "shippingprice": 0,
+                "amount": 22000,
+                "sentdate": "",
+                "received": "",                
+                "canceldate": "Wed Mar 28 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "isrefund": false,
+                "status": "cancel",
+                "rejectreason" : ""
+            },
+            {
+                "itemid": "item00008",
+                "orderid": "order00005",
+                "name": "Adidas Men NMD XR1 Primeknit (navy)",
+                "image": "http://dxn4q13eci7ra.cloudfront.net/media/catalog/product/LCI/Ix/i4/c1NdvybD4PiJD6KKOMH_iJrOTEZAxLhqckHpsMJ7ImRzIjoiaW1hZ2UiLCJmIjoiXC92XC8wXC92MDdhMzQ1NS5qcGciLCJmYSI6MSwiZnEiOjkwLCJmdCI6MSwiZnciOiIxMTAwIn0~.jpg",
+                "price": 6000,
+                "qty": 1,
+                "shippingtype": "EMS",
+                "shippingprice": 60,
+                "amount": 6060,
+                "sentdate": "",
+                "received": "",                
+                "canceldate": "Wed Mar 30 2018 19:00:00 GMT+0700 (SE Asia Standard Time)",
+                "isrefund": false,
+                "status": "reject",
+                "rejectreason" : "สินค้าหมด"
+            }
+        ]
+    }
+]
