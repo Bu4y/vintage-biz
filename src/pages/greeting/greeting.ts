@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Slides, IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 /**
  * Generated class for the GreetingPage page.
@@ -15,37 +15,41 @@ import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GreetingPage {
   lastSlide = false;
-
+  platformWidth = Number;
   @ViewChild('slider') slider: Slides;
   slideIndex = 0;
   slides = [
     {
       title: 'Dream\'s Adventure',
-      imageUrl: './assets/imgs/Greeting01.png',
-      description: 'Take a look at our amazing options',
+      imageUrl: './assets/imgs/greetingshop/vin1.png',
+      description: 'จัดการร้านง่ายๆเพียงปลายนิ้ว',
     },
     {
       title: 'For the Weekend',
-      imageUrl: './assets/imgs/Greeting02.png',
-      description: 'Take a look at our amazing options',
+      imageUrl: './assets/imgs/greetingshop/vin2.png',
+      description: 'จัดการสินค้า',
     },
     {
       title: 'For the Weekend',
-      imageUrl: './assets/imgs/Greeting03.png',
-      description: 'Take a look at our amazing options',
+      imageUrl: './assets/imgs/greetingshop/vin3.png',
+      description: 'จัดการรายการ การสั่งซื้อ',
     },
     {
       title: 'For the Weekend',
-      imageUrl: './assets/imgs/Greeting04.png',
-      description: 'Take a look at our amazing options',
+      imageUrl: './assets/imgs/greetingshop/vin4.png',
+      description: 'สถานะการสั้งซื้อ',
     },
     {
       title: 'For the Weekend',
-      imageUrl: './assets/imgs/Greeting05.png',
-      description: 'Take a look at our amazing options',
+      imageUrl: './assets/imgs/greetingshop/vin5.png',
+      description: 'ตรวจสอบรายได้ของร้าน',
     }
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform) {
+  }
+  ionViewWillEnter(){
+   console.log(this.platform.width());
+   
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GreetingPage');

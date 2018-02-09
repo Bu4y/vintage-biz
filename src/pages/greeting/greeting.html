@@ -7,9 +7,18 @@
 </ion-header>
 <ion-content fullscreen="true" class="no-padding-top">
   <!-- autoplay="2000" -->
-  
+
   <ion-slides #slider pager="true" (ionSlideWillChange)="onSlideChanged()">
-    <ion-slide *ngFor="let slide of slides" class="slide-background" [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}">
+    <!-- <ion-slide *ngFor="let slide of slides" class="slide-background" [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}"> -->
+    <ion-slide *ngFor="let slide of slides" class="slide-background">
+      <ion-row>
+        <ion-col>
+          <img src="{{slide.imageUrl}}">
+        </ion-col>
+        <ion-col col-12>
+            <p style="color:#3c6233">{{slide.description}}</p>
+          </ion-col>
+      </ion-row>
       <!-- <div class="text-wrapper">
         <div class="slide-text">
             <h2 class="slide-title" [innerHTML]="slide.title"></h2><br>
