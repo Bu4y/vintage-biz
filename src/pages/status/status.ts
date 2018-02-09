@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, Content, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, Content, Platform, AlertController, ToastController } from 'ionic-angular';
 import { StatusServiceProvider } from './status-service';
-import { OrderModel } from '../../assets/model/order.model';
+// import { OrderModel } from '../../assets/model/order.model';
 import { TranslateService } from '@ngx-translate/core';
+import { StatusModel } from '../../assets/model/status.model';
 
 /**
  * Generated class for the StatusPage page.
@@ -26,7 +27,7 @@ export class StatusPage {
   isRight: boolean = true;
   isLeft: boolean = true;
   tabs: any = [];
-  orders: Array<OrderModel>;
+  orders: Array<StatusModel>;
 
   constructor(
     public navCtrl: NavController,
@@ -34,6 +35,8 @@ export class StatusPage {
     public platform: Platform,
     public statusService: StatusServiceProvider,
     public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+
     private translate: TranslateService
   ) {
     this.tabs = ["ที่ต้องจัดส่ง", "จัดส่งแล้ว", "สำเร็จ", "ยกเลิกแล้ว"];
@@ -124,9 +127,9 @@ export class StatusPage {
   }
 
   getOrders() {
-    this.statusService.getOrderList().then(data => {
+    this.statusService.getOrder().then(data => {
       this.orders = data;
-      console.log(this.orders);
+      // console.log(this.orders);
     }, err => {
       console.log(err);
     })
@@ -138,11 +141,11 @@ export class StatusPage {
   gotoDetail2(item) {
     this.navCtrl.push('OrderDetailPage', item);
   }
-  refId(){
+  refId(itm) {
     let language = this.translate.currentLang;
     let refID = language === 'th' ? 'เลขพัสดุ' : 'RefID';
     let messageRefID = language === 'th' ? 'กรุณากรอกเลขพัสดุ' : 'Please Enter your RefID';
-    
+
     let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let textSave = language === 'th' ? 'บันทึก' : 'Save';
     let prompt = this.alertCtrl.create({
@@ -150,7 +153,7 @@ export class StatusPage {
       message: messageRefID,
       inputs: [
         {
-          name: refID,
+          name: 'refID',
           placeholder: refID
         },
       ],
@@ -164,16 +167,25 @@ export class StatusPage {
         {
           text: textSave,
           handler: data => {
-            console.log('Saved clicked');
+            if (data.refID === '' || !data.refID) {
+              this.showErrorToast(messageRefID);
+              return false;
+            } else {
+              itm.status = 'sent';
+              itm.refid = data.refID;
+              itm.sentdate = new Date();
+              console.log('Saved clicked');
+            }
           }
         }
       ]
     });
     prompt.present();
   }
-  rejectOrder(){
+  rejectOrder(itm) {
     let language = this.translate.currentLang;
     let rejectOrder = language === 'th' ? 'ปฏิเสธคำสั่งซื้อ' : 'Reject Order';
+    let invalidRejectOrder = language === 'th' ? 'กรุณาระบุเหตุผลในการปฏิเสธคำสั่งซื้อ' : 'Please Comment your Reject Order';
     let rejectComment = language === 'th' ? 'เหตุผลในการปฏิเสธคำสั่งซื้อ' : 'Please Comment your Reject Order';
     let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let textSave = language === 'th' ? 'บันทึก' : 'Save';
@@ -182,7 +194,7 @@ export class StatusPage {
       message: rejectComment,
       inputs: [
         {
-          name: rejectOrder,
+          name: 'rejectreason',
           placeholder: rejectOrder
         },
       ],
@@ -196,11 +208,37 @@ export class StatusPage {
         {
           text: textSave,
           handler: data => {
-            console.log('Saved clicked');
+            if (data.rejectreason === '' || !data.rejectreason) {
+              this.showErrorToast(invalidRejectOrder);
+              return false;
+            } else {
+              itm.status = 'reject';
+              itm.rejectreason = data.rejectreason;
+              itm.canceldate = new Date();
+              console.log('Saved clicked');
+            }
           }
         }
       ]
     });
     prompt.present();
+  }
+  completedOrder(itm) {
+    itm.status = 'completed';
+    itm.received = new Date();
+  }
+  showErrorToast(data: any) {
+    let toast = this.toastCtrl.create({
+      message: data,
+      duration: 3000,
+      position: 'top',
+      // cssClass: 'toast'  
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 }

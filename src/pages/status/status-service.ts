@@ -3,12 +3,19 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import { OrderModel } from '../../assets/model/order.model';
+import { StatusModel } from '../../assets/model/status.model';
 
 @Injectable()
 export class StatusServiceProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello StatusServiceProvider Provider');
+  }
+  getOrder(): Promise<Array<StatusModel>> {
+    return this.http.get('./assets/Jason/order.json')
+      .toPromise()
+      .then(response => response as Array<StatusModel>)
+      .catch(this.handleError);
   }
   getOrderList(): Promise<Array<OrderModel>> {
     return this.http.get('./assets/Jason/orderlist.json')

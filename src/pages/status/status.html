@@ -1,6 +1,5 @@
 <!--
   Generated template for the StatusPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -23,7 +22,6 @@
 </ion-header>
 
 <ion-content>
-    
   <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher> -->
@@ -81,45 +79,50 @@
       </ion-scroll>
     </ion-slide> -->
 
-
     <ion-slide>
       <ion-scroll scrollY="true">
-        <div class="checkout-product-shipping">
-          <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item" (click)="gotoDetail(item)">
-              <ion-item>
-                <ion-thumbnail item-start>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
-                    alt="">
-                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
-                </ion-thumbnail>
-                <ion-label stacked>
-                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
-                  <p>1,500 บาท</p>
-                  <p>จำนวน: 2</p>
-                  <p>วิธีการจัดส่ง: ส่งฟรี</p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-list class="shipping">
-              <ion-item>
-                <ion-label text-left>
+        <div *ngFor="let item of orders">
+          <div *ngFor="let itm of item.items">
+            <div *ngIf="itm.status === 'confirm'">
+              <div class="checkout-product-shipping">
+                <div class="product">
+                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="{{itm.image}}">
+                        <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                      </ion-thumbnail>
+                      <ion-label stacked>
+                        <h2 class="product-name">{{itm.name}}</h2>
+                        <p>{{itm.price}} บาท</p>
+                        <p>จำนวน: {{itm.qty}}</p>
+                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
+                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list class="shipping">
+                    <ion-item>
+                      <!-- <ion-label text-left>
                   <b>วันที่จัดส่ง 01/01/18</b>
-                </ion-label>
-                <ion-label text-right class="price">
-                  <b>ราคารวม: 3,000 บาท</b>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-row>
-              <ion-col>
-                <!-- <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button> -->
-                <button class="btn" full small ion-button item-end color="danger" (click)="rejectOrder()">{{'REJECT'| translate}}</button>
-              </ion-col>
-              <ion-col>
-                <button class="btn" full small ion-button item-end color="maintheme" (click)="refId()">{{'SENT'| translate}}</button>
-              </ion-col>
-            </ion-row>
+                </ion-label> -->
+                      <ion-label text-right class="price">
+                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-row>
+                    <ion-col>
+                      <!-- <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button> -->
+                      <button class="btn" full small ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
+                    </ion-col>
+                    <ion-col>
+                      <button class="btn" full small ion-button item-end color="maintheme" (click)="refId(itm)">{{'SENT'| translate}}</button>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </ion-scroll>
@@ -128,38 +131,45 @@
 
     <ion-slide>
       <ion-scroll scrollY="true">
-        <div class="checkout-product-shipping">
-          <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item" (click)="gotoDetail(item)">
-              <ion-item>
-                <ion-thumbnail item-start>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
-                    alt="">
-                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
-                </ion-thumbnail>
-                <ion-label stacked>
-                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
-                  <p>1,500 บาท</p>
-                  <p>จำนวน: 2</p>
-                  <p>วิธีการจัดส่ง: ส่งฟรี</p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-list class="shipping">
-              <ion-item>
-                <ion-label text-left>
-                  <b>วันที่รับสินค้า 03/01/18</b>
-                </ion-label>
-                <ion-label text-right class="price">
-                  <b>ราคารวม: 3,000 บาท</b>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-row>
-              <ion-col>
-                <button class="btn" full small ion-button item-end color="maintheme">{{'COMPLETED'| translate}}</button>
-              </ion-col>
-            </ion-row>
+        <div *ngFor="let item of orders">
+          <div *ngFor="let itm of item.items">
+            <div *ngIf="itm.status === 'sent'">
+              <div class="checkout-product-shipping">
+                <div class="product">
+                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="{{itm.image}}">
+                        <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                      </ion-thumbnail>
+                      <ion-label stacked>
+                        <h2 class="product-name">{{itm.name}}</h2>
+                        <p>RefID : {{itm.refid}}</p>
+                        <p>{{itm.price}} บาท</p>
+                        <p>จำนวน: {{itm.qty}}</p>
+                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
+                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list class="shipping">
+                    <ion-item>
+                      <ion-label text-left>
+                        <b>วันที่จัดส่ง {{itm.sentdate | datetime}}</b>
+                      </ion-label>
+                      <ion-label text-right class="price">
+                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-row>
+                    <ion-col>
+                      <button class="btn" full small ion-button item-end color="maintheme" (click)="completedOrder(itm)">{{'COMPLETED'| translate}}</button>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </ion-scroll>
@@ -168,35 +178,42 @@
 
     <ion-slide>
       <ion-scroll scrollY="true">
-        <div class="checkout-product-shipping">
-          <div class="product" *ngFor="let item of [1,2,3,4,5]">
-            <ion-list class="list-item" (click)="gotoDetail(item)">
-              <ion-item>
-                <ion-thumbnail item-start>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
-                    alt="">
-                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
-                </ion-thumbnail>
-                <ion-label stacked>
-                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
-                  <p>1,500 บาท</p>
-                  <p>จำนวน: 2</p>
-                  <p class="maintheme">
-                    <b>สำเร็จ</b>
-                  </p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-list class="shipping">
-              <ion-item>
-                <ion-label text-left>
-                  <b>วันที่สำเร็จ 01/01/18</b>
-                </ion-label>
-                <ion-label text-right class="price">
-                  <b>ราคารวม: 3,000 บาท</b>
-                </ion-label>
-              </ion-item>
-            </ion-list>
+        <div *ngFor="let item of orders">
+          <div *ngFor="let itm of item.items">
+            <div *ngIf="itm.status === 'completed'">
+              <div class="checkout-product-shipping">
+                <div class="product">
+                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="{{itm.image}}">
+                        <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                      </ion-thumbnail>
+                      <ion-label stacked>
+                        <h2 class="product-name">{{itm.name}}</h2>
+                        <p>{{itm.price}} บาท</p>
+                        <p>จำนวน: {{itm.qty}}</p>
+                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
+                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p class="maintheme">
+                          <b>{{itm.status}}</b>
+                        </p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list class="shipping">
+                    <ion-item>
+                      <ion-label text-left>
+                        <b>วันที่สำเร็จ {{itm.received | datetime}}</b>
+                      </ion-label>
+                      <ion-label text-right class="price">
+                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </ion-scroll>
@@ -204,36 +221,45 @@
 
     <ion-slide>
       <ion-scroll scrollY="true">
-        <div class="checkout-product-shipping">
-          <div class="product" *ngFor="let item of [1,2,3,4,5];let i = index">
-            <ion-list class="list-item" (click)="gotoDetail(item)">
-              <ion-item>
-                <ion-thumbnail item-start>
-                  <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
-                    alt="">
-                  <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
-                </ion-thumbnail>
-                <ion-label stacked>
-                  <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
-                  <p>1,500 บาท</p>
-                  <p>จำนวน: 2</p>
-                  <p class="danger">
-                    <b>{{i === 1 || i === 2 ? 'ลูกค้ายกเลิก':'ร้านค้ายกเลิก'}}</b>
-                    <label class="topic">{{i === 1 || i === 2 ? '':'สินค้าไม่เพียงพอต่อการจำหน่าย'}}</label>
-                  </p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-            <ion-list class="shipping">
-              <ion-item>
-                <ion-label text-left>
-                  <b>วันที่ยกเลิก 01/01/18</b>
-                </ion-label>
-                <ion-label text-right class="price">
-                  <b>ราคารวม: 3,000 บาท</b>
-                </ion-label>
-              </ion-item>
-            </ion-list>
+        <div *ngFor="let item of orders">
+          <div *ngFor="let itm of item.items">
+            <div *ngIf="itm.status === 'cancel' || itm.status === 'reject'">
+              <div class="checkout-product-shipping">
+                <div class="product">
+                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                    <ion-item>
+                      <ion-thumbnail item-start>
+                        <img src="{{itm.image}}">
+                        <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+                      </ion-thumbnail>
+                      <ion-label stacked>
+                        <h2 class="product-name">{{itm.name}}</h2>
+                        <p>{{itm.price}} บาท</p>
+                        <p>จำนวน: {{itm.qty}}</p>
+                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
+                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p>
+                          <b class="danger">{{itm.status}}</b>
+                          <label class="topic">{{itm.rejectreason}}</label>
+                          <!-- <b>{{i === 1 || i === 2 ? 'ลูกค้ายกเลิก':'ร้านค้ายกเลิก'}}</b> -->
+                          <!-- <label class="topic">{{i === 1 || i === 2 ? '':'สินค้าไม่เพียงพอต่อการจำหน่าย'}}</label> -->
+                        </p>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                  <ion-list class="shipping">
+                    <ion-item>
+                      <ion-label text-left>
+                        <b>วันที่ยกเลิก {{itm.canceldate | datetime}}</b>
+                      </ion-label>
+                      <ion-label text-right class="price">
+                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                      </ion-label>
+                    </ion-item>
+                  </ion-list>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </ion-scroll>

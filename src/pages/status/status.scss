@@ -1,5 +1,4 @@
 page-status {
-    
     .toolbar * {
         padding: 0 !important;
         margin: 0 !important;
@@ -106,7 +105,7 @@ page-status {
             .maintheme {
                 color: $app;
             }
-            .topic{
+            .topic {
                 color: rgb(148, 148, 148);
             }
             .shipping {
@@ -137,4 +136,8 @@ page-status {
             top: 40px !important;
         }
     }
+}
+.toast-message {
+    background-color: #D50000 !important;
+    border-radius: 5px !important;
 }
