@@ -90,5 +90,6 @@
     "SENT":"จัดส่ง",
     "COMPLETED":"สำเร็จ",
     "NOTIFICATION":"การแจ้งเตือน",
-    "CONTACT":"ติดต่อเรา"
+    "CONTACT":"ติดต่อเรา",
+    "ADDRESS_CONTACT":"ที่อยู่"
 }
