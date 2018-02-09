@@ -33,6 +33,7 @@ import { ImagecoverProvider } from '../providers/imagecover/imagecover';
 import { OrderServiceProvider } from '../pages/order/order-service';
 import { StatusServiceProvider } from '../pages/status/status-service';
 import { MoreServiceProvider } from '../pages/more/more-service'
+import { QuestionAnswersServiceProvider } from '../pages/question-answers/question-answers-service';
 @NgModule({
   declarations: [
     MyApp
@@ -78,7 +79,8 @@ import { MoreServiceProvider } from '../pages/more/more-service'
     ImagecoverProvider,
     OrderServiceProvider,
     StatusServiceProvider,
-    MoreServiceProvider
+    MoreServiceProvider,
+    QuestionAnswersServiceProvider
   ]
 })
 export class AppModule { }
