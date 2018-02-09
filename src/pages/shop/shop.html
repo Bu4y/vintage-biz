@@ -91,18 +91,30 @@
     <ion-row *ngIf="isModify" no-padding [sortablejs]="shop.items[index].products" [sortablejsOptions]="options">
       <ion-col col-4 *ngFor="let itm of shop.items[index].products; let i = index;" [ngClass]="itm.image === './assets/imgs/add.jpg' ? 'js-edit' : ''">
         <preload-image [ratio]="{w:1, h:1}" [src]="itm.image" (click)="openActionSheet('product', i, itm.name)"></preload-image>
-        <div class="productoption" no-padding *ngIf="itm.name">
+        <!-- <div class="productoption" no-padding *ngIf="itm.name">
           <button ion-button small icon-left clear large no-padding (click)="openEditProduct(itm,i)">
             <ion-icon name="md-more" color="dark"></ion-icon>
           </button>
-        </div>
+        </div> -->
+        <ion-row *ngIf="itm.name">
+          <ion-col class="productoption">
+            <ion-buttons end>
+              <button style="background-color: rgba(255, 255, 255, 0.73)" (click)="openEditProduct(itm,i)">
+                <ion-icon name="md-more" color="dark"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="itm.name">
+          <ion-col [ngClass]="itm.name ? 'product-string' : ''">
+            <p class="magin-0">{{itm.name}}</p>
+            <p class="magin-0">{{itm.price}} .-</p>
+          </ion-col>
+        </ion-row>
         <div class="issale" *ngIf="itm.name">
           <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
           <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
-        </div>
-        <div [ngClass]="itm.name ? 'product-string' : ''">
-          <p class="magin-0" *ngIf="itm.name">{{itm.name}}</p>
-          <p class="magin-0" *ngIf="itm.name">{{itm.price}} .-</p>
         </div>
       </ion-col>
     </ion-row>
@@ -110,13 +122,23 @@
     <ion-row *ngIf="!isModify && shop.items[index].products && shop.items[index].products.length > 0">
       <ion-col col-4 *ngFor="let itm of shop.items[index].products; let i = index;">
         <preload-image [ratio]="{w:1, h:1}" [src]="itm.image === './assets/imgs/add.jpg' ? './assets/imgs/add1.jpg' : itm.image"></preload-image>
+        <ion-row>
+          <ion-col [ngClass]="itm.name ? 'product-string' : ''">
+            <p class="magin-0" *ngIf="itm.name">{{itm.name}}</p>
+            <p class="magin-0" *ngIf="itm.name">{{itm.price}} .-</p>
+          </ion-col>
+        </ion-row>
+
+
+        <!-- <ion-row>
+          <ion-col class="issale" *ngIf="itm.name">
+              <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
+              <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
+          </ion-col>
+        </ion-row> -->
         <div class="issale" *ngIf="itm.name">
           <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
           <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
-        </div>
-        <div [ngClass]="itm.name ? 'product-string' : ''">
-          <p class="magin-0" *ngIf="itm.name">{{itm.name}}</p>
-          <p class="magin-0" *ngIf="itm.name">{{itm.price}} .-</p>
         </div>
       </ion-col>
     </ion-row>
