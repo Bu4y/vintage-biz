@@ -12,10 +12,16 @@
     <!-- <ion-slide *ngFor="let slide of slides" class="slide-background" [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}"> -->
     <ion-slide *ngFor="let slide of slides" class="slide-background">
       <ion-row>
-        <ion-col>
+          <ion-col col-sm-4>
+  
+            </ion-col>
+        <ion-col col-sm-4 col-md-12 col-lg-12 col-xl-12 col-12 text-center>
           <!-- <img src="{{slide.imageUrl}}"> -->
           <preload-image [ratio]="{w:1, h:1}" [src]="slide.imageUrl"></preload-image>
         </ion-col>
+        <ion-col col-sm-4>
+  
+          </ion-col>
         <ion-col col-12 *ngIf="language === 'th'">
           <p style="color:#3c6233">{{slide.descriptionth}}</p>
         </ion-col>
@@ -23,6 +29,7 @@
           <p style="color:#3c6233">{{slide.descriptionen}}</p>
         </ion-col>
       </ion-row>
+
       <!-- <div class="text-wrapper">
         <div class="slide-text">
             <h2 class="slide-title" [innerHTML]="slide.title"></h2><br>
