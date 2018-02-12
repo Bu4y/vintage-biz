@@ -14,7 +14,14 @@
 
 
 <ion-content>
-  <div class="containerclass" (click)="showMap()">
+  <ion-list>
+    <ion-item>
+      <p color="topic">{{'ADDRESS' | translate}}</p>
+      <textarea rows="6" placeholder="Enter your Address" [(ngModel)]="address.addressdetail">
+      </textarea>
+    </ion-item>
+  </ion-list>
+  <!-- <div class="containerclass" (click)="showMap()">
     <ion-item no-lines>
       <ion-label class="fontStyle">
         {{'ADDRESS' | translate}}
@@ -23,16 +30,16 @@
     <p class="txtAddress" *ngIf="firstLogin.address">
       {{firstLogin.address.address ? firstLogin.address.address : ''}}
     </p>
-    <!-- <p class="txtAddress">
+    <p class="txtAddress">
       {{address.address ? address.address : ''}} {{address.subdistinct ? address.subdistinct : ''}} {{address.distinct ? address.distinct
       : ''}} {{address.province ? address.province : ''}} {{address.postcode ? address.postcode : ''}}
-    </p> -->
+    </p>
     <ion-buttons end>
       <button class="button-tranparent">
         <ion-icon name="pin" class="pin-style"></ion-icon>
       </button>
     </ion-buttons>
-  </div>
+  </div> -->
   <!-- <div #map class="map">
   </div> -->
 </ion-content>

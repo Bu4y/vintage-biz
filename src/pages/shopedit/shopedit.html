@@ -65,7 +65,7 @@
       <ion-col class="containerclass" col-12>
         <ion-item no-lines>
           <ion-label class="fontStyle">
-              {{'OPEN_TIMES'| translate}} - {{'CLOSE'| translate}}
+            {{'OPEN_TIMES'| translate}} - {{'CLOSE'| translate}}
           </ion-label>
         </ion-item>
 
@@ -89,7 +89,7 @@
         </ion-scroll>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <!-- <ion-row>
       <ion-col class="containerclass" col-12 (click)="showMap()">
         <ion-item class="fixHeight" no-lines>
           <ion-label class="fontStyle">
@@ -99,8 +99,8 @@
         <p class="txtAddress" *ngIf="editData.address">
           {{editData.address.address ? editData.address.address : ''}}
         </p>
-        <!-- <ion-textarea placeholder="Enter a description" type="text" class="wordbreak fixHeight padding-15" rows="4" [(ngModel)]="editData.address.address">
-        </ion-textarea> -->
+        <ion-textarea placeholder="Enter a description" type="text" class="wordbreak fixHeight padding-15" rows="4" [(ngModel)]="editData.address.address">
+        </ion-textarea>
 
         <ion-label class="fixPin" text-right>
           <span ion-text class="pin">
@@ -108,6 +108,13 @@
           </span>
         </ion-label>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
+    <ion-list>
+        <ion-item>
+          <p color="topic">{{'ADDRESS' | translate}}</p>
+          <textarea rows="4" placeholder="Enter your Address" [(ngModel)]="editData.address.addressdetail">
+          </textarea>
+        </ion-item>
+      </ion-list>
   </ion-grid>
 </ion-content>

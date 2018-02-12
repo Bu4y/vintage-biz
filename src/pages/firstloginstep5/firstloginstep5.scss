@@ -21,13 +21,17 @@ page-firstloginstep5 {
         font-size: 4vh !important;
         color: #3c6233 !important;
     }
-    .map{
+    .map {
         height: 300px;
     }
-    .txtAddress{
+    .txtAddress {
         margin-left: 10px;
     }
     .fontStyle {
         color: #999 !important;
+        padding: 0px 0px 0px 10px;
+    }
+    textarea {
+        width: 100%;
     }
 }
