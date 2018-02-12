@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Slides, IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Slides, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
@@ -55,15 +55,12 @@ export class GreetingPage {
   language: string;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public platform: Platform,
     private translate: TranslateService, ) {
   }
 
   ionViewWillEnter() {
     // this.platformWidth = this.platform.width();
     this.language = this.translate.currentLang;
-    console.log(this.platform.width());
-
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GreetingPage');
