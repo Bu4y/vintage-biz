@@ -21,8 +21,9 @@
           <h2>
             <b>ที่อยู่จัดส่ง</b>
           </h2>
-          <p>John doe</p>
-          <p>711-2880 Nulla St. Mankato, Mississippi United States, 96522, (257) 563-7401</p>
+          <p>{{ordDetail.shipping.name}}</p>
+          <p>{{ordDetail.shipping.address}} {{ordDetail.shipping.district}} {{ordDetail.shipping.subdistrict}} {{ordDetail.shipping.province}}
+            {{ordDetail.shipping.postcode}} {{ordDetail.shipping.tel}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
@@ -42,23 +43,17 @@
     <ion-list class="item-product" mode="md">
       <ion-item>
         <ion-thumbnail item-start>
-          <img src="https://firebasestorage.googleapis.com/v0/b/green-vintage.appspot.com/o/images%2F1517541306.png?alt=media&token=de229681-1257-4849-9e7b-cb84a54bf063"
-            alt="">
+          <img src="{{ordDetail.product.image}}">
           <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
         </ion-thumbnail>
         <ion-label stacked class="label-margin">
-          <h2 class="product-name">กระโปรงผ้าแวนวาส ลายริ้ว สีดำ แต่งกระดุม ยางยืดหลัง เอว 38 ยืดได้ 48 สะโพก 52 ตัวยาว 31 นิ้ว</h2>
-          <p>1,500 {{ 'THB' | translate }}</p>
-          <p>{{ 'QTY' | translate }}: 2</p>
-          <p>{{ 'SHIPPING' | translate }}: ส่งฟรี</p>
+          <h2 class="product-name">{{ordDetail.product.name}}</h2>
+          <p>{{ordDetail.product.price}} {{ 'THB' | translate }}</p>
+          <p>{{ 'QTY' | translate }}: {{ordDetail.product.qty}}</p>
+          <p>{{ 'SHIPPING' | translate }}: {{ordDetail.product.shippingtype}}</p>
         </ion-label>
       </ion-item>
     </ion-list>
-  </div>
-
-
-</ion-content>
-<ion-footer>
     <ion-list class="total" mode="md">
       <ion-item>
         <ion-grid>
@@ -70,35 +65,23 @@
             </ion-col>
             <ion-col col-6 text-right>
               <h2>
-                <b>3,000 {{ 'THB' | translate }}</b>
-              </h2>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-6>
-              <h2>
-                <b>ส่วนลด</b>
-              </h2>
-            </ion-col>
-            <ion-col col-6 text-right>
-              <h2>
-                <b>100 {{ 'THB' | translate }}</b>
-              </h2>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-6>
-              <h2>
-                <b>รวมสุทธิ</b>
-              </h2>
-            </ion-col>
-            <ion-col col-6 text-right>
-              <h2>
-                <b>2,900 {{ 'THB' | translate }}</b>
+                <b>{{ordDetail.amount}} {{ 'THB' | translate }}</b>
               </h2>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
     </ion-list>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col>
+      <button class="btn" block ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
+    </ion-col>
+    <ion-col>
+      <button class="btn" block ion-button item-end color="maintheme" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
+    </ion-col>
+  </ion-row>
 </ion-footer>

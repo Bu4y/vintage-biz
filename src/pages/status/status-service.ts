@@ -26,18 +26,49 @@ export class StatusServiceProvider {
       .then(response => response as any)
       .catch(this.handleError);
   }
+  getOrderDetail(itm): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+    return this.http.get(this.server.url + 'api/getorderdetail/' + itm.orderid + '/' + itm.itemid, { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
+  orderReject(ord): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+    return this.http.post(this.server.url + 'api/rejectitem' , ord, { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
+  orderSent(ord): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+    return this.http.post(this.server.url + 'api/sentitem' , ord, { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
+  orderComplete(ord): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+    return this.http.post(this.server.url + 'api/completeitem' , ord, { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
+
+
+
   getOrderList(): Promise<Array<OrderModel>> {
     return this.http.get('./assets/Jason/orderlist.json')
       .toPromise()
       .then(response => response as Array<OrderModel>)
       .catch(this.handleError);
   }
-  getOrderDetail(): Promise<any> {
-    return this.http.get('./assets/Jason/orderdetail.json')
-      .toPromise()
-      .then(response => response as any)
-      .catch(this.handleError);
-  }
+  // getOrderDetail(): Promise<any> {
+  //   return this.http.get('./assets/Jason/orderdetail.json')
+  //     .toPromise()
+  //     .then(response => response as any)
+  //     .catch(this.handleError);
+  // }
   private handleError(error: any): Promise<any> {
     return Promise.reject(error.message || error);
   }

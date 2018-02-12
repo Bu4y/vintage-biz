@@ -140,14 +140,15 @@ export class StatusPage {
       console.log(err);
     })
   }
-  gotoDetail(item) {
+  gotoDetail(itm) {
     // this.navCtrl.push('OrderDetailPage', item);
-    this.navCtrl.push('StatusDetailPage', item);
+    // console.log(itm);
+    this.navCtrl.push('StatusDetailPage', itm);
   }
   gotoDetail2(item) {
     this.navCtrl.push('OrderDetailPage', item);
   }
-  refId(itm) {
+  sentOrder(itm) {
     let language = this.translate.currentLang;
     let refID = language === 'th' ? 'เลขพัสดุ' : 'RefID';
     let messageRefID = language === 'th' ? 'กรุณากรอกเลขพัสดุ' : 'Please Enter your RefID';
@@ -177,9 +178,20 @@ export class StatusPage {
               this.showErrorToast(messageRefID);
               return false;
             } else {
-              itm.status = 'sent';
-              itm.refid = data.refID;
-              itm.sentdate = new Date();
+              let ord = {
+                orderid: itm.orderid,
+                itemid: itm.itemid,
+                refid: data.refID
+              };
+              let loading = this.loading.create();
+              loading.present();
+              this.statusService.orderSent(ord).then(data => {
+                this.getOrders();
+                loading.dismiss();
+              }, err => {
+                loading.dismiss();
+                console.log(err);
+              })
               console.log('Saved clicked');
             }
           }
@@ -218,9 +230,20 @@ export class StatusPage {
               this.showErrorToast(invalidRejectOrder);
               return false;
             } else {
-              itm.status = 'reject';
-              itm.rejectreason = data.rejectreason;
-              itm.canceldate = new Date();
+              let ord = {
+                orderid: itm.orderid,
+                itemid: itm.itemid,
+                remark: data.rejectreason
+              };
+              let loading = this.loading.create();
+              loading.present();
+              this.statusService.orderReject(ord).then(data => {
+                this.getOrders();
+                loading.dismiss();
+              }, err => {
+                loading.dismiss();
+                console.log(err);
+              })
               console.log('Saved clicked');
             }
           }
@@ -229,10 +252,21 @@ export class StatusPage {
     });
     prompt.present();
   }
-  completedOrder(itm) {
-    itm.status = 'completed';
-    itm.received = new Date();
-  }
+  // completedOrder(itm) {
+  //   let ord = {
+  //     orderid: itm.orderid,
+  //     itemid: itm.itemid,
+  //   };
+  //   let loading = this.loading.create();
+  //   loading.present();
+  //   this.statusService.orderComplete(ord).then(data => {
+  //     this.getOrders();
+  //     loading.dismiss();
+  //   }, err => {
+  //     loading.dismiss();
+  //     console.log(err);
+  //   })
+  // }
   showErrorToast(data: any) {
     let toast = this.toastCtrl.create({
       message: data,

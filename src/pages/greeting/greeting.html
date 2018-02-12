@@ -13,7 +13,8 @@
     <ion-slide *ngFor="let slide of slides" class="slide-background">
       <ion-row>
         <ion-col>
-          <img src="{{slide.imageUrl}}">
+          <!-- <img src="{{slide.imageUrl}}"> -->
+          <preload-image [ratio]="{w:1, h:1}" [src]="slide.imageUrl"></preload-image>
         </ion-col>
         <ion-col col-12>
             <p style="color:#3c6233">{{slide.description}}</p>

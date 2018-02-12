@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { StatusServiceProvider } from './../status/status-service';
+import { ItemStatusModel } from '../../assets/model/status.model';
+import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the StatusDetailPage page.
  *
@@ -14,12 +16,151 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'status-detail.html',
 })
 export class StatusDetailPage {
+  ordDetail: ItemStatusModel = new ItemStatusModel();
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private statusService: StatusServiceProvider,
+    private loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+    private translate: TranslateService,
+  ) {
+    let itm = this.navParams.data;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    this.statusService.getOrderDetail(itm).then(data => {
+      this.ordDetail = data;
+      console.log(this.ordDetail);
+      loading.dismiss();
+    }, err => {
+      loading.dismiss();
+      console.log(err);
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatusDetailPage');
   }
 
+  rejectOrder() {
+    let language = this.translate.currentLang;
+    let rejectOrder = language === 'th' ? 'ปฏิเสธคำสั่งซื้อ' : 'Reject Order';
+    let invalidRejectOrder = language === 'th' ? 'กรุณาระบุเหตุผลในการปฏิเสธคำสั่งซื้อ' : 'Please Comment your Reject Order';
+    let rejectComment = language === 'th' ? 'เหตุผลในการปฏิเสธคำสั่งซื้อ' : 'Please Comment your Reject Order';
+    let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
+    let textSave = language === 'th' ? 'บันทึก' : 'Save';
+    let prompt = this.alertCtrl.create({
+      title: rejectOrder,
+      message: rejectComment,
+      inputs: [
+        {
+          name: 'rejectreason',
+          placeholder: rejectOrder
+        },
+      ],
+      buttons: [
+        {
+          text: textCancel,
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: textSave,
+          handler: data => {
+            if (data.rejectreason === '' || !data.rejectreason) {
+              this.showErrorToast(invalidRejectOrder);
+              return false;
+            } else {
+              let ord = {
+                orderid: this.ordDetail.orderid,
+                itemid: this.ordDetail.itemid,
+                remark: data.rejectreason
+              };
+              let loading = this.loadingCtrl.create();
+              loading.present();
+              this.statusService.orderReject(ord).then(data => {
+                this.navCtrl.pop();
+                loading.dismiss();
+              }, err => {
+                loading.dismiss();
+                console.log(err);
+              })
+              console.log('Saved clicked');
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+
+  sentOrder(itm) {
+    let language = this.translate.currentLang;
+    let refID = language === 'th' ? 'เลขพัสดุ' : 'RefID';
+    let messageRefID = language === 'th' ? 'กรุณากรอกเลขพัสดุ' : 'Please Enter your RefID';
+
+    let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
+    let textSave = language === 'th' ? 'บันทึก' : 'Save';
+    let prompt = this.alertCtrl.create({
+      title: refID,
+      message: messageRefID,
+      inputs: [
+        {
+          name: 'refID',
+          placeholder: refID
+        },
+      ],
+      buttons: [
+        {
+          text: textCancel,
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: textSave,
+          handler: data => {
+            if (data.refID === '' || !data.refID) {
+              this.showErrorToast(messageRefID);
+              return false;
+            } else {
+              let ord = {
+                orderid: this.ordDetail.orderid,
+                itemid: this.ordDetail.itemid,
+                refid: data.refID
+              };
+              let loading = this.loadingCtrl.create();
+              loading.present();
+              this.statusService.orderSent(ord).then(data => {
+                this.navCtrl.pop();
+                loading.dismiss();
+              }, err => {
+                loading.dismiss();
+                console.log(err);
+              })
+              console.log('Saved clicked');
+            }
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+  showErrorToast(data: any) {
+    let toast = this.toastCtrl.create({
+      message: data,
+      duration: 3000,
+      position: 'top',
+      // cssClass: 'toast'  
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
 }

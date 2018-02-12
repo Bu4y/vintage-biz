@@ -86,7 +86,7 @@
             <div *ngIf="itm.status === 'confirm'">
               <div class="checkout-product-shipping">
                 <div class="product">
-                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                  <ion-list class="list-item" (click)="gotoDetail(itm)">
                     <ion-item>
                       <ion-thumbnail item-start>
                         <img src="{{itm.image}}">
@@ -117,7 +117,7 @@
                       <button class="btn" full small ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
                     </ion-col>
                     <ion-col>
-                      <button class="btn" full small ion-button item-end color="maintheme" (click)="refId(itm)">{{'SENT'| translate}}</button>
+                      <button class="btn" full small ion-button item-end color="maintheme" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
                     </ion-col>
                   </ion-row>
                 </div>
@@ -128,7 +128,6 @@
       </ion-scroll>
     </ion-slide>
 
-
     <ion-slide>
       <ion-scroll scrollY="true">
         <div *ngFor="let item of orders">
@@ -136,7 +135,7 @@
             <div *ngIf="itm.status === 'sent'">
               <div class="checkout-product-shipping">
                 <div class="product">
-                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                  <ion-list class="list-item" (click)="gotoDetail(itm)">
                     <ion-item>
                       <ion-thumbnail item-start>
                         <img src="{{itm.image}}">
@@ -162,11 +161,11 @@
                       </ion-label>
                     </ion-item>
                   </ion-list>
-                  <ion-row>
+                  <!-- <ion-row>
                     <ion-col>
                       <button class="btn" full small ion-button item-end color="maintheme" (click)="completedOrder(itm)">{{'COMPLETED'| translate}}</button>
                     </ion-col>
-                  </ion-row>
+                  </ion-row> -->
                 </div>
               </div>
             </div>
@@ -175,7 +174,6 @@
       </ion-scroll>
     </ion-slide>
 
-
     <ion-slide>
       <ion-scroll scrollY="true">
         <div *ngFor="let item of orders">
@@ -183,7 +181,7 @@
             <div *ngIf="itm.status === 'completed'">
               <div class="checkout-product-shipping">
                 <div class="product">
-                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                  <ion-list class="list-item" (click)="gotoDetail(itm)">
                     <ion-item>
                       <ion-thumbnail item-start>
                         <img src="{{itm.image}}">
@@ -226,7 +224,7 @@
             <div *ngIf="itm.status === 'cancel' || itm.status === 'reject'">
               <div class="checkout-product-shipping">
                 <div class="product">
-                  <ion-list class="list-item" (click)="gotoDetail(item)">
+                  <ion-list class="list-item" (click)="gotoDetail(itm)">
                     <ion-item>
                       <ion-thumbnail item-start>
                         <img src="{{itm.image}}">

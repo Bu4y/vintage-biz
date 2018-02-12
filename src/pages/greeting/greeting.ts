@@ -15,7 +15,7 @@ import { Slides, IonicPage, NavController, NavParams, Platform } from 'ionic-ang
 })
 export class GreetingPage {
   lastSlide = false;
-  platformWidth = Number;
+  platformWidth: Number = 0;
   @ViewChild('slider') slider: Slides;
   slideIndex = 0;
   slides = [
@@ -48,6 +48,7 @@ export class GreetingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform) {
   }
   ionViewWillEnter(){
+    // this.platformWidth = this.platform.width();
    console.log(this.platform.width());
    
   }
