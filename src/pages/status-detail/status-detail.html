@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar color="whity">
-    <ion-title>รายละเอียด</ion-title>
+    <ion-title>{{ 'DETAIL' | translate }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="address">
+  <!-- <div class="address">
     <ion-list mode="md">
       <ion-item>
         <ion-label>
@@ -44,7 +44,6 @@
       <ion-item>
         <ion-thumbnail item-start>
           <img src="{{ordDetail.product.image}}">
-          <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
         </ion-thumbnail>
         <ion-label stacked class="label-margin">
           <h2 class="product-name">{{ordDetail.product.name}}</h2>
@@ -72,11 +71,225 @@
         </ion-grid>
       </ion-item>
     </ion-list>
-  </div>
+  </div> -->
 
+
+
+  <div *ngIf="ordDetail.product">
+    <div class="address">
+      <ion-list mode="md">
+        <ion-item>
+          <ion-label *ngIf="ordDetail.status ==='confirm'">
+            <h2>
+              <b>{{ 'CREATE_ORDER_DATE' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.confirmdate | date:'dd-MM-yyyy HH:mm'}}</p>
+          </ion-label>
+          <ion-label *ngIf="ordDetail.status ==='sent'">
+            <h2>
+              <b>{{ 'SHIPPING_DATE' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
+          </ion-label>
+          <ion-label *ngIf="ordDetail.status ==='completed'">
+            <h2>
+              <b>{{ 'RECEIPT_DATE' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+          </ion-label>
+          <ion-label *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='cancelrefund'">
+            <h2>
+              <b>{{ 'CANCEL_DATE' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p *ngIf="ordDetail.rejectreason">
+              {{'REMARK' | translate}} {{ordDetail.rejectreason}}
+            </p>
+            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b> -->
+            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancelrefund' || ordDetail.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b> -->
+          </ion-label>
+          <ion-label *ngIf="ordDetail.status ==='reject' || ordDetail.status ==='rejectrefund'">
+            <h2>
+              <b>{{ 'REJECT_DATE' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p *ngIf="ordDetail.rejectreason">
+              {{'REMARK' | translate}} {{ordDetail.rejectreason}}
+            </p>
+            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b> -->
+            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancelrefund' || ordDetail.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b> -->
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="address">
+      <ion-list mode="md">
+        <ion-item>
+          <ion-label>
+            <h2>
+              <b>{{ 'ORDER_NUMBER' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.orderid }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="address">
+      <ion-list mode="md">
+        <ion-item>
+          <ion-label>
+            <h2>
+              <b>{{ 'SHIPPING_ADDRESS' | translate }}</b>
+            </h2>
+            <p>{{ ordDetail.shipping.name }}</p>
+            <p>{{ ordDetail.shipping.address }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="product-list">
+      <ion-list mode="md">
+        <ion-item>
+          <ion-label>
+            <h2>
+              <b>{{ 'PRODUCT_LIST' | translate}}</b>
+            </h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-list class="item-product" mode="md">
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="{{ ordDetail.product.image }}">
+            <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+          </ion-thumbnail>
+          <ion-label stacked class="label-margin">
+            <h2 class="product-name">{{ ordDetail.product.name }}</h2>
+            <p>{{ ordDetail.product.price | number }} {{ 'THB' | translate }}</p>
+            <p>{{ 'QTY' | translate }}: {{ ordDetail.product.qty }}</p>
+            <p>{{ 'SHIPPING_TYPE' | translate }}: {{ ordDetail.product.shippingtype }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="total">
+      <ion-list mode="md">
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <h2>
+                  <b>{{ 'TOTAL_FEE' | translate }}</b>
+                </h2>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <h2>
+                  <b>{{ ordDetail.amount | number }} {{ 'THB' | translate }}</b>
+                </h2>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="ordDetail.discount">
+              <ion-col col-6>
+                <h2>
+                  <b>{{ 'DISCOUNT' | translate }}</b>
+                </h2>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <h2>
+                  <b>{{ ordDetail.discount | number }} {{ 'THB' | translate }}</b>
+                </h2>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <h2>
+                  <b>{{ 'DELIVERY_FEE' | translate }}</b>
+                </h2>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <h2>
+                  <b>{{ ordDetail.product.shippingprice | number}} {{ 'THB' | translate }}</b>
+                </h2>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>
+                <h2>
+                  <b>{{ 'TOTAL_AMOUNT' | translate }}</b>
+                </h2>
+              </ion-col>
+              <ion-col col-6 text-right>
+                <h2>
+                  <b>{{ (ordDetail.amount + ordDetail.product.shippingprice) | number}} {{ 'THB' | translate }}</b>
+                </h2>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="log">
+      <ion-list mode="md">
+        <ion-item *ngIf="ordDetail.confirmdate">
+          <ion-label>
+            <ion-row>
+              <ion-col col-6>
+                <p text-left>{{ 'CREATE_ORDER_DATE' | translate }}</p>
+              </ion-col>
+              <ion-col col-6>
+                <p text-right>{{ ordDetail.confirmdate | date:'dd-MM-yyyy HH:mm'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="ordDetail.sentdate">
+          <ion-label>
+            <ion-row>
+              <ion-col col-6>
+                <p text-left>{{ 'SHIPPING_DATE' | translate }}</p>
+              </ion-col>
+              <ion-col col-6>
+                <p text-right>{{ ordDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="ordDetail.receiveddate">
+          <ion-label>
+            <ion-row>
+              <ion-col col-6>
+                <p text-left>{{ 'RECEIPT_DATE' | translate }}</p>
+              </ion-col>
+              <ion-col col-6>
+                <p text-right>{{ ordDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+        <ion-item *ngIf="ordDetail.canceldate">
+          <ion-label>
+            <ion-row>
+              <ion-col col-6>
+                <p text-left>{{ 'CANCEL_DATE' | translate }}</p>
+              </ion-col>
+              <ion-col col-6>
+                <p text-right>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>
 <ion-footer>
-  <ion-row>
+  <ion-row *ngIf="ordDetail.status === 'confirm'">
     <ion-col>
       <button class="btn" block ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
     </ion-col>
