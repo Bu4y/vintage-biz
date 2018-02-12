@@ -93,6 +93,7 @@
     "COMPLETED":"Completed",
     "NOTIFICATION":"Notification",
     "CONTACT":"Contact",
-    "ADDRESS_CONTACT":"Address contract"
+    "ADDRESS_CONTACT":"Address contract",
+    "TO_SHIPPING":"To shipping"
 
 }

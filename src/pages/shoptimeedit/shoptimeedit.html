@@ -99,7 +99,7 @@
 </ion-content>
 <ion-footer no-border>
   <button *ngIf="editData && editData.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
-    color="maintheme">{{'EDIT'| translate}}</button>
+    color="maintheme">{{'SAVE'| translate}}</button>
     <button *ngIf="editData && !editData.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
-    color="maintheme">{{'ADD'| translate}}</button>
+    color="maintheme">{{'SAVE'| translate}}</button>
 </ion-footer>

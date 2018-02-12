@@ -343,7 +343,8 @@ export class ShopPage {
           text: textDelete,
           handler: () => {
             this.deleteCateProd(cate._id);
-          }
+          },
+          cssClass:'font-red'
         }
       ]
     });
@@ -375,7 +376,8 @@ export class ShopPage {
           text: textDelete,
           handler: () => {
             this.showConfirm(this.shop._id, product._id, index, this.index);
-          }
+          },
+          cssClass:'font-red'
         }
       ]
     });

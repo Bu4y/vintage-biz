@@ -42,7 +42,9 @@ import { QuestionAnswersServiceProvider } from '../pages/question-answers/questi
     BrowserModule,
     HttpClientModule,
     SortablejsModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      backButtonText: ''
+     }),
     IonicImageViewerModule,
     ionicGalleryModal.GalleryModalModule,
     TranslateModule.forRoot({
