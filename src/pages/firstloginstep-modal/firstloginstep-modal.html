@@ -108,7 +108,7 @@
     color="danger">{{firstLogin && firstLogin.editMode ? 'Edit' : 'Add'}}</button>
      -->
     <button *ngIf="firstLogin && firstLogin.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
-    color="maintheme">{{'EDIT'| translate}}</button>
+    color="maintheme">{{'SAVE'| translate}}</button>
     <button *ngIf="firstLogin && !firstLogin.editMode" ion-button block [disabled]="!addTime.detail || !addTime.openTime || !addTime.closeTime || !isCheck" (click)="add(addTime,days)"
-    color="maintheme">{{'ADD'| translate}}</button>
+    color="maintheme">{{'SAVE'| translate}}</button>
 </ion-footer>

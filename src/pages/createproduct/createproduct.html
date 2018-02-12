@@ -106,7 +106,7 @@
       <button ion-button block color="maintheme" (click)="save()" *ngIf="!createprod._id" [disabled]="!createprod.promotionprice || !createprod.startdate || !createprod.expiredate || createprod.images && createprod.images.length === 0 || !createprod.name || selectedshippings && selectedshippings.length === 0">{{'SAVE'| translate}}</button>
     </ion-col>
     <ion-col col-12 class="btncent" *ngIf="!createprod.ispromotionprice">
-      <button ion-button block color="maintheme" (click)="save()" *ngIf="createprod._id" [disabled]="createprod.images && createprod.images.length === 0 || !createprod.name || selectedshippings && selectedshippings.length === 0">{{'EDIT'| translate}}</button>
+      <button ion-button block color="maintheme" (click)="save()" *ngIf="createprod._id" [disabled]="createprod.images && createprod.images.length === 0 || !createprod.name || selectedshippings && selectedshippings.length === 0">{{'SAVE'| translate}}</button>
       <button ion-button block color="maintheme" (click)="save()" *ngIf="!createprod._id" [disabled]="createprod.images && createprod.images.length === 0 || !createprod.name || selectedshippings && selectedshippings.length === 0">{{'SAVE'| translate}}</button>
     </ion-col>
   </ion-row>

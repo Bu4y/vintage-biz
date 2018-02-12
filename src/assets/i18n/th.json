@@ -91,5 +91,6 @@
     "COMPLETED":"สำเร็จ",
     "NOTIFICATION":"การแจ้งเตือน",
     "CONTACT":"ติดต่อเรา",
-    "ADDRESS_CONTACT":"ที่อยู่"
+    "ADDRESS_CONTACT":"ที่อยู่",
+    "TO_SHIPPING":"ที่อยู่จัดส่ง"
 }
