@@ -5,32 +5,31 @@ page-shop {
     //     margin-top: -105px;
     //     color: aliceblue;
     // }
-    h4{
+    h4 {
         margin-bottom: 0rem;
     }
     .toolbar-title {
         color: $app !important;
     }
-    .shop-detail-grid{       
-        color: aliceblue;        
+    .shop-detail-grid {
+        color: aliceblue;
         background-color: rgba(0, 0, 0, 0.76);
         margin-top: -15px;
     }
     ion-scroll {
         border-bottom: 1px solid whitesmoke !important;
         height: 28vw;
-    } 
-    .text-wrap{
-        white-space: nowrap; 
-        width: 20em; 
+    }
+    .text-wrap {
+        white-space: nowrap;
+        width: 20em;
         overflow: hidden;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
         text-align: left;
     }
     .icon-ads {
         // position: absolute;
-        background-color: #ff5566;
-        // background-color: #D50000;
+        background-color: #ff5566; // background-color: #D50000;
     }
     .open {
         background-color: #4CAF50 !important;
@@ -48,7 +47,7 @@ page-shop {
         margin-right: 2px !important;
         margin-top: -3px !important;
     }
-    .grid-product{
+    .grid-product {
         margin-top: 0px !important;
     }
     .cate-order {
@@ -66,9 +65,8 @@ page-shop {
         font-weight: 400 !important;
         font-size: 100%;
     }
-    .product-string{
-        text-align: center;
-        // position: absolute;
+    .product-string {
+        text-align: center; // position: absolute;
         margin-top: -35px;
         background-color: rgba(255, 255, 255, 0.73);
         width: 100%;
@@ -84,31 +82,27 @@ page-shop {
         }
         width: 40px !important;
     }
-   
-    .productoption{
-        position:absolute;
+    .productoption {
+        position: absolute;
         top: 0;
-        right: 0;
-        // background-color: rgba(255, 255, 255, 0.73);
+        right: 0; // background-color: rgba(255, 255, 255, 0.73);
         // width: 20%;
         // height: 10%;
-        text-align: center;
-        // transform: translate(0%, -20%);
+        text-align: center; // transform: translate(0%, -20%);
         // background-color: rgba(255, 255, 255, 0.73);
     }
-    .cateoption{
-        position:absolute;
+    .cateoption {
+        position: absolute;
         top: 0;
         right: 0;
         background-color: rgba(255, 255, 255, 0.73);
         width: 14%;
         text-align: center;
     }
-    .magin-0{
+    .magin-0 {
         margin: 0;
         padding: 0;
         line-height: 1;
-
         width: 90%;
         white-space: nowrap;
         overflow: hidden;
@@ -121,7 +115,7 @@ page-shop {
         padding: 10px;
         margin: 0px !important;
     }
-    .padding-5{
+    .padding-5 {
         padding: 5px;
     }
     .cover-changer {
@@ -160,16 +154,19 @@ page-shop {
     ion-item {
         padding-left: 8px !important;
     }
-    .deletepromote{
-        position:absolute;
+    .deletepromote {
+        position: absolute;
         top: 0;
-        right: 0;
-        // transform: translate(50%, 0%);
+        right: 0; // transform: translate(50%, 0%);
     }
-    .issale{
+    .issale {
         position: absolute;
         top: 0;
         left: 0;
         transform: translate(50%, 25%)
     }
+}
+
+.font-red {
+    color:red !important;
 }
