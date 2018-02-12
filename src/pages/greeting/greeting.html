@@ -16,9 +16,12 @@
           <!-- <img src="{{slide.imageUrl}}"> -->
           <preload-image [ratio]="{w:1, h:1}" [src]="slide.imageUrl"></preload-image>
         </ion-col>
-        <ion-col col-12>
-            <p style="color:#3c6233">{{slide.description}}</p>
-          </ion-col>
+        <ion-col col-12 *ngIf="language === 'th'">
+          <p style="color:#3c6233">{{slide.descriptionth}}</p>
+        </ion-col>
+        <ion-col col-12 *ngIf="language === 'en'">
+          <p style="color:#3c6233">{{slide.descriptionen}}</p>
+        </ion-col>
       </ion-row>
       <!-- <div class="text-wrapper">
         <div class="slide-text">

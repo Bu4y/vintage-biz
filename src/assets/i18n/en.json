@@ -94,6 +94,7 @@
     "NOTIFICATION":"Notification",
     "CONTACT":"Contact",
     "ADDRESS_CONTACT":"Address contract",
-    "TO_SHIPPING":"To shipping"
+    "TO_SHIPPING":"To shipping",
+    "ENTER_YOUR_ADDRESS":"Enter your address"
 
 }

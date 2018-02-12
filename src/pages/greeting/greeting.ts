@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Slides, IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the GreetingPage page.
@@ -16,41 +17,53 @@ import { Slides, IonicPage, NavController, NavParams, Platform } from 'ionic-ang
 export class GreetingPage {
   lastSlide = false;
   platformWidth: Number = 0;
+
   @ViewChild('slider') slider: Slides;
   slideIndex = 0;
   slides = [
     {
       title: 'Dream\'s Adventure',
       imageUrl: './assets/imgs/greetingshop/vin1.png',
-      description: 'จัดการร้านง่ายๆเพียงปลายนิ้ว',
+      descriptionen: 'Manage own account easily',
+      descriptionth: 'จัดการร้านง่ายๆเพียงปลายนิ้ว',
     },
     {
       title: 'For the Weekend',
       imageUrl: './assets/imgs/greetingshop/vin2.png',
-      description: 'จัดการสินค้า',
+      descriptionen: 'Product management',
+      descriptionth: 'จัดการสินค้า',
     },
     {
       title: 'For the Weekend',
       imageUrl: './assets/imgs/greetingshop/vin3.png',
-      description: 'จัดการรายการ การสั่งซื้อ',
+      descriptionen: 'Manage your orders',
+      descriptionth: 'จัดการรายการ การสั่งซื้อ',
     },
     {
       title: 'For the Weekend',
       imageUrl: './assets/imgs/greetingshop/vin4.png',
-      description: 'สถานะการสั้งซื้อ',
+      descriptionen: 'Status of orders',
+      descriptionth: 'สถานะการสั้งซื้อ',
     },
     {
       title: 'For the Weekend',
       imageUrl: './assets/imgs/greetingshop/vin5.png',
-      description: 'ตรวจสอบรายได้ของร้าน',
+      descriptionen: 'View revenue history',
+      descriptionth: 'ตรวจสอบรายได้ของร้าน',
     }
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform) {
+  language: string;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public platform: Platform,
+    private translate: TranslateService, ) {
   }
-  ionViewWillEnter(){
+
+  ionViewWillEnter() {
     // this.platformWidth = this.platform.width();
-   console.log(this.platform.width());
-   
+    this.language = this.translate.currentLang;
+    console.log(this.platform.width());
+
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GreetingPage');

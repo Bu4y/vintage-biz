@@ -92,5 +92,6 @@
     "NOTIFICATION":"การแจ้งเตือน",
     "CONTACT":"ติดต่อเรา",
     "ADDRESS_CONTACT":"ที่อยู่",
-    "TO_SHIPPING":"ที่อยู่จัดส่ง"
+    "TO_SHIPPING":"ที่อยู่จัดส่ง",
+    "ENTER_YOUR_ADDRESS":"กรุณากรอกที่อยู่"
 }

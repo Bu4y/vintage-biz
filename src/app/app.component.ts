@@ -23,6 +23,7 @@ export class MyApp {
     translate.addLangs(['en', 'th']);
     const browserLang = translate.getBrowserLang();
     translate.setDefaultLang(browserLang === 'th' ? 'en' : 'th');
+    // translate.setDefaultLang('en');
     translate.use(browserLang.match(/en|th/) ? browserLang : 'en');
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
