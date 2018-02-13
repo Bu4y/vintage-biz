@@ -109,7 +109,9 @@
     "TOTAL_AMOUNT":"Total amount",
     "REMARK":"Remark",
     "CANCEL_RECEIPT": "Refunded",
-    "CANCEL_RECEIPT_NOT": "No Refunded"
+    "CANCEL_RECEIPT_NOT": "No Refunded",
+    "SHIPPED":"Shipped",
+    "CANCELLED":"Cancelled"
 
 
 }

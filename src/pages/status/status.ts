@@ -40,37 +40,27 @@ export class StatusPage {
     private translate: TranslateService,
     private loading: LoadingController
   ) {
-    // console.log('Width: ' + platform.width());
-    let language = this.translate.currentLang;
-    let toshipping = language === 'th' ? 'ที่อยู่จัดส่ง' : 'To shipping';
-    let sent = language === 'th' ? 'จัดส่งแล้ว' : 'Sent';
-    let completed = language === 'th' ? 'สำเร็จ' : 'Completed';
-    let cancelled = language === 'th' ? 'ยกเลิก' : 'Cancelled';
-    this.tabs = [toshipping, sent, completed, cancelled];
-    this.screenWidth_px = platform.width();
   }
   // doRefresh(refresher) {
   //   setTimeout(() => {
   //     refresher.complete();
   //   }, 1500);
   // }
-  ionViewWillEnter() {
-    let language = this.translate.currentLang;
-    let toshipping = language === 'th' ? 'ที่อยู่จัดส่ง' : 'To shipping';
-    let sent = language === 'th' ? 'จัดส่งแล้ว' : 'Sent';
-    let completed = language === 'th' ? 'สำเร็จ' : 'Completed';
-    let cancelled = language === 'th' ? 'ยกเลิก' : 'Cancelled';
-    this.tabs = [toshipping, sent, completed, cancelled];
-    
-    this.SwipedTabsIndicator = document.getElementById("indicator");
-    for (let i in this.tabs)
-      this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
-
-    this.selectTab(0);
-    this.getOrders();
-  }
+ 
   scrollIndicatiorTab() {
     this.ItemsTitles.scrollTo(this.calculateDistanceToSpnd(this.SwipedTabsSlider.getActiveIndex()) - this.screenWidth_px / 2, 0);
+  }
+  ionViewWillEnter() {
+    this.tabTitleWidthArray = [];
+    this.tabs = ['TO_SHIPPING', 'SHIPPED', 'COMPLETED', 'CANCELLED'];
+    this.screenWidth_px = this.platform.width();
+    setTimeout(() => {
+      this.SwipedTabsIndicator = document.getElementById("indicator");
+      for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
+      this.selectTab(0);
+      this.getOrders();
+      console.log(this.tabTitleWidthArray);
+    }, 300);
   }
 
   selectTab(index) {

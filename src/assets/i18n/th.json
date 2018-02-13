@@ -108,5 +108,7 @@
     "TOTAL_AMOUNT":"รวมสุทธิ",
     "REMARK":"หมายเหตุ",
     "CANCEL_RECEIPT": "ได้รับคืนเงินแล้ว",
-    "CANCEL_RECEIPT_NOT": "ยังไม่ได้รับคืนเงิน"
+    "CANCEL_RECEIPT_NOT": "ยังไม่ได้รับคืนเงิน",
+    "SHIPPED":"จัดส่งแล้ว",
+    "CANCELLED":"ยกเลิก"
 }
