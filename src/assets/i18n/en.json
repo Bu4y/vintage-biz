@@ -97,17 +97,19 @@
     "TO_SHIPPING": "To shipping",
     "ENTER_YOUR_ADDRESS": "Enter your address",
     "ORDER_NUMBER": "Order No.",
-    "RECEIPT_DATE": "Recept Time",
-    "SHIPPING_DATE": "Ship Time",
+    "RECEIPT_DATE": "Ship time",
+    "SHIPPING_DATE": "Shipping date",
     "CANCEL_DATE": "Cancel Time",
-    "CREATE_ORDER_DATE": "Order Time",
+    "CREATE_ORDER_DATE": "Order time",
     "PRODUCT_LIST":"Product List",
     "SHIPPING_TYPE":"Shipping type",
     "TOTAL_FEE":"Total fee",
     "DISCOUNT":"Discount",
     "DELIVERY_FEE":"Delivery fee",
     "TOTAL_AMOUNT":"Total amount",
-    "REMARK":"Remark"
+    "REMARK":"Remark",
+    "CANCEL_RECEIPT": "Refunded",
+    "CANCEL_RECEIPT_NOT": "No Refunded"
 
 
 }

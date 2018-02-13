@@ -96,15 +96,17 @@
     "ENTER_YOUR_ADDRESS": "กรุณากรอกที่อยู่",
     "ORDER_NUMBER": "เลขการสั่งซื้อ",
     "RECEIPT_DATE": "วันที่รับสินค้า",
-    "SHIPPING_DATE": "วันที่ส่งสินค้า",
-    "CANCEL_DATE": "วันที่ยกเลิก",
+    "SHIPPING_DATE": "วันที่จัดส่ง",
+    "CANCEL_DATE": "วันที่ยกเลิกสินค้า",
     "REJECT_DATE": "วันที่ปฏิเสธ",
-    "CREATE_ORDER_DATE": "วันที่สร้างสินค้า",
+    "CREATE_ORDER_DATE": "วันที่สั่งซื้อ",
     "PRODUCT_LIST":"รายการสินค้า",
     "SHIPPING_TYPE":"วิธีการจัดส่ง",
     "TOTAL_FEE":"ราคารวม",
     "DISCOUNT":"ส่วนลด",
     "DELIVERY_FEE":"รวมค่าจัดส่ง",
     "TOTAL_AMOUNT":"รวมสุทธิ",
-    "REMARK":"หมายเหตุ"
+    "REMARK":"หมายเหตุ",
+    "CANCEL_RECEIPT": "ได้รับคืนเงินแล้ว",
+    "CANCEL_RECEIPT_NOT": "ยังไม่ได้รับคืนเงิน"
 }

@@ -105,8 +105,8 @@
             <p *ngIf="ordDetail.rejectreason">
               {{'REMARK' | translate}} {{ordDetail.rejectreason}}
             </p>
-            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b> -->
-            <!-- <b class="cancel" *ngIf="ordDetail.status ==='cancelrefund' || ordDetail.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b> -->
+            <b class="cancel" *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='reject'">{{ 'CANCEL_RECEIPT_NOT' | translate }}</b>
+            <b class="cancel" *ngIf="ordDetail.status ==='cancelrefund' || ordDetail.status ==='rejectrefund'">{{ 'CANCEL_RECEIPT' | translate }}</b>
           </ion-label>
           <ion-label *ngIf="ordDetail.status ==='reject' || ordDetail.status ==='rejectrefund'">
             <h2>
