@@ -55,7 +55,13 @@ export class StatusPage {
   //   }, 1500);
   // }
   ionViewWillEnter() {
-
+    let language = this.translate.currentLang;
+    let toshipping = language === 'th' ? 'ที่อยู่จัดส่ง' : 'To shipping';
+    let sent = language === 'th' ? 'จัดส่งแล้ว' : 'Sent';
+    let completed = language === 'th' ? 'สำเร็จ' : 'Completed';
+    let cancelled = language === 'th' ? 'ยกเลิก' : 'Cancelled';
+    this.tabs = [toshipping, sent, completed, cancelled];
+    
     this.SwipedTabsIndicator = document.getElementById("indicator");
     for (let i in this.tabs)
       this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
