@@ -11,6 +11,7 @@ import { ShopServiceProvider } from '../pages/shop/shop-service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Auth } from '../providers/auth-service/auth-service';
 import { Server } from '../providers/server-config/server-config';
+import { LoadingProvider } from '../providers/loading/loading';
 import { CoreserviceProvider } from '../providers/coreservice/coreservice';
 import { CreateproductPage } from '../pages/createproduct/createproduct';
 import { ImagePicker } from '@ionic-native/image-picker';
@@ -70,6 +71,7 @@ import { QuestionAnswersServiceProvider } from '../pages/question-answers/questi
     ShopServiceProvider,
     Auth,
     Server,
+    LoadingProvider,
     CoreserviceProvider,
     Base64,
     ImagePicker,

@@ -2,12 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import {
   App,
   IonicPage,
-  LoadingController,
   ModalController,
   NavController,
   NavParams,
   PopoverController,
   Slides,
+  LoadingController,
   ActionSheetController,
 } from 'ionic-angular';
 import { ShopModel } from "./shop.model";
@@ -22,6 +22,7 @@ import { Crop } from '@ionic-native/crop';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { ImagecoverProvider } from '../../providers/imagecover/imagecover';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the ShopPage page.
@@ -52,7 +53,8 @@ export class ShopPage {
   isDrag: boolean = false;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public loading: LoadingController,
+    public loading: LoadingProvider,
+    public loadingCtrl: LoadingController,
     public shopServiceProvider: ShopServiceProvider,
     public app: App,
     public popoverCtrl: PopoverController,
@@ -80,8 +82,9 @@ export class ShopPage {
   }
   shopService() {
     this.images = [];
-    let loading = this.loading.create();
-    loading.present();
+    // let loading = this.loading.create();
+    // loading.present();
+    this.loading.onLoading();
     this.shopServiceProvider.getShop().then(data => {
       this.shop = data;
       window.localStorage.setItem('shopID', this.shop._id);
@@ -111,23 +114,24 @@ export class ShopPage {
         delay: 0,
         filter: ".js-edit"
       };
-      loading.dismiss();
+      this.loading.dismiss();
     }, (err) => {
       window.localStorage.removeItem('jjbiz-user');
-      loading.dismiss();
+      this.loading.dismiss();
       this.app.getRootNav().setRoot('LoginPage');
     });
   }
   saveDragDrop() {
     if (this.isDrag) {
-      let loading = this.loading.create();
-      loading.present();
+      // let loading = this.loading.create();
+      // loading.present();
+      this.loading.onLoading();
       this.shopServiceProvider.editIndexProduct(this.shop._id, this.shop).then((data) => {
-        loading.dismiss();
+        this.loading.dismiss();
         this.isDrag = false;
         this.shopService();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
       });
     }
   }
@@ -166,14 +170,15 @@ export class ShopPage {
     modalopen.onDidDismiss(datadismiss => {
       this.images = [];
       if (datadismiss) {
-        let loading = this.loading.create();
-        loading.present();
+        // let loading = this.loading.create();
+        // loading.present();
+        this.loading.onLoading();
         this.shopServiceProvider.addCate(this.shop._id, datadismiss).then((data) => {
-          loading.dismiss();
+          this.loading.dismiss();
           this.isCreateCate = true;
           this.shopService();
         }, (err) => {
-          loading.dismiss();
+          this.loading.dismiss();
           alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
           // alert(JSON.stringify(JSON.parse(err._body).message));
         });
@@ -199,13 +204,14 @@ export class ShopPage {
     modalproduct.onDidDismiss(datadismiss => {
       this.images = [];
       if (datadismiss) {
-        let loading = this.loading.create();
-        loading.present();
+        // let loading = this.loading.create();
+        // loading.present();
+        this.loading.onLoading();
         this.shopServiceProvider.addProduct(this.shop._id, datadismiss).then((data) => {
-          loading.dismiss();
+          this.loading.dismiss();
           this.shopService();
         }, (err) => {
-          loading.dismiss();
+          this.loading.dismiss();
           // alert(JSON.stringify(JSON.parse(err._body).message));
           alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
         });
@@ -224,25 +230,26 @@ export class ShopPage {
   }
   updateShopBG() {
     let img = this.images && this.images.length > 0 ? this.images[0] : 'noimage';
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    // loadingCtrl.present();
+    this.loading.onLoading();
     this.imgCoverService.getMeta(img).then((data) => {
       if (data) {
         this.shopServiceProvider.setCover(this.shop._id, img).then((data) => {
-          loadingCtrl.dismiss();
+          this.loading.dismiss();
           this.shopService();
         }, (err) => {
           // alert(JSON.stringify(JSON.parse(err._body).message));
-          loadingCtrl.dismiss();
+          this.loading.dismiss();
           alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
           console.log(err);
         });
       } else {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         alert('ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!');
       }
     }, (err) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
       console.log(err);
     });
@@ -251,14 +258,15 @@ export class ShopPage {
     this.onUpload('promote', 1);
   }
   updatePromote() {
-    let loading = this.loading.create();
-    loading.present();
+    // let loading = this.loading.create();
+    // loading.present();
+    this.loading.onLoading();
     let img = this.images && this.images.length > 0 ? this.images[0] : 'noimage';
     this.shopServiceProvider.addPromote(this.shop._id, img).then((data) => {
-      loading.dismiss();
+      this.loading.dismiss();
       this.shopService();
     }, (err) => {
-      loading.dismiss();
+      this.loading.dismiss();
       // alert(JSON.stringify(JSON.parse(err._body).message));
       alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
       console.log(err);
@@ -275,7 +283,7 @@ export class ShopPage {
       let loading = [];
       let loadingCount = 0;
       for (var i = 0; i < results.length; i++) {
-        loading.push(this.loading.create({
+        loading.push(this.loadingCtrl.create({
           content: (i + 1) + '/' + (results.length),
           cssClass: `loading-upload`,
           showBackdrop: false
@@ -430,7 +438,7 @@ export class ShopPage {
       targetHeight: from !== 'cover' ? 600 : 600,
       targetWidth: from !== 'cover' ? 600 : 800
     }
-    let loading = this.loading.create();
+    let loading = this.loadingCtrl.create();
     this.camera.getPicture(options).then((imageData) => {
       loading.present();
       this.noResizeImage(imageData).then((data) => {
@@ -468,7 +476,7 @@ export class ShopPage {
       targetWidth: from !== 'cover' ? 600 : 900,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
-    let loading = this.loading.create();
+    let loading = this.loadingCtrl.create();
     this.camera.getPicture(options).then((imageData) => {
       loading.present();
       this.noResizeImage(imageData).then((data) => {
