@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 // import { Firstloginstep3Page } from '../firstloginstep3/firstloginstep3';
 // import { ImagePicker } from '@ionic-native/image-picker';
 import * as firebase from 'firebase';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { ImagecoverProvider } from '../../providers/imagecover/imagecover';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the Firstloginstep2Page page.
  *
@@ -24,7 +25,7 @@ export class Firstloginstep2Page {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public loading: LoadingController,
+    public loading: LoadingProvider,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     public imgCoverService: ImagecoverProvider,
@@ -78,17 +79,17 @@ export class Firstloginstep2Page {
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
     }
-    let loadingCtrl = this.loading.create();
+    // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loadingCtrl.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         if (from.toString() === 'cover') {
           this.updateCover();
         }
       }, (err) => {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {
@@ -105,17 +106,17 @@ export class Firstloginstep2Page {
       correctOrientation: true,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
-    let loadingCtrl = this.loading.create();
+    // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loadingCtrl.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         if (from.toString() === 'cover') {
           this.updateCover();
         }
       }, (err) => {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {
@@ -170,19 +171,19 @@ export class Firstloginstep2Page {
   }
   updateCover() {
     this.coverImg = this.images && this.images.length > 0 ? this.images[this.images.length - 1] : '';
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    this.loading.onLoading();
     this.imgCoverService.getMeta(this.coverImg).then((data) => {
       if (data) {
         if (this.coverImg) {
           this.firstLogin.coverimage = this.coverImg;
-          loadingCtrl.dismiss();
+          this.loading.dismiss();
         } else {
           this.firstLogin.coverimage = '';
-          loadingCtrl.dismiss();
+          this.loading.dismiss();
         }
       } else {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         alert('ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!');
       }
     }, (err) => {

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionModel } from '../../assets/model/question-answers.model'
 import { TranslateService } from '@ngx-translate/core';
 import { QuestionAnswersServiceProvider } from './question-answers-service';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the QuestionAnswersPage page.
  *
@@ -27,6 +27,7 @@ export class QuestionAnswersPage {
     public navParams: NavParams,
     public QuestionProvider: QuestionAnswersServiceProvider,
     private translate: TranslateService,
+    private loading: LoadingProvider,
   ) {
 
   }
@@ -48,9 +49,10 @@ export class QuestionAnswersPage {
   };
 
   getQuestions() {
+    this.loading.onLoading();
     this.QuestionProvider.getQuestionAnswers().then(res => {
-      console.log(res);
       this.qas = res;
+      this.loading.dismiss();
     })
   }
 

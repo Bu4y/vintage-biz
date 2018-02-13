@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 // import { Firstloginstep5Page } from '../firstloginstep5/firstloginstep5';
 // import { FirstloginstepModalPage } from '../firstloginstep-modal/firstloginstep-modal';
@@ -22,7 +22,6 @@ export class Firstloginstep4Page {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public loading: LoadingController,
     public actionSheetCtrl: ActionSheetController,
     private translate: TranslateService
   ) {

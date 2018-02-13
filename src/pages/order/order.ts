@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderModel } from '../../assets/model/order.model';
 import { OrderServiceProvider } from './order-service';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the OrderPage page.
  *
@@ -20,7 +20,8 @@ export class OrderPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public orderService: OrderServiceProvider
+    public orderService: OrderServiceProvider,
+    private loading : LoadingProvider
   ) {
 
   }
@@ -38,10 +39,13 @@ export class OrderPage {
     }, 1500);
   }
   getOrders() {
+    this.loading.onLoading();
     this.orderService.getOrderList().then(data => {
       this.orders = data
+    this.loading.dismiss();
     }, err => {
       console.log(err);
+      this.loading.dismiss();
     })
   }
   gotoDetail(item) {

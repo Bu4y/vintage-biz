@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { ShopModel } from "../shop/shop.model";
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the Firstloginstep1Page page.
  *
@@ -25,19 +26,19 @@ export class Firstloginstep1Page {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public loading: LoadingController,
+    public loading: LoadingProvider,
     public shopServiceProvider: ShopServiceProvider,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private translate: TranslateService,
   ) {
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    this.loading.onLoading();
     this.shopServiceProvider.getShop().then(data => {
       this.shop = data;
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
     }, (err) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
     });
     let getfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-user'));
     let backfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
@@ -94,17 +95,17 @@ export class Firstloginstep1Page {
       targetHeight: from !== 'cover' ? 600 : 600,
       targetWidth: from !== 'cover' ? 600 : 800
     }
-    let loadingCtrl = this.loading.create();
+    // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loadingCtrl.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         if (from.toString() === 'profile') {
           this.updateProfile();
         }
       }, (err) => {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {
@@ -124,17 +125,17 @@ export class Firstloginstep1Page {
       targetWidth: from !== 'cover' ? 600 : 800,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
-    let loadingCtrl = this.loading.create();
+    // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loadingCtrl.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         if (from.toString() === 'profile') {
           this.updateProfile();
         }
       }, (err) => {
-        loadingCtrl.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {

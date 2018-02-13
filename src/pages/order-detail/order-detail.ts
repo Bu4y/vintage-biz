@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { OrderDetailModel } from '../../assets/model/order-detail.model';
 import { OrderServiceProvider } from '../order/order-service';
 import { AlertController } from 'ionic-angular';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the OrderDetailPage page.
  *
@@ -24,13 +24,17 @@ export class OrderDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public orderService: OrderServiceProvider,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    private loading: LoadingProvider
   ) {
     // this.navParams.data;
+    this.loading.onLoading();
     this.orderService.getOrderDetail().then((data) => {
       this.order = data;
+      this.loading.dismiss();
     }, (err) => {
       console.log(err);
+      this.loading.dismiss();
     });
   }
 

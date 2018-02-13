@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { CateModel } from '../shop/shop.model';
 import { TranslateService } from '@ngx-translate/core';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the ShopeditPage page.
  *
@@ -35,13 +35,13 @@ export class ShopeditPage {
     public navParams: NavParams,
     public modalCtrl: ModalController,
     public shopServiceProvider: ShopServiceProvider,
-    public loading: LoadingController,
+    public loading: LoadingProvider,
     public actionSheetCtrl: ActionSheetController,
     private translate: TranslateService
   ) {
     this.editData = this.navParams.data;
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    this.loading.onLoading();
     this.shopServiceProvider.getCate().then(data => {
       this.cate = data;
       this.editData.categories.forEach(fcate => {
@@ -51,9 +51,9 @@ export class ShopeditPage {
           }
         });
       });
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
     }, (err) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       // window.localStorage.removeItem('bikebikeshop');
     });
   }
@@ -121,14 +121,14 @@ export class ShopeditPage {
   }
   save() {
     this.editData.categories = this.categories;
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    this.loading.onLoading();
     this.shopServiceProvider.editShop(this.editData._id, this.editData).then((data) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       window.localStorage.removeItem('shop_location_address');
       this.navCtrl.setRoot('TabnavPage');
     }, (err) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
       // alert(JSON.stringify(JSON.parse(err._body).message));
     });

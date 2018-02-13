@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChangePasswordModel } from '../../assets/model/user.model';
 import { MoreServiceProvider } from '../more/more-service';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the ChangePasswordPage page.
  *
@@ -17,7 +17,12 @@ import { MoreServiceProvider } from '../more/more-service';
 })
 export class ChangePasswordPage {
   auth: ChangePasswordModel = new ChangePasswordModel();
-  constructor(public navCtrl: NavController, public navParams: NavParams, public moreService: MoreServiceProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public moreService: MoreServiceProvider,
+    private loading: LoadingProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -25,9 +30,12 @@ export class ChangePasswordPage {
   }
 
   changePassword() {
+    this.loading.onLoading();
     this.moreService.changePassword(this.auth).then((data) => {
+      this.loading.dismiss();
       this.navCtrl.pop();
     }, (err) => {
+      this.loading.dismiss();
       alert('เกิดข้อผิดพลาดกรุณาตรวจสอบรหัสผ่านและลองใหม่อีกครั้ง');
     });
   }

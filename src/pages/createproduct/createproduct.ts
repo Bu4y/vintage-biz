@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
 import { TranslateService } from '@ngx-translate/core';
 import { ShippingMasterModel } from '../../assets/model/shippingmaster.model';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the CreateproductPage page.
  *
@@ -31,15 +31,15 @@ export class CreateproductPage {
     public viewCtrl: ViewController,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
-    private loading: LoadingController,
+    private loading: LoadingProvider,
     private translate: TranslateService
 
   ) {
     this.createprod.shippings = [];
     if (this.navParams.data._id) {
       let customShippings = [];
-      let loading = this.loading.create();
-      loading.present();
+      // let loading = this.loading.create();
+      this.loading.onLoading();
       this.shopServiceProvider.getProduct(this.navParams.data._id).then((data) => {
         let images = [];
         data.images.forEach(img => {
@@ -60,9 +60,9 @@ export class CreateproductPage {
         // let customShippings = [];
         console.log(this.createprod);
         this.getShippingmaster();
-        loading.dismiss();
+        this.loading.dismiss();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
         console.log(err);
       })
     } else {
@@ -142,14 +142,14 @@ export class CreateproductPage {
       targetHeight: from !== 'cover' ? 600 : 600,
       targetWidth: from !== 'cover' ? 600 : 800
     }
-    let loading = this.loading.create();
+    // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loading.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.createprod.images.push(data);
-        loading.dismiss();
+        this.loading.dismiss();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {
@@ -169,14 +169,14 @@ export class CreateproductPage {
       targetWidth: from !== 'cover' ? 600 : 900,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
-    let loading = this.loading.create();
+    // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loading.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.createprod.images.push(data);
-        loading.dismiss();
+        this.loading.dismiss();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {

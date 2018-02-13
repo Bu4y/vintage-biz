@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the FirstloginstepModalPage page.
  *
@@ -22,13 +22,13 @@ export class FirstloginstepModalPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    public loadingCtrl: LoadingController
+    public loading: LoadingProvider
   ){
     this.firstLogin = this.navParams.data;
   }
   ionViewWillEnter() {
-    let loading = this.loadingCtrl.create();
-    loading.present();
+    // let loading = this.loadingCtrl.create();
+    this.loading.onLoading();
     let timenow = new Date();
     let days = [{
       name: 'จันทร์',
@@ -82,7 +82,7 @@ export class FirstloginstepModalPage {
       days: days
     };
     this.addDays();
-    loading.dismiss();
+    this.loading.dismiss();
   }
   ionViewWillLeave() {
     window.localStorage.setItem('firstlogin', JSON.stringify(this.firstLogin));

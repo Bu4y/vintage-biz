@@ -8,6 +8,7 @@ import { Auth } from '../../providers/auth-service/auth-service';
 import { Crop } from '@ionic-native/crop';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 
 /**
  * Generated class for the ProfilePage page.
@@ -33,6 +34,7 @@ export class ProfilePage {
     public navParams: NavParams,
     public imagePicker: ImagePicker,
     public loading: LoadingController,
+    public loadingCtrl: LoadingProvider,
     public shopServiceProvider: ShopServiceProvider,
     private auth: Auth,
     private crop: Crop,
@@ -228,19 +230,19 @@ export class ProfilePage {
       mediaType: this.camera.MediaType.PICTURE,
       popoverOptions: popover
     }
-    let loading = this.loading.create();
+    // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loading.present();
+      this.loadingCtrl.onLoading();
       this.resizeImage(imageData).then((data) => {
         this.images.push(data);
-        loading.dismiss();
+        this.loadingCtrl.dismiss();
         this.updateProfile();
       }, (err) => {
-        loading.dismiss();
+        this.loadingCtrl.dismiss();
         console.log(err);
       })
     }, (err) => {
-      loading.dismiss();
+      this.loadingCtrl.dismiss();
     });
   }
   resizeImage(fileUri): Promise<any> {

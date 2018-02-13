@@ -4,8 +4,7 @@ import { StatusServiceProvider } from './status-service';
 // import { OrderModel } from '../../assets/model/order.model';
 import { TranslateService } from '@ngx-translate/core';
 import { StatusModel } from '../../assets/model/status.model';
-import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the StatusPage page.
  *
@@ -38,7 +37,7 @@ export class StatusPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private translate: TranslateService,
-    private loading: LoadingController
+    private loading: LoadingProvider
   ) {
   }
   // doRefresh(refresher) {
@@ -130,14 +129,14 @@ export class StatusPage {
 
   getOrders() {
     let id = window.localStorage.getItem('shopID');
-    let loading = this.loading.create();
-    loading.present();
+    // let loading = this.loading.create();
+    this.loading.onLoading();
     this.statusService.getOrder(id).then(data => {
       this.orders = data;
       console.log(this.orders);
-      loading.dismiss();
+      this.loading.dismiss();
     }, err => {
-      loading.dismiss();
+      this.loading.dismiss();
       console.log(err);
     })
   }
@@ -184,13 +183,13 @@ export class StatusPage {
                 itemid: itm.itemid,
                 refid: data.refID
               };
-              let loading = this.loading.create();
-              loading.present();
+              // let loading = this.loading.create();
+              this.loading.onLoading();
               this.statusService.orderSent(ord).then(data => {
                 this.getOrders();
-                loading.dismiss();
+                this.loading.dismiss();
               }, err => {
-                loading.dismiss();
+                this.loading.dismiss();
                 console.log(err);
               })
               console.log('Saved clicked');
@@ -236,13 +235,13 @@ export class StatusPage {
                 itemid: itm.itemid,
                 remark: data.rejectreason
               };
-              let loading = this.loading.create();
-              loading.present();
+              // let loading = this.loading.create();
+              this.loading.onLoading();
               this.statusService.orderReject(ord).then(data => {
                 this.getOrders();
-                loading.dismiss();
+                this.loading.dismiss();
               }, err => {
-                loading.dismiss();
+                this.loading.dismiss();
                 console.log(err);
               })
               console.log('Saved clicked');

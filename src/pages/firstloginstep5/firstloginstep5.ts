@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import {
   GoogleMaps,
@@ -12,7 +12,7 @@ import {
 } from '@ionic-native/google-maps';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { ShopServiceProvider } from '../shop/shop-service';
-
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the Firstloginstep5Page page.
  *
@@ -47,7 +47,7 @@ export class Firstloginstep5Page {
     private googleMaps: GoogleMaps,
     private nativeGeocoder: NativeGeocoder,
     public shopServiceProvider: ShopServiceProvider,
-    public loading: LoadingController
+    public loading: LoadingProvider
   ) {
 
   }
@@ -60,17 +60,17 @@ export class Firstloginstep5Page {
     window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   save() {
-    let loadingCtrl = this.loading.create();
-    loadingCtrl.present();
+    // let loadingCtrl = this.loading.create();
+    this.loading.onLoading();
     window.localStorage.setItem('isjjbizfirstlogin', 'true');
     this.shopServiceProvider.addFirstShop(this.firstLogin).then((data) => {
       console.log(data);
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       window.localStorage.removeItem('shop_location_address');
       window.localStorage.removeItem('jjbiz-firstlogin');
       this.navCtrl.setRoot('TabnavPage');
     }, (err) => {
-      loadingCtrl.dismiss();
+      this.loading.dismiss();
       alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
       // alert(JSON.stringify(JSON.parse(err._body).message));
     });

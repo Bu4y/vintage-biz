@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { CateModel } from '../shop/shop.model';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the Firstloginstep3Page page.
  *
@@ -23,7 +24,7 @@ export class Firstloginstep3Page {
     public navCtrl: NavController,
     public navParams: NavParams,
     public shopServiceProvider: ShopServiceProvider,
-    public loadingCtrl: LoadingController,
+    public loading: LoadingProvider,
     private translate: TranslateService,
   ) {
 
@@ -36,8 +37,8 @@ export class Firstloginstep3Page {
     }
   }
   ionViewWillEnter() {
-    let loading = this.loadingCtrl.create();
-    loading.present();
+    // let loading = this.loadingCtrl.create();
+    this.loading.onLoading();
     this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     this.shopServiceProvider.getCate().then(data => {
       this.cate = data;
@@ -49,9 +50,9 @@ export class Firstloginstep3Page {
         });
       });
       this.validationEmail();
-      loading.dismiss();
+      this.loading.dismiss();
     }, (err) => {
-      loading.dismiss();
+      this.loading.dismiss();
     });
   }
   ionViewWillLeave() {

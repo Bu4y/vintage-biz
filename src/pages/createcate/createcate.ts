@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the CreatecatePage page.
  *
@@ -27,7 +28,7 @@ export class CreatecatePage {
     public viewCtrl: ViewController,
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
-    private loading: LoadingController,
+    private loading: LoadingProvider,
     private translate: TranslateService
   ) {
     if (this.navParams.data._id) {
@@ -86,14 +87,15 @@ export class CreatecatePage {
       targetHeight: from !== 'cover' ? 600 : 600,
       targetWidth: from !== 'cover' ? 600 : 800
     }
-    let loading = this.loading.create();
+    // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loading.present();
+      // loading.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.cate.image = data;
-        loading.dismiss();
+        this.loading.dismiss();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {
@@ -114,14 +116,14 @@ export class CreatecatePage {
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
 
-    let loading = this.loading.create();
+    // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
-      loading.present();
+      this.loading.onLoading();
       this.noResizeImage(imageData).then((data) => {
         this.cate.image = data;
-        loading.dismiss();
+        this.loading.dismiss();
       }, (err) => {
-        loading.dismiss();
+        this.loading.dismiss();
         console.log(err);
       });
     }, (err) => {

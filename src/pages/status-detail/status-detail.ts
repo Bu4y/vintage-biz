@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { StatusServiceProvider } from './../status/status-service';
 import { ItemStatusModel } from '../../assets/model/status.model';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingProvider } from '../../providers/loading/loading';
 /**
  * Generated class for the StatusDetailPage page.
  *
@@ -21,21 +22,21 @@ export class StatusDetailPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private statusService: StatusServiceProvider,
-    private loadingCtrl: LoadingController,
+    private loading: LoadingProvider,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private translate: TranslateService,
   ) {
     let itm = this.navParams.data;
 
-    let loading = this.loadingCtrl.create();
-    loading.present();
+    // let loading = this.loadingCtrl.create();
+    this.loading.onLoading();
     this.statusService.getOrderDetail(itm).then(data => {
       this.ordDetail = data;
       console.log(this.ordDetail);
-      loading.dismiss();
+      this.loading.dismiss();
     }, err => {
-      loading.dismiss();
+      this.loading.dismiss();
       console.log(err);
     })
   }
@@ -79,13 +80,13 @@ export class StatusDetailPage {
                 itemid: this.ordDetail.itemid,
                 remark: data.rejectreason
               };
-              let loading = this.loadingCtrl.create();
-              loading.present();
+              // let loading = this.loadingCtrl.create();
+              this.loading.onLoading();
               this.statusService.orderReject(ord).then(data => {
                 this.navCtrl.pop();
-                loading.dismiss();
+                this.loading.dismiss();
               }, err => {
-                loading.dismiss();
+                this.loading.dismiss();
                 console.log(err);
               })
               console.log('Saved clicked');
@@ -132,13 +133,13 @@ export class StatusDetailPage {
                 itemid: this.ordDetail.itemid,
                 refid: data.refID
               };
-              let loading = this.loadingCtrl.create();
-              loading.present();
+              // let loading = this.loadingCtrl.create();
+              this.loading.onLoading();
               this.statusService.orderSent(ord).then(data => {
                 this.navCtrl.pop();
-                loading.dismiss();
+                this.loading.dismiss();
               }, err => {
-                loading.dismiss();
+                this.loading.dismiss();
                 console.log(err);
               })
               console.log('Saved clicked');
