@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { OneSignal } from '@ionic-native/onesignal';
 // import { TabnavPage } from '../pages/tabnav/tabnav';
 // import { LoginPage } from '../pages/login/login';
 
@@ -16,10 +17,13 @@ export class MyApp {
   // rootPage:any = TabnavPage;
   rootPage: any = 'LoginPage';
   user = {} as any;
-  constructor(platform: Platform,
+  constructor(
+    platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    translate: TranslateService) {
+    translate: TranslateService,
+    private oneSignal: OneSignal
+  ) {
     translate.addLangs(['en', 'th']);
     const browserLang = translate.getBrowserLang();
     translate.setDefaultLang(browserLang === 'th' ? 'en' : 'th');
@@ -31,6 +35,9 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.configFirebase();
+      if (platform.is('cordova')) {
+        this.onSignalSetup();
+      }
     });
     let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
     if (!isFirstLogin) {
@@ -56,6 +63,21 @@ export class MyApp {
     };
     firebase.initializeApp(config);
   }
+  onSignalSetup() {
+    this.oneSignal.startInit('fdfae3dc-e634-47f4-b959-f04e60f4613b', '464766391164');
+
+    // this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.InAppAlert);
+
+    this.oneSignal.handleNotificationReceived().subscribe((onReceived) => {
+      // do something when notification is received
+    });
+    this.oneSignal.handleNotificationOpened().subscribe(() => {
+      // do something when a notification is opened
+    });
+
+    this.oneSignal.endInit();
+  }
+
 }
 
 
