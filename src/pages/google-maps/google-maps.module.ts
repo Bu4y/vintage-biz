@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { GoogleMapsPage } from './google-maps';
+// import { GoogleMapsPage } from './google-maps';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    GoogleMapsPage,
+    // GoogleMapsPage,
   ],
   imports: [
-    IonicPageModule.forChild(GoogleMapsPage),
+    // IonicPageModule.forChild(GoogleMapsPage),
     TranslateModule.forChild()
   ],
 })

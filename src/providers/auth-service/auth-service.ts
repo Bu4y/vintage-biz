@@ -6,10 +6,19 @@ import "rxjs/add/operator/toPromise";
 import { Server } from '../server-config/server-config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CoreserviceProvider } from '../../providers/coreservice/coreservice';
+import { OneSignal } from '@ionic-native/onesignal';
+import { Platform } from 'ionic-angular';
+
 @Injectable()
 export class Auth {
 
-  constructor(public http: HttpClient, public server: Server, public coreService: CoreserviceProvider) {
+  constructor(
+    public http: HttpClient, 
+    public server: Server, 
+    public coreService: CoreserviceProvider, 
+    private platform: Platform, 
+    private oneSignal: OneSignal
+  ) {
   }
 
   // AuthHeaders() {
@@ -38,6 +47,7 @@ export class Auth {
         let res = response as any;
         window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.stringify(res.loginToken));
+        this.onOneSignal(res);
         return res;
       })
       .catch(this.handleError);
@@ -62,6 +72,7 @@ export class Auth {
         let res = response as any;
         window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         window.localStorage.setItem('token', JSON.stringify(res.loginToken));
+        this.onOneSignal(res);
         return res;
       })
       .catch(this.handleError);
@@ -80,8 +91,24 @@ export class Auth {
   }
 
   logout() {
-    window.localStorage.removeItem('token');
-    return true;
+    if (this.platform.is('cordova')) {
+      this.oneSignal.getIds().then((data) => {
+        let user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
+        let index = user.notificationids.indexOf(data.userId);
+        if (index !== -1) {
+          user.notificationids.splice(index, 1);
+          this.manageUser(user);
+        }
+        window.localStorage.removeItem('jjbiz-user');
+        window.localStorage.removeItem('token');
+        return true;
+      });
+    } else {
+      window.localStorage.removeItem('jjbiz-user');
+      window.localStorage.removeItem('token');
+      return true;
+    }
+    console.log('logout success.');
   }
 
   isLogedin() {
@@ -89,6 +116,14 @@ export class Auth {
       return true;
     } else {
       return false;
+    }
+  }
+  private onOneSignal(user) {
+    if (this.platform.is('cordova')) {
+      this.oneSignal.getIds().then((data) => {
+        user.notificationids.push(data.userId);
+        this.manageUser(user);
+      });
     }
   }
   private handleError(error: any): Promise<any> {

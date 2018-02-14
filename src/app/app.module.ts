@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {OneSignal} from '@ionic-native/onesignal';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,10 +24,10 @@ import { SortablejsModule } from "angular-sortablejs";
 
 import * as ionicGalleryModal from 'ionic-gallery-modal';
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { Geolocation } from '@ionic-native/geolocation';
-import {
-  GoogleMaps
-} from '@ionic-native/google-maps';
+// import { Geolocation } from '@ionic-native/geolocation';
+// import {
+//   GoogleMaps
+// } from '@ionic-native/google-maps';
 import { NativeGeocoder } from '@ionic-native/native-geocoder';
 import { Crop } from '@ionic-native/crop';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -75,8 +76,9 @@ import { QuestionAnswersServiceProvider } from '../pages/question-answers/questi
     CoreserviceProvider,
     Base64,
     ImagePicker,
-    Geolocation,
-    GoogleMaps,
+    // Geolocation,
+    // GoogleMaps,
+    OneSignal,
     NativeGeocoder,
     Crop,
     Camera,

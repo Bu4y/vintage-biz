@@ -1,16 +1,16 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
-} from '@ionic-native/google-maps';
-import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+// import { Geolocation } from '@ionic-native/geolocation';
+// import {
+//   GoogleMaps,
+//   GoogleMap,
+//   GoogleMapsEvent,
+//   GoogleMapOptions,
+//   CameraPosition,
+//   MarkerOptions,
+//   Marker
+// } from '@ionic-native/google-maps';
+// import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';k
 import { ShopServiceProvider } from '../shop/shop-service';
 import { LoadingProvider } from '../../providers/loading/loading';
 /**
@@ -26,7 +26,7 @@ import { LoadingProvider } from '../../providers/loading/loading';
 })
 export class Firstloginstep5Page {
   @ViewChild('map') mapref: ElementRef;
-  map: GoogleMap;
+  // map: GoogleMap;
   lat = 0;
   long = 0;
   address: any = {
@@ -43,9 +43,9 @@ export class Firstloginstep5Page {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private geolocation: Geolocation,
-    private googleMaps: GoogleMaps,
-    private nativeGeocoder: NativeGeocoder,
+    // private geolocation: Geolocation,
+    // private googleMaps: GoogleMaps,
+    // private nativeGeocoder: NativeGeocoder,
     public shopServiceProvider: ShopServiceProvider,
     public loading: LoadingProvider
   ) {
@@ -88,8 +88,8 @@ export class Firstloginstep5Page {
   //     console.log('Error getting location', error);
   //   });
   // }
-  showMap() {
-    this.navCtrl.push('GoogleMapsPage');
-  }
+  // showMap() {
+  //   this.navCtrl.push('GoogleMapsPage');
+  // }
 }
 
