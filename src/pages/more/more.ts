@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { UserModel } from '../../assets/model/user.model';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { MoreServiceProvider } from './more-service';
 /**
  * Generated class for the MorePage page.
  *
@@ -15,14 +17,25 @@ import { UserModel } from '../../assets/model/user.model';
 })
 export class MorePage {
   user: UserModel = new UserModel();
+  badge: number = 0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public app: App
+    public app: App,
+    private loading: LoadingProvider,
+    private moreServiceProvider: MoreServiceProvider
   ) {
   }
   ionViewWillEnter() {
     this.user = window.localStorage.getItem('jjbiz-user') ? JSON.parse(window.localStorage.getItem('jjbiz-user')) : null;
+    this.loading.onLoading();
+    this.moreServiceProvider.getBadge().then((data) => {
+      this.badge = data;
+      console.log(this.badge);
+      this.loading.dismiss();
+    }, (err) => {
+      this.loading.dismiss();
+    });
     console.log('ionViewDidLoad MorePage');
   }
   logout() {

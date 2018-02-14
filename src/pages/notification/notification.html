@@ -6,19 +6,26 @@
 -->
 <ion-header>
 
-  <ion-navbar color="whity">
-    <ion-title>{{'NOTIFICATION' | translate}}</ion-title>
+  <ion-navbar>
+    <ion-title>{{ 'NOTIFICATION' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content >
-<ion-list >
-  <ion-item *ngFor="let item of notificationData" (click)="getDescription(item)" >
-    <h3>{{item.day | date:'d MMMM yyyy h:mm:ss' }}</h3>
-    <p>{{item.description}}</p>
-  </ion-item>
-</ion-list>
-
+<ion-content no-bounce>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down" pullingText="{{ 'PULL_TO_REFRESH' | translate }}" refreshingSpinner="dots"
+      refreshingText="{{ 'REFRESHING' | translate }}"></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of notificationData" (click)="getDescription(item)">
+      <h2 class="{{ !item.isread ? 'bold' : ''}}">
+        <ion-icon [ngClass]="{'icon-new': item.isread  === false}" name="md-radio-button-on"></ion-icon>
+        {{item.title}}
+      </h2>
+      <p>{{getTime(item.created)}}</p>
+      <p>{{item.detail}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

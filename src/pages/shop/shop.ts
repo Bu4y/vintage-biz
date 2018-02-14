@@ -560,6 +560,7 @@ export class ShopPage {
         },
         {
           text: 'ตกลง',
+          cssClass:'font-red',
           handler: () => {
             this.shopServiceProvider.deleteProduct(shopID, prodID, prodIndex, cateIndex).then((data) => {
               this.shopService();
@@ -586,6 +587,7 @@ export class ShopPage {
         },
         {
           text: 'ตกลง',
+          cssClass:'font-red',
           handler: () => {
             this.shopServiceProvider.deletePromoteShop(this.shop._id, index).then((data) => {
               this.shopService();
@@ -612,6 +614,7 @@ export class ShopPage {
         },
         {
           text: 'ตกลง',
+          cssClass:'font-red',
           handler: () => {
             console.log(cateID);
             let dataCate = { cateId: cateID };

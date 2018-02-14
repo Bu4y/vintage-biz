@@ -21,9 +21,17 @@ export class MoreServiceProvider {
   ) {
     console.log('Hello MoreServiceProvider Provider');
   }
+  getBadge(): Promise<any> {
+    let headers = this.coreService.authorizationHeader();
+    return this.http.get(this.server.url + 'api/getbadge/', { headers: headers })
+      .toPromise()
+      .then(response => response as any)
+      .catch(this.handleError);
+  }
 
   changePassword(auth): Promise<any> {
     let headers = this.coreService.authorizationHeader();
+
 
     return this.http.post(this.server.url + 'api/users/password', auth, { headers: headers })
       .toPromise()

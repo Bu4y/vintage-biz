@@ -113,7 +113,7 @@
     "CANCEL_RECEIPT": "Refunded",
     "CANCEL_RECEIPT_NOT": "No Refunded",
     "SHIPPED":"Shipped",
-    "CANCELLED":"Cancelled"
-
-
+    "CANCELLED":"Cancelled",
+    "PULL_TO_REFRESH": "Pull to refresh",
+    "REFRESHING": "Refreshing..."
 }
