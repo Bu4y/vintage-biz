@@ -1,3 +1,4 @@
+import { NotificationServiceProvider } from './../pages/notification/notification-service';
 import { BrowserModule } from '@angular/platform-browser';
 import {OneSignal} from '@ionic-native/onesignal';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -86,7 +87,8 @@ import { QuestionAnswersServiceProvider } from '../pages/question-answers/questi
     OrderServiceProvider,
     StatusServiceProvider,
     MoreServiceProvider,
-    QuestionAnswersServiceProvider
+    QuestionAnswersServiceProvider,
+    NotificationServiceProvider
   ]
 })
 export class AppModule { }

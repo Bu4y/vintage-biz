@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingProvider } from '../../providers/loading/loading';
+import { NotificationServiceProvider } from './notification-service';
 
 /**
  * Generated class for the NotificationPage page.
@@ -29,15 +31,43 @@ export class NotificationPage {
       "description": "The email notification is triggered by an event, which is triggered by a business rule. Events can be triggered by business rules and, in turn, reacted to elsewhere."
     }
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  noti: any = {
+    title: '',
+    detail: '',
+    created: '',
+    isread: false,
+    _id: ''
+  };
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public notificationService: NotificationServiceProvider,
+    private loading: LoadingProvider
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationPage');
+  ionViewWillEnter() {
+    this.getNoti()
   }
+
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad NotificationPage');
+  // }
 
   getDescription(e) {
     this.navCtrl.push('NotificationDetailPage', { detail: e });
+  }
+
+  getNoti() {
+    this.loading.onLoading();
+    this.notificationService.getNotification().then(data => {
+      this.noti = data;
+      console.log(data);
+      this.loading.dismiss();
+    }, err => {
+      this.loading.dismiss();
+      console.log(err);
+    })
   }
 
 }

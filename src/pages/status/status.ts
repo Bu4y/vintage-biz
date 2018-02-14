@@ -186,8 +186,8 @@ export class StatusPage {
               // let loading = this.loading.create();
               this.loading.onLoading();
               this.statusService.orderSent(ord).then(data => {
+                this.loading.dismiss();                
                 this.getOrders();
-                this.loading.dismiss();
               }, err => {
                 this.loading.dismiss();
                 console.log(err);
@@ -238,8 +238,8 @@ export class StatusPage {
               // let loading = this.loading.create();
               this.loading.onLoading();
               this.statusService.orderReject(ord).then(data => {
+                this.loading.dismiss();                
                 this.getOrders();
-                this.loading.dismiss();
               }, err => {
                 this.loading.dismiss();
                 console.log(err);

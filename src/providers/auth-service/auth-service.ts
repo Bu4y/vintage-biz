@@ -84,6 +84,7 @@ export class Auth {
       .toPromise()
       .then((response) => {
         let res = response as any;
+        // alert(JSON.stringify(res.notificationids));
         window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         return res;
       })
