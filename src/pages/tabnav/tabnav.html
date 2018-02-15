@@ -1,7 +1,7 @@
 <ion-tabs (ionChange)="onSelectChange($event)" #myTabs selectedIndex="{{getSelectedTab()}}" text-center>
-    <ion-tab [root]="shopRoot" tabTitle="{{'SHOP'| translate}}" tabIcon="md-home"></ion-tab>
+    <ion-tab [root]="shopRoot" tabTitle="{{'SHOP'| translate}}" tabIcon="icon-e-shop"></ion-tab>
     <!-- <ion-tab [root]="orderRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="md-list-box"></ion-tab> -->
     <!-- <ion-tab [root]="orderRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="icon-e-order"></ion-tab> -->
-    <ion-tab [root]="statusRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="md-list-box"></ion-tab>
-    <ion-tab [root]="moreRoot" tabTitle="{{'ME'| translate}}" tabIcon="ios-more"></ion-tab>
+    <ion-tab [root]="statusRoot" tabTitle="{{'ORDER'| translate}}" tabIcon="icon-e-ordershop"></ion-tab>
+    <ion-tab [root]="moreRoot" tabTitle="{{'ME'| translate}}" tabIcon="icon-e-me"></ion-tab>
 </ion-tabs>

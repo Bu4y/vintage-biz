@@ -74,11 +74,20 @@
         <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.cate.image" [ngClass]="ii === index ? 'selectedCategory' : ''"></preload-image>
         <p class="cate-order">{{cate.cate.name}}</p>
         <!-- <div class="deletepromote" no-padding> -->
-        <div class="cateoption" no-padding>
+            <ion-row>
+                <ion-col class="cateoption-fix">
+                  <ion-buttons end>
+                    <button style="background-color: rgba(255, 255, 255, 0.73)" *ngIf="isModify && ii === index ? 'selectedCategory' : ''" (click)="openEditCate(cate.cate)">
+                      <ion-icon name="md-more" color="dark"></ion-icon>
+                    </button>
+                  </ion-buttons>
+                </ion-col>
+              </ion-row>
+        <!-- <div class="cateoption" no-padding>
           <button *ngIf="isModify && ii === index ? 'selectedCategory' : ''" ion-button icon-left clear small no-padding (click)="openEditCate(cate.cate)">
             <ion-icon name="md-more" color="dark"></ion-icon>
           </button>
-        </div>
+        </div> -->
       </ion-col>
       <ion-col col-3 *ngIf="isModify" class="col-imgpromote">
         <preload-image [ratio]="{w:1, h:1}" [src]="'./assets/imgs/add.jpg'" (click)="openActionSheet('cate')"></preload-image>
