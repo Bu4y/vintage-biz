@@ -1,13 +1,20 @@
 page-tabnav {
     .tabs-ios .tab-button[aria-selected=true] {
-        color: #3c6233;
-        // background: #3c6233;
+        color: #3c6233 !important; // background: #3c6233;
+        font-weight: 700 !important;
     }
     .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
-        color: #3c6233;
-        // background: #3c6233;
+        color: #3c6233 !important; // background: #3c6233;
+        font-weight: 700 !important;
     }
-    // .tabs-ios .tabbar {
+    .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text {
+        color: #3c6233 !important;
+        font-weight: 700 !important;
+    }
+    .tabs-ios[tabsLayout=icon-top] .has-icon .tab-button-text {
+        color: #3c6233 !important;
+        font-weight: 700 !important;
+    } // .tabs-ios .tabbar {
     //     background: #ED3740;
     // }
     // .tabs-ios .tab-button-icon {
@@ -17,14 +24,13 @@ page-tabnav {
     //     color: #fff;
     // }
     .tabs-md .tab-button[aria-selected=true] {
-        color: #3c6233;
-        // background: #b3222f;
+        color: #3c6233 !important; // background: #b3222f;
+        font-weight: 700 !important;
     }
     .tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-        color: #3c6233;
-        // background: #b3222f;
-    }
-    // .tabs-md .tabbar {
+        color: #3c6233 !important; // background: #b3222f;
+        font-weight: 700 !important;
+    } // .tabs-md .tabbar {
     //     background: #ED3740;
     // }
     // .tabs-md .tab-button-icon {
