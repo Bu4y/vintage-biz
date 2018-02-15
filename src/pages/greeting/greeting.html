@@ -12,14 +12,14 @@
     <!-- <ion-slide *ngFor="let slide of slides" class="slide-background" [ngStyle]="{'background-image': 'url(' + slide.imageUrl +')'}"> -->
     <ion-slide *ngFor="let slide of slides" class="slide-background">
       <ion-row>
-          <ion-col col-sm-4>
+          <ion-col col-sm-4 col-md-4 col-lg-3 col-xl-2>
   
             </ion-col>
-        <ion-col col-sm-4 col-md-12 col-lg-12 col-xl-12 col-12 text-center>
+        <ion-col col-sm-4 col-md-4 col-lg-6 col-xl-8 col-12 text-center>
           <!-- <img src="{{slide.imageUrl}}"> -->
           <preload-image [ratio]="{w:1, h:1}" [src]="slide.imageUrl"></preload-image>
         </ion-col>
-        <ion-col col-sm-4>
+        <ion-col col-sm-4 col-md-4 col-lg-3 col-xl-2>
   
           </ion-col>
         <ion-col col-12 *ngIf="language === 'th'">
