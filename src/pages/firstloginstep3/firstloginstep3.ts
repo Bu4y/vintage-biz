@@ -51,7 +51,7 @@ export class Firstloginstep3Page {
     this.loading.onLoading();
     this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     this.address = window.localStorage.getItem('shop_location_address') ? JSON.parse(window.localStorage.getItem('shop_location_address')) : this.firstLogin.address;
-    this.firstLogin.address = this.address ? this.address : this.firstLogin.address;
+    this.firstLogin.address.addressdetail = this.address.addressdetail ? this.address.addressdetail : this.firstLogin.address;
     this.shopServiceProvider.getCate().then(data => {
       this.cate = data;
       this.firstLogin.categories.forEach(fcate => {
