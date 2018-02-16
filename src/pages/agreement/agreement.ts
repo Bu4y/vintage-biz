@@ -27,7 +27,7 @@ export class AgreementPage {
   }
 
   agreement() {
-    // window.localStorage.setItem('bikebikeshopfirstlogin', 'true');
+    window.localStorage.setItem('isjjbizfirstlogin', 'true');
     this.navCtrl.setRoot('LoginPage');
   }
   doInfinite(infiniteScroll) {

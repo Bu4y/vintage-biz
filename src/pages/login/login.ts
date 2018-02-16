@@ -35,9 +35,9 @@ export class LoginPage {
       if (res.roles.indexOf('shop') >= 0) {
         window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         this.loading.dismiss();
-        let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
+        // let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
         this.shopServiceProvider.getShop().then((data) => {
-          if (isFirstLogin || data.islaunch) {
+          if (data.islaunch) {
             this.navCtrl.setRoot('TabnavPage');
           } else {
             this.navCtrl.setRoot('Firstloginstep1Page');
