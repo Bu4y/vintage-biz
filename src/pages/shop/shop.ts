@@ -276,7 +276,7 @@ export class ShopPage {
     let options = {
       maximumImagesCount: maxImg,
       width: 900,
-      quality: 100,
+      quality: 80,
       outputType: 1
     };
     this.imagePicker.getPictures(options).then((results) => {
@@ -428,7 +428,7 @@ export class ShopPage {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 100,
+      quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
@@ -466,7 +466,7 @@ export class ShopPage {
   galleryCamera(from) {
     this.images = [];
     const options: CameraOptions = {
-      quality: 100,
+      quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,

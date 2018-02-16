@@ -24,6 +24,9 @@
         <ion-row class="camera">
           <ion-icon name="camera" color="light" (click)="selectCover()"></ion-icon>
         </ion-row>
+        <ion-row class="delete" *ngIf="unshipImg && unshipImg.length > 1">
+            <ion-icon name="md-refresh" color="light" (click)="resetCover()"></ion-icon>
+          </ion-row>
       </div>
     </ion-col>
   </ion-row>

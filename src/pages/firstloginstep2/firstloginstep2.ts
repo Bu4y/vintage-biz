@@ -22,6 +22,7 @@ export class Firstloginstep2Page {
   firstLogin: any = {};
   images: Array<any> = [];
   coverImg: string = '';
+  unshipImg: Array<any> = [];
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,15 +32,21 @@ export class Firstloginstep2Page {
     public imgCoverService: ImagecoverProvider,
     private translate: TranslateService,
   ) {
-
   }
-
 
   ionViewWillEnter() {
     this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
+    this.unshipImg.unshift(this.firstLogin.coverimage);
   }
   ionViewWillLeave() {
     window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
+  }
+  resetCover() {
+    this.unshipImg.splice(0, 1);
+    this.firstLogin.coverimage = this.unshipImg[0];
+    // if(this.unshipImg.length === 1){
+    //   this.firstLogin.coverimage = this.unshipImg[0];
+    // }
   }
   selectCover() {
     let language = this.translate.currentLang;
@@ -73,7 +80,7 @@ export class Firstloginstep2Page {
       arrowDir: this.camera.PopoverArrowDirection.ARROW_ANY
     }
     const options: CameraOptions = {
-      quality: 100,
+      quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
@@ -99,7 +106,7 @@ export class Firstloginstep2Page {
   galleryCamera(from) {
     this.images = [];
     const options: CameraOptions = {
-      quality: 100,
+      quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
@@ -171,10 +178,14 @@ export class Firstloginstep2Page {
   }
   updateCover() {
     this.coverImg = this.images && this.images.length > 0 ? this.images[this.images.length - 1] : '';
+    // this.unshipImg.unshift(this.firstLogin.coverimage);
+
+    // this.currentCountImg = this.unshipImg.length;
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
     this.imgCoverService.getMeta(this.coverImg).then((data) => {
       if (data) {
+        this.unshipImg.unshift(this.coverImg);
         if (this.coverImg) {
           this.firstLogin.coverimage = this.coverImg;
           this.loading.dismiss();
