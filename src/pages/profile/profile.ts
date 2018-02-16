@@ -148,7 +148,7 @@ export class ProfilePage {
       }else{
         this.citizenid = false;
       }
-      console.log(this.citizenid);
+      // console.log(this.citizenid);
       this.navCtrl.pop();
     }, (err) => {
       console.log(err);

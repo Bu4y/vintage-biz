@@ -68,7 +68,7 @@ export class ShopeditPage {
     this.validationEmail();
     this.address = window.localStorage.getItem('shop_location_address') ? JSON.parse(window.localStorage.getItem('shop_location_address')) : this.editData.address;
     this.editData.address = this.address ? this.address : this.editData.address;
-    console.log(this.editData);
+    // console.log(this.editData);
   }
   ionViewWillLeave() {
     if (window.localStorage.getItem('shop_location_address')) {

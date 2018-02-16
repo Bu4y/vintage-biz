@@ -45,7 +45,7 @@ export class MyApp {
     } else {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
       if (this.user) {
-        console.log(this.user);
+        // console.log(this.user);
         this.rootPage = 'TabnavPage';
       }
     }

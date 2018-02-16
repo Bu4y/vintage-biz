@@ -33,7 +33,7 @@ export class StatusDetailPage {
     this.loading.onLoading();
     this.statusService.getOrderDetail(itm).then(data => {
       this.ordDetail = data;
-      console.log(this.ordDetail);
+      // console.log(this.ordDetail);
       this.loading.dismiss();
     }, err => {
       this.loading.dismiss();

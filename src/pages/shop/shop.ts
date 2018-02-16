@@ -335,7 +335,7 @@ export class ShopPage {
           handler: () => {
             let modalproduct = this.modalCtrl.create('CreatecatePage', cate);
             modalproduct.onDidDismiss(dismiss => {
-              console.log(dismiss);
+              // console.log(dismiss);
               if (dismiss) {
                 this.shopServiceProvider.editCate(dismiss._id, dismiss).then((data) => {
                   this.shopService();
@@ -616,7 +616,7 @@ export class ShopPage {
           text: 'ตกลง',
           cssClass:'font-red',
           handler: () => {
-            console.log(cateID);
+            // console.log(cateID);
             let dataCate = { cateId: cateID };
             this.shopServiceProvider.deleteCateProd(this.shop._id, dataCate).then((data) => {
               if (this.index > 0) {

@@ -58,7 +58,7 @@ export class CreateproductPage {
         this.createprod.expiredate = data.expiredate;
         this.createprod.shippings = data.shippings;
         // let customShippings = [];
-        console.log(this.createprod);
+        // console.log(this.createprod);
         this.getShippingmaster();
         this.loading.dismiss();
       }, (err) => {
@@ -80,7 +80,7 @@ export class CreateproductPage {
   }
   getShippingmaster() {
     this.shopServiceProvider.getShippingmaster().then((data) => {
-      console.log(data);
+      // console.log(data);
       this.shippings = data;
       if (this.createprod.shippings && this.createprod.shippings.length > 0) {
         this.createprod.shippings.forEach(element => {
@@ -242,7 +242,7 @@ export class CreateproductPage {
     })
 
     this.createprod.shippings = shippings;
-    console.log(this.createprod);
+    // console.log(this.createprod);
     this.viewCtrl.dismiss(this.createprod);
   }
   closeDismiss() {
@@ -250,7 +250,7 @@ export class CreateproductPage {
   }
   selectedshipping() {
 
-    console.log(this.shippings);
+    // console.log(this.shippings);
     let customShippings = [];
     let shippings = this.shippings;
     this.selectedshippings.forEach(function (ship) {

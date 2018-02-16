@@ -33,7 +33,7 @@ export class SettingDetailPage {
 
   ionViewWillEnter() {
     this.language = this.translate.currentLang;
-    console.log(this.language);
+    // console.log(this.language);
   }
 
   selectLanguage() {

@@ -31,7 +31,7 @@ export class MorePage {
     this.loading.onLoading();
     this.moreServiceProvider.getBadge().then((data) => {
       this.badge = data;
-      console.log(this.badge);
+      // console.log(this.badge);
       this.loading.dismiss();
     }, (err) => {
       this.loading.dismiss();

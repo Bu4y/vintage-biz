@@ -58,7 +58,7 @@ export class StatusPage {
       for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
       this.selectTab(0);
       this.getOrders();
-      console.log(this.tabTitleWidthArray);
+      // console.log(this.tabTitleWidthArray);
     }, 300);
   }
 
@@ -133,7 +133,7 @@ export class StatusPage {
     this.loading.onLoading();
     this.statusService.getOrder(id).then(data => {
       this.orders = data;
-      console.log(this.orders);
+      // console.log(this.orders);
       this.loading.dismiss();
     }, err => {
       this.loading.dismiss();

@@ -95,7 +95,7 @@ export class Firstloginstep3Page {
     this.loading.onLoading();
     window.localStorage.setItem('isjjbizfirstlogin', 'true');
     this.shopServiceProvider.addFirstShop(this.firstLogin).then((data) => {
-      console.log(data);
+      // console.log(data);
       this.loading.dismiss();
       window.localStorage.removeItem('shop_location_address');
       window.localStorage.removeItem('jjbiz-firstlogin');
