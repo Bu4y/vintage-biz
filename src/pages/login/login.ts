@@ -37,7 +37,7 @@ export class LoginPage {
         this.loading.dismiss();
         let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
         this.shopServiceProvider.getShop().then((data) => {
-          if (isFirstLogin && data.islaunch) {
+          if (isFirstLogin || data.islaunch) {
             this.navCtrl.setRoot('TabnavPage');
           } else {
             this.navCtrl.setRoot('Firstloginstep1Page');
