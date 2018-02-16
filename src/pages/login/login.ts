@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Auth } from '../../providers/auth-service/auth-service';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { ShopServiceProvider } from '../shop/shop-service';
 /**
  * Generated class for the LoginPage page.
  *
@@ -20,6 +21,7 @@ export class LoginPage {
     private auth: Auth,
     public navCtrl: NavController,
     public navParams: NavParams,
+    public shopServiceProvider: ShopServiceProvider,
     public loading: LoadingProvider
   ) {
   }
@@ -34,11 +36,16 @@ export class LoginPage {
         window.localStorage.setItem('jjbiz-user', JSON.stringify(res));
         this.loading.dismiss();
         let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
-        if (isFirstLogin) {
-          this.navCtrl.setRoot('TabnavPage');
-        } else {
-          this.navCtrl.setRoot('Firstloginstep1Page');
-        }
+        this.shopServiceProvider.getShop().then((data) => {
+          if (isFirstLogin || data.islaunch) {
+            this.navCtrl.setRoot('TabnavPage');
+          } else {
+            this.navCtrl.setRoot('Firstloginstep1Page');
+          }
+        }, (err) => {
+          console.log(err);
+        });
+
       } else {
         this.loading.dismiss();
         alert('คุณไม่มีสิทธิ์เข้าใช้งาน!');

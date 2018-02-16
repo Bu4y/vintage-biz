@@ -15,7 +15,8 @@
 
 <ion-content>
   <ion-item *ngIf="cate && cate.length > 0">
-    <ion-label color="topic">{{'SHOP_CATEGORY' | translate}} <span class="warning-invalid">*</span>
+    <ion-label color="topic">{{'SHOP_CATEGORY' | translate}}
+      <span class="warning-invalid">*</span>
     </ion-label>
     <ion-select [(ngModel)]="categories" multiple="true">
       <ion-option *ngFor="let catename of cate" (ionChange)="onSelect()" [value]="catename">{{catename.name}}</ion-option>
@@ -26,22 +27,37 @@
     <ion-input type="text" [(ngModel)]="firstLogin.detail"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating color="topic">{{'EMAIL'| translate}}<span class="warning-invalid">*</span>
+    <ion-label floating color="topic">{{'EMAIL'| translate}}
+      <span class="warning-invalid">*</span>
     </ion-label>
     <ion-input type="text" [(ngModel)]="firstLogin.email" (ionChange)="validationEmail()"></ion-input>
   </ion-item>
   <ion-item>
+    <ion-label floating color="topic">{{'ADDRESS'| translate}}</ion-label>
+    <ion-input type="text" [(ngModel)]="address.addressdetail"></ion-input>
+  </ion-item>
+  <!-- <ion-item>
     <ion-label floating color="topic">{{'FACEBOOK_FANPAGE'| translate}}</ion-label>
     <ion-input type="text" [(ngModel)]="firstLogin.facebook"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label floating color="topic">{{'LINE_OFFICIAL'| translate}}</ion-label>
     <ion-input type="text" [(ngModel)]="firstLogin.line"></ion-input>
-  </ion-item>
+  </ion-item> -->
   <ion-item *ngIf="!validateEmail">
     <p class="warning-invalid">{{'INVALID_EMAIL' | translate}} ( {{'EXAMPLE' | translate}} : exam@exam.com )</p>
   </ion-item>
 </ion-content>
 <ion-footer padding no-border>
-  <button ion-button block [disabled]="categories.length === 0 || !firstLogin.email || !validateEmail" (click)="step4()" color="maintheme">{{'NEXT' | translate}}</button>
+  <ion-footer padding no-border>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block (click)="cancel()" color="danger">{{'CANCEL' | translate}}</button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button block [disabled]="!firstLogin.address || !firstLogin.address.address || categories.length === 0 || !firstLogin.email || !validateEmail" (click)="save()" color="maintheme">{{'SAVE' | translate}}</button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+  <!-- <button ion-button block [disabled]="categories.length === 0 || !firstLogin.email || !validateEmail" (click)="step4()" color="maintheme">{{'NEXT' | translate}}</button> -->
 </ion-footer>

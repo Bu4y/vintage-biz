@@ -17,6 +17,16 @@ import { LoadingProvider } from '../../providers/loading/loading';
 })
 export class Firstloginstep3Page {
   firstLogin: any = {};
+  address: any = {
+    address: '',
+    addressdetail: '',
+    subdistinct: '',
+    distinct: '',
+    province: '',
+    postcode: '',
+    lat: '',
+    lng: ''
+  }
   cate: Array<CateModel>;
   categories = [];
   validateEmail = true;
@@ -40,6 +50,8 @@ export class Firstloginstep3Page {
     // let loading = this.loadingCtrl.create();
     this.loading.onLoading();
     this.firstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
+    this.address = window.localStorage.getItem('shop_location_address') ? JSON.parse(window.localStorage.getItem('shop_location_address')) : this.firstLogin.address;
+    this.firstLogin.address = this.address ? this.address : this.firstLogin.address;
     this.shopServiceProvider.getCate().then(data => {
       this.cate = data;
       this.firstLogin.categories.forEach(fcate => {
@@ -76,6 +88,26 @@ export class Firstloginstep3Page {
       this.firstLogin.categories = cateIds;
     }
     window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
-    this.navCtrl.push('Firstloginstep4Page');
+    // 
+    this.save();
+  }
+  save() {
+    this.loading.onLoading();
+    window.localStorage.setItem('isjjbizfirstlogin', 'true');
+    this.shopServiceProvider.addFirstShop(this.firstLogin).then((data) => {
+      console.log(data);
+      this.loading.dismiss();
+      window.localStorage.removeItem('shop_location_address');
+      window.localStorage.removeItem('jjbiz-firstlogin');
+      this.navCtrl.setRoot('TabnavPage');
+    }, (err) => {
+      this.loading.dismiss();
+      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      // alert(JSON.stringify(JSON.parse(err._body).message));
+    });
+  }
+  cancel() {
+    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
+    this.navCtrl.setRoot('Firstloginstep1Page');
   }
 }

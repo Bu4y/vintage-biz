@@ -52,16 +52,22 @@
           <ion-input type="text" [(ngModel)]="editData.tel"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-label floating color="topic">{{'ADDRESS'| translate}}
+            <span class="warning-invalid">*</span>
+          </ion-label>
+          <ion-input type="text" [(ngModel)]="editData.address.addressdetail"></ion-input>
+        </ion-item>
+        <!-- <ion-item>
           <ion-label floating color="topic">{{'FACEBOOK_FANPAGE'| translate}}</ion-label>
           <ion-input type="text" [(ngModel)]="editData.facebook"></ion-input>
-        </ion-item>
-        <ion-item>
+        </ion-item> -->
+        <!-- <ion-item>
           <ion-label floating color="topic">{{'LINE_OFFICIAL'| translate}}</ion-label>
           <ion-input type="text" [(ngModel)]="editData.line"></ion-input>
-        </ion-item>
+        </ion-item> -->
       </ion-col>
     </ion-row>
-    <ion-row style="margin: 5px 0px 0px 0px">
+    <!-- <ion-row style="margin: 5px 0px 0px 0px">
       <ion-col class="containerclass" col-12>
         <ion-item no-lines>
           <ion-label class="fontStyle">
@@ -88,7 +94,7 @@
           </ion-row>
         </ion-scroll>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
     <!-- <ion-row>
       <ion-col class="containerclass" col-12 (click)="showMap()">
         <ion-item class="fixHeight" no-lines>
@@ -109,12 +115,12 @@
         </ion-label>
       </ion-col>
     </ion-row> -->
-    <ion-list>
+    <!-- <ion-list>
         <ion-item>
           <p color="topic">{{'ADDRESS' | translate}}</p>
           <textarea rows="4" placeholder="{{'ENTER_YOUR_ADDRESS'| translate}}" [(ngModel)]="editData.address.addressdetail">
           </textarea>
         </ion-item>
-      </ion-list>
+      </ion-list> -->
   </ion-grid>
 </ion-content>
