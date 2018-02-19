@@ -73,9 +73,7 @@
     </ion-list>
   </div> -->
 
-
-
-  <div *ngIf="ordDetail.product">
+  <div *ngIf="ordDetail.product" [ngClass]=" isheight <= 660 ? 'fixHeight' : isheight <= 667 ? 'fixHeight2' : isheight <= 736 ? 'fixHeight3' : ''">
     <div class="address">
       <ion-list mode="md">
         <ion-item>
@@ -83,25 +81,25 @@
             <h2>
               <b>{{ 'CREATE_ORDER_DATE' | translate }}</b>
             </h2>
-            <p>{{ ordDetail.confirmdate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ ordDetail.confirmdate | date:'dd/MM/yyyy HH:mm'}}</p>
           </ion-label>
           <ion-label *ngIf="ordDetail.status ==='sent'">
             <h2>
               <b>{{ 'SHIPPING_DATE' | translate }}</b>
             </h2>
-            <p>{{ ordDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ ordDetail.sentdate | date:'dd/MM/yyyy HH:mm'}}</p>
           </ion-label>
           <ion-label *ngIf="ordDetail.status ==='completed'">
             <h2>
               <b>{{ 'RECEIPT_DATE' | translate }}</b>
             </h2>
-            <p>{{ ordDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ ordDetail.receiveddate | date:'dd/MM/yyyy HH:mm'}}</p>
           </ion-label>
           <ion-label *ngIf="ordDetail.status ==='cancel' || ordDetail.status ==='cancelrefund'">
             <h2>
               <b>{{ 'CANCEL_DATE' | translate }}</b>
             </h2>
-            <p>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ ordDetail.canceldate | date:'dd/MM/yyyy HH:mm'}}</p>
             <p *ngIf="ordDetail.rejectreason">
               {{'REMARK' | translate}} {{ordDetail.rejectreason}}
             </p>
@@ -112,7 +110,7 @@
             <h2>
               <b>{{ 'REJECT_DATE' | translate }}</b>
             </h2>
-            <p>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+            <p>{{ ordDetail.canceldate | date:'dd/MM/yyyy HH:mm'}}</p>
             <p *ngIf="ordDetail.rejectreason">
               {{'REMARK' | translate}} {{ordDetail.rejectreason}}
             </p>
@@ -234,7 +232,7 @@
       </ion-list>
     </div>
 
-    <div class="log">
+    
       <ion-list mode="md">
         <ion-item *ngIf="ordDetail.confirmdate">
           <ion-label>
@@ -243,7 +241,7 @@
                 <p text-left>{{ 'CREATE_ORDER_DATE' | translate }}</p>
               </ion-col>
               <ion-col col-6>
-                <p text-right>{{ ordDetail.confirmdate | date:'dd-MM-yyyy HH:mm'}}</p>
+                <p text-right>{{ ordDetail.confirmdate | date:'dd/MM/yyyy HH:mm'}}</p>
               </ion-col>
             </ion-row>
           </ion-label>
@@ -255,7 +253,7 @@
                 <p text-left>{{ 'SHIPPING_DATE' | translate }}</p>
               </ion-col>
               <ion-col col-6>
-                <p text-right>{{ ordDetail.sentdate | date:'dd-MM-yyyy HH:mm'}}</p>
+                <p text-right>{{ ordDetail.sentdate | date:'dd/MM/yyyy HH:mm'}}</p>
               </ion-col>
             </ion-row>
           </ion-label>
@@ -267,7 +265,7 @@
                 <p text-left>{{ 'RECEIPT_DATE' | translate }}</p>
               </ion-col>
               <ion-col col-6>
-                <p text-right>{{ ordDetail.receiveddate | date:'dd-MM-yyyy HH:mm'}}</p>
+                <p text-right>{{ ordDetail.receiveddate | date:'dd/MM/yyyy HH:mm'}}</p>
               </ion-col>
             </ion-row>
           </ion-label>
@@ -279,22 +277,23 @@
                 <p text-left>{{ 'CANCEL_DATE' | translate }}</p>
               </ion-col>
               <ion-col col-6>
-                <p text-right>{{ ordDetail.canceldate | date:'dd-MM-yyyy HH:mm'}}</p>
+                <p text-right>{{ ordDetail.canceldate | date:'dd/MM/yyyy HH:mm'}}</p>
               </ion-col>
             </ion-row>
           </ion-label>
         </ion-item>
       </ion-list>
-    </div>
+     
+    
   </div>
+  
 </ion-content>
+
 <ion-footer>
   <ion-row *ngIf="ordDetail.status === 'confirm'">
-    <ion-col>
+    <!-- <ion-col>
       <button class="btn" block ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
-    </ion-col>
-    <ion-col>
-      <button class="btn" block ion-button item-end color="maintheme" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
-    </ion-col>
+    </ion-col> -->
+      <button class="btn" block ion-button item-end color="secondary" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
   </ion-row>
 </ion-footer>

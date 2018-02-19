@@ -133,7 +133,7 @@ export class StatusPage {
     this.loading.onLoading();
     this.statusService.getOrder(id).then(data => {
       this.orders = data;
-      // console.log(this.orders);
+      console.log(this.orders);
       this.loading.dismiss();
     }, err => {
       this.loading.dismiss();

@@ -104,7 +104,7 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>{{'CREATE_ORDER_DATE' | translate}} {{itm.confirmdate | datetime}}</b>
+                        <b>{{'CREATE_ORDER_DATE' | translate}} {{itm.confirmdate | date:'dd/MM/yyyy'}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
                         <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
@@ -116,11 +116,11 @@
                       <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button>
                       <button class="btn" block small ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
                     </ion-col> -->
-                    <ion-col>
+                    <ion-col text-left>
                       <label class="fontText">หากจัดส่งสินค้าแล้วกรุณากด</label>
                     </ion-col>
-                    <ion-col>
-                      <button class="btn" block small ion-button item-end color="secondary" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
+                    <ion-col style="text-align: -webkit-right !important;">
+                      <button class="btn" block small ion-button color="secondary" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
                     </ion-col>
                   </ion-row>
                 </div>
@@ -157,7 +157,7 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>{{'SHIPPING_DATE' | translate}} {{itm.sentdate | datetime}}</b>
+                        <b>{{'SHIPPING_DATE' | translate}} {{itm.sentdate | date:'dd/MM/yyyy'}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
                         <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
@@ -205,7 +205,7 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>{{'COMPLETED_DATE' | translate}} {{itm.receivedate | datetime}}</b>
+                        <b>{{'COMPLETED_DATE' | translate}} {{itm.receivedate | date:'dd/MM/yyyy'}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
                         <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
@@ -251,8 +251,8 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b *ngIf="!itm.rejectreason">{{'CANCEL_DATE' | translate}} {{itm.canceldate | datetime}}</b>
-                        <b *ngIf="itm.rejectreason">{{'REJECT_DATE' | translate}} {{itm.canceldate | datetime}}</b>
+                        <b *ngIf="!itm.rejectreason">{{'CANCEL_DATE' | translate}} {{itm.canceldate | date:'dd/MM/yyyy'}}</b>
+                        <b *ngIf="itm.rejectreason">{{'REJECT_DATE' | translate}} {{itm.canceldate | date:'dd/MM/yyyy'}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
                         <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, Platform } from 'ionic-angular';
 import { StatusServiceProvider } from './../status/status-service';
 import { ItemStatusModel } from '../../assets/model/status.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -18,6 +18,7 @@ import { LoadingProvider } from '../../providers/loading/loading';
 })
 export class StatusDetailPage {
   ordDetail: ItemStatusModel = new ItemStatusModel();
+  isheight: number = 0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -26,6 +27,7 @@ export class StatusDetailPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private translate: TranslateService,
+    private platform: Platform,
   ) {
     let itm = this.navParams.data;
 
@@ -41,8 +43,9 @@ export class StatusDetailPage {
     })
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StatusDetailPage');
+  ionViewWillEnter() {
+    this.isheight =  this.platform.height();
+    console.log(this.isheight);
   }
 
   rejectOrder() {
