@@ -107,7 +107,7 @@
                   <b>วันที่จัดส่ง 01/01/18</b>
                 </ion-label> -->
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -157,7 +157,7 @@
                         <b>วันที่จัดส่ง {{itm.sentdate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -205,7 +205,7 @@
                         <b>วันที่สำเร็จ {{itm.receivedate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -251,7 +251,7 @@
                         <b>วันที่ยกเลิก {{itm.canceldate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount}} บาท</b>
+                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
