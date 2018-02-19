@@ -103,21 +103,24 @@
                   </ion-list>
                   <ion-list class="shipping">
                     <ion-item>
-                      <!-- <ion-label text-left>
-                  <b>วันที่จัดส่ง 01/01/18</b>
-                </ion-label> -->
+                      <ion-label text-left>
+                        <b>{{'CREATE_ORDER_DATE' | translate}} {{itm.confirmdate | datetime}}</b>
+                      </ion-label>
                       <ion-label text-right class="price">
                         <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
                   <ion-row>
+                    <!-- <ion-col>
+                      <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button>
+                      <button class="btn" block small ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
+                    </ion-col> -->
                     <ion-col>
-                      <!-- <button class="btn" full small ion-button item-end color="danger" (click)="gotoDetail2(item)">Reject</button> -->
-                      <button class="btn" full small ion-button item-end color="danger" (click)="rejectOrder(itm)">{{'REJECT'| translate}}</button>
+                      <label class="fontText">หากจัดส่งสินค้าแล้วกรุณากด</label>
                     </ion-col>
                     <ion-col>
-                      <button class="btn" full small ion-button item-end color="maintheme" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
+                      <button class="btn" block small ion-button item-end color="secondary" (click)="sentOrder(itm)">{{'SENT'| translate}}</button>
                     </ion-col>
                   </ion-row>
                 </div>

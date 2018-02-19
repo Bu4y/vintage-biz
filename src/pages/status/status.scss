@@ -98,6 +98,7 @@ page-status {
             .btn {
                 margin: 0px !important;
                 box-shadow: none !important;
+                width: 80% !important;
             }
             .danger {
                 color: #F44336 !important;
@@ -107,6 +108,14 @@ page-status {
             }
             .topic {
                 color: rgb(148, 148, 148);
+            }
+            .fontText {
+                margin: 0 0 2px;
+                overflow: inherit;
+                font-size: 1.4rem;
+                line-height: normal;
+                text-overflow: inherit;
+                color: #666;
             }
             .shipping {
                 margin-bottom: 0px !important;
@@ -137,6 +146,7 @@ page-status {
         }
     }
 }
+
 .toast-message {
     background-color: #D50000 !important;
     border-radius: 5px !important;
