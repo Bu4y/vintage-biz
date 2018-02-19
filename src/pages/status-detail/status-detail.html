@@ -164,8 +164,8 @@
       <ion-list class="item-product" mode="md">
         <ion-item>
           <ion-thumbnail item-start>
-            <img src="{{ ordDetail.product.image }}">
-            <!-- <preload-image class="products-image" [ratio]="{w:1, h:1}" [src]="item.product.images[0]"></preload-image> -->
+            <!-- <img src="{{ ordDetail.product.image }}"> -->
+            <preload-image [ratio]="{w:1, h:1}" [src]="ordDetail.product.image"></preload-image>
           </ion-thumbnail>
           <ion-label stacked class="label-margin">
             <h2 class="product-name">{{ ordDetail.product.name }}</h2>
