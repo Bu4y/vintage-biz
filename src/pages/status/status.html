@@ -94,10 +94,10 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
-                        <p>{{itm.price}} บาท</p>
-                        <p>จำนวน: {{itm.qty}}</p>
-                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
-                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p>{{itm.price}} {{'BAHT' | translate}}</p>
+                        <p>{{'QTY' | translate}}: {{itm.qty}}</p>
+                        <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>
+                        <p>{{'SHIPPING_PRICE' | translate}}: {{itm.shippingprice}} {{'BAHT' | translate}}</p>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -107,7 +107,7 @@
                   <b>วันที่จัดส่ง 01/01/18</b>
                 </ion-label> -->
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
+                        <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -143,21 +143,21 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
-                        <p>RefID : {{itm.refid}}</p>
-                        <p>{{itm.price}} บาท</p>
-                        <p>จำนวน: {{itm.qty}}</p>
-                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
-                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p>{{'REF_ID' | translate}} : {{itm.refid}}</p>
+                        <p>{{itm.price}} {{'BAHT' | translate}}</p>
+                        <p>{{'QTY' | translate}}: {{itm.qty}}</p>
+                        <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>
+                        <p>{{'SHIPPING_PRICE' | translate}}: {{itm.shippingprice}} {{'BAHT' | translate}}</p>
                       </ion-label>
                     </ion-item>
                   </ion-list>
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>วันที่จัดส่ง {{itm.sentdate | datetime}}</b>
+                        <b>{{'SHIPPING_DATE' | translate}} {{itm.sentdate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
+                        <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -189,10 +189,10 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
-                        <p>{{itm.price}} บาท</p>
-                        <p>จำนวน: {{itm.qty}}</p>
-                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
-                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p>{{itm.price}} {{'BAHT' | translate}}</p>
+                        <p>{{'QTY' | translate}}: {{itm.qty}}</p>
+                        <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>
+                        <p>{{'SHIPPING_PRICE' | translate}}: {{itm.shippingprice}} {{'BAHT' | translate}}</p>
                         <p class="maintheme">
                           <b>{{itm.status}}</b>
                         </p>
@@ -202,10 +202,10 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>วันที่สำเร็จ {{itm.receivedate | datetime}}</b>
+                        <b>{{'COMPLETED_DATE' | translate}} {{itm.receivedate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
+                        <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
@@ -232,10 +232,10 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
-                        <p>{{itm.price}} บาท</p>
-                        <p>จำนวน: {{itm.qty}}</p>
-                        <p>วิธีการจัดส่ง: {{itm.shippingtype}}</p>
-                        <p>ค่าส่ง: {{itm.shippingprice}} บาท</p>
+                        <p>{{itm.price}} {{'BAHT' | translate}}</p>
+                        <p>{{'QTY' | translate}}: {{itm.qty}}</p>
+                        <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>
+                        <p>{{'SHIPPING_PRICE' | translate}}: {{itm.shippingprice}} {{'BAHT' | translate}}</p>
                         <p>
                           <b class="danger">{{itm.status | translate}}</b>
                           <label class="topic">{{itm.rejectreason}}</label>
@@ -248,10 +248,11 @@
                   <ion-list class="shipping">
                     <ion-item>
                       <ion-label text-left>
-                        <b>วันที่ยกเลิก {{itm.canceldate | datetime}}</b>
+                        <b *ngIf="!itm.rejectreason">{{'CANCEL_DATE' | translate}} {{itm.canceldate | datetime}}</b>
+                        <b *ngIf="itm.rejectreason">{{'REJECT_DATE' | translate}} {{itm.canceldate | datetime}}</b>
                       </ion-label>
                       <ion-label text-right class="price">
-                        <b>ราคารวม: {{itm.amount + itm.shippingprice}} บาท</b>
+                        <b>{{'TOTAL_FEE' | translate}}: {{itm.amount + itm.shippingprice}} {{'BAHT' | translate}}</b>
                       </ion-label>
                     </ion-item>
                   </ion-list>
