@@ -114,5 +114,6 @@
     "SHIPPED":"จัดส่งแล้ว",
     "CANCELLED":"ยกเลิก",
     "PULL_TO_REFRESH": "ดึงเพื่อรีเฟรช",
-    "REFRESHING": "กำลังรีเฟรช..."
+    "REFRESHING": "กำลังรีเฟรช...",
+    "SKIP":"ข้าม"
 }

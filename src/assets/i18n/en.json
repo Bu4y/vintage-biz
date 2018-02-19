@@ -115,5 +115,6 @@
     "SHIPPED":"Shipped",
     "CANCELLED":"Cancelled",
     "PULL_TO_REFRESH": "Pull to refresh",
-    "REFRESHING": "Refreshing..."
+    "REFRESHING": "Refreshing...",
+    "SKIP":"Skip"
 }
