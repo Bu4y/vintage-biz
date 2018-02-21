@@ -10,19 +10,22 @@ import * as firebase from 'firebase';
 // import { AgreementPage } from '../pages/agreement/agreement';
 // import { GreetingPage } from '../pages/greeting/greeting';
 import { TranslateService } from '@ngx-translate/core';
+import { ShopServiceProvider } from '../pages/shop/shop-service';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   // rootPage:any = TabnavPage;
-  rootPage: any = 'LoginPage';
+  rootPage: any = '';
   user = {} as any;
   constructor(
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     translate: TranslateService,
-    private oneSignal: OneSignal
+    private oneSignal: OneSignal,
+    public shopServiceProvider: ShopServiceProvider,
   ) {
     translate.addLangs(['en', 'th']);
     const browserLang = translate.getBrowserLang();
@@ -44,12 +47,19 @@ export class MyApp {
       this.rootPage = 'GreetingPage';
     } else {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
-      if (this.user) {
-        // console.log(this.user);
-        this.rootPage = 'TabnavPage';
-      }
-    }
 
+      this.shopServiceProvider.getShop().then((data) => {
+        if (data.islaunch === true && this.user) {
+          // this.navCtrl.setRoot('TabnavPage');
+          this.rootPage = 'TabnavPage';
+        } else {
+          this.rootPage = 'Firstloginstep1Page';
+          // this.navCtrl.setRoot('Firstloginstep1Page');
+        }
+      }, (err) => {
+        // console.log(err);
+      });
+    }
   }
 
   configFirebase() {
