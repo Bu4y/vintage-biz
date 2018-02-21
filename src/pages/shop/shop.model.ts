@@ -3,7 +3,7 @@ export class ShopModel {
     name: string;
     name_eng: string;
     detail: string;
-    isopen:boolean;
+    isopen: boolean;
     address: AddressModel = new AddressModel();
     tel: string;
     email: string;
@@ -17,6 +17,7 @@ export class ShopModel {
     times: Array<TimeModel>;
     items: Array<ItemsModel>;
     categories: Array<CateModel>;
+    islaunch: boolean;
 
 }
 export class AddressModel {
@@ -45,7 +46,7 @@ export class ProductsModel {
     image: string;
     price: Number;
 }
-export class TimeModel{
+export class TimeModel {
     description: string;
     timestart: string;
     timeend: string;

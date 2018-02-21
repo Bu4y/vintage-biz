@@ -94,8 +94,7 @@ page-shop {
     .cateoption-fix {
         position: absolute;
         top: 0;
-        right: 0;
-        // background-color: rgba(255, 255, 255, 0.73);
+        right: 0; // background-color: rgba(255, 255, 255, 0.73);
         // width: 14%;
         text-align: center;
         padding-right: 0px;
@@ -175,8 +174,13 @@ page-shop {
         left: 0;
         transform: translate(50%, 25%)
     }
+    // #sdfsfsdf {
+    //     .tabbar.show-tabbar {
+    //         display: none !important;
+    //     }
+    // }
 }
 
 .font-red {
-    color:red !important;
+    color: red !important;
 }
