@@ -86,6 +86,12 @@ export class ShopPage {
     // loading.present();
     this.loading.onLoading();
     this.shopServiceProvider.getShop().then(data => {
+      // let tabs = document.getElementsByClassName('.show-tabbar');
+
+      window.localStorage.setItem('islaunch', data.islaunch);
+      if (!data.islaunch) {
+        this.app.getRootNav().setRoot('Firstloginstep1Page');
+      }
       this.shop = data;
       window.localStorage.setItem('shopID', this.shop._id);
       if (data.items && data.items.length > 0) {
