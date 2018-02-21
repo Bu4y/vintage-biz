@@ -30,6 +30,7 @@ export class Firstloginstep3Page {
   cate: Array<CateModel>;
   categories = [];
   validateEmail = true;
+  isSave: boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -76,7 +77,10 @@ export class Firstloginstep3Page {
       })
       this.firstLogin.categories = cateIds;
     }
-    window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
+    if (this.isSave === false) {
+      window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
+    }
+    // window.localStorage.setItem('jjbiz-firstlogin', JSON.stringify(this.firstLogin));
   }
   step4() {
     this.firstLogin.categories = [];
@@ -93,12 +97,11 @@ export class Firstloginstep3Page {
   }
   save() {
     this.loading.onLoading();
+    this.isSave = true;
     window.localStorage.setItem('isjjbizfirstlogin', 'true');
+    window.localStorage.removeItem('jjbiz-firstlogin');
     this.shopServiceProvider.addFirstShop(this.firstLogin).then((data) => {
-      // console.log(data);
       this.loading.dismiss();
-      window.localStorage.removeItem('shop_location_address');
-      window.localStorage.removeItem('jjbiz-firstlogin');
       this.navCtrl.setRoot('TabnavPage');
     }, (err) => {
       this.loading.dismiss();

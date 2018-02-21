@@ -41,6 +41,9 @@ export class Auth {
   }
 
   login(credentials): Promise<any> {
+    window.localStorage.removeItem('jjbiz-user');
+    window.localStorage.removeItem('jjbiz-firstlogin');    
+    window.localStorage.removeItem('token');
     return this.http.post(this.server.url + 'api/auth/signin', credentials)
       .toPromise()
       .then((response) => {

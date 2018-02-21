@@ -49,11 +49,14 @@ export class MyApp {
       this.rootPage = 'GreetingPage';
     } else {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
+      if(!this.user){
+        this.rootPage = 'LoginPage';
+      }
       this.loading.onLoading()
       this.shopServiceProvider.getShop().then((data) => {
         this.loading.dismiss();
 
-        if (data.islaunch === true && this.user) {
+        if (data.islaunch) {
           // this.navCtrl.setRoot('TabnavPage');
           this.rootPage = 'TabnavPage';
         } else {

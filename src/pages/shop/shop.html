@@ -12,7 +12,6 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="shop.islaunch">
     <preload-image [ratio]="{w:20, h:7}" [src]="shop.coverimage" [isIcon]="true"></preload-image>
     <!-- <ion-grid class="shop-detail-grid"> -->
     <ion-row class="shop-detail-grid">
@@ -148,7 +147,7 @@
           </ion-row> -->
           <div class="issale" *ngIf="itm.name">
             <ion-icon *ngIf="!itm.issale" name="ios-radio-button-on" color="danger"></ion-icon>
-            <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="maintheme"></ion-icon>
+            <ion-icon *ngIf="itm.issale" name="ios-radio-button-on" color="secondary"></ion-icon>
           </div>
         </ion-col>
       </ion-row>
@@ -161,10 +160,8 @@
       </button>
     </ion-fab>
     <ion-fab right bottom *ngIf="!isModify">
-
       <button ion-fab color="danger" (click)="setModeEdit()">
         <ion-icon name="md-create"></ion-icon>
       </button>
     </ion-fab>
-  </div>
 </ion-content>
