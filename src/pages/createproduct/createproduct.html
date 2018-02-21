@@ -61,7 +61,7 @@
             </ion-select>
           </ion-item>
           <ion-item *ngFor="let item of customShippings">
-            <ion-label color="topic">{{item.detail}}</ion-label>
+            <ion-label color="topic">{{item.name}}</ion-label>
             <ion-input type="number" [(ngModel)]="item.price" text-right>
             </ion-input>
           </ion-item>
