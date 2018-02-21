@@ -51,12 +51,12 @@ export class MyApp {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
       this.loading.onLoading()
       this.shopServiceProvider.getShop().then((data) => {
+        this.loading.dismiss();
+
         if (data.islaunch === true && this.user) {
           // this.navCtrl.setRoot('TabnavPage');
-          this.loading.dismiss();
           this.rootPage = 'TabnavPage';
         } else {
-          this.loading.dismiss();
           this.rootPage = 'Firstloginstep1Page';
           // this.navCtrl.setRoot('Firstloginstep1Page');
         }

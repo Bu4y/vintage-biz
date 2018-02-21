@@ -100,7 +100,7 @@
     <ion-grid class="grid-product" *ngIf="shop.items && shop.items.length > 0 && shop.items[index].products && shop.items[index].products.length > 0">
       <ion-row *ngIf="isModify" no-padding [sortablejs]="shop.items[index].products" [sortablejsOptions]="options">
         <ion-col col-4 *ngFor="let itm of shop.items[index].products; let i = index;" [ngClass]="itm.image === './assets/imgs/add.jpg' ? 'js-edit' : ''">
-          <preload-image [ratio]="{w:1, h:1}" [src]="itm.image" (click)="openActionSheet('product', 1, itm.name)"></preload-image>
+          <preload-image [ratio]="{w:1, h:1}" [src]="itm.image" (click)="openActionSheet('product', i, itm.name)"></preload-image>
           <!-- <div class="productoption" no-padding *ngIf="itm.name">
             <button ion-button small icon-left clear large no-padding (click)="openEditProduct(itm,i)">
               <ion-icon name="md-more" color="dark"></ion-icon>

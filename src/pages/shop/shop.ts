@@ -409,7 +409,7 @@ export class ShopPage {
             text: textGallery,
             handler: () => {
               if (from) {
-                this.galleryCamera(from, i);
+                this.galleryCamera(from, 1);
               }
             }
           },
