@@ -1,3 +1,4 @@
+import { LoadingProvider } from '../providers/loading/loading';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,6 +27,7 @@ export class MyApp {
     translate: TranslateService,
     private oneSignal: OneSignal,
     public shopServiceProvider: ShopServiceProvider,
+    public loading: LoadingProvider
   ) {
     translate.addLangs(['en', 'th']);
     const browserLang = translate.getBrowserLang();
@@ -47,19 +49,27 @@ export class MyApp {
       this.rootPage = 'GreetingPage';
     } else {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
-
+      this.loading.onLoading()
       this.shopServiceProvider.getShop().then((data) => {
         if (data.islaunch === true && this.user) {
           // this.navCtrl.setRoot('TabnavPage');
+          this.loading.dismiss();
           this.rootPage = 'TabnavPage';
         } else {
+          this.loading.dismiss();
           this.rootPage = 'Firstloginstep1Page';
           // this.navCtrl.setRoot('Firstloginstep1Page');
         }
       }, (err) => {
+        this.loading.dismiss();
         // console.log(err);
       });
+
+      // if (this.user) {
+
+      // }
     }
+
   }
 
   configFirebase() {
