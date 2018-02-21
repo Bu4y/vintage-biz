@@ -37,7 +37,7 @@
         </div>
       </ion-col>
       <ion-col col-8 text-center *ngIf="!cate.image || cate.image === ''">
-          <preload-image class="categories-image" [ratio]="{w:1, h:1}" src="./assets/imgs/add.jpg" (click)="openActionSheet('cate')"></preload-image>
+          <preload-image class="categories-image" [ratio]="{w:1, h:1}" src="./assets/imgs/add.jpg" (click)="openActionSheet('cate', 1)"></preload-image>
       </ion-col>
       <ion-col col-2>
       </ion-col>

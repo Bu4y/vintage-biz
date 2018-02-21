@@ -6,6 +6,8 @@ import * as firebase from 'firebase';
 import { TranslateService } from '@ngx-translate/core';
 import { ShippingMasterModel } from '../../assets/model/shippingmaster.model';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { Crop } from '@ionic-native/crop';
+import { ImagePicker } from '@ionic-native/image-picker';
 /**
  * Generated class for the CreateproductPage page.
  *
@@ -32,7 +34,9 @@ export class CreateproductPage {
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private loading: LoadingProvider,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private crop: Crop,
+    public imagePicker: ImagePicker
 
   ) {
     this.createprod.shippings = [];
@@ -100,22 +104,22 @@ export class CreateproductPage {
       this.createprod.expiredate = null;
     }
   }
-  openActionSheet(from) {
+  openActionSheet(from, maxImg) {
     let language = this.translate.currentLang;
     let textCamera = language === 'th' ? 'กล้อง' : 'Camera';
     let textGallery = language === 'th' ? 'อัลบั้มรูปภาพ' : 'Photo Gallery';
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: textCamera,
+          text: textGallery,
           handler: () => {
-            this.openCamera(from);
+            this.galleryCamera(from, maxImg);
           }
         },
         {
-          text: textGallery,
+          text: textCamera,
           handler: () => {
-            this.galleryCamera(from);
+            this.openCamera(from);
           }
         }
       ]
@@ -137,15 +141,16 @@ export class CreateproductPage {
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: true,
-      correctOrientation: true,
-      targetHeight: from !== 'cover' ? 600 : 600,
-      targetWidth: from !== 'cover' ? 600 : 800
+      // allowEdit: true,
+      // correctOrientation: true,
+      // targetHeight: from !== 'cover' ? 600 : 600,
+      // targetWidth: from !== 'cover' ? 600 : 800
     }
     // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
       this.loading.onLoading();
-      this.noResizeImage(imageData).then((data) => {
+      // this.noResizeImage(imageData).then((data) => {
+      this.resizeImage(imageData).then((data) => {
         this.createprod.images.push(data);
         this.loading.dismiss();
       }, (err) => {
@@ -156,29 +161,32 @@ export class CreateproductPage {
       console.log(err);
     });
   }
-  galleryCamera(from) {
+  galleryCamera(from, maxImg) {
     // this.createprod.images = [];
-    const options: CameraOptions = {
+    const options = {
+      maximumImagesCount: maxImg,
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: true,
-      correctOrientation: true,
-      targetHeight: from !== 'cover' ? 600 : 600,
-      targetWidth: from !== 'cover' ? 600 : 900,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      // allowEdit: true,
+      // correctOrientation: true,
+      // targetHeight: from !== 'cover' ? 600 : 600,
+      // targetWidth: from !== 'cover' ? 600 : 900,
+      // sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     // let loading = this.loading.create();
-    this.camera.getPicture(options).then((imageData) => {
+    this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      this.noResizeImage(imageData).then((data) => {
-        this.createprod.images.push(data);
-        this.loading.dismiss();
-      }, (err) => {
-        this.loading.dismiss();
-        console.log(err);
-      });
+      for (var i = 0; i < imageData.length; i++) {
+        this.resizeImage(imageData[i]).then((data) => {
+          this.createprod.images.push(data);
+          this.loading.dismiss();
+        }, (err) => {
+          this.loading.dismiss();
+          console.log(err);
+        });
+      }
     }, (err) => {
       console.log(err);
     });
@@ -189,6 +197,19 @@ export class CreateproductPage {
         resolve(uploadImageData);
       }, (uploadImageError) => {
         reject(uploadImageError)
+      });
+    });
+  }
+  resizeImage(fileUri): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.crop.crop(fileUri).then((cropData) => {
+        this.uploadImage(cropData).then((uploadImageData) => {
+          resolve(uploadImageData);
+        }, (uploadImageError) => {
+          reject(uploadImageError)
+        });
+      }, (cropError) => {
+        reject(cropError)
       });
     });
   }
@@ -267,8 +288,8 @@ export class CreateproductPage {
     });
     if (this.createprod.shippings && this.createprod.shippings.length > 0) {
       this.createprod.shippings.forEach(element => {
-        customShippings.forEach(item=>{
-          if(element.ref._id === item._id){
+        customShippings.forEach(item => {
+          if (element.ref._id === item._id) {
             item.price = element.price;
           }
         });

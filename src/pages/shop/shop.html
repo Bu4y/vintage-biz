@@ -35,7 +35,7 @@
       <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
       <!-- </ion-row> -->
 
-      <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover')">
+      <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover', 1)">
         <ion-icon name="camera" color="light"></ion-icon>
       </button>
     </ion-col>
@@ -45,7 +45,7 @@
   <ion-scroll scrollX="true">
     <ion-row class="row-custom">
       <ion-col col-3 *ngIf="isModify" class="col-imgpromote">
-        <preload-image [ratio]="{w:1, h:1}" [src]="'./assets/imgs/add.jpg'" (click)="openActionSheet('promote')"></preload-image>
+        <preload-image [ratio]="{w:1, h:1}" [src]="'./assets/imgs/add.jpg'" (click)="openActionSheet('promote', 1)"></preload-image>
       </ion-col>
       <ion-col col-3 *ngFor="let item of shop.promoteimage; let i = index;" class="col-imgpromote">
         <preload-image [ratio]="{w:1, h:1}" [src]="item"></preload-image>
@@ -74,15 +74,15 @@
         <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.cate.image" [ngClass]="ii === index ? 'selectedCategory' : ''"></preload-image>
         <p class="cate-order">{{cate.cate.name}}</p>
         <!-- <div class="deletepromote" no-padding> -->
-            <ion-row>
-                <ion-col class="cateoption-fix">
-                  <ion-buttons end>
-                    <button style="background-color: rgba(255, 255, 255, 0.73)" *ngIf="isModify && ii === index ? 'selectedCategory' : ''" (click)="openEditCate(cate.cate)">
-                      <ion-icon name="md-more" color="dark"></ion-icon>
-                    </button>
-                  </ion-buttons>
-                </ion-col>
-              </ion-row>
+        <ion-row>
+          <ion-col class="cateoption-fix">
+            <ion-buttons end>
+              <button style="background-color: rgba(255, 255, 255, 0.73)" *ngIf="isModify && ii === index ? 'selectedCategory' : ''" (click)="openEditCate(cate.cate)">
+                <ion-icon name="md-more" color="dark"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
         <!-- <div class="cateoption" no-padding>
           <button *ngIf="isModify && ii === index ? 'selectedCategory' : ''" ion-button icon-left clear small no-padding (click)="openEditCate(cate.cate)">
             <ion-icon name="md-more" color="dark"></ion-icon>
@@ -90,7 +90,7 @@
         </div> -->
       </ion-col>
       <ion-col col-3 *ngIf="isModify" class="col-imgpromote">
-        <preload-image [ratio]="{w:1, h:1}" [src]="'./assets/imgs/add.jpg'" (click)="openActionSheet('cate')"></preload-image>
+        <preload-image [ratio]="{w:1, h:1}" [src]="'./assets/imgs/add.jpg'" (click)="openActionSheet('cate', 1)"></preload-image>
       </ion-col>
     </ion-row>
   </ion-scroll>
@@ -99,7 +99,7 @@
   <ion-grid class="grid-product" *ngIf="shop.items && shop.items.length > 0 && shop.items[index].products && shop.items[index].products.length > 0">
     <ion-row *ngIf="isModify" no-padding [sortablejs]="shop.items[index].products" [sortablejsOptions]="options">
       <ion-col col-4 *ngFor="let itm of shop.items[index].products; let i = index;" [ngClass]="itm.image === './assets/imgs/add.jpg' ? 'js-edit' : ''">
-        <preload-image [ratio]="{w:1, h:1}" [src]="itm.image" (click)="openActionSheet('product', i, itm.name)"></preload-image>
+        <preload-image [ratio]="{w:1, h:1}" [src]="itm.image" (click)="openActionSheet('product', 1, itm.name)"></preload-image>
         <!-- <div class="productoption" no-padding *ngIf="itm.name">
           <button ion-button small icon-left clear large no-padding (click)="openEditProduct(itm,i)">
             <ion-icon name="md-more" color="dark"></ion-icon>

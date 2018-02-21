@@ -6,6 +6,8 @@ import { ShopModel } from "../shop/shop.model";
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
 import { TranslateService } from '@ngx-translate/core';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { Crop } from '@ionic-native/crop';
+import { ImagePicker } from '@ionic-native/image-picker';
 /**
  * Generated class for the Firstloginstep1Page page.
  *
@@ -31,6 +33,8 @@ export class Firstloginstep1Page {
     public actionSheetCtrl: ActionSheetController,
     private camera: Camera,
     private translate: TranslateService,
+    private crop: Crop,
+    private imagePicker: ImagePicker
   ) {
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
@@ -53,22 +57,22 @@ export class Firstloginstep1Page {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Firstloginstep1Page');
   }
-  selectProfile() {
+  selectProfile(from, maxImg) {
     let language = this.translate.currentLang;
     let textCamera = language === 'th' ? 'กล้อง' : 'Camera';
     let textGallery = language === 'th' ? 'อัลบั้มรูปภาพ' : 'Photo Gallery';
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: textCamera,
+          text: textGallery,
           handler: () => {
-            this.openCamera('profile');
+            this.galleryCamera(from, maxImg);
           }
         },
         {
-          text: textGallery,
+          text: textCamera,
           handler: () => {
-            this.galleryCamera('profile');
+            this.openCamera(from);
           }
         }
       ]
@@ -89,21 +93,20 @@ export class Firstloginstep1Page {
       destinationType: this.camera.DestinationType.FILE_URI,
       popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: true,
-      correctOrientation: true,
-      targetHeight: from !== 'cover' ? 600 : 600,
-      targetWidth: from !== 'cover' ? 600 : 800
+      mediaType: this.camera.MediaType.PICTURE
+      // allowEdit: true,
+      // correctOrientation: true,
+      // targetHeight: from !== 'cover' ? 600 : 600,
+      // targetWidth: from !== 'cover' ? 600 : 800
     }
     // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
       this.loading.onLoading();
-      this.noResizeImage(imageData).then((data) => {
+      // this.noResizeImage(imageData).then((data) => {
+      this.resizeImage(imageData).then((data) => {
         this.images.push(data);
         this.loading.dismiss();
-        if (from.toString() === 'profile') {
-          this.updateProfile();
-        }
+        this.updateProfile();
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
@@ -112,32 +115,35 @@ export class Firstloginstep1Page {
       console.log(err);
     });
   }
-  galleryCamera(from) {
+  galleryCamera(from, maxImg) {
     this.images = [];
-    const options: CameraOptions = {
+    const options = {
+      maximumImagesCount: maxImg,
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      allowEdit: true,
-      correctOrientation: true,
-      targetHeight: from !== 'cover' ? 600 : 600,
-      targetWidth: from !== 'cover' ? 600 : 800,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      // allowEdit: true,
+      // correctOrientation: true,
+      // targetHeight: from !== 'cover' ? 600 : 600,
+      // targetWidth: from !== 'cover' ? 600 : 800,
+      // sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     // let loadingCtrl = this.loading.create();
-    this.camera.getPicture(options).then((imageData) => {
+    // this.camera.getPicture(options).then((imageData) => {
+    this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      this.noResizeImage(imageData).then((data) => {
-        this.images.push(data);
-        this.loading.dismiss();
-        if (from.toString() === 'profile') {
+      for (var i = 0; i < imageData.length; i++) {
+        // this.noResizeImage(imageData).then((data) => {
+        this.resizeImage(imageData[i]).then((data) => {
+          this.images.push(data);
+          this.loading.dismiss();
           this.updateProfile();
-        }
-      }, (err) => {
-        this.loading.dismiss();
-        console.log(err);
-      });
+        }, (err) => {
+          this.loading.dismiss();
+          console.log(err);
+        });
+      }
     }, (err) => {
       console.log(err);
     });
@@ -148,6 +154,19 @@ export class Firstloginstep1Page {
         resolve(uploadImageData);
       }, (uploadImageError) => {
         reject(uploadImageError)
+      });
+    });
+  }
+  resizeImage(fileUri): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.crop.crop(fileUri).then((cropData) => {
+        this.uploadImage(cropData).then((uploadImageData) => {
+          resolve(uploadImageData);
+        }, (uploadImageError) => {
+          reject(uploadImageError)
+        });
+      }, (cropError) => {
+        reject(cropError)
       });
     });
   }

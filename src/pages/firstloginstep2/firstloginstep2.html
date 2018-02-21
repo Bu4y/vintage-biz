@@ -22,7 +22,7 @@
         <!-- <img src="./assets/imgs/logo-bg.png" style="height: 165px;width:100%;" alt="image"> -->
         <span class="thisfill"></span>
         <ion-row class="camera">
-          <ion-icon name="camera" color="light" (click)="selectCover()"></ion-icon>
+          <ion-icon name="camera" color="light" (click)="selectCover('cover', 1)"></ion-icon>
         </ion-row>
         <ion-row class="delete" *ngIf="unshipImg && unshipImg.length > 1">
             <ion-icon name="md-refresh" color="light" (click)="resetCover()"></ion-icon>

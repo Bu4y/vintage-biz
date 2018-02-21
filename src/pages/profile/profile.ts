@@ -143,9 +143,9 @@ export class ProfilePage {
   save() {
     this.auth.manageUser(this.firstLogin).then((data) => {
       window.localStorage.setItem('jjbiz-user', JSON.stringify(data));
-      if(data.citizenid){
+      if (data.citizenid) {
         this.citizenid = true;
-      }else{
+      } else {
         this.citizenid = false;
       }
       // console.log(this.citizenid);
@@ -161,15 +161,15 @@ export class ProfilePage {
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: textCamera,
-          handler: () => {
-            this.openCamera();
-          }
-        },
-        {
           text: textGallery,
           handler: () => {
             this.onImagePicker('profile', 1);
+          }
+        },
+        {
+          text: textCamera,
+          handler: () => {
+            this.openCamera();
           }
         }
       ]
@@ -266,15 +266,16 @@ export class ProfilePage {
       outputType: 0
     };
     this.imagePicker.getPictures(options).then((results) => {
-      let loading = [];
-      let loadingCount = 0;
+      // let loading = [];
+      // let loadingCount = 0;
+      this.loadingCtrl.onLoading();
       for (var i = 0; i < results.length; i++) {
-        loading.push(this.loading.create({
-          content: (i + 1) + '/' + (results.length),
-          cssClass: `loading-upload`,
-          showBackdrop: false
-        }));
-        loading[i].present();
+        // loading.push(this.loading.create({
+        //   content: (i + 1) + '/' + (results.length),
+        //   cssClass: `loading-upload`,
+        //   showBackdrop: false
+        // }));
+        // loading[i].present();
         // this.uploadImage(results[i]).then((resUrl) => {
         //   this.images.push(resUrl);
         //   setTimeout(() => {
@@ -293,20 +294,25 @@ export class ProfilePage {
         // })
         this.resizeImage(results[i]).then((data) => {
           this.images.push(data);
-          setTimeout(() => {
-            loading[loadingCount].dismiss();
-            loadingCount++;
-            if (loadingCount === results.length) {
-              if (from.toString() === 'profile') {
-                this.updateProfile();
-              }
-            }
-          }, 1000);
+          this.loadingCtrl.dismiss();
+          this.updateProfile();
+          // setTimeout(() => {
+          //   loading[loadingCount].dismiss();
+          //   loadingCount++;
+          //   if (loadingCount === results.length) {
+          //     if (from.toString() === 'profile') {
+          //       this.updateProfile();
+          //     }
+          //   }
+          // }, 1000);
         }, (err) => {
+          this.loadingCtrl.dismiss();
           console.log(err);
         })
       }
-    }, (err) => { });
+    }, (err) => {
+      // Handle error
+    });
   }
   // step2() {
   //   this.firstLogin.coverimage = this.shop.coverimage ? this.shop.coverimage : 'no image';

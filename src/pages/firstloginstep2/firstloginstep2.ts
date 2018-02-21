@@ -7,6 +7,7 @@ import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camer
 import { ImagecoverProvider } from '../../providers/imagecover/imagecover';
 import { TranslateService } from '@ngx-translate/core';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { ImagePicker } from '@ionic-native/image-picker';
 /**
  * Generated class for the Firstloginstep2Page page.
  *
@@ -31,6 +32,7 @@ export class Firstloginstep2Page {
     private camera: Camera,
     public imgCoverService: ImagecoverProvider,
     private translate: TranslateService,
+    public imagePicker: ImagePicker
   ) {
   }
 
@@ -48,22 +50,22 @@ export class Firstloginstep2Page {
     //   this.firstLogin.coverimage = this.unshipImg[0];
     // }
   }
-  selectCover() {
+  selectCover(from, maxImg) {
     let language = this.translate.currentLang;
     let textCamera = language === 'th' ? 'กล้อง' : 'Camera';
     let textGallery = language === 'th' ? 'อัลบั้มรูปภาพ' : 'Photo Gallery';
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
-          text: textCamera,
+          text: textGallery,
           handler: () => {
-            this.openCamera('cover');
+            this.galleryCamera(from, maxImg);
           }
         },
         {
-          text: textGallery,
+          text: textCamera,
           handler: () => {
-            this.galleryCamera('cover');
+            this.openCamera(from);
           }
         }
       ]
@@ -92,9 +94,7 @@ export class Firstloginstep2Page {
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
         this.loading.dismiss();
-        if (from.toString() === 'cover') {
-          this.updateCover();
-        }
+        this.updateCover();
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
@@ -103,29 +103,29 @@ export class Firstloginstep2Page {
       console.log(err);
     });
   }
-  galleryCamera(from) {
+  galleryCamera(from, maxImg) {
     this.images = [];
-    const options: CameraOptions = {
+    const options = {
+      maximumImagesCount: maxImg,
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      correctOrientation: true,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+      // correctOrientation: true,
+      // sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
     // let loadingCtrl = this.loading.create();
-    this.camera.getPicture(options).then((imageData) => {
+    // this.camera.getPicture(options).then((imageData) => {
+    this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      this.noResizeImage(imageData).then((data) => {
-        this.images.push(data);
-        this.loading.dismiss();
-        if (from.toString() === 'cover') {
+        this.noResizeImage(imageData).then((data) => {
+          this.images.push(data);
+          this.loading.dismiss();
           this.updateCover();
-        }
-      }, (err) => {
-        this.loading.dismiss();
-        console.log(err);
-      });
+        }, (err) => {
+          this.loading.dismiss();
+          console.log(err);
+        });
     }, (err) => {
       console.log(err);
     });
