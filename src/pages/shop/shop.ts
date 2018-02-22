@@ -501,7 +501,7 @@ export class ShopPage {
     // this.loading.onLoading()
     this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      if (Array.isArray(imageData)) {
+      if (Array.isArray(imageData) && imageData.length > 0) {
         for (var i = 0; i < imageData.length; i++) {
           if (from.toString() === 'cover') {
             // this.loading.onLoading();

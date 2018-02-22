@@ -158,6 +158,7 @@ export class CreateproductPage {
         console.log(err);
       });
     }, (err) => {
+      this.loading.dismiss();
       console.log(err);
     });
   }
@@ -177,17 +178,23 @@ export class CreateproductPage {
     }
     // let loading = this.loading.create();
     this.imagePicker.getPictures(options).then((imageData) => {
-      for (var i = 0; i < imageData.length; i++) {
       this.loading.onLoading();
-        this.resizeImage(imageData[i]).then((data) => {
-          this.createprod.images.push(data);
-          this.loading.dismiss();
-        }, (err) => {
-          this.loading.dismiss();
-          console.log(err);
-        });
+      if (Array.isArray(imageData) && imageData.length > 0) {
+        for (var i = 0; i < imageData.length; i++) {
+          this.resizeImage(imageData[i]).then((data) => {
+            this.createprod.images.push(data);
+            this.loading.dismiss();
+          }, (err) => {
+            this.loading.dismiss();
+            console.log(err);
+          });
+        }
+      } else {
+        this.loading.dismiss();
       }
     }, (err) => {
+      // this.loading.dismiss();
+      alert('err');
       console.log(err);
     });
   }

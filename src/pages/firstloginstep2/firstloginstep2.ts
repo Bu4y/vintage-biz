@@ -119,7 +119,7 @@ export class Firstloginstep2Page {
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      if (Array.isArray(imageData)) {
+      if (Array.isArray(imageData) && imageData.length > 0) {
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();

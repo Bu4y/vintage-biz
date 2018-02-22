@@ -270,7 +270,7 @@ export class ProfilePage {
       // let loadingCount = 0;
       this.loadingCtrl.onLoading();
 
-      if (Array.isArray(results)) {
+      if (Array.isArray(results) && results.length > 0) {
         for (var i = 0; i < results.length; i++) {
           // this.loadingCtrl.onLoading();
           // loading.push(this.loading.create({

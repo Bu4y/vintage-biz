@@ -134,7 +134,7 @@ export class Firstloginstep1Page {
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
-      if (Array.isArray(imageData)) {
+      if (Array.isArray(imageData) && imageData.length > 0) {
         for (var i = 0; i < imageData.length; i++) {
           // this.noResizeImage(imageData).then((data) => {
           this.resizeImage(imageData[i]).then((data) => {
@@ -150,7 +150,8 @@ export class Firstloginstep1Page {
         this.loading.dismiss();
       }
     }, (err) => {
-      this.loading.dismiss();
+      // this.loading.dismiss();
+      alert('err');
       console.log(err);
     });
 
