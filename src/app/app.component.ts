@@ -18,7 +18,7 @@ import { ShopServiceProvider } from '../pages/shop/shop-service';
 })
 export class MyApp {
   // rootPage:any = TabnavPage;
-  rootPage: any = '';
+  rootPage: any = 'LoginPage';
   user = {} as any;
   constructor(
     platform: Platform,

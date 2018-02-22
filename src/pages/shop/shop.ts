@@ -446,8 +446,8 @@ export class ShopPage {
     }
     // let loading = this.loadingCtrl.create();
     this.camera.getPicture(options).then((imageData) => {
-      this.loading.onLoading();
       if (from.toString() === 'cover') {
+        this.loading.onLoading();
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
@@ -457,6 +457,7 @@ export class ShopPage {
           console.log(err);
         });
       } else {
+        this.loading.onLoading();
         this.resizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
@@ -475,6 +476,7 @@ export class ShopPage {
         });
       }
     }, (err) => {
+      // this.loading.dismiss();
       // Handle error
     });
   }
@@ -495,9 +497,10 @@ export class ShopPage {
     // let loading = this.loadingCtrl.create();
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
-      this.loading.onLoading();
+      // this.loading.onLoading();
       for (var i = 0; i < imageData.length; i++) {
         if (from.toString() === 'cover') {
+          this.loading.onLoading();
           this.noResizeImage(imageData).then((data) => {
             this.images.push(data);
             this.loading.dismiss();
@@ -507,6 +510,7 @@ export class ShopPage {
             console.log(err);
           });
         } else {
+          this.loading.onLoading();
           this.resizeImage(imageData[i]).then((data) => {
             this.images.push(data);
             this.loading.dismiss();
@@ -521,11 +525,12 @@ export class ShopPage {
             }
           }, (err) => {
             this.loading.dismiss();
-            console.log(err);
+            alert(err);
           });
         }
       }
     }, (err) => {
+      // this.loading.dismiss();
       // Handle error
     });
   }

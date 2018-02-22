@@ -132,8 +132,8 @@ export class Firstloginstep1Page {
     // let loadingCtrl = this.loading.create();
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
-      this.loading.onLoading();
       for (var i = 0; i < imageData.length; i++) {
+      this.loading.onLoading();
         // this.noResizeImage(imageData).then((data) => {
         this.resizeImage(imageData[i]).then((data) => {
           this.images.push(data);

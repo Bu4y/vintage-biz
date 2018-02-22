@@ -242,7 +242,7 @@ export class ProfilePage {
         console.log(err);
       })
     }, (err) => {
-      this.loadingCtrl.dismiss();
+      // this.loadingCtrl.dismiss();
     });
   }
   resizeImage(fileUri): Promise<any> {
@@ -268,8 +268,8 @@ export class ProfilePage {
     this.imagePicker.getPictures(options).then((results) => {
       // let loading = [];
       // let loadingCount = 0;
-      this.loadingCtrl.onLoading();
       for (var i = 0; i < results.length; i++) {
+      this.loadingCtrl.onLoading();
         // loading.push(this.loading.create({
         //   content: (i + 1) + '/' + (results.length),
         //   cssClass: `loading-upload`,

@@ -123,8 +123,9 @@ export class CreatecatePage {
     // let loading = this.loading.create();
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
-      this.loading.onLoading();
+      
       for (var i = 0; i < imageData.length; i++) {
+        this.loading.onLoading();
         this.resizeImage(imageData[i]).then((data) => {
           this.cate.image = data;
           this.loading.dismiss();
