@@ -268,47 +268,53 @@ export class ProfilePage {
     this.imagePicker.getPictures(options).then((results) => {
       // let loading = [];
       // let loadingCount = 0;
-      for (var i = 0; i < results.length; i++) {
       this.loadingCtrl.onLoading();
-        // loading.push(this.loading.create({
-        //   content: (i + 1) + '/' + (results.length),
-        //   cssClass: `loading-upload`,
-        //   showBackdrop: false
-        // }));
-        // loading[i].present();
-        // this.uploadImage(results[i]).then((resUrl) => {
-        //   this.images.push(resUrl);
-        //   setTimeout(() => {
-        //     loading[loadingCount].dismiss();
-        //     loadingCount++;
-        //     if (loadingCount === results.length) {
-        //       if (from.toString() === 'profile') {
-        //         this.updateProfile();
-        //       }
-        //     }
-        //   }, 1000);
-        // }, (error) => {
-        //   loading[loadingCount].dismiss();
-        //   loadingCount++;
-        //   // alert('Upload Fail. ' + JSON.stringify(error));
-        // })
-        this.resizeImage(results[i]).then((data) => {
-          this.images.push(data);
-          this.loadingCtrl.dismiss();
-          this.updateProfile();
-          // setTimeout(() => {
+
+      if (Array.isArray(results)) {
+        for (var i = 0; i < results.length; i++) {
+          // this.loadingCtrl.onLoading();
+          // loading.push(this.loading.create({
+          //   content: (i + 1) + '/' + (results.length),
+          //   cssClass: `loading-upload`,
+          //   showBackdrop: false
+          // }));
+          // loading[i].present();
+          // this.uploadImage(results[i]).then((resUrl) => {
+          //   this.images.push(resUrl);
+          //   setTimeout(() => {
+          //     loading[loadingCount].dismiss();
+          //     loadingCount++;
+          //     if (loadingCount === results.length) {
+          //       if (from.toString() === 'profile') {
+          //         this.updateProfile();
+          //       }
+          //     }
+          //   }, 1000);
+          // }, (error) => {
           //   loading[loadingCount].dismiss();
           //   loadingCount++;
-          //   if (loadingCount === results.length) {
-          //     if (from.toString() === 'profile') {
-          //       this.updateProfile();
-          //     }
-          //   }
-          // }, 1000);
-        }, (err) => {
-          this.loadingCtrl.dismiss();
-          console.log(err);
-        })
+          //   // alert('Upload Fail. ' + JSON.stringify(error));
+          // })
+          this.resizeImage(results[i]).then((data) => {
+            this.images.push(data);
+            this.loadingCtrl.dismiss();
+            this.updateProfile();
+            // setTimeout(() => {
+            //   loading[loadingCount].dismiss();
+            //   loadingCount++;
+            //   if (loadingCount === results.length) {
+            //     if (from.toString() === 'profile') {
+            //       this.updateProfile();
+            //     }
+            //   }
+            // }, 1000);
+          }, (err) => {
+            this.loadingCtrl.dismiss();
+            console.log(err);
+          })
+        }
+      } else {
+        this.loadingCtrl.dismiss();
       }
     }, (err) => {
       // Handle error

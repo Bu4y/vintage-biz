@@ -118,6 +118,7 @@ export class Firstloginstep2Page {
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
+      if (Array.isArray(imageData)) {
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
@@ -126,6 +127,9 @@ export class Firstloginstep2Page {
           this.loading.dismiss();
           console.log(err);
         });
+      } else {
+        this.loading.dismiss();
+      }
     }, (err) => {
       console.log(err);
     });

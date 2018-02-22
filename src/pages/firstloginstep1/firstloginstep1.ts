@@ -132,22 +132,28 @@ export class Firstloginstep1Page {
     // let loadingCtrl = this.loading.create();
     // this.camera.getPicture(options).then((imageData) => {
     this.imagePicker.getPictures(options).then((imageData) => {
-      for (var i = 0; i < imageData.length; i++) {
       this.loading.onLoading();
-        // this.noResizeImage(imageData).then((data) => {
-        this.resizeImage(imageData[i]).then((data) => {
-          this.images.push(data);
-          this.loading.dismiss();
-          this.updateProfile();
-        }, (err) => {
-          this.loading.dismiss();
-          console.log(err);
-        });
+      if (Array.isArray(imageData)) {
+        for (var i = 0; i < imageData.length; i++) {
+          // this.noResizeImage(imageData).then((data) => {
+          this.resizeImage(imageData[i]).then((data) => {
+            this.images.push(data);
+            this.loading.dismiss();
+            this.updateProfile();
+          }, (err) => {
+            this.loading.dismiss();
+            console.log(err);
+          });
+        }
+      } else {
+        this.loading.dismiss();
       }
     }, (err) => {
       console.log(err);
     });
+
   }
+
   noResizeImage(fileUri): Promise<any> {
     return new Promise((resolve, reject) => {
       this.uploadImage(fileUri).then((uploadImageData) => {

@@ -445,9 +445,11 @@ export class ShopPage {
       // targetWidth: from !== 'cover' ? 600 : 800
     }
     // let loading = this.loadingCtrl.create();
+    // this.loading.onLoading()
     this.camera.getPicture(options).then((imageData) => {
+      this.loading.onLoading();
       if (from.toString() === 'cover') {
-        this.loading.onLoading();
+        // this.loading.onLoading();
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
@@ -457,7 +459,7 @@ export class ShopPage {
           console.log(err);
         });
       } else {
-        this.loading.onLoading();
+        // this.loading.onLoading();
         this.resizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
@@ -476,7 +478,7 @@ export class ShopPage {
         });
       }
     }, (err) => {
-      // this.loading.dismiss();
+      this.loading.dismiss();
       // Handle error
     });
   }
@@ -496,39 +498,47 @@ export class ShopPage {
     }
     // let loading = this.loadingCtrl.create();
     // this.camera.getPicture(options).then((imageData) => {
+    // this.loading.onLoading()
     this.imagePicker.getPictures(options).then((imageData) => {
-      // this.loading.onLoading();
-      for (var i = 0; i < imageData.length; i++) {
-        if (from.toString() === 'cover') {
-          this.loading.onLoading();
-          this.noResizeImage(imageData).then((data) => {
-            this.images.push(data);
+      this.loading.onLoading();
+      if (Array.isArray(imageData)) {
+        for (var i = 0; i < imageData.length; i++) {
+          if (from.toString() === 'cover') {
+              // this.loading.onLoading();
+            this.noResizeImage(imageData).then((data) => {
+              this.images.push(data);
+              this.loading.dismiss();
+              this.updateShopBG();
+            }, (err) => {
+              this.loading.dismiss();
+              console.log(err);
+            });
+          } else {
+            //   this.loading.onLoading();
             this.loading.dismiss();
-            this.updateShopBG();
-          }, (err) => {
-            this.loading.dismiss();
-            console.log(err);
-          });
-        } else {
-          this.loading.onLoading();
-          this.resizeImage(imageData[i]).then((data) => {
-            this.images.push(data);
-            this.loading.dismiss();
-            if (from.toString() === 'promote') {
-              this.updatePromote();
-            } else if (from.toString() === 'cate') {
-              this.saveDragDrop();
-              this.formCate();
-            } else if (from.toString() === 'product') {
-              this.saveDragDrop();
-              this.formProduct();
-            }
-          }, (err) => {
-            this.loading.dismiss();
-            alert(err);
-          });
+            this.resizeImage(imageData[i]).then((data) => {
+              this.images.push(data);
+
+              if (from.toString() === 'promote') {
+                this.updatePromote();
+              } else if (from.toString() === 'cate') {
+                this.saveDragDrop();
+                this.formCate();
+              } else if (from.toString() === 'product') {
+                this.saveDragDrop();
+                this.formProduct();
+              }
+            }, (err) => {
+              this.loading.dismiss();
+              alert(err);
+            });
+          }
         }
+      } else {
+        this.loading.dismiss();
       }
+
+
     }, (err) => {
       // this.loading.dismiss();
       // Handle error
