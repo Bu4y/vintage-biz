@@ -100,6 +100,7 @@ export class Firstloginstep2Page {
         console.log(err);
       });
     }, (err) => {
+      this.loading.dismiss();
       console.log(err);
     });
   }
@@ -131,6 +132,7 @@ export class Firstloginstep2Page {
         this.loading.dismiss();
       }
     }, (err) => {
+      this.loading.dismiss();
       console.log(err);
     });
   }

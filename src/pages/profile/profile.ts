@@ -242,7 +242,7 @@ export class ProfilePage {
         console.log(err);
       })
     }, (err) => {
-      // this.loadingCtrl.dismiss();
+      this.loadingCtrl.dismiss();
     });
   }
   resizeImage(fileUri): Promise<any> {
@@ -317,7 +317,8 @@ export class ProfilePage {
         this.loadingCtrl.dismiss();
       }
     }, (err) => {
-      // Handle error
+        this.loadingCtrl.dismiss();
+        // Handle error
     });
   }
   // step2() {

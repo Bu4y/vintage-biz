@@ -504,7 +504,7 @@ export class ShopPage {
       if (Array.isArray(imageData)) {
         for (var i = 0; i < imageData.length; i++) {
           if (from.toString() === 'cover') {
-              // this.loading.onLoading();
+            // this.loading.onLoading();
             this.noResizeImage(imageData).then((data) => {
               this.images.push(data);
               this.loading.dismiss();
@@ -540,7 +540,7 @@ export class ShopPage {
 
 
     }, (err) => {
-      // this.loading.dismiss();
+      this.loading.dismiss();
       // Handle error
     });
   }

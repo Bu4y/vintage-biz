@@ -112,6 +112,7 @@ export class Firstloginstep1Page {
         console.log(err);
       });
     }, (err) => {
+      this.loading.dismiss();
       console.log(err);
     });
   }
@@ -149,6 +150,7 @@ export class Firstloginstep1Page {
         this.loading.dismiss();
       }
     }, (err) => {
+      this.loading.dismiss();
       console.log(err);
     });
 
