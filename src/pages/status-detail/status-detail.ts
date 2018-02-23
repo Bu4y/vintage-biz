@@ -45,7 +45,7 @@ export class StatusDetailPage {
 
   ionViewWillEnter() {
     this.isheight =  this.platform.height();
-    console.log(this.isheight);
+    // alert(this.isheight);
   }
 
   rejectOrder() {
