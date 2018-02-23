@@ -73,7 +73,7 @@
     </ion-list>
   </div> -->
 
-  <div *ngIf="ordDetail.product" [ngClass]="isheight <= 600 ? 'fixHeightEtc' : isheight <= 660 ? 'fixHeight' : isheight <= 667 ? 'fixHeight2' : isheight <= 736 ? 'fixHeight3' : ''">
+  <div *ngIf="ordDetail.product">
     <div class="address">
       <ion-list mode="md">
         <ion-item>
@@ -283,10 +283,8 @@
           </ion-label>
         </ion-item>
       </ion-list>
-     
-    
   </div>
-  
+  <div class="fixHeight"></div>
 </ion-content>
 
 <ion-footer>
