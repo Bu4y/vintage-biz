@@ -73,7 +73,7 @@
     </ion-list>
   </div> -->
 
-  <div *ngIf="ordDetail.product" class="fixHeight">
+  <div *ngIf="ordDetail.product">
     <div class="address">
       <ion-list mode="md">
         <ion-item>
@@ -284,6 +284,7 @@
         </ion-item>
       </ion-list>
   </div>
+  <div *ngIf="ordDetail.status ==='confirm'" class="fixHeight"></div>
 </ion-content>
 
 <ion-footer>
