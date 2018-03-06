@@ -1,3 +1,4 @@
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import * as firebase from 'firebase';
@@ -34,7 +35,8 @@ export class Firstloginstep1Page {
     private camera: Camera,
     private translate: TranslateService,
     private crop: Crop,
-    private imagePicker: ImagePicker
+    private imagePicker: ImagePicker,
+    private alertCtrl: AlertController
   ) {
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
@@ -110,10 +112,30 @@ export class Firstloginstep1Page {
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
       });
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
   galleryCamera(from, maxImg) {
@@ -144,6 +166,16 @@ export class Firstloginstep1Page {
           }, (err) => {
             this.loading.dismiss();
             console.log(err);
+            let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
           });
         }
       } else {
@@ -151,7 +183,16 @@ export class Firstloginstep1Page {
       }
     }, (err) => {
       // this.loading.dismiss();
-      alert('err');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
       console.log(err);
     });
 

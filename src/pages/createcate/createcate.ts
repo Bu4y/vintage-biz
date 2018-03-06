@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ActionSheetController, AlertController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { Camera, CameraOptions, CameraPopoverOptions } from '@ionic-native/camera';
@@ -31,7 +31,8 @@ export class CreatecatePage {
     private camera: Camera,
     private loading: LoadingProvider,
     private translate: TranslateService,
-    private crop: Crop
+    private crop: Crop,
+    private alertCtrl: AlertController
   ) {
     if (this.navParams.data._id) {
       this.cate = this.navParams.data;
@@ -100,10 +101,30 @@ export class CreatecatePage {
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
       });
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
   galleryCamera(from, maxImg) {
@@ -134,6 +155,16 @@ export class CreatecatePage {
           }, (err) => {
             this.loading.dismiss();
             console.log(err);
+            let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
           });
         }
       } else {
@@ -141,7 +172,16 @@ export class CreatecatePage {
       }
     }, (err) => {
       // this.loading.dismiss();
-      alert('err');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
       console.log(err);
     });
 

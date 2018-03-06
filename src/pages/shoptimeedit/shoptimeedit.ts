@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the ShoptimeeditPage page.
@@ -20,7 +21,9 @@ export class ShoptimeeditPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
+    private translate: TranslateService,
+    private alertCtrl: AlertController
   ) {
     this.editData = this.navParams.data;
   }
@@ -106,7 +109,16 @@ export class ShoptimeeditPage {
     if (data.openTime && data.closeTime) {
       this.viewCtrl.dismiss(resData);
     } else {
-      alert('เกิดข้อผิดพลาด กรุณาเลือดเวลาเปิด-ปิด');
+      let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเลือกเวลาเปิด-ปิด' : 'Error Please select time.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
     }
   }
 }

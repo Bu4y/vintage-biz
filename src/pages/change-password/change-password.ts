@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ChangePasswordModel } from '../../assets/model/user.model';
 import { MoreServiceProvider } from '../more/more-service';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the ChangePasswordPage page.
  *
@@ -21,7 +22,9 @@ export class ChangePasswordPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public moreService: MoreServiceProvider,
-    private loading: LoadingProvider
+    private loading: LoadingProvider,
+    private translate: TranslateService,
+    public alertCtrl: AlertController,
   ) {
   }
 
@@ -36,7 +39,16 @@ export class ChangePasswordPage {
       this.navCtrl.pop();
     }, (err) => {
       this.loading.dismiss();
-      alert('เกิดข้อผิดพลาดกรุณาตรวจสอบรหัสผ่านและลองใหม่อีกครั้ง');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาตรวจสอบรหัสผ่านและลองใหม่อีกครั้ง' : 'Error Please check your password and try again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
 

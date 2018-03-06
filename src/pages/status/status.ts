@@ -45,7 +45,7 @@ export class StatusPage {
   //     refresher.complete();
   //   }, 1500);
   // }
- 
+
   scrollIndicatiorTab() {
     this.ItemsTitles.scrollTo(this.calculateDistanceToSpnd(this.SwipedTabsSlider.getActiveIndex()) - this.screenWidth_px / 2, 0);
   }
@@ -138,6 +138,16 @@ export class StatusPage {
     }, err => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง' : 'Error Please try again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     })
   }
   gotoDetail(itm) {
@@ -186,11 +196,21 @@ export class StatusPage {
               // let loading = this.loading.create();
               this.loading.onLoading();
               this.statusService.orderSent(ord).then(data => {
-                this.loading.dismiss();                
+                this.loading.dismiss();
                 this.getOrders();
               }, err => {
                 this.loading.dismiss();
                 console.log(err);
+                let language = this.translate.currentLang;
+                let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณากรอกเลขพัสดุใหม่อีกครั้ง' : 'Error Please Sent order again.';
+                let textButton = language === 'th' ? 'ปิด' : 'Close'
+                let alert = this.alertCtrl.create({
+                  title: textNotifications,
+                  subTitle: textError,
+                  buttons: [textButton]
+                });
+                alert.present();
               })
               console.log('Saved clicked');
             }
@@ -238,11 +258,21 @@ export class StatusPage {
               // let loading = this.loading.create();
               this.loading.onLoading();
               this.statusService.orderReject(ord).then(data => {
-                this.loading.dismiss();                
+                this.loading.dismiss();
                 this.getOrders();
               }, err => {
                 this.loading.dismiss();
                 console.log(err);
+                let language = this.translate.currentLang;
+                let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาปฏิเสธคำสั่งซื้อใหม่อีกครั้ง' : 'Error Please Reject Order again.';
+                let textButton = language === 'th' ? 'ปิด' : 'Close'
+                let alert = this.alertCtrl.create({
+                  title: textNotifications,
+                  subTitle: textError,
+                  buttons: [textButton]
+                });
+                alert.present();
               })
               console.log('Saved clicked');
             }

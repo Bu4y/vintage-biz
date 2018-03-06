@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 // import { Firstloginstep3Page } from '../firstloginstep3/firstloginstep3';
 // import { ImagePicker } from '@ionic-native/image-picker';
 import * as firebase from 'firebase';
@@ -32,7 +32,8 @@ export class Firstloginstep2Page {
     private camera: Camera,
     public imgCoverService: ImagecoverProvider,
     private translate: TranslateService,
-    public imagePicker: ImagePicker
+    public imagePicker: ImagePicker,
+    public alertCtrl: AlertController
   ) {
   }
 
@@ -98,10 +99,30 @@ export class Firstloginstep2Page {
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
       });
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
   galleryCamera(from, maxImg) {
@@ -127,6 +148,16 @@ export class Firstloginstep2Page {
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
+          let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
         });
       } else {
         this.loading.dismiss();
@@ -134,6 +165,16 @@ export class Firstloginstep2Page {
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
   noResizeImage(fileUri): Promise<any> {
@@ -201,7 +242,16 @@ export class Firstloginstep2Page {
         }
       } else {
         this.loading.dismiss();
-        alert('ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!');
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textInvalidImage = language === 'th' ? 'ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!' : 'Invalid image size. Please check the picture and try again!';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textInvalidImage,
+          buttons: [textButton]
+        });
+        alert.present();
       }
     }, (err) => {
       console.log(err);

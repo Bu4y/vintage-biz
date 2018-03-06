@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, AlertController } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { CateModel } from '../shop/shop.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -37,7 +37,8 @@ export class ShopeditPage {
     public shopServiceProvider: ShopServiceProvider,
     public loading: LoadingProvider,
     public actionSheetCtrl: ActionSheetController,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private alertCtrl:AlertController
   ) {
     this.editData = this.navParams.data;
     // let loadingCtrl = this.loading.create();
@@ -129,7 +130,16 @@ export class ShopeditPage {
       this.navCtrl.setRoot('TabnavPage');
     }, (err) => {
       this.loading.dismiss();
-      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขข้อมูลร้านอีกครั้ง' : 'Error Please edit the shop information again.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
       // alert(JSON.stringify(JSON.parse(err._body).message));
     });
   }

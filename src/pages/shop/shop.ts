@@ -185,7 +185,16 @@ export class ShopPage {
           this.shopService();
         }, (err) => {
           this.loading.dismiss();
-          alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+          let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please add new Category product again.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
           // alert(JSON.stringify(JSON.parse(err._body).message));
         });
       }
@@ -219,7 +228,16 @@ export class ShopPage {
         }, (err) => {
           this.loading.dismiss();
           // alert(JSON.stringify(JSON.parse(err._body).message));
-          alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+          let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มสินค้าใหม่อีกครั้ง' : 'Error Please add new product again.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
         });
       }
     });
@@ -247,16 +265,43 @@ export class ShopPage {
         }, (err) => {
           // alert(JSON.stringify(JSON.parse(err._body).message));
           this.loading.dismiss();
-          alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+          let language = this.translate.currentLang;
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
           console.log(err);
         });
       } else {
         this.loading.dismiss();
-        alert('ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!');
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textInvalidImage = language === 'th' ? 'ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!' : 'Invalid image size. Please check the picture and try again!';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textInvalidImage,
+          buttons: [textButton]
+        });
+        alert.present();
       }
     }, (err) => {
       this.loading.dismiss();
-      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
       console.log(err);
     });
   }
@@ -274,7 +319,16 @@ export class ShopPage {
     }, (err) => {
       this.loading.dismiss();
       // alert(JSON.stringify(JSON.parse(err._body).message));
-      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
       console.log(err);
     });
   }
@@ -346,7 +400,16 @@ export class ShopPage {
                 this.shopServiceProvider.editCate(dismiss._id, dismiss).then((data) => {
                   this.shopService();
                 }, (err) => {
-                  alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+                  let language = this.translate.currentLang;
+                  let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                  let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please correct the product category again.';
+                  let textButton = language === 'th' ? 'ปิด' : 'Close'
+                  let alert = this.alertCtrl.create({
+                    title: textNotifications,
+                    subTitle: textError,
+                    buttons: [textButton]
+                  });
+                  alert.present();
                 });
               }
             });
@@ -379,7 +442,16 @@ export class ShopPage {
                 this.shopServiceProvider.editProduct(dismiss._id, dismiss).then((data) => {
                   this.shopService();
                 }, (err) => {
-                  alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+                  let language = this.translate.currentLang;
+                  let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                  let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขสินค้าใหม่อีกครั้ง' : 'Error Please edit the product again.';
+                  let textButton = language === 'th' ? 'ปิด' : 'Close'
+                  let alert = this.alertCtrl.create({
+                    title: textNotifications,
+                    subTitle: textError,
+                    buttons: [textButton]
+                  });
+                  alert.present();
                 });
               }
             });
@@ -512,6 +584,16 @@ export class ShopPage {
             }, (err) => {
               this.loading.dismiss();
               console.log(err);
+              let language = this.translate.currentLang;
+              let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+              let textButton = language === 'th' ? 'ปิด' : 'Close'
+              let alert = this.alertCtrl.create({
+                title: textNotifications,
+                subTitle: textError,
+                buttons: [textButton]
+              });
+              alert.present();
             });
           } else {
             //   this.loading.onLoading();
@@ -530,7 +612,16 @@ export class ShopPage {
               }
             }, (err) => {
               this.loading.dismiss();
-              alert(err);
+              let language = this.translate.currentLang;
+              let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+              let textButton = language === 'th' ? 'ปิด' : 'Close'
+              let alert = this.alertCtrl.create({
+                title: textNotifications,
+                subTitle: textError,
+                buttons: [textButton]
+              });
+              alert.present();
             });
           }
         }
@@ -622,7 +713,16 @@ export class ShopPage {
               this.shopService();
             }, (err) => {
               // alert(JSON.stringify(JSON.parse(err._body).message));
-              alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+              let language = this.translate.currentLang;
+              let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบสินค้าใหม่อีกครั้ง' : 'Error Please delete the product again.';
+              let textButton = language === 'th' ? 'ปิด' : 'Close'
+              let alert = this.alertCtrl.create({
+                title: textNotifications,
+                subTitle: textError,
+                buttons: [textButton]
+              });
+              alert.present();
             });
           }
         }
@@ -649,7 +749,16 @@ export class ShopPage {
               this.shopService();
             }, (err) => {
               // alert(JSON.stringify(JSON.parse(err._body).message));
-              alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+              let language = this.translate.currentLang;
+              let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบรูปโปรโมทร้านใหม่อีกครั้ง' : 'Error Please delete the promotion image again.';
+              let textButton = language === 'th' ? 'ปิด' : 'Close'
+              let alert = this.alertCtrl.create({
+                title: textNotifications,
+                subTitle: textError,
+                buttons: [textButton]
+              });
+              alert.present();
             });
           }
         }
@@ -681,7 +790,16 @@ export class ShopPage {
               this.shopService();
             }, (err) => {
               // alert(JSON.stringify(JSON.parse(err._body).message));
-              alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+              let language = this.translate.currentLang;
+              let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please delete the product category again.';
+              let textButton = language === 'th' ? 'ปิด' : 'Close'
+              let alert = this.alertCtrl.create({
+                title: textNotifications,
+                subTitle: textError,
+                buttons: [textButton]
+              });
+              alert.present();
             });
           }
         }

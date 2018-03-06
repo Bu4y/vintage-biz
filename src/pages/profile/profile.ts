@@ -1,3 +1,4 @@
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { ShopModel } from '../shop/shop.model';
@@ -40,7 +41,8 @@ export class ProfilePage {
     private crop: Crop,
     private camera: Camera,
     public actionSheetCtrl: ActionSheetController,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private alertCtrl: AlertController
   ) {
     this.shopServiceProvider.getShop().then(data => {
       this.shop = data;
@@ -152,6 +154,16 @@ export class ProfilePage {
       this.navCtrl.pop();
     }, (err) => {
       console.log(err);
+      let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาบันทึกข้อมูลใหม่อีกครั้ง' : 'Error Please save the information again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
     });
   }
   selectProfile() {
@@ -240,6 +252,16 @@ export class ProfilePage {
       }, (err) => {
         this.loadingCtrl.dismiss();
         console.log(err);
+        let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
       })
     }, (err) => {
       this.loadingCtrl.dismiss();
@@ -311,14 +333,24 @@ export class ProfilePage {
           }, (err) => {
             this.loadingCtrl.dismiss();
             console.log(err);
+            let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
           })
         }
       } else {
         this.loadingCtrl.dismiss();
       }
     }, (err) => {
-        this.loadingCtrl.dismiss();
-        // Handle error
+      this.loadingCtrl.dismiss();
+      // Handle error
     });
   }
   // step2() {

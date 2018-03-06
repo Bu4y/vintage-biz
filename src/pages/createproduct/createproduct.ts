@@ -1,3 +1,4 @@
+import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ActionSheetController } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
@@ -36,7 +37,8 @@ export class CreateproductPage {
     private loading: LoadingProvider,
     private translate: TranslateService,
     private crop: Crop,
-    public imagePicker: ImagePicker
+    public imagePicker: ImagePicker,
+    private alertCtrl: AlertController
 
   ) {
     this.createprod.shippings = [];
@@ -94,6 +96,16 @@ export class CreateproductPage {
       }
     }, (err) => {
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง' : 'Error Please try again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     })
   }
 
@@ -156,10 +168,30 @@ export class CreateproductPage {
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
       });
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     });
   }
   galleryCamera(from, maxImg) {
@@ -187,6 +219,16 @@ export class CreateproductPage {
           }, (err) => {
             this.loading.dismiss();
             console.log(err);
+            let language = this.translate.currentLang;
+            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+            let textButton = language === 'th' ? 'ปิด' : 'Close'
+            let alert = this.alertCtrl.create({
+              title: textNotifications,
+              subTitle: textError,
+              buttons: [textButton]
+            });
+            alert.present();
           });
         }
       } else {
@@ -194,7 +236,16 @@ export class CreateproductPage {
       }
     }, (err) => {
       // this.loading.dismiss();
-      alert('err');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
       console.log(err);
     });
   }

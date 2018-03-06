@@ -91,6 +91,16 @@ export class StatusDetailPage {
               }, err => {
                 this.loading.dismiss();
                 console.log(err);
+                let language = this.translate.currentLang;
+                let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาปฏิเสธคำสั่งซื้อใหม่อีกครั้ง' : 'Error Please reject order again.';
+                let textButton = language === 'th' ? 'ปิด' : 'Close'
+                let alert = this.alertCtrl.create({
+                  title: textNotifications,
+                  subTitle: textError,
+                  buttons: [textButton]
+                });
+                alert.present();
               })
               console.log('Saved clicked');
             }
@@ -144,6 +154,16 @@ export class StatusDetailPage {
               }, err => {
                 this.loading.dismiss();
                 console.log(err);
+                let language = this.translate.currentLang;
+                let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+                let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณากรอกเลขพัสดุใหม่อีกครั้ง' : 'Error Please sent order again.';
+                let textButton = language === 'th' ? 'ปิด' : 'Close'
+                let alert = this.alertCtrl.create({
+                  title: textNotifications,
+                  subTitle: textError,
+                  buttons: [textButton]
+                });
+                alert.present();
               })
               console.log('Saved clicked');
             }

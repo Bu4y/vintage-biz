@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
 import { LoadingProvider } from '../../providers/loading/loading';
+import { TranslateService } from '@ngx-translate/core';
 /**
  * Generated class for the FirstloginstepModalPage page.
  *
@@ -22,8 +23,10 @@ export class FirstloginstepModalPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController,
-    public loading: LoadingProvider
-  ){
+    public loading: LoadingProvider,
+    private translate: TranslateService,
+    private alertCtrl: AlertController
+  ) {
     this.firstLogin = this.navParams.data;
   }
   ionViewWillEnter() {
@@ -111,7 +114,16 @@ export class FirstloginstepModalPage {
     if (data.openTime && data.closeTime) {
       this.viewCtrl.dismiss(resData);
     } else {
-      alert('เกิดข้อผิดพลาด กรุณาเลือดเวลาเปิด-ปิด');
+      let language = this.translate.currentLang;
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเลือกเวลาเปิด-ปิด' : 'Error Please select Time.';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
     }
   }
   closeModel() {
