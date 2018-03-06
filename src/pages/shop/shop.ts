@@ -577,7 +577,7 @@ export class ShopPage {
         for (var i = 0; i < imageData.length; i++) {
           if (from.toString() === 'cover') {
             // this.loading.onLoading();
-            this.noResizeImage(imageData).then((data) => {
+            this.noResizeImage(imageData[i]).then((data) => {
               this.images.push(data);
               this.loading.dismiss();
               this.updateShopBG();

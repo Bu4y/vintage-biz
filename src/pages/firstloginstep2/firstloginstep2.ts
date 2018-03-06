@@ -141,7 +141,7 @@ export class Firstloginstep2Page {
     this.imagePicker.getPictures(options).then((imageData) => {
       this.loading.onLoading();
       if (Array.isArray(imageData) && imageData.length > 0) {
-        this.noResizeImage(imageData).then((data) => {
+        this.noResizeImage(imageData[0]).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
           this.updateCover();
