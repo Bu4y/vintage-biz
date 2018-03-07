@@ -18,12 +18,8 @@ export class ImagecoverProvider {
     console.log('Hello ImagecoverProvider Provider');
   }
 
-  getMeta(url, type): Promise<any> {
+  getMeta(url): Promise<any> {
     // alert('resize');
-    let isPlatform = false;
-    if (this.platform.is('ios') && type.toString() === 'camera') {
-      isPlatform = true;
-    }
     return new Promise((resolve, reject) => {
       var img = new Image();
       img.onload = function () {
@@ -31,19 +27,11 @@ export class ImagecoverProvider {
         let h = this["height"];
         let result = w / h;
         // if (result > 1.33 && result < 1.78) {
-        if (isPlatform) {
-          if (h > w) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        } else {
           if (w > h) {
             resolve(true);
           } else {
             resolve(false);
           }
-        }
       };
       img.src = url;
     });

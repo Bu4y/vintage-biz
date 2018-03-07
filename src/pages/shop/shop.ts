@@ -252,12 +252,12 @@ export class ShopPage {
   selectShopBG() {
     this.onUpload('cover', 1);
   }
-  updateShopBG(type) {
+  updateShopBG() {
     let img = this.images && this.images.length > 0 ? this.images[0] : 'noimage';
     // let loadingCtrl = this.loading.create();
     // loadingCtrl.present();
     this.loading.onLoading();
-    this.imgCoverService.getMeta(img, type).then((data) => {
+    this.imgCoverService.getMeta(img).then((data) => {
       if (data) {
         this.shopServiceProvider.setCover(this.shop._id, img).then((data) => {
           this.loading.dismiss();
@@ -357,7 +357,7 @@ export class ShopPage {
             // alert(loadingCount + '===' + results.length);
             if (loadingCount === results.length) {
               if (from.toString() === 'cover') {
-                this.updateShopBG('imagepicker');
+                this.updateShopBG();
               } else if (from.toString() === 'promote') {
                 this.updatePromote();
               } else if (from.toString() === 'cate') {
@@ -508,9 +508,10 @@ export class ShopPage {
     const options: CameraOptions = {
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
-      popoverOptions: popover,
+      // popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true      
       // allowEdit: from !== 'cover' ? true : false,
       // correctOrientation: true,
       // targetHeight: from !== 'cover' ? 600 : 600,
@@ -525,7 +526,7 @@ export class ShopPage {
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
-          this.updateShopBG('camera');
+          this.updateShopBG();
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
@@ -580,7 +581,7 @@ export class ShopPage {
             this.noResizeImage(imageData[i]).then((data) => {
               this.images.push(data);
               this.loading.dismiss();
-              this.updateShopBG('imagepicker');
+              this.updateShopBG();
             }, (err) => {
               this.loading.dismiss();
               console.log(err);

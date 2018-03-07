@@ -85,9 +85,10 @@ export class Firstloginstep2Page {
     const options: CameraOptions = {
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
-      popoverOptions: popover,
+      // popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
     }
     // let loadingCtrl = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {
@@ -95,7 +96,7 @@ export class Firstloginstep2Page {
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
         this.loading.dismiss();
-        this.updateCover('camera');
+        this.updateCover();
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
@@ -144,7 +145,7 @@ export class Firstloginstep2Page {
         this.noResizeImage(imageData[0]).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
-          this.updateCover('imagepicker');
+          this.updateCover();
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
@@ -223,14 +224,14 @@ export class Firstloginstep2Page {
       xhr.send();
     });
   }
-  updateCover(type) {
+  updateCover() {
     this.coverImg = this.images && this.images.length > 0 ? this.images[this.images.length - 1] : '';
     // this.unshipImg.unshift(this.firstLogin.coverimage);
 
     // this.currentCountImg = this.unshipImg.length;
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
-    this.imgCoverService.getMeta(this.coverImg, type).then((data) => {
+    this.imgCoverService.getMeta(this.coverImg).then((data) => {
       if (data) {
         this.unshipImg.unshift(this.coverImg);
         if (this.coverImg) {
