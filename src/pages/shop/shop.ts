@@ -252,12 +252,12 @@ export class ShopPage {
   selectShopBG() {
     this.onUpload('cover', 1);
   }
-  updateShopBG() {
+  updateShopBG(type) {
     let img = this.images && this.images.length > 0 ? this.images[0] : 'noimage';
     // let loadingCtrl = this.loading.create();
     // loadingCtrl.present();
     this.loading.onLoading();
-    this.imgCoverService.getMeta(img).then((data) => {
+    this.imgCoverService.getMeta(img, type).then((data) => {
       if (data) {
         this.shopServiceProvider.setCover(this.shop._id, img).then((data) => {
           this.loading.dismiss();
@@ -357,7 +357,7 @@ export class ShopPage {
             // alert(loadingCount + '===' + results.length);
             if (loadingCount === results.length) {
               if (from.toString() === 'cover') {
-                this.updateShopBG();
+                this.updateShopBG('imagepicker');
               } else if (from.toString() === 'promote') {
                 this.updatePromote();
               } else if (from.toString() === 'cate') {
@@ -525,7 +525,7 @@ export class ShopPage {
         this.noResizeImage(imageData).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
-          this.updateShopBG();
+          this.updateShopBG('camera');
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
@@ -580,7 +580,7 @@ export class ShopPage {
             this.noResizeImage(imageData[i]).then((data) => {
               this.images.push(data);
               this.loading.dismiss();
-              this.updateShopBG();
+              this.updateShopBG('imagepicker');
             }, (err) => {
               this.loading.dismiss();
               console.log(err);

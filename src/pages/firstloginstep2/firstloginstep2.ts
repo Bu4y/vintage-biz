@@ -95,7 +95,7 @@ export class Firstloginstep2Page {
       this.noResizeImage(imageData).then((data) => {
         this.images.push(data);
         this.loading.dismiss();
-        this.updateCover();
+        this.updateCover('camera');
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
@@ -144,7 +144,7 @@ export class Firstloginstep2Page {
         this.noResizeImage(imageData[0]).then((data) => {
           this.images.push(data);
           this.loading.dismiss();
-          this.updateCover();
+          this.updateCover('imagepicker');
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
@@ -223,14 +223,14 @@ export class Firstloginstep2Page {
       xhr.send();
     });
   }
-  updateCover() {
+  updateCover(type) {
     this.coverImg = this.images && this.images.length > 0 ? this.images[this.images.length - 1] : '';
     // this.unshipImg.unshift(this.firstLogin.coverimage);
 
     // this.currentCountImg = this.unshipImg.length;
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
-    this.imgCoverService.getMeta(this.coverImg).then((data) => {
+    this.imgCoverService.getMeta(this.coverImg, type).then((data) => {
       if (data) {
         this.unshipImg.unshift(this.coverImg);
         if (this.coverImg) {

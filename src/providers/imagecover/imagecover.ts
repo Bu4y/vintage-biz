@@ -18,10 +18,10 @@ export class ImagecoverProvider {
     console.log('Hello ImagecoverProvider Provider');
   }
 
-  getMeta(url): Promise<any> {
+  getMeta(url, type): Promise<any> {
     // alert('resize');
     let isPlatform = false;
-    if (this.platform.is('ios')) {
+    if (this.platform.is('ios') && type.toString() === 'camera') {
       isPlatform = true;
     }
     return new Promise((resolve, reject) => {
