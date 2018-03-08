@@ -119,5 +119,6 @@
     "BAHT": "บาท",
     "SHIPPING_PRICE": "ราคาจัดส่ง",
     "REF_ID":"เลขพัสดุ",
-    "COMPLETED_DATE":"วันที่สำเร็จ"
+    "COMPLETED_DATE":"วันที่สำเร็จ",
+    "IF_SHIPPING":"หากจัดส่งสินค้าแล้วกรุณากด"
 }

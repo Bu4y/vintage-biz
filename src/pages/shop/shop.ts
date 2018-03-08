@@ -700,7 +700,7 @@ export class ShopPage {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
     let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Do you want to delete this product?';
-    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let save = language === 'th' ? 'ตกลง' : 'Save';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
 
     let confirm = this.alertCtrl.create({
@@ -708,7 +708,7 @@ export class ShopPage {
       message: message,
       buttons: [
         {
-          text: submit,
+          text: save,
           handler: () => {
             this.shopServiceProvider.deleteProduct(shopID, prodID, prodIndex, cateIndex).then((data) => {
               this.shopService();
@@ -742,14 +742,14 @@ export class ShopPage {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
     let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Do you want to delete this promote image?';
-    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let save = language === 'th' ? 'ตกลง' : 'Save';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
       title: title,
       message: message,
       buttons: [
         {
-          text: submit,
+          text: save,
           handler: () => {
             this.shopServiceProvider.deletePromoteShop(this.shop._id, index).then((data) => {
               this.shopService();
@@ -783,14 +783,14 @@ export class ShopPage {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
     let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Do you want to delete this product type? All products in this product type will be deleted.';
-    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let save = language === 'th' ? 'ตกลง' : 'Save';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
       title: title,
       message: message,
       buttons: [
         {
-          text: submit,
+          text: save,
           handler: () => {
             // console.log(cateID);
             let dataCate = { cateId: cateID };

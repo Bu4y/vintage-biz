@@ -120,5 +120,6 @@
     "BAHT": "Baht",
     "SHIPPING_PRICE": "Shipping price",
     "REF_ID":"RefID",
-    "COMPLETED_DATE":"Completed Time"
+    "COMPLETED_DATE":"Completed Time",
+    "IF_SHIPPING":"If shipping, please press"
 }
