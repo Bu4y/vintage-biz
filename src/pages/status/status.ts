@@ -176,12 +176,6 @@ export class StatusPage {
       ],
       buttons: [
         {
-          text: textCancel,
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
           text: textSave,
           handler: data => {
             if (data.refID === '' || !data.refID) {
@@ -214,6 +208,13 @@ export class StatusPage {
               })
               console.log('Saved clicked');
             }
+          }
+        },
+        {
+          text: textCancel,
+          cssClass: 'font-red',
+          handler: data => {
+            console.log('Cancel clicked');
           }
         }
       ]

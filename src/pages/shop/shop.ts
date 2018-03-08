@@ -701,14 +701,7 @@ export class ShopPage {
       message: 'คุณต้องการลบสินค้านี้ใช่หรือไม่?',
       buttons: [
         {
-          text: 'ยกเลิก',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
           text: 'ตกลง',
-          cssClass: 'font-red',
           handler: () => {
             this.shopServiceProvider.deleteProduct(shopID, prodID, prodIndex, cateIndex).then((data) => {
               this.shopService();
@@ -726,6 +719,13 @@ export class ShopPage {
               alert.present();
             });
           }
+        },
+        {
+          text: 'ยกเลิก',
+          cssClass: 'font-red',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
         }
       ]
     });
@@ -737,14 +737,7 @@ export class ShopPage {
       message: 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?',
       buttons: [
         {
-          text: 'ยกเลิก',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
           text: 'ตกลง',
-          cssClass: 'font-red',
           handler: () => {
             this.shopServiceProvider.deletePromoteShop(this.shop._id, index).then((data) => {
               this.shopService();
@@ -762,6 +755,13 @@ export class ShopPage {
               alert.present();
             });
           }
+        },
+        {
+          text: 'ยกเลิก',
+          cssClass: 'font-red',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
         }
       ]
     });
@@ -773,14 +773,7 @@ export class ShopPage {
       message: 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!',
       buttons: [
         {
-          text: 'ยกเลิก',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
           text: 'ตกลง',
-          cssClass: 'font-red',
           handler: () => {
             // console.log(cateID);
             let dataCate = { cateId: cateID };
@@ -802,6 +795,13 @@ export class ShopPage {
               });
               alert.present();
             });
+          }
+        },
+        {
+          text: 'ยกเลิก',
+          cssClass: 'font-red',
+          handler: () => {
+            console.log('Cancel clicked');
           }
         }
       ]
