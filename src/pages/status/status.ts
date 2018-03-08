@@ -164,7 +164,7 @@ export class StatusPage {
     let messageRefID = language === 'th' ? 'กรุณากรอกเลขพัสดุ' : 'Please Enter your RefID';
 
     let textCancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
-    let textSave = language === 'th' ? 'บันทึก' : 'Save';
+    let textSave = language === 'th' ? 'ตกลง' : 'Save';
     let prompt = this.alertCtrl.create({
       title: refID,
       message: messageRefID,

@@ -393,7 +393,8 @@ export class ShopPage {
         {
           text: textEdit,
           handler: () => {
-            let modalproduct = this.modalCtrl.create('CreatecatePage', cate);
+            let catedata = JSON.parse(JSON.stringify(cate));
+            let modalproduct = this.modalCtrl.create('CreatecatePage', catedata);
             modalproduct.onDidDismiss(dismiss => {
               // console.log(dismiss);
               if (dismiss) {
@@ -696,12 +697,18 @@ export class ShopPage {
     });
   }
   showConfirm(shopID, prodID, prodIndex, cateIndex) {
+    let language = this.translate.currentLang;
+    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+    let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Do you want to delete this product?';
+    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
+
     let confirm = this.alertCtrl.create({
-      title: 'การแจ้งเตือน',
-      message: 'คุณต้องการลบสินค้านี้ใช่หรือไม่?',
+      title: title,
+      message: message,
       buttons: [
         {
-          text: 'ตกลง',
+          text: submit,
           handler: () => {
             this.shopServiceProvider.deleteProduct(shopID, prodID, prodIndex, cateIndex).then((data) => {
               this.shopService();
@@ -721,7 +728,7 @@ export class ShopPage {
           }
         },
         {
-          text: 'ยกเลิก',
+          text: cancel,
           cssClass: 'font-red',
           handler: () => {
             console.log('Cancel clicked');
@@ -732,12 +739,17 @@ export class ShopPage {
     confirm.present();
   }
   deletePromoteShop(index) {
+    let language = this.translate.currentLang;
+    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+    let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Do you want to delete this promote image?';
+    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
-      title: 'การแจ้งเตือน',
-      message: 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?',
+      title: title,
+      message: message,
       buttons: [
         {
-          text: 'ตกลง',
+          text: submit,
           handler: () => {
             this.shopServiceProvider.deletePromoteShop(this.shop._id, index).then((data) => {
               this.shopService();
@@ -757,7 +769,7 @@ export class ShopPage {
           }
         },
         {
-          text: 'ยกเลิก',
+          text: cancel,
           cssClass: 'font-red',
           handler: () => {
             console.log('Cancel clicked');
@@ -768,12 +780,17 @@ export class ShopPage {
     confirm.present();
   }
   deleteCateProd(cateID) {
+    let language = this.translate.currentLang;
+    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+    let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Do you want to delete this product type? All products in this product type will be deleted.';
+    let submit = language === 'th' ? 'ตกลง' : 'Submit';
+    let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
-      title: 'การแจ้งเตือน',
-      message: 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!',
+      title: title,
+      message: message,
       buttons: [
         {
-          text: 'ตกลง',
+          text: submit,
           handler: () => {
             // console.log(cateID);
             let dataCate = { cateId: cateID };
@@ -798,7 +815,7 @@ export class ShopPage {
           }
         },
         {
-          text: 'ยกเลิก',
+          text: cancel,
           cssClass: 'font-red',
           handler: () => {
             console.log('Cancel clicked');
