@@ -187,7 +187,7 @@ export class ShopPage {
           this.loading.dismiss();
           let language = this.translate.currentLang;
           let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please add new Category product again.';
+          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มประเภทสินค้าใหม่อีกครั้ง' : 'Error Please add new Category product again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
             title: textNotifications,
@@ -386,8 +386,8 @@ export class ShopPage {
   }
   openEditCate(cate) {
     let language = this.translate.currentLang;
-    let textEdit = language === 'th' ? 'แก้ไขหมวดหมู่สินค้า' : 'Edit Category';
-    let textDelete = language === 'th' ? 'ลบหมวดหมู่สินค้า' : 'Delete Category';
+    let textEdit = language === 'th' ? 'แก้ไขประเภทสินค้า' : 'Edit Category';
+    let textDelete = language === 'th' ? 'ลบประเภทสินค้า' : 'Delete Category';
     let actionSheet = this.actionSheetCtrl.create({
       buttons: [
         {
@@ -402,7 +402,7 @@ export class ShopPage {
                 }, (err) => {
                   let language = this.translate.currentLang;
                   let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-                  let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please correct the product category again.';
+                  let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขประเภทสินค้าใหม่อีกครั้ง' : 'Error Please correct the product category again.';
                   let textButton = language === 'th' ? 'ปิด' : 'Close'
                   let alert = this.alertCtrl.create({
                     title: textNotifications,
@@ -511,7 +511,7 @@ export class ShopPage {
       // popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      correctOrientation: true      
+      correctOrientation: true
       // allowEdit: from !== 'cover' ? true : false,
       // correctOrientation: true,
       // targetHeight: from !== 'cover' ? 600 : 600,
@@ -770,7 +770,7 @@ export class ShopPage {
   deleteCateProd(cateID) {
     let confirm = this.alertCtrl.create({
       title: 'การแจ้งเตือน',
-      message: 'คุณต้องการลบหมวดหมู่สินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!',
+      message: 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!',
       buttons: [
         {
           text: 'ยกเลิก',
@@ -793,7 +793,7 @@ export class ShopPage {
               // alert(JSON.stringify(JSON.parse(err._body).message));
               let language = this.translate.currentLang;
               let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบหมวดหมู่สินค้าใหม่อีกครั้ง' : 'Error Please delete the product category again.';
+              let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบประเภทสินค้าใหม่อีกครั้ง' : 'Error Please delete the product category again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
                 title: textNotifications,
