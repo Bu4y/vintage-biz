@@ -181,7 +181,7 @@
       <ion-scroll scrollY="true">
         <div *ngFor="let item of orders">
           <div *ngFor="let itm of item.items">
-            <div *ngIf="itm.status === 'completed'">
+            <div *ngIf="itm.status === 'completed' || itm.status ==='transfered'">
               <div class="checkout-product-shipping">
                 <div class="product">
                   <ion-list class="list-item" (click)="gotoDetail(itm)">
@@ -192,12 +192,13 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
+                        <p>{{'REF_ID' | translate}} : {{itm.refid}}</p>
                         <p>{{itm.price}} {{'BAHT' | translate}}</p>
                         <p>{{'QTY' | translate}}: {{itm.qty}}</p>
                         <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>
                         <p>{{'SHIPPING_PRICE' | translate}}: {{itm.shippingprice}} {{'BAHT' | translate}}</p>
                         <p class="maintheme">
-                          <b>{{itm.status}}</b>
+                          <b>{{itm.status | translate}}</b>
                         </p>
                       </ion-label>
                     </ion-item>
@@ -224,7 +225,7 @@
       <ion-scroll scrollY="true">
         <div *ngFor="let item of orders">
           <div *ngFor="let itm of item.items">
-            <div *ngIf="itm.status === 'cancel' || itm.status === 'reject'">
+            <div *ngIf="itm.status === 'cancel' || itm.status === 'reject' || itm.status === 'admincancel'">
               <div class="checkout-product-shipping">
                 <div class="product">
                   <ion-list class="list-item" (click)="gotoDetail(itm)">
@@ -235,6 +236,7 @@
                       </ion-thumbnail>
                       <ion-label stacked>
                         <h2 class="product-name">{{itm.name}}</h2>
+                        <p>{{'REF_ID' | translate}} : {{itm.refid}}</p>
                         <p>{{itm.price}} {{'BAHT' | translate}}</p>
                         <p>{{'QTY' | translate}}: {{itm.qty}}</p>
                         <p>{{'SHIPPING_TYPE' | translate}}: {{itm.shippingtype}}</p>

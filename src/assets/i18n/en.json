@@ -9,7 +9,7 @@
     "BANK_ACCOUNT": "Bank account",
     "NEXT": "Next",
     "CANCEL": "Cancel",
-    "cancel": "Cancel",
+    "cancel": "Customer Cancel",
     "SAVE": "Save",
     "ADDRESS": "Address",
     "SHOP_INFO": "Shop info",
@@ -90,7 +90,7 @@
     "TRANSFER_IN": "Transfer In",
     "TRANSFER_OUT": "Transfer Out",
     "REJECT": "Reject",
-    "reject": "Reject",
+    "reject": "Shop Reject",
     "SENT": "Sent",
     "COMPLETED": "Completed",
     "NOTIFICATION": "Notification",
@@ -121,5 +121,8 @@
     "SHIPPING_PRICE": "Shipping price",
     "REF_ID":"RefID",
     "COMPLETED_DATE":"Completed Time",
-    "IF_SHIPPING":"If shipping, please press"
+    "IF_SHIPPING":"If shipping, please press",
+    "admincancel":"Admin Cancel",
+    "completed":"Have not been paid",
+    "transfered":"Paid"
 }

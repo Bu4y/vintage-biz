@@ -9,7 +9,7 @@
     "BANK_ACCOUNT": "เลขที่บัญชีธนาคาร",
     "NEXT": "ถัดไป",
     "CANCEL": "ยกเลิก",
-    "cancel": "ยกเลิก",
+    "cancel": "ลูกค้ายกเลิก",
     "SAVE": "บันทึก",
     "ADDRESS": "ที่อยู่",
     "SHOP_INFO": "ข้อมูลร้านค้า",
@@ -88,7 +88,7 @@
     "TRANSFER_IN": "ชำระเงินโดย",
     "TRANSFER_OUT": "ถอนเงิน",
     "REJECT": "ปฏิเสธ",
-    "reject": "ปฏิเสธ",
+    "reject": "ร้านค้าปฏิเสธ",
     "SENT": "จัดส่ง",
     "COMPLETED": "สำเร็จ",
     "NOTIFICATION": "การแจ้งเตือน",
@@ -99,7 +99,7 @@
     "ORDER_NUMBER": "เลขการสั่งซื้อ",
     "RECEIPT_DATE": "วันที่รับสินค้า",
     "SHIPPING_DATE": "วันที่จัดส่ง",
-    "CANCEL_DATE": "วันที่ยกเลิกสินค้า",
+    "CANCEL_DATE": "วันที่ยกเลิก",
     "REJECT_DATE": "วันที่ปฏิเสธสินค้า",
     "CREATE_ORDER_DATE": "วันที่สั่งซื้อ",
     "PRODUCT_LIST": "รายการสินค้า",
@@ -120,5 +120,8 @@
     "SHIPPING_PRICE": "ราคาจัดส่ง",
     "REF_ID":"เลขพัสดุ",
     "COMPLETED_DATE":"วันที่สำเร็จ",
-    "IF_SHIPPING":"หากจัดส่งสินค้าแล้วกรุณากด"
+    "IF_SHIPPING":"หากจัดส่งสินค้าแล้วกรุณากด",
+    "admincancel":"ผู้ดูแลระบบยกเลิก",
+    "completed":"ยังไม่ได้รับเงิน",
+    "transfered":"ได้รับเงินแล้ว"
 }

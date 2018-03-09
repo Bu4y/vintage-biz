@@ -27,6 +27,7 @@ export class StatusPage {
   isRight: boolean = true;
   isLeft: boolean = true;
   tabs: any = [];
+  numTabs: number;
   orders: Array<StatusModel>;
 
   constructor(
@@ -56,13 +57,15 @@ export class StatusPage {
     setTimeout(() => {
       this.SwipedTabsIndicator = document.getElementById("indicator");
       for (let i in this.tabs) this.tabTitleWidthArray.push(document.getElementById("tabTitle" + i).offsetWidth);
-      this.selectTab(0);
+      this.numTabs = JSON.parse(window.localStorage.getItem('Tab')) ? JSON.parse(window.localStorage.getItem('Tab')) : 0;
+      this.selectTab(this.numTabs);
       this.getOrders();
       // console.log(this.tabTitleWidthArray);
     }, 300);
   }
 
   selectTab(index) {
+    window.localStorage.setItem('Tab', index);
     this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[index] + "px";
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.calculateDistanceToSpnd(index)) + 'px,0,0)';
     this.SwipedTabsSlider.slideTo(index);
