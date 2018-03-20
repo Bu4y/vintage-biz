@@ -22,33 +22,8 @@
 </ion-header>
 
 <ion-content>
-  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-down" pullingText="Pull to refresh" refreshingSpinner="dots" refreshingText="Refreshing..."></ion-refresher-content>
-  </ion-refresher> -->
   <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
-
-    <!-- <ion-slide>
-      <ion-scroll scrollY="true">
-        <div class="checkout-product-shipping">
-            <div class="product" *ngFor="let item of orders" (click)="gotoDetail(item)">
-              <ion-list class="list-item">
-                <ion-item>
-                  <ion-thumbnail item-start>
-                      <img src="{{item.productimage}}">
-                  </ion-thumbnail>
-                  <ion-label stacked>
-                      <h2 class="product-name">{{item.productname}}</h2>
-                      <p>{{item.amount}} บาท</p>
-                      <p>{{item.created | datetime}}</p>
-                  </ion-label>
-                </ion-item>
-              </ion-list>
-            </div>
-          </div>
-      </ion-scroll>
-    </ion-slide> -->
-
     <!-- <ion-slide>
       <ion-scroll scrollY="true">
         <div class="checkout-product-shipping">

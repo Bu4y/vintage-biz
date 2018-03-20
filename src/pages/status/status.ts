@@ -40,13 +40,8 @@ export class StatusPage {
     private translate: TranslateService,
     private loading: LoadingProvider
   ) {
+    
   }
-  // doRefresh(refresher) {
-  //   setTimeout(() => {
-  //     refresher.complete();
-  //   }, 1500);
-  // }
-
   scrollIndicatiorTab() {
     this.ItemsTitles.scrollTo(this.calculateDistanceToSpnd(this.SwipedTabsSlider.getActiveIndex()) - this.screenWidth_px / 2, 0);
   }
