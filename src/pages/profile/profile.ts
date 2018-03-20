@@ -240,7 +240,8 @@ export class ProfilePage {
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      popoverOptions: popover
+      // popoverOptions: popover,
+      correctOrientation: true
     }
     // let loading = this.loading.create();
     this.camera.getPicture(options).then((imageData) => {

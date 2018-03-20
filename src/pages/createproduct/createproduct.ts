@@ -150,9 +150,10 @@ export class CreateproductPage {
     const options: CameraOptions = {
       quality: 80,
       destinationType: this.camera.DestinationType.FILE_URI,
-      popoverOptions: popover,
+      // popoverOptions: popover,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true
       // allowEdit: true,
       // correctOrientation: true,
       // targetHeight: from !== 'cover' ? 600 : 600,
