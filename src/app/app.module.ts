@@ -37,6 +37,7 @@ import { OrderServiceProvider } from '../pages/order/order-service';
 import { StatusServiceProvider } from '../pages/status/status-service';
 import { MoreServiceProvider } from '../pages/more/more-service'
 import { QuestionAnswersServiceProvider } from '../pages/question-answers/question-answers-service';
+import { Keyboard } from '@ionic-native/keyboard';
 @NgModule({
   declarations: [
     MyApp
@@ -65,6 +66,7 @@ import { QuestionAnswersServiceProvider } from '../pages/question-answers/questi
   providers: [
     StatusBar,
     SplashScreen,
+    Keyboard,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     {
       provide: HAMMER_GESTURE_CONFIG,

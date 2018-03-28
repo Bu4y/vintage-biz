@@ -4,6 +4,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from '@ionic-native/onesignal';
+import { Keyboard } from '@ionic-native/keyboard';
 // import { TabnavPage } from '../pages/tabnav/tabnav';
 // import { LoginPage } from '../pages/login/login';
 
@@ -25,6 +26,7 @@ export class MyApp {
     statusBar: StatusBar,
     splashScreen: SplashScreen,
     translate: TranslateService,
+    keyboard: Keyboard,
     private oneSignal: OneSignal,
     public shopServiceProvider: ShopServiceProvider,
     public loading: LoadingProvider
@@ -42,6 +44,22 @@ export class MyApp {
       this.configFirebase();
       if (platform.is('cordova')) {
         this.onSignalSetup();
+
+        // 
+        if (platform.is('ios')) {
+          let
+            appEl = <HTMLElement>(document.getElementsByTagName('ION-APP')[0]),
+            appElHeight = appEl.clientHeight;
+            keyboard.disableScroll(true);
+
+          window.addEventListener('native.keyboardshow', (e) => {
+            appEl.style.height = (appElHeight - (<any>e).keyboardHeight) + 'px';
+          });
+
+          window.addEventListener('native.keyboardhide', () => {
+            appEl.style.height = '100%';
+          });
+        }
       }
     });
     let isFirstLogin = window.localStorage.getItem('isjjbizfirstlogin');
@@ -49,7 +67,7 @@ export class MyApp {
       this.rootPage = 'GreetingPage';
     } else {
       this.user = JSON.parse(window.localStorage.getItem('jjbiz-user'));
-      if(!this.user){
+      if (!this.user) {
         this.rootPage = 'LoginPage';
       }
       this.loading.onLoading()
