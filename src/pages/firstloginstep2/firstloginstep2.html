@@ -30,10 +30,14 @@
       </div>
     </ion-col>
   </ion-row>
+<ion-row>
+  <ion-col col-12>
   <ion-item>
     <ion-label floating color="topic">{{'SHOP_NAME' | translate}} <span class="warning-invalid">*</span></ion-label>
     <ion-input [(ngModel)]="firstLogin.name"></ion-input>
   </ion-item>
+</ion-col>
+  </ion-row>
 </ion-content>
 <ion-footer padding no-border>
   <button ion-button block [disabled]="!firstLogin.coverimage || !firstLogin.name" (click)="step3()" color="maintheme">{{'NEXT' | translate}}</button>
