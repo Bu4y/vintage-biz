@@ -13,10 +13,11 @@
 </ion-header> -->
 
 
-<ion-content padding class="backgound-image">
-  <div text-center>
+<ion-content no-padding class="backgound-image">
+  <div text-center >
     <img class="logo-img" src="./assets/icon/icon.png" alt="">
   </div>
+  <div padding>
   <ion-item class="loginfont">
     <ion-label mode="ios" color="topic" floating>
       <!-- <ion-icon name="ios-person-outline" item-start></ion-icon> -->
@@ -33,4 +34,5 @@
   </ion-item>
   <button class="button-login" ion-button block color="maintheme" (click)="login()" [disabled]="!credentials.username || !credentials.password"> {{'LOGIN'| translate}} </button>
   <!-- <button ion-button full margin-top (click)="register()">สมัครสมาชิก</button> -->
+</div>
 </ion-content>
