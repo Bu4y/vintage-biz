@@ -9,7 +9,7 @@
   <ion-navbar color="whity">
     <ion-buttons right>
       <button ion-button icon-only (click)="closeDismiss()">
-        <ion-icon name="ios-close-circle"></ion-icon>
+        <ion-icon name="ios-close-circle" color="danger"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title *ngIf="cate._id">{{'EDIT_CATEGORY' | translate}}</ion-title>
@@ -32,7 +32,7 @@
           <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.image"></preload-image>
         <div class="deletecate" no-padding>
           <button ion-button icon-left clear small no-padding (click)="deleteCate()">
-            <ion-icon name="md-close-circle" color="light"></ion-icon>
+            <ion-icon name="md-close-circle" color="danger"></ion-icon>
           </button>
         </div>
       </ion-col>

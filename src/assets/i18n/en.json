@@ -124,5 +124,6 @@
     "IF_SHIPPING":"If shipping, please press",
     "admincancel":"Admin Cancel",
     "completed":"Have not been paid",
-    "transfered":"Paid"
+    "transfered":"Paid",
+    "PROMOTE_IMAGE":"Promote image"
 }

@@ -19,8 +19,8 @@
         <!-- <ion-row> -->
         <h4>
           {{shop.name}}
-          <ion-icon name="md-create" color="light" (click)="edit(shop)">
-          </ion-icon>
+          <!-- <ion-icon name="md-create" color="light" (click)="edit(shop)">
+          </ion-icon> -->
         </h4>
       </ion-col>
       <!-- </ion-row> -->
@@ -35,13 +35,15 @@
         <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
         <!-- </ion-row> -->
 
-        <button ion-button icon-left clear large class="cover-changer" (click)="openActionSheet('cover', 1)">
-          <ion-icon name="camera" color="light"></ion-icon>
+        <button ion-button clear large class="cover-changer" (click)="edit(shop)">
+          <!-- <ion-icon name="camera" color="light"></ion-icon> -->
+              <img src="./assets/icon/pen.png" width="35">
         </button>
       </ion-col>
     </ion-row>
     <!-- </ion-grid> -->
     <div class="padding-5"></div>
+    <h5 *ngIf="isModify" class="category-title" text-left no-padding>{{'PROMOTE_IMAGE' | translate}}</h5>
     <ion-scroll scrollX="true">
       <ion-row class="row-custom">
         <ion-col col-3 *ngIf="isModify" class="col-imgpromote">
@@ -51,7 +53,7 @@
           <preload-image [ratio]="{w:1, h:1}" [src]="item"></preload-image>
           <div class="deletepromote" no-padding>
             <button *ngIf="isModify" ion-button icon-left clear small no-padding (click)="deletePromoteShop(i)">
-              <ion-icon name="md-close-circle" color="light"></ion-icon>
+              <ion-icon name="md-close-circle" color="danger"></ion-icon>
             </button>
           </div>
 
@@ -77,8 +79,9 @@
           <ion-row>
             <ion-col class="cateoption-fix">
               <ion-buttons end>
-                <button style="background-color: rgba(255, 255, 255, 0.73)" *ngIf="isModify && ii === index ? 'selectedCategory' : ''" (click)="openEditCate(cate.cate)">
-                  <ion-icon name="md-more" color="dark"></ion-icon>
+                  <!-- rgba(255, 255, 255, 0.73) -->
+                <button style="background-color: #D50000" *ngIf="isModify && ii === index ? 'selectedCategory' : ''" (click)="openEditCate(cate.cate)">
+                  <ion-icon name="md-more" color="light"></ion-icon>
                 </button>
               </ion-buttons>
             </ion-col>
@@ -108,8 +111,8 @@
           <ion-row *ngIf="itm.name">
             <ion-col class="productoption">
               <ion-buttons end>
-                <button style="background-color: rgba(255, 255, 255, 0.73)" (click)="openEditProduct(itm,i)">
-                  <ion-icon name="md-more" color="dark"></ion-icon>
+                <button style="background-color: #D50000" (click)="openEditProduct(itm,i)">
+                  <ion-icon name="md-more" color="light"></ion-icon>
                 </button>
               </ion-buttons>
             </ion-col>
@@ -154,7 +157,7 @@
 
     </ion-grid>
 
-    <ion-fab right bottom *ngIf="isModify">
+    <ion-fab right bottom *ngIf="isModify && shop.items.length >= 1 && shop.promoteimage.length >= 1">
       <button ion-fab color="maintheme" (click)="clearMode()">
         <ion-icon class="larger" name="md-checkmark"></ion-icon>
       </button>

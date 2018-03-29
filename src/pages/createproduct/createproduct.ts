@@ -183,16 +183,6 @@ export class CreateproductPage {
     }, (err) => {
       this.loading.dismiss();
       console.log(err);
-      let language = this.translate.currentLang;
-      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
-      let textButton = language === 'th' ? 'ปิด' : 'Close'
-      let alert = this.alertCtrl.create({
-        title: textNotifications,
-        subTitle: textError,
-        buttons: [textButton]
-      });
-      alert.present();
     });
   }
   galleryCamera(from, maxImg) {
@@ -236,17 +226,7 @@ export class CreateproductPage {
         this.loading.dismiss();
       }
     }, (err) => {
-      // this.loading.dismiss();
-      let language = this.translate.currentLang;
-      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-      let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
-      let textButton = language === 'th' ? 'ปิด' : 'Close'
-      let alert = this.alertCtrl.create({
-        title: textNotifications,
-        subTitle: textError,
-        buttons: [textButton]
-      });
-      alert.present();
+      this.loading.dismiss();
       console.log(err);
     });
   }

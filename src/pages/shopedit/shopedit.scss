@@ -100,4 +100,37 @@ page-shopedit {
     textarea {
         width: 100%;
     }
+
+    img {
+        object-fit: cover !important;
+    }
+    .camera {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        font-size: 2.2em;
+        padding: 5px;
+    }
+    .delete {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        font-size: 1.9em;
+        padding: 5px;
+    }
+    .ion-md-camera:before {
+        color: #d4d4d4 !important;
+    }
+    .ion-ios-camera:before {
+        color: #d4d4d4 !important;
+    }
+    .ion-md-refresh:before {
+        color: #d4d4d4 !important;
+    }
+    .ion-ios-refresh:before {
+        color: #d4d4d4 !important;
+    }
+    .warning-invalid {
+        color: #eb3841;
+    }
 }

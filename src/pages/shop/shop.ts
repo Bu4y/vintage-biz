@@ -93,6 +93,11 @@ export class ShopPage {
         this.app.getRootNav().setRoot('Firstloginstep1Page');
       }
       this.shop = data;
+      console.log(this.shop);
+      if(this.shop.items.length === 0 || !this.shop.items || this.shop.promoteimage.length === 0 || !this.shop.promoteimage){
+        this.isModify = true;
+      }
+      
       window.localStorage.setItem('shopID', this.shop._id);
       if (data.items && data.items.length > 0) {
         let index = this.index > 0 ? this.index : 0;

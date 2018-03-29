@@ -11,6 +11,20 @@
 </ion-header>
 
 <ion-content>
+  <ion-row>
+    <ion-col col-12 text-center>
+      <div *ngIf="editData && editData.coverimage">
+        <preload-image [ratio]="{w:20, h:7}" [src]="editData.coverimage" [isIcon]="true"></preload-image>
+        <!-- <span class="thisfill"></span> -->
+        <ion-row class="camera">
+          <ion-icon name="camera" color="light" (click)="selectCover('cover', 1)"></ion-icon>
+        </ion-row>
+        <ion-row class="delete" *ngIf="unshipImg && unshipImg.length > 1">
+          <ion-icon name="md-refresh" color="light" (click)="resetCover()"></ion-icon>
+        </ion-row>
+      </div>
+    </ion-col>
+  </ion-row>
   <ion-grid>
     <ion-row>
       <ion-col>
