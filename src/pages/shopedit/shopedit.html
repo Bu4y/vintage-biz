@@ -49,7 +49,7 @@
           <ion-label floating color="topic">{{'PHONE'| translate}}
             <span class="warning-invalid">*</span>
           </ion-label>
-          <ion-input type="text" [(ngModel)]="editData.tel"></ion-input>
+          <ion-input type="tel" [(ngModel)]="editData.tel" (ngModelChange)="mexInputLength($event , 'tel')"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating color="topic">{{'ADDRESS'| translate}}

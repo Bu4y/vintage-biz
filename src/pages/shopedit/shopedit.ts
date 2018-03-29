@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ActionSheetController, AlertController } from 'ionic-angular';
 import { ShopServiceProvider } from '../shop/shop-service';
 import { CateModel } from '../shop/shop.model';
@@ -38,7 +38,8 @@ export class ShopeditPage {
     public loading: LoadingProvider,
     public actionSheetCtrl: ActionSheetController,
     private translate: TranslateService,
-    private alertCtrl:AlertController
+    private alertCtrl:AlertController,
+    private cdRef: ChangeDetectorRef
   ) {
     this.editData = this.navParams.data;
     // let loadingCtrl = this.loading.create();
@@ -74,6 +75,12 @@ export class ShopeditPage {
   ionViewWillLeave() {
     if (window.localStorage.getItem('shop_location_address')) {
       window.localStorage.removeItem('shop_location_address');
+    }
+  }
+  mexInputLength(e, type) {
+    if(type === 'tel'){
+      this.cdRef.detectChanges();
+      this.editData.tel = e.length > 10 ? e.substring(0, 10) : e;
     }
   }
   openActionsheet(item, i) {
