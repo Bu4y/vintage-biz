@@ -1,5 +1,5 @@
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { ShopServiceProvider } from '../shop/shop-service';
@@ -36,7 +36,8 @@ export class Firstloginstep1Page {
     private translate: TranslateService,
     private crop: Crop,
     private imagePicker: ImagePicker,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private cdRef: ChangeDetectorRef
   ) {
     // let loadingCtrl = this.loading.create();
     this.loading.onLoading();
@@ -58,6 +59,15 @@ export class Firstloginstep1Page {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Firstloginstep1Page');
+  }
+  mexInputLength(e, type) {
+    if(type === 'bank'){
+      this.cdRef.detectChanges();
+      this.firstLogin.bankaccount = e.length > 10 ? e.substring(0, 10) : e;
+    }else if(type === 'citizen'){
+      this.cdRef.detectChanges();
+      this.firstLogin.citizenid = e.length > 13 ? e.substring(0, 13) : e;
+    }
   }
   selectProfile(from, maxImg) {
     let language = this.translate.currentLang;

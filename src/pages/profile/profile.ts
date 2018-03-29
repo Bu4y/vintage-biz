@@ -1,5 +1,5 @@
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 import { ShopModel } from '../shop/shop.model';
 import { ImagePicker } from '@ionic-native/image-picker';
@@ -42,7 +42,8 @@ export class ProfilePage {
     private camera: Camera,
     public actionSheetCtrl: ActionSheetController,
     private translate: TranslateService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private cdRef: ChangeDetectorRef
   ) {
     this.shopServiceProvider.getShop().then(data => {
       this.shop = data;
@@ -61,6 +62,15 @@ export class ProfilePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad Firstloginstep1Page');
     this.citizenid = this.firstLogin.citizenid ? true : false;
+  }
+  mexInputLength(e, type) {
+    if(type === 'bank'){
+      this.cdRef.detectChanges();
+      this.firstLogin.bankaccount = e.length > 10 ? e.substring(0, 10) : e;
+    }else if(type === 'citizen'){
+      this.cdRef.detectChanges();
+      this.firstLogin.citizenid = e.length > 13 ? e.substring(0, 13) : e;
+    }
   }
   // selectProfile() {
   //   this.onUpload('profile', 1);

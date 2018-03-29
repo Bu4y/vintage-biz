@@ -69,7 +69,7 @@
     <ion-col col-12>
       <ion-item>
         <ion-label floating color="topic">{{'CITIZEN_ID' | translate}}</ion-label>
-        <ion-input type="number" [(ngModel)]="firstLogin.citizenid"></ion-input>
+        <ion-input type="number" [(ngModel)]="firstLogin.citizenid" (ngModelChange)="mexInputLength($event , 'citizen')"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -79,7 +79,7 @@
         <ion-label floating color="topic">{{'BANK_ACCOUNT' | translate}}
           <span class="danger">*</span>
         </ion-label>
-        <ion-input type="number" [(ngModel)]="firstLogin.bankaccount"></ion-input>
+        <ion-input type="number" [(ngModel)]="firstLogin.bankaccount" (ngModelChange)="mexInputLength($event , 'bank')"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
