@@ -41,6 +41,7 @@ export class MorePage {
   logout() {
     window.localStorage.removeItem('jjbiz-user');
     window.localStorage.removeItem('shopID');
+    window.localStorage.removeItem('token');
     this.app.getRootNav().setRoot('LoginPage');
   }
   doRefresh(refresher) {
