@@ -105,7 +105,7 @@ export class Firstloginstep2Page {
         let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textError,
           buttons: [textButton]
         });
@@ -144,7 +144,7 @@ export class Firstloginstep2Page {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -228,7 +228,7 @@ export class Firstloginstep2Page {
         let textInvalidImage = language === 'th' ? 'ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!' : 'Invalid image size. Please check the picture and try again!';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textInvalidImage,
           buttons: [textButton]
         });

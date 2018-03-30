@@ -155,7 +155,7 @@ export class ShopeditPage {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขข้อมูลร้านอีกครั้ง' : 'Error Please edit the shop information again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -225,7 +225,7 @@ export class ShopeditPage {
         let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textError,
           buttons: [textButton]
         });
@@ -264,7 +264,7 @@ export class ShopeditPage {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -349,7 +349,7 @@ export class ShopeditPage {
         let textInvalidImage = language === 'th' ? 'ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!' : 'Invalid image size. Please check the picture and try again!';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textInvalidImage,
           buttons: [textButton]
         });

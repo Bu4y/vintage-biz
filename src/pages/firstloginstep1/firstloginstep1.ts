@@ -128,7 +128,7 @@ export class Firstloginstep1Page {
         let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textError,
           buttons: [textButton]
         });
@@ -172,7 +172,7 @@ export class Firstloginstep1Page {
             let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
             let textButton = language === 'th' ? 'ปิด' : 'Close'
             let alert = this.alertCtrl.create({
-              title: textNotifications,
+              // title: textNotifications,
               subTitle: textError,
               buttons: [textButton]
             });

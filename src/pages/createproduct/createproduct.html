@@ -27,12 +27,12 @@
         <img src="{{item}}">
         <div class="deleteprod" no-padding>
           <button ion-button icon-left clear small no-padding (click)="deleteProd(i)">
-            <ion-icon name="md-close-circle" color="danger"></ion-icon>
+            <ion-icon name="md-camera" color="danger"></ion-icon>
           </button>
         </div>
       </ion-col>
       <ion-col col-4 *ngIf="createprod.images.length < 3">
-        <img src="./assets/imgs/add.jpg" (click)="openActionSheet('product', 1)">
+        <img src="./assets/imgs/camera.png" (click)="openActionSheet('product', 1)">
       </ion-col>
     </ion-row>
     <ion-row>

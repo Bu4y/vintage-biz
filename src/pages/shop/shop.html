@@ -28,12 +28,12 @@
         <ion-row>
           <span class="text-wrap">{{shop.detail}}</span>
         </ion-row>
-        <!-- <ion-row> -->
-        <!-- <span>{{shop.address.addressdetail}}</span>&nbsp; -->
+        <ion-row *ngIf="shop.address.addressdetail">
+        <span>{{shop.address.addressdetail}}</span>&nbsp;
         <!-- <ion-badge class="icon-ads" item-end color="bite" [ngClass]="{'open': shop.isopen}">{{isO | translate}}</ion-badge> -->
         <!-- <ion-badge color="maintheme" *ngIf="shop.isopen == true" class="isopen" (click)="changeStatus('open')">เปิด</ion-badge> -->
         <!-- <ion-badge color="danger" *ngIf="shop.isopen == false" class="isopen" (click)="changeStatus('close')">ปิด</ion-badge> -->
-        <!-- </ion-row> -->
+        </ion-row>
 
         <button ion-button clear large class="cover-changer" (click)="edit(shop)">
           <!-- <ion-icon name="camera" color="light"></ion-icon> -->
@@ -71,8 +71,8 @@
     <h5 class="category-title" text-left no-padding>{{'PRODUCT_CATEGORY' | translate}}</h5>
 
     <ion-scroll scrollX="true">
-      <ion-row class="row-custom">
-        <ion-col col-3 *ngFor="let cate of shop.items; let ii = index;" class="col-imgpromote" (click)="selectCate(ii,cate.cate)">
+      <ion-row class="row-custom category-title">
+        <ion-col col-3 *ngFor="let cate of shop.items; let ii = index;" class="col-imgpromote" [ngClass]="ii === index ? 'selectedCategoryBorderImage' : ''" (click)="selectCate(ii,cate.cate)">
           <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.cate.image" [ngClass]="ii === index ? 'selectedCategory' : ''"></preload-image>
           <p class="cate-order">{{cate.cate.name}}</p>
           <!-- <div class="deletepromote" no-padding> -->

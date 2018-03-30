@@ -195,7 +195,7 @@ export class ShopPage {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มประเภทสินค้าใหม่อีกครั้ง' : 'Error Please add new Category product again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -238,7 +238,7 @@ export class ShopPage {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเพิ่มสินค้าใหม่อีกครั้ง' : 'Error Please add new product again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -275,7 +275,7 @@ export class ShopPage {
           let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
           let textButton = language === 'th' ? 'ปิด' : 'Close'
           let alert = this.alertCtrl.create({
-            title: textNotifications,
+            // title: textNotifications,
             subTitle: textError,
             buttons: [textButton]
           });
@@ -289,7 +289,7 @@ export class ShopPage {
         let textInvalidImage = language === 'th' ? 'ขนาดรูปไม่ถูกต้อง กรุณาตรวจสอบรูปและลองใหม่อีกครั้ง!' : 'Invalid image size. Please check the picture and try again!';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textInvalidImage,
           buttons: [textButton]
         });
@@ -302,7 +302,7 @@ export class ShopPage {
       let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
       let textButton = language === 'th' ? 'ปิด' : 'Close'
       let alert = this.alertCtrl.create({
-        title: textNotifications,
+        // title: textNotifications,
         subTitle: textError,
         buttons: [textButton]
       });
@@ -329,7 +329,7 @@ export class ShopPage {
       let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
       let textButton = language === 'th' ? 'ปิด' : 'Close'
       let alert = this.alertCtrl.create({
-        title: textNotifications,
+        // title: textNotifications,
         subTitle: textError,
         buttons: [textButton]
       });
@@ -411,7 +411,7 @@ export class ShopPage {
                   let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขประเภทสินค้าใหม่อีกครั้ง' : 'Error Please correct the product category again.';
                   let textButton = language === 'th' ? 'ปิด' : 'Close'
                   let alert = this.alertCtrl.create({
-                    title: textNotifications,
+                    // title: textNotifications,
                     subTitle: textError,
                     buttons: [textButton]
                   });
@@ -453,7 +453,7 @@ export class ShopPage {
                   let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาแก้ไขสินค้าใหม่อีกครั้ง' : 'Error Please edit the product again.';
                   let textButton = language === 'th' ? 'ปิด' : 'Close'
                   let alert = this.alertCtrl.create({
-                    title: textNotifications,
+                    // title: textNotifications,
                     subTitle: textError,
                     buttons: [textButton]
                   });
@@ -596,7 +596,7 @@ export class ShopPage {
               let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
-                title: textNotifications,
+                // title: textNotifications,
                 subTitle: textError,
                 buttons: [textButton]
               });
@@ -624,7 +624,7 @@ export class ShopPage {
               let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
-                title: textNotifications,
+                // title: textNotifications,
                 subTitle: textError,
                 buttons: [textButton]
               });
@@ -704,12 +704,12 @@ export class ShopPage {
   showConfirm(shopID, prodID, prodIndex, cateIndex) {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Do you want to delete this product?';
-    let save = language === 'th' ? 'ตกลง' : 'Save';
+    let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Remove product. Are you sure you want to delete item ?';
+    let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
 
     let confirm = this.alertCtrl.create({
-      title: title,
+      // title: title,
       message: message,
       buttons: [
         {
@@ -724,7 +724,7 @@ export class ShopPage {
               let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบสินค้าใหม่อีกครั้ง' : 'Error Please delete the product again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
-                title: textNotifications,
+                // title: textNotifications,
                 subTitle: textError,
                 buttons: [textButton]
               });
@@ -746,11 +746,10 @@ export class ShopPage {
   deletePromoteShop(index) {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Do you want to delete this promote image?';
-    let save = language === 'th' ? 'ตกลง' : 'Save';
+    let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Remove promote image. Are you sure you want to delete item ?';
+    let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
-      title: title,
       message: message,
       buttons: [
         {
@@ -765,7 +764,7 @@ export class ShopPage {
               let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบรูปโปรโมทร้านใหม่อีกครั้ง' : 'Error Please delete the promotion image again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
-                title: textNotifications,
+                // title: textNotifications,
                 subTitle: textError,
                 buttons: [textButton]
               });
@@ -787,12 +786,13 @@ export class ShopPage {
   deleteCateProd(cateID) {
     let language = this.translate.currentLang;
     let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Do you want to delete this product type? All products in this product type will be deleted.';
-    let save = language === 'th' ? 'ตกลง' : 'Save';
+    let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Remove product category. Are you sure you want to delete item ? All products in this product category will be deleted.';
+    let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
-      title: title,
+      // title: title,
       message: message,
+      // cssClass: 'font-left',
       buttons: [
         {
           text: save,
@@ -811,7 +811,7 @@ export class ShopPage {
               let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลบประเภทสินค้าใหม่อีกครั้ง' : 'Error Please delete the product category again.';
               let textButton = language === 'th' ? 'ปิด' : 'Close'
               let alert = this.alertCtrl.create({
-                title: textNotifications,
+                // title: textNotifications,
                 subTitle: textError,
                 buttons: [textButton]
               });

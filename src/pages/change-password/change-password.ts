@@ -44,7 +44,7 @@ export class ChangePasswordPage {
       let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาตรวจสอบรหัสผ่านและลองใหม่อีกครั้ง' : 'Error Please check your password and try again.';
       let textButton = language === 'th' ? 'ปิด' : 'Close'
       let alert = this.alertCtrl.create({
-        title: textNotifications,
+        // title: textNotifications,
         subTitle: textError,
         buttons: [textButton]
       });

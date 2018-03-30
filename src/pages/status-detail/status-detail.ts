@@ -96,7 +96,7 @@ export class StatusDetailPage {
                 let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาปฏิเสธคำสั่งซื้อใหม่อีกครั้ง' : 'Error Please reject order again.';
                 let textButton = language === 'th' ? 'ปิด' : 'Close'
                 let alert = this.alertCtrl.create({
-                  title: textNotifications,
+                  // title: textNotifications,
                   subTitle: textError,
                   buttons: [textButton]
                 });
@@ -159,7 +159,7 @@ export class StatusDetailPage {
                 let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณากรอกเลขพัสดุใหม่อีกครั้ง' : 'Error Please sent order again.';
                 let textButton = language === 'th' ? 'ปิด' : 'Close'
                 let alert = this.alertCtrl.create({
-                  title: textNotifications,
+                  // title: textNotifications,
                   subTitle: textError,
                   buttons: [textButton]
                 });

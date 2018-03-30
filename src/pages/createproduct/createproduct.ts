@@ -101,7 +101,7 @@ export class CreateproductPage {
       let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง' : 'Error Please try again.';
       let textButton = language === 'th' ? 'ปิด' : 'Close'
       let alert = this.alertCtrl.create({
-        title: textNotifications,
+        // title: textNotifications,
         subTitle: textError,
         buttons: [textButton]
       });
@@ -174,7 +174,7 @@ export class CreateproductPage {
         let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
         let textButton = language === 'th' ? 'ปิด' : 'Close'
         let alert = this.alertCtrl.create({
-          title: textNotifications,
+          // title: textNotifications,
           subTitle: textError,
           buttons: [textButton]
         });
@@ -215,7 +215,7 @@ export class CreateproductPage {
             let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
             let textButton = language === 'th' ? 'ปิด' : 'Close'
             let alert = this.alertCtrl.create({
-              title: textNotifications,
+              // title: textNotifications,
               subTitle: textError,
               buttons: [textButton]
             });

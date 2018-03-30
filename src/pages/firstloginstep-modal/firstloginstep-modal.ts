@@ -119,7 +119,7 @@ export class FirstloginstepModalPage {
       let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาเลือกเวลาเปิด-ปิด' : 'Error Please select Time.';
       let textButton = language === 'th' ? 'ปิด' : 'Close'
       let alert = this.alertCtrl.create({
-        title: textNotifications,
+        // title: textNotifications,
         subTitle: textError,
         buttons: [textButton]
       });

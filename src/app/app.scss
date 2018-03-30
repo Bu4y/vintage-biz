@@ -42,7 +42,9 @@ ion-footer {
     width: 70%;
     text-align: center;
 }
-
+.alert-ios .alert-message{
+    text-align: left !important;
+}
 // icomoon-me Start
 
 @font-face {

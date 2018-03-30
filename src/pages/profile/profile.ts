@@ -169,7 +169,7 @@ export class ProfilePage {
             let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาบันทึกข้อมูลใหม่อีกครั้ง' : 'Error Please save the information again.';
             let textButton = language === 'th' ? 'ปิด' : 'Close'
             let alert = this.alertCtrl.create({
-              title: textNotifications,
+              // title: textNotifications,
               subTitle: textError,
               buttons: [textButton]
             });
@@ -268,7 +268,7 @@ export class ProfilePage {
             let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
             let textButton = language === 'th' ? 'ปิด' : 'Close'
             let alert = this.alertCtrl.create({
-              title: textNotifications,
+              // title: textNotifications,
               subTitle: textError,
               buttons: [textButton]
             });
@@ -349,7 +349,7 @@ export class ProfilePage {
             let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
             let textButton = language === 'th' ? 'ปิด' : 'Close'
             let alert = this.alertCtrl.create({
-              title: textNotifications,
+              // title: textNotifications,
               subTitle: textError,
               buttons: [textButton]
             });

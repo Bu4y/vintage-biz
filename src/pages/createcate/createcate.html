@@ -32,12 +32,12 @@
           <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.image"></preload-image>
         <div class="deletecate" no-padding>
           <button ion-button icon-left clear small no-padding (click)="deleteCate()">
-            <ion-icon name="md-close-circle" color="danger"></ion-icon>
+            <ion-icon name="md-camera" color="danger" style="font-size:30px"></ion-icon>
           </button>
         </div>
       </ion-col>
       <ion-col col-8 text-center *ngIf="!cate.image || cate.image === ''">
-          <preload-image class="categories-image" [ratio]="{w:1, h:1}" src="./assets/imgs/add.jpg" (click)="openActionSheet('cate', 1)"></preload-image>
+          <preload-image class="categories-image" [ratio]="{w:1, h:1}" src="./assets/imgs/camera.png" (click)="openActionSheet('cate', 1)"></preload-image>
       </ion-col>
       <ion-col col-2>
       </ion-col>
