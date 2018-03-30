@@ -26,9 +26,10 @@
       <ion-col col-4 *ngFor="let item of createprod.images; let i = index;">
         <img src="{{item}}">
         <div class="deleteprod" no-padding>
-          <button ion-button icon-left clear small no-padding (click)="deleteProd(i)">
+          <!-- <button ion-button icon-left clear small no-padding (click)="deleteProd(i)">
             <ion-icon name="md-camera" color="danger"></ion-icon>
-          </button>
+          </button> -->
+          <button ion-fab color="light"  (click)="deleteProd(i)"><ion-icon name="md-camera" color="topic"></ion-icon></button>
         </div>
       </ion-col>
       <ion-col col-4 *ngIf="createprod.images.length < 3">

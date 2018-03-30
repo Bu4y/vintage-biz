@@ -185,6 +185,9 @@ page-shop {
     //         display: none !important;
     //     }
     // }
+    ion-scroll.scroll-x .scroll-content {
+        border-bottom: 1px solid #efefef;
+    }
 }
 
 .font-red {

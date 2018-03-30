@@ -291,6 +291,7 @@ export class CreateproductPage {
   }
   deleteProd(i) {
     this.createprod.images.splice(i, 1);
+    this.openActionSheet('product', 1);
   }
   save() {
     let shippings = [];

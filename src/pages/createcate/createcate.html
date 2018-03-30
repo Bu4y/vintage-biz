@@ -31,9 +31,11 @@
       <ion-col col-8 text-center *ngIf="cate.image">
           <preload-image class="categories-image" [ratio]="{w:1, h:1}" [src]="cate.image"></preload-image>
         <div class="deletecate" no-padding>
-          <button ion-button icon-left clear small no-padding (click)="deleteCate()">
-            <ion-icon name="md-camera" color="danger" style="font-size:30px"></ion-icon>
-          </button>
+          <!-- <button ion-button icon-left clear small no-padding (click)="deleteCate()">
+            
+          </button> -->
+          <button ion-fab color="light"  (click)="openActionSheet('cate', 1)"><ion-icon name="md-camera" color="topic"></ion-icon></button>
+          
         </div>
       </ion-col>
       <ion-col col-8 text-center *ngIf="!cate.image || cate.image === ''">

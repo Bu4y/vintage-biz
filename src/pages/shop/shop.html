@@ -60,6 +60,7 @@
         </ion-col>
       </ion-row>
     </ion-scroll>
+
     <div>
       <ion-segment mode="ios" color="bite" [(ngModel)]="category">
         <ion-segment-button *ngFor="let segment of shop.products; let i = index;" [ngClass]="{'active-page' : i == category}" (click)="onSelectedConditionCate(i)">
