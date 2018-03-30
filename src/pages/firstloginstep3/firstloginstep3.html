@@ -52,10 +52,10 @@
   <ion-footer padding no-border>
     <ion-row>
       <ion-col col-6>
-        <button ion-button block (click)="cancel()" color="danger">{{'CANCEL' | translate}}</button>
+        <button ion-button block [disabled]="categories.length === 0 || !firstLogin.email || !validateEmail" (click)="save()" color="maintheme">{{'SAVE' | translate}}</button>
       </ion-col>
       <ion-col col-6>
-        <button ion-button block [disabled]="categories.length === 0 || !firstLogin.email || !validateEmail" (click)="save()" color="maintheme">{{'SAVE' | translate}}</button>
+        <button ion-button block (click)="cancel()" color="danger">{{'CANCEL' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-footer>

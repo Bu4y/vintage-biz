@@ -9,7 +9,8 @@
   <ion-navbar color="whity">
     <ion-title text-center>{{'PROFILE'| translate}}</ion-title>
     <ion-buttons right>
-      <button ion-button icon-only [disabled]="!firstLogin.firstName || !firstLogin.lastName || !firstLogin.bankaccount || !firstLogin.citizenid" (click)="save()">
+      <button ion-button icon-only [disabled]="!firstLogin.firstName || !firstLogin.lastName || !firstLogin.bankaccount || !firstLogin.citizenid"
+        (click)="save()">
         {{'SAVE'| translate}}
       </button>
     </ion-buttons>
@@ -23,14 +24,23 @@
     <ion-col col-3>
     </ion-col>
     <ion-col text-center>
-      <div class="imgFirstLogin" *ngIf="firstLogin && firstLogin.profileImageURL">
-        <!-- <preload-image [ratio]="{w:1, h:1}" [src]="firstLogin.profileImageURL" [isIcon]="true"></preload-image> -->
+      <!-- <div class="imgFirstLogin" *ngIf="firstLogin && firstLogin.profileImageURL">
         <img src="{{firstLogin.profileImageURL}}">
-        <ion-row class="camera">
-          <ion-icon name="camera" color="light" (click)="selectProfile()"></ion-icon>
-        </ion-row>
-      </div>
+       
+        <button class="camera" ion-fab color="light" (click)="selectProfile()">
+          <ion-icon name="md-camera" color="topic"></ion-icon>
+        </button>
+      </div> -->
+      <!--  -->
+      <img src="{{ firstLogin.profileImageURL }}" class="avatar">
+      <!-- <button ion-button icon-only clear round class="btn-upload" (click)="getImage()">
+        <ion-icon name="md-camera"></ion-icon>
+      </button> -->
+      <button ion-fab color="light" class="camera" (click)="selectProfile()">
+        <ion-icon name="md-camera"></ion-icon>
+      </button>
     </ion-col>
+
     <ion-col col-3>
     </ion-col>
   </ion-row>
@@ -52,7 +62,7 @@
       </ion-item>
     </ion-col>
   </ion-row>
-  
+
   <!-- <p padding class="font-size">วัน/เดือน/ปี เกิด</p>  -->
   <ion-row>
     <ion-col col-12>
@@ -104,7 +114,8 @@
     <ion-col col-12>
       <ion-item>
         <ion-label floating color="topic"> {{'CITIZEN_ID'| translate}}</ion-label>
-        <ion-input [(ngModel)]="firstLogin.citizenid" [disabled]="citizenid" type="number" (ngModelChange)="mexInputLength($event , 'citizen')"></ion-input>
+        <!-- <ion-input [(ngModel)]="firstLogin.citizenid" [disabled]="citizenid" type="number" (ngModelChange)="mexInputLength($event , 'citizen')"></ion-input> -->
+        <ion-input [(ngModel)]="firstLogin.citizenid" [disabled]="citizenid" type="tel" maxlength="13"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -114,7 +125,8 @@
         <ion-label floating color="topic"> {{'BANK_ACCOUNT'| translate}}
           <span class="danger">*</span>
         </ion-label>
-        <ion-input [(ngModel)]="firstLogin.bankaccount" type="number" (ngModelChange)="mexInputLength($event , 'bank')"></ion-input>
+        <!-- <ion-input [(ngModel)]="firstLogin.bankaccount" type="number" (ngModelChange)="mexInputLength($event , 'bank')"></ion-input> -->
+        <ion-input [(ngModel)]="firstLogin.bankaccount" type="tel" maxlength="10"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>

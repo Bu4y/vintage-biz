@@ -1,4 +1,11 @@
 page-login {
+    .list-ios>.item-block:first-child {
+        border-top: none !important;
+    }
+    .list-ios .item-block .item-inner {
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+    
     .content{
         background-color: white !important;
     }
@@ -46,3 +53,6 @@ page-login {
         font-size: 1em;
     }
 }
+.page-login .item-input .label-md-light, page-login .item-inner {
+    border-bottom-color: #c8c7cc !important;
+ }

@@ -24,10 +24,19 @@ page-profile {
         }
     }
     .camera {
+        // position: absolute;
+        // right: 20%;
+        // bottom: 12%;
         position: absolute;
-        right: 0px;
-        top: 0px;
-        font-size: 2.2em;
+        bottom: 10px;
+        margin-left: -34px;
+        color: #9E9E9E;
+        display: unset;
+        width: 10vw !important;
+        height: 10vw !important;
+        ion-icon {
+            font-size: 6vw !important;
+        }
     }
     .ion-md-camera:before {
         color: #d4d4d4!important;
@@ -38,4 +47,9 @@ page-profile {
     .danger {
         color: #eb3841 !important;
     }
+    // .fab {
+    //     width: 40px !important;
+    //     height: 40px !important;
+        
+    // }
 }
