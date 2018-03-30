@@ -703,13 +703,13 @@ export class ShopPage {
   }
   showConfirm(shopID, prodID, prodIndex, cateIndex) {
     let language = this.translate.currentLang;
-    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Remove product. Are you sure you want to delete item ?';
+    let title = language === 'th' ? 'ลบสินค้า!' : 'Delete product!';
+    let message = language === 'th' ? 'คุณต้องการลบสินค้านี้ใช่หรือไม่?' : 'Delete product. Are you sure you want to delete item ?';
     let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
 
     let confirm = this.alertCtrl.create({
-      // title: title,
+      title: title,
       message: message,
       buttons: [
         {
@@ -745,12 +745,13 @@ export class ShopPage {
   }
   deletePromoteShop(index) {
     let language = this.translate.currentLang;
-    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Remove promote image. Are you sure you want to delete item ?';
+    let title = language === 'th' ? 'ลบรูปโปรโมทร้าน!' : 'Delete promote image!';
+    let message = language === 'th' ? 'คุณต้องการลบรูปโปรโมทร้านนี้ใช่หรือไม่?' : 'Delete promote image. Are you sure you want to delete item ?';
     let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
       message: message,
+      title: title,
       buttons: [
         {
           text: save,
@@ -785,12 +786,12 @@ export class ShopPage {
   }
   deleteCateProd(cateID) {
     let language = this.translate.currentLang;
-    let title = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-    let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Remove product category. Are you sure you want to delete item ? All products in this product category will be deleted.';
+    let title = language === 'th' ? 'ลบประเภทสินค้า!' : 'Delete product category!';
+    let message = language === 'th' ? 'คุณต้องการลบประเภทสินค้านี้ใช่หรือไม่? สินค้าทั้งหมดจะถูกลบไปด้วย!' : 'Delete product category. Are you sure you want to delete item ? All products in this product category will be deleted.';
     let save = language === 'th' ? 'ตกลง' : 'Ok';
     let cancel = language === 'th' ? 'ยกเลิก' : 'Cancel';
     let confirm = this.alertCtrl.create({
-      // title: title,
+      title: title,
       message: message,
       // cssClass: 'font-left',
       buttons: [
