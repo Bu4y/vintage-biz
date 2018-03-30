@@ -100,16 +100,16 @@ export class Firstloginstep2Page {
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
-        let language = this.translate.currentLang;
-        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
-        let textButton = language === 'th' ? 'ปิด' : 'Close'
-        let alert = this.alertCtrl.create({
-          // title: textNotifications,
-          subTitle: textError,
-          buttons: [textButton]
-        });
-        alert.present();
+        // let language = this.translate.currentLang;
+        // let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        // let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+        // let textButton = language === 'th' ? 'ปิด' : 'Close'
+        // let alert = this.alertCtrl.create({
+        //   // title: textNotifications,
+        //   subTitle: textError,
+        //   buttons: [textButton]
+        // });
+        // alert.present();
       });
     }, (err) => {
       this.loading.dismiss();
@@ -139,16 +139,16 @@ export class Firstloginstep2Page {
         }, (err) => {
           this.loading.dismiss();
           console.log(err);
-          let language = this.translate.currentLang;
-          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-          let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
-          let textButton = language === 'th' ? 'ปิด' : 'Close'
-          let alert = this.alertCtrl.create({
-            // title: textNotifications,
-            subTitle: textError,
-            buttons: [textButton]
-          });
-          alert.present();
+          // let language = this.translate.currentLang;
+          // let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          // let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาอัพโหลดรูปใหม่อีกครั้ง' : 'Error Please upload a new image again.';
+          // let textButton = language === 'th' ? 'ปิด' : 'Close'
+          // let alert = this.alertCtrl.create({
+          //   // title: textNotifications,
+          //   subTitle: textError,
+          //   buttons: [textButton]
+          // });
+          // alert.present();
         });
       } else {
         this.loading.dismiss();
