@@ -285,6 +285,21 @@ export class Firstloginstep1Page {
         });
         alert.present();
       }
+    } else {
+      if (this.firstLogin.bankaccount.length === 10) {
+        this.nextStep();
+      } else {
+        let language = this.translate.currentLang;
+        let textError = language === 'th' ? 'เลขที่บัญชี ไม่ถูกต้อง' : 'Invalid account number.';
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          // title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
+      }
     }
   }
   nextStep() {
