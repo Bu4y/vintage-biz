@@ -64,10 +64,10 @@ export class ProfilePage {
     this.citizenid = this.firstLogin.citizenid ? true : false;
   }
   mexInputLength(e, type) {
-    if(type === 'bank'){
+    if (type === 'bank') {
       this.cdRef.detectChanges();
       this.firstLogin.bankaccount = e.length > 10 ? e.substring(0, 10) : e;
-    }else if(type === 'citizen'){
+    } else if (type === 'citizen') {
       this.cdRef.detectChanges();
       this.firstLogin.citizenid = e.length > 13 ? e.substring(0, 13) : e;
     }
@@ -153,28 +153,41 @@ export class ProfilePage {
     }
   }
   save() {
-    this.auth.manageUser(this.firstLogin).then((data) => {
-      window.localStorage.setItem('jjbiz-user', JSON.stringify(data));
-      if (data.citizenid) {
-        this.citizenid = true;
-      } else {
-        this.citizenid = false;
-      }
-      // console.log(this.citizenid);
-      this.navCtrl.pop();
-    }, (err) => {
-      console.log(err);
+    if (this.firstLogin.bankaccount.length === 10) {
+      this.auth.manageUser(this.firstLogin).then((data) => {
+        window.localStorage.setItem('jjbiz-user', JSON.stringify(data));
+        if (data.citizenid) {
+          this.citizenid = true;
+        } else {
+          this.citizenid = false;
+        }
+        // console.log(this.citizenid);
+        this.navCtrl.pop();
+      }, (err) => {
+        console.log(err);
+        let language = this.translate.currentLang;
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาบันทึกข้อมูลใหม่อีกครั้ง' : 'Error Please save the information again.';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          // title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
+      });
+    } else {
       let language = this.translate.currentLang;
-            let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
-            let textError = language === 'th' ? 'เกิดข้อผิดพลาด กรุณาบันทึกข้อมูลใหม่อีกครั้ง' : 'Error Please save the information again.';
-            let textButton = language === 'th' ? 'ปิด' : 'Close'
-            let alert = this.alertCtrl.create({
-              // title: textNotifications,
-              subTitle: textError,
-              buttons: [textButton]
-            });
-            alert.present();
-    });
+      let textError = language === 'th' ? 'เลขที่บัญชี ไม่ถูกต้อง' : 'Invalid account number.';
+      let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+      let textButton = language === 'th' ? 'ปิด' : 'Close'
+      let alert = this.alertCtrl.create({
+        // title: textNotifications,
+        subTitle: textError,
+        buttons: [textButton]
+      });
+      alert.present();
+    }
   }
   selectProfile() {
     let language = this.translate.currentLang;

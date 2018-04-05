@@ -61,10 +61,10 @@ export class Firstloginstep1Page {
     console.log('ionViewDidLoad Firstloginstep1Page');
   }
   mexInputLength(e, type) {
-    if(type === 'bank'){
+    if (type === 'bank') {
       this.cdRef.detectChanges();
       this.firstLogin.bankaccount = e.length > 10 ? e.substring(0, 10) : e;
-    }else if(type === 'citizen'){
+    } else if (type === 'citizen') {
       this.cdRef.detectChanges();
       this.firstLogin.citizenid = e.length > 13 ? e.substring(0, 13) : e;
     }
@@ -257,6 +257,38 @@ export class Firstloginstep1Page {
     }
   }
   step2() {
+    if (this.firstLogin.citizenid) {
+      if (this.firstLogin.citizenid.length === 13) {
+        if (this.firstLogin.bankaccount.length === 10) {
+          this.nextStep();
+        } else {
+          let language = this.translate.currentLang;
+          let textError = language === 'th' ? 'เลขที่บัญชี ไม่ถูกต้อง' : 'Invalid account number.';
+          let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+          let textButton = language === 'th' ? 'ปิด' : 'Close'
+          let alert = this.alertCtrl.create({
+            // title: textNotifications,
+            subTitle: textError,
+            buttons: [textButton]
+          });
+          alert.present();
+        }
+      } else {
+        let language = this.translate.currentLang;
+        let textError = language === 'th' ? 'เลขที่บัตรประชาชน ไม่ถูกต้อง' : 'Invalid ID card number.';
+        let textNotifications = language === 'th' ? 'การแจ้งเตือน' : 'Notification';
+        let textButton = language === 'th' ? 'ปิด' : 'Close'
+        let alert = this.alertCtrl.create({
+          // title: textNotifications,
+          subTitle: textError,
+          buttons: [textButton]
+        });
+        alert.present();
+      }
+    }
+  }
+  nextStep() {
+    // console.log('nextStep');
     let backfirstLogin = JSON.parse(window.localStorage.getItem('jjbiz-firstlogin'));
     if (backfirstLogin) {
       this.firstLogin.coverimage = backfirstLogin.coverimage ? backfirstLogin.coverimage : 'no image';
